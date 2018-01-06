@@ -1,0 +1,69 @@
+@charset "UTF-8";
+
+/*
+ You may not change or alter any portion of this comment or credits
+ of supporting developers from this source code or any supporting source code
+ which is considered copyrighted (c) material of the original comment or credit authors.
+
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+*/
+/**
+ * Module: countdown
+ *
+ * @category        Module
+ * @package         countdown
+ * @author          XOOPS Development Team <name@site.com> - <https://xoops.org>
+ * @copyright       {@link https://xoops.org/ XOOPS Project}
+ * @license         GPL 2.0 or later
+ * @link            https://xoops.org/
+ * @since           1.0.0
+ */
+table {
+    margin: 0;
+}
+
+table.countdown {
+
+    padding: 2px;
+    border: 1px solid #ccc;
+}
+
+td.fields {
+    font-family: Verdana, Tahoma, sans-serif;
+    font-size: 12px;
+    font-weight: normal;
+}
+
+div.outer {
+    color: #555;
+    background-color: #eee;
+    border: 1px solid #ccc;
+}
+
+ul.fields > li {
+    display: inline;
+    list-style: none none;
+}
+
+/* about */
+#about label, #about text {
+    display: block;
+    float: left;
+    margin-bottom: 12px;
+}
+
+#about label {
+    text-align: right;
+    width: 200px;
+    padding-right: 20px;
+}
+
+br {
+    clear: left;
+}
+
+#about br {
+    clear: both;
+}

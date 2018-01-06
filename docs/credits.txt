@@ -1,0 +1,6 @@
+Read Me First
+=============
+
+Originally created by  Eric Juden (ejuden01)
+
+Rewritten for XOOPS 2.5.9 and PHP 7.2 by Mamba (https://xoops.org)
