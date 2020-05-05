@@ -28,7 +28,6 @@ define('_MD_COUNTDOWN_ACTION', 'Action');
 define('_MD_COUNTDOWN_VIEW', 'View');
 define('_MD_COUNTDOWN_PRINT', 'Print');
 define('_MD_COUNTDOWN_TELL_A_FRIEND', 'Tell A Friend');
-
 define('_MD_COUNTDOWN_TITLE', 'Countdown');
 define('_MD_COUNTDOWN_DESC', 'This module shows countdown to events');
 define('_MD_COUNTDOWN_INDEX_DESC', '');

@@ -1,11 +1,13 @@
 <{include file="db:countdown_header.tpl"}>
 <div class="panel panel-info">
-    <h5><strong><{$smarty.const._MD_COUNTDOWN_EVENTS}></strong></h5>
 
+    <h5><strong><{$smarty.const._MD_COUNTDOWN_EVENTS}></strong></h5>
     <table class="table table-striped">
         <thead>
         <tr>
+
             <th><{$smarty.const._MD_COUNTDOWN_EVENTS}></th>
+
         </tr>
         </thead>
         <{foreach item=events from=$events}>
@@ -13,6 +15,7 @@
             <tr>
                 <td>
 				#<{$events.id}>	<{*<{$events.uid}>*}><br>
+
 				<strong><{$smarty.const._MD_COUNTDOWN_EVENTS_NAME}></strong>   <br>        
 					<a href="events.php?op=view&id=<{$events.id}>"><{$events.name}></a>
 				<br>
