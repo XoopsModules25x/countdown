@@ -26,8 +26,8 @@ $modversion = [
     'version'             => 2.0,
     'module_status'       => 'Beta 1',
     'release_date'        => '2018/01/06',
-    'name'                => MI_COUNTDOWN_NAME,
-    'description'         => MI_COUNTDOWN_DESC,
+    'name'                => _MI_COUNTDOWN_NAME,
+    'description'         => _MI_COUNTDOWN_DESC,
     'release'             => '2018-01-06',
     'author'              => 'XOOPS Development Team',
     'author_mail'         => 'name@site.com',
@@ -92,7 +92,6 @@ $modversion['comments']['callback']['approve'] = 'countdown_com_approve';
 $modversion['comments']['callback']['update']  = 'countdown_com_update';
 //  ------------------- Templates -----------------------------//
 $modversion['templates'][] = ['file' => 'countdown_header.tpl', 'description' => ''];
-$modversion['templates'][] = ['file' => 'countdown_index.tpl', 'description' => ''];
 $modversion['templates'][] = ['file' => 'countdown_events.tpl', 'description' => ''];
 
 $modversion['templates'][] = ['file' => 'countdown_events_list.tpl', 'description' => ''];
@@ -104,18 +103,18 @@ $modversion['templates'][] = ['file' => 'admin/countdown_admin_events.tpl', 'des
 
 // ------------------- Help files ------------------- //
 $modversion['helpsection'] = [
-    ['name' => MI_COUNTDOWN_OVERVIEW, 'link' => 'page=help'],
-    ['name' => MI_COUNTDOWN_DISCLAIMER, 'link' => 'page=disclaimer'],
-    ['name' => MI_COUNTDOWN_LICENSE, 'link' => 'page=license'],
-    ['name' => MI_COUNTDOWN_SUPPORT, 'link' => 'page=support'],
+    ['name' => _MI_COUNTDOWN_OVERVIEW, 'link' => 'page=help'],
+    ['name' => _MI_COUNTDOWN_DISCLAIMER, 'link' => 'page=disclaimer'],
+    ['name' => _MI_COUNTDOWN_LICENSE, 'link' => 'page=license'],
+    ['name' => _MI_COUNTDOWN_SUPPORT, 'link' => 'page=support'],
 
-    //    ['name' => MI_COUNTDOWN_HELP1, 'link' => 'page=help1'],
-    //    ['name' => MI_COUNTDOWN_HELP2, 'link' => 'page=help2']
-    //    ['name' => MI_COUNTDOWN_HELP3, 'link' => 'page=help3'],
-    //    ['name' => MI_COUNTDOWN_HELP4, 'link' => 'page=help4'],
-    //    ['name' => MI_COUNTDOWN_HOWTO, 'link' => 'page=__howto'],
-    //    ['name' => MI_COUNTDOWN_REQUIREMENTS, 'link' => 'page=__requirements'],
-    //    ['name' => MI_COUNTDOWN_CREDITS, 'link' => 'page=__credits'],
+    //    ['name' => _MI_COUNTDOWN_HELP1, 'link' => 'page=help1'],
+    //    ['name' => _MI_COUNTDOWN_HELP2, 'link' => 'page=help2']
+    //    ['name' => _MI_COUNTDOWN_HELP3, 'link' => 'page=help3'],
+    //    ['name' => _MI_COUNTDOWN_HELP4, 'link' => 'page=help4'],
+    //    ['name' => _MI_COUNTDOWN_HOWTO, 'link' => 'page=__howto'],
+    //    ['name' => _MI_COUNTDOWN_REQUIREMENTS, 'link' => 'page=__requirements'],
+    //    ['name' => _MI_COUNTDOWN_CREDITS, 'link' => 'page=__credits'],
 
 ];
 
@@ -125,8 +124,8 @@ xoops_load('xoopseditorhandler');
 $editorHandler          = \XoopsEditorHandler::getInstance();
 $modversion['config'][] = [
     'name'        => 'countdownEditorAdmin',
-    'title'       => 'MI_COUNTDOWN_EDITOR_ADMIN',
-    'description' => 'MI_COUNTDOWN_EDITOR_DESC_ADMIN',
+    'title'       => '_MI_COUNTDOWN_EDITOR_ADMIN',
+    'description' => '_MI_COUNTDOWN_EDITOR_DESC_ADMIN',
     'formtype'    => 'select',
     'valuetype'   => 'text',
     'options'     => array_flip($editorHandler->getList()),
@@ -135,8 +134,8 @@ $modversion['config'][] = [
 
 $modversion['config'][] = [
     'name'        => 'countdownEditorUser',
-    'title'       => 'MI_COUNTDOWN_EDITOR_USER',
-    'description' => 'MI_COUNTDOWN_EDITOR_DESC_USER',
+    'title'       => '_MI_COUNTDOWN_EDITOR_USER',
+    'description' => '_MI_COUNTDOWN_EDITOR_DESC_USER',
     'formtype'    => 'select',
     'valuetype'   => 'text',
     'options'     => array_flip($editorHandler->getList()),
@@ -152,8 +151,8 @@ foreach ($xoopsGroups as $key => $group) {
 }
 $modversion['config'][] = [
     'name'        => 'groups',
-    'title'       => 'MI_COUNTDOWN_GROUPS',
-    'description' => 'MI_COUNTDOWN_GROUPS_DESC',
+    'title'       => '_MI_COUNTDOWN_GROUPS',
+    'description' => '_MI_COUNTDOWN_GROUPS_DESC',
     'formtype'    => 'select_multi',
     'valuetype'   => 'array',
     'options'     => $groups,
@@ -171,8 +170,8 @@ foreach ($adminXoopsGroups as $key => $adminGroup) {
 }
 $modversion['config'][] = [
     'name'        => 'admin_groups',
-    'title'       => 'MI_COUNTDOWN_ADMINGROUPS',
-    'description' => 'MI_COUNTDOWN_ADMINGROUPS_DESC',
+    'title'       => '_MI_COUNTDOWN_ADMINGROUPS',
+    'description' => '_MI_COUNTDOWN_ADMINGROUPS_DESC',
     'formtype'    => 'select_multi',
     'valuetype'   => 'array',
     'options'     => $admin_groups,
@@ -181,8 +180,8 @@ $modversion['config'][] = [
 
 $modversion['config'][] = [
     'name'        => 'keywords',
-    'title'       => 'MI_COUNTDOWN_KEYWORDS',
-    'description' => 'MI_COUNTDOWN_KEYWORDS_DESC',
+    'title'       => '_MI_COUNTDOWN_KEYWORDS',
+    'description' => '_MI_COUNTDOWN_KEYWORDS_DESC',
     'formtype'    => 'textbox',
     'valuetype'   => 'text',
     'default'     => 'countdown,'
@@ -191,8 +190,8 @@ $modversion['config'][] = [
 // --------------Uploads : maxsize of image --------------
 $modversion['config'][] = [
     'name'        => 'maxsize',
-    'title'       => 'MI_COUNTDOWN_MAXSIZE',
-    'description' => 'MI_COUNTDOWN_MAXSIZE_DESC',
+    'title'       => '_MI_COUNTDOWN_MAXSIZE',
+    'description' => '_MI_COUNTDOWN_MAXSIZE_DESC',
     'formtype'    => 'textbox',
     'valuetype'   => 'int',
     'default'     => 5000000
@@ -201,8 +200,8 @@ $modversion['config'][] = [
 // --------------Uploads : mimetypes of image --------------
 $modversion['config'][] = [
     'name'        => 'mimetypes',
-    'title'       => 'MI_COUNTDOWN_MIMETYPES',
-    'description' => 'MI_COUNTDOWN_MIMETYPES_DESC',
+    'title'       => '_MI_COUNTDOWN_MIMETYPES',
+    'description' => '_MI_COUNTDOWN_MIMETYPES_DESC',
     'formtype'    => 'select_multi',
     'valuetype'   => 'array',
     'default'     => ['image/gif', 'image/jpeg', 'image/png'],
@@ -219,8 +218,8 @@ $modversion['config'][] = [
 
 $modversion['config'][] = [
     'name'        => 'adminpager',
-    'title'       => 'MI_COUNTDOWN_ADMINPAGER',
-    'description' => 'MI_COUNTDOWN_ADMINPAGER_DESC',
+    'title'       => '_MI_COUNTDOWN_ADMINPAGER',
+    'description' => '_MI_COUNTDOWN_ADMINPAGER_DESC',
     'formtype'    => 'textbox',
     'valuetype'   => 'int',
     'default'     => 10
@@ -228,8 +227,8 @@ $modversion['config'][] = [
 
 $modversion['config'][] = [
     'name'        => 'userpager',
-    'title'       => 'MI_COUNTDOWN_USERPAGER',
-    'description' => 'MI_COUNTDOWN_USERPAGER_DESC',
+    'title'       => '_MI_COUNTDOWN_USERPAGER',
+    'description' => '_MI_COUNTDOWN_USERPAGER_DESC',
     'formtype'    => 'textbox',
     'valuetype'   => 'int',
     'default'     => 10
@@ -237,8 +236,8 @@ $modversion['config'][] = [
 
 $modversion['config'][] = [
     'name'        => 'advertise',
-    'title'       => 'MI_COUNTDOWN_ADVERTISE',
-    'description' => 'MI_COUNTDOWN_ADVERTISE_DESC',
+    'title'       => '_MI_COUNTDOWN_ADVERTISE',
+    'description' => '_MI_COUNTDOWN_ADVERTISE_DESC',
     'formtype'    => 'textarea',
     'valuetype'   => 'text',
     'default'     => ''
@@ -246,8 +245,8 @@ $modversion['config'][] = [
 
 $modversion['config'][] = [
     'name'        => 'bookmarks',
-    'title'       => 'MI_COUNTDOWN_BOOKMARKS',
-    'description' => 'MI_COUNTDOWN_BOOKMARKS_DESC',
+    'title'       => '_MI_COUNTDOWN_BOOKMARKS',
+    'description' => '_MI_COUNTDOWN_BOOKMARKS_DESC',
     'formtype'    => 'yesno',
     'valuetype'   => 'int',
     'default'     => 0
@@ -255,8 +254,8 @@ $modversion['config'][] = [
 
 $modversion['config'][] = [
     'name'        => 'fbcomments',
-    'title'       => 'MI_COUNTDOWN_FBCOMMENTS',
-    'description' => 'MI_COUNTDOWN_FBCOMMENTS_DESC',
+    'title'       => '_MI_COUNTDOWN_FBCOMMENTS',
+    'description' => '_MI_COUNTDOWN_FBCOMMENTS_DESC',
     'formtype'    => 'yesno',
     'valuetype'   => 'int',
     'default'     => 0
@@ -269,15 +268,15 @@ $modversion['notification']['lookup_func'] = 'countdown_notify_iteminfo';
 
 $modversion['notification']['category'][] = [
     'name'           => 'global',
-    'title'          => MI_COUNTDOWN_GLOBAL_NOTIFY,
-    'description'    => MI_COUNTDOWN_GLOBAL_NOTIFY_DESC,
+    'title'          => _MI_COUNTDOWN_GLOBAL_NOTIFY,
+    'description'    => _MI_COUNTDOWN_GLOBAL_NOTIFY_DESC,
     'subscribe_from' => ['index.php', 'viewcat.php', 'singlefile.php']
 ];
 
 $modversion['notification']['category'][] = [
     'name'           => 'category',
-    'title'          => MI_COUNTDOWN_CATEGORY_NOTIFY,
-    'description'    => MI_COUNTDOWN_CATEGORY_NOTIFY_DESC,
+    'title'          => _MI_COUNTDOWN_CATEGORY_NOTIFY,
+    'description'    => _MI_COUNTDOWN_CATEGORY_NOTIFY_DESC,
     'subscribe_from' => ['viewcat.php', 'singlefile.php'],
     'item_name'      => 'cid',
     'allow_bookmark' => 1
@@ -285,8 +284,8 @@ $modversion['notification']['category'][] = [
 
 $modversion['notification']['category'][] = [
     'name'           => 'file',
-    'title'          => MI_COUNTDOWN_FILE_NOTIFY,
-    'description'    => MI_COUNTDOWN_FILE_NOTIFY_DESC,
+    'title'          => _MI_COUNTDOWN_FILE_NOTIFY,
+    'description'    => _MI_COUNTDOWN_FILE_NOTIFY_DESC,
     'subscribe_from' => 'singlefile.php',
     'item_name'      => 'lid',
     'allow_bookmark' => 1
@@ -295,84 +294,84 @@ $modversion['notification']['category'][] = [
 $modversion['notification']['event'][] = [
     'name'          => 'new_category',
     'category'      => 'global',
-    'title'         => MI_COUNTDOWN_GLOBAL_NEWCATEGORY_NOTIFY,
-    'caption'       => MI_COUNTDOWN_GLOBAL_NEWCATEGORY_NOTIFY_CAPTION,
-    'description'   => MI_COUNTDOWN_GLOBAL_NEWCATEGORY_NOTIFY_DESC,
+    'title'         => _MI_COUNTDOWN_GLOBAL_NEWCATEGORY_NOTIFY,
+    'caption'       => _MI_COUNTDOWN_GLOBAL_NEWCATEGORY_NOTIFY_CAPTION,
+    'description'   => _MI_COUNTDOWN_GLOBAL_NEWCATEGORY_NOTIFY_DESC,
     'mail_template' => 'global_newcategory_notify',
-    'mail_subject'  => MI_COUNTDOWN_GLOBAL_NEWCATEGORY_NOTIFY_SUBJECT
+    'mail_subject'  => _MI_COUNTDOWN_GLOBAL_NEWCATEGORY_NOTIFY_SUBJECT
 ];
 
 $modversion['notification']['event'][] = [
     'name'          => 'file_modify',
     'category'      => 'global',
     'admin_only'    => 1,
-    'title'         => MI_COUNTDOWN_GLOBAL_FILEMODIFY_NOTIFY,
-    'caption'       => MI_COUNTDOWN_GLOBAL_FILEMODIFY_NOTIFY_CAPTION,
-    'description'   => MI_COUNTDOWN_GLOBAL_FILEMODIFY_NOTIFY_DESC,
+    'title'         => _MI_COUNTDOWN_GLOBAL_FILEMODIFY_NOTIFY,
+    'caption'       => _MI_COUNTDOWN_GLOBAL_FILEMODIFY_NOTIFY_CAPTION,
+    'description'   => _MI_COUNTDOWN_GLOBAL_FILEMODIFY_NOTIFY_DESC,
     'mail_template' => 'global_filemodify_notify',
-    'mail_subject'  => MI_COUNTDOWN_GLOBAL_FILEMODIFY_NOTIFY_SUBJECT
+    'mail_subject'  => _MI_COUNTDOWN_GLOBAL_FILEMODIFY_NOTIFY_SUBJECT
 ];
 
 $modversion['notification']['event'][] = [
     'name'          => 'file_broken',
     'category'      => 'global',
     'admin_only'    => 1,
-    'title'         => MI_COUNTDOWN_GLOBAL_FILEBROKEN_NOTIFY,
-    'caption'       => MI_COUNTDOWN_GLOBAL_FILEBROKEN_NOTIFY_CAPTION,
-    'description'   => MI_COUNTDOWN_GLOBAL_FILEBROKEN_NOTIFY_DESC,
+    'title'         => _MI_COUNTDOWN_GLOBAL_FILEBROKEN_NOTIFY,
+    'caption'       => _MI_COUNTDOWN_GLOBAL_FILEBROKEN_NOTIFY_CAPTION,
+    'description'   => _MI_COUNTDOWN_GLOBAL_FILEBROKEN_NOTIFY_DESC,
     'mail_template' => 'global_filebroken_notify',
-    'mail_subject'  => MI_COUNTDOWN_GLOBAL_FILEBROKEN_NOTIFY_SUBJECT
+    'mail_subject'  => _MI_COUNTDOWN_GLOBAL_FILEBROKEN_NOTIFY_SUBJECT
 ];
 
 $modversion['notification']['event'][] = [
     'name'          => 'file_submit',
     'category'      => 'global',
     'admin_only'    => 1,
-    'title'         => MI_COUNTDOWN_GLOBAL_FILESUBMIT_NOTIFY,
-    'caption'       => MI_COUNTDOWN_GLOBAL_FILESUBMIT_NOTIFY_CAPTION,
-    'description'   => MI_COUNTDOWN_GLOBAL_FILESUBMIT_NOTIFY_DESC,
+    'title'         => _MI_COUNTDOWN_GLOBAL_FILESUBMIT_NOTIFY,
+    'caption'       => _MI_COUNTDOWN_GLOBAL_FILESUBMIT_NOTIFY_CAPTION,
+    'description'   => _MI_COUNTDOWN_GLOBAL_FILESUBMIT_NOTIFY_DESC,
     'mail_template' => 'global_filesubmit_notify',
-    'mail_subject'  => MI_COUNTDOWN_GLOBAL_FILESUBMIT_NOTIFY_SUBJECT
+    'mail_subject'  => _MI_COUNTDOWN_GLOBAL_FILESUBMIT_NOTIFY_SUBJECT
 ];
 
 $modversion['notification']['event'][] = [
     'name'          => 'new_file',
     'category'      => 'global',
-    'title'         => MI_COUNTDOWN_GLOBAL_NEWFILE_NOTIFY,
-    'caption'       => MI_COUNTDOWN_GLOBAL_NEWFILE_NOTIFY_CAPTION,
-    'description'   => MI_COUNTDOWN_GLOBAL_NEWFILE_NOTIFY_DESC,
+    'title'         => _MI_COUNTDOWN_GLOBAL_NEWFILE_NOTIFY,
+    'caption'       => _MI_COUNTDOWN_GLOBAL_NEWFILE_NOTIFY_CAPTION,
+    'description'   => _MI_COUNTDOWN_GLOBAL_NEWFILE_NOTIFY_DESC,
     'mail_template' => 'global_newfile_notify',
-    'mail_subject'  => MI_COUNTDOWN_GLOBAL_NEWFILE_NOTIFY_SUBJECT
+    'mail_subject'  => _MI_COUNTDOWN_GLOBAL_NEWFILE_NOTIFY_SUBJECT
 ];
 
 $modversion['notification']['event'][] = [
     'name'          => 'file_submit',
     'category'      => 'category',
     'admin_only'    => 1,
-    'title'         => MI_COUNTDOWN_CATEGORY_FILESUBMIT_NOTIFY,
-    'caption'       => MI_COUNTDOWN_CATEGORY_FILESUBMIT_NOTIFY_CAPTION,
-    'description'   => MI_COUNTDOWN_CATEGORY_FILESUBMIT_NOTIFY_DESC,
+    'title'         => _MI_COUNTDOWN_CATEGORY_FILESUBMIT_NOTIFY,
+    'caption'       => _MI_COUNTDOWN_CATEGORY_FILESUBMIT_NOTIFY_CAPTION,
+    'description'   => _MI_COUNTDOWN_CATEGORY_FILESUBMIT_NOTIFY_DESC,
     'mail_template' => 'category_filesubmit_notify',
-    'mail_subject'  => MI_COUNTDOWN_CATEGORY_FILESUBMIT_NOTIFY_SUBJECT
+    'mail_subject'  => _MI_COUNTDOWN_CATEGORY_FILESUBMIT_NOTIFY_SUBJECT
 ];
 
 $modversion['notification']['event'][] = [
     'name'          => 'new_file',
     'category'      => 'category',
-    'title'         => MI_COUNTDOWN_CATEGORY_NEWFILE_NOTIFY,
-    'caption'       => MI_COUNTDOWN_CATEGORY_NEWFILE_NOTIFY_CAPTION,
-    'description'   => MI_COUNTDOWN_CATEGORY_NEWFILE_NOTIFY_DESC,
+    'title'         => _MI_COUNTDOWN_CATEGORY_NEWFILE_NOTIFY,
+    'caption'       => _MI_COUNTDOWN_CATEGORY_NEWFILE_NOTIFY_CAPTION,
+    'description'   => _MI_COUNTDOWN_CATEGORY_NEWFILE_NOTIFY_DESC,
     'mail_template' => 'category_newfile_notify',
-    'mail_subject'  => MI_COUNTDOWN_CATEGORY_NEWFILE_NOTIFY_SUBJECT
+    'mail_subject'  => _MI_COUNTDOWN_CATEGORY_NEWFILE_NOTIFY_SUBJECT
 ];
 
 $modversion['notification']['event'][] = [
     'name'          => 'approve',
     'category'      => 'file',
     'admin_only'    => 1,
-    'title'         => MI_COUNTDOWN_FILE_APPROVE_NOTIFY,
-    'caption'       => MI_COUNTDOWN_FILE_APPROVE_NOTIFY_CAPTION,
-    'description'   => MI_COUNTDOWN_FILE_APPROVE_NOTIFY_DESC,
+    'title'         => _MI_COUNTDOWN_FILE_APPROVE_NOTIFY,
+    'caption'       => _MI_COUNTDOWN_FILE_APPROVE_NOTIFY_CAPTION,
+    'description'   => _MI_COUNTDOWN_FILE_APPROVE_NOTIFY_DESC,
     'mail_template' => 'file_approve_notify',
-    'mail_subject'  => MI_COUNTDOWN_FILE_APPROVE_NOTIFY_SUBJECT
+    'mail_subject'  => _MI_COUNTDOWN_FILE_APPROVE_NOTIFY_SUBJECT
 ];

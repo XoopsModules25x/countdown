@@ -11,27 +11,27 @@
         <tbody>
         <tr>
 
-            <td><{$smarty.const.MD_COUNTDOWN_EVENTS_ID}></td>
+            <td><{$smarty.const._MD_COUNTDOWN_EVENTS_ID}></td>
             <td><{$events.id}></td>
         </tr>
         <{*<tr>*}>
-            <{*<td><{$smarty.const.MD_COUNTDOWN_EVENTS_UID}></td>*}>
+            <{*<td><{$smarty.const._MD_COUNTDOWN_EVENTS_UID}></td>*}>
             <{*<td><{$events.uid}></td>*}>
         <{*</tr>*}>
         <tr>
-            <td><{$smarty.const.MD_COUNTDOWN_EVENTS_NAME}></td>
+            <td><{$smarty.const._MD_COUNTDOWN_EVENTS_NAME}></td>
             <td><{$events.name}></td>
         </tr>
         <tr>
-            <td><{$smarty.const.MD_COUNTDOWN_EVENTS_DESCRIPTION}></td>
+            <td><{$smarty.const._MD_COUNTDOWN_EVENTS_DESCRIPTION}></td>
             <td><{$events.description}></td>
         </tr>
         <tr>
-            <td><{$smarty.const.MD_COUNTDOWN_EVENTS_ENDDATETIME}></td>
+            <td><{$smarty.const._MD_COUNTDOWN_EVENTS_ENDDATETIME}></td>
             <td><{$events.enddatetime}></td>
         </tr>
         <tr>
-            <td><{$smarty.const.MD_COUNTDOWN_EVENTS_ENDDATETIME}></td>
+            <td><{$smarty.const._MD_COUNTDOWN_EVENTS_ENDDATETIME}></td>
             <td>
                 <div id="app-timer" class="container-fluid">
                     <div class="row">
@@ -41,7 +41,7 @@
             </td>
         </tr>
         <tr>
-            <td><{$smarty.const.MD_COUNTDOWN_ACTION}></td>
+            <td><{$smarty.const._MD_COUNTDOWN_ACTION}></td>
             <td>
                 <!--<a href="events.php?op=view&id=<{$events.id}>" title="<{$smarty.const._PREVIEW}>"><img src="<{xoModuleIcons16 search.png}>" alt="<{$smarty.const._PREVIEW}>" title="<{$smarty.const._PREVIEW}>"</a>    &nbsp;-->
                 <{if $xoops_isadmin == true}>

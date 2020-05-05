@@ -49,7 +49,7 @@ class EventsForm extends \XoopsThemeForm
         global $helper;
         $this->targetObject = $target;
 
-        $title = $this->targetObject->isNew() ? sprintf(AM_COUNTDOWN_EVENTS_ADD) : sprintf(AM_COUNTDOWN_EVENTS_EDIT);
+        $title = $this->targetObject->isNew() ? sprintf(_AM_COUNTDOWN_EVENTS_ADD) : sprintf(_AM_COUNTDOWN_EVENTS_EDIT);
         parent::__construct($title, 'form', xoops_getenv('PHP_SELF'), 'post', true);
         $this->setExtra('enctype="multipart/form-data"');
 
@@ -60,11 +60,11 @@ class EventsForm extends \XoopsThemeForm
         unset($hidden);
 
         // Id
-        $this->addElement(new \XoopsFormLabel(AM_COUNTDOWN_EVENTS_ID, $this->targetObject->getVar('id'), 'id'));
+        $this->addElement(new \XoopsFormLabel(_AM_COUNTDOWN_EVENTS_ID, $this->targetObject->getVar('id'), 'id'));
         // Uid
-        $this->addElement(new \XoopsFormSelectUser(AM_COUNTDOWN_EVENTS_UID, 'uid', false, $this->targetObject->getVar('uid'), 1, false), false);
+        $this->addElement(new \XoopsFormSelectUser(_AM_COUNTDOWN_EVENTS_UID, 'uid', false, $this->targetObject->getVar('uid'), 1, false), false);
         // Name
-        $this->addElement(new \XoopsFormText(AM_COUNTDOWN_EVENTS_NAME, 'name', 50, 255, $this->targetObject->getVar('name')), false);
+        $this->addElement(new \XoopsFormText(_AM_COUNTDOWN_EVENTS_NAME, 'name', 50, 255, $this->targetObject->getVar('name')), false);
         // Description
         if (class_exists('XoopsFormEditor')) {
             $editorOptions           = array();
@@ -75,18 +75,18 @@ class EventsForm extends \XoopsThemeForm
             $editorOptions['width']  = '100%';
             $editorOptions['height'] = '400px';
             //$editorOptions['editor'] = xoops_getModuleOption('countdown_editor', 'countdown');
-            //$this->addElement( new \XoopsFormEditor(AM_COUNTDOWN_EVENTS_DESCRIPTION, 'description', $editorOptions), false  );
+            //$this->addElement( new \XoopsFormEditor(_AM_COUNTDOWN_EVENTS_DESCRIPTION, 'description', $editorOptions), false  );
             if ($helper->isUserAdmin()) {
-                $descEditor = new \XoopsFormEditor(AM_COUNTDOWN_EVENTS_DESCRIPTION, $helper->getConfig('countdownEditorAdmin'), $editorOptions, $nohtml = false, $onfailure = 'textarea');
+                $descEditor = new \XoopsFormEditor(_AM_COUNTDOWN_EVENTS_DESCRIPTION, $helper->getConfig('countdownEditorAdmin'), $editorOptions, $nohtml = false, $onfailure = 'textarea');
             } else {
-                $descEditor = new \XoopsFormEditor(AM_COUNTDOWN_EVENTS_DESCRIPTION, $helper->getConfig('countdownEditorUser'), $editorOptions, $nohtml = false, $onfailure = 'textarea');
+                $descEditor = new \XoopsFormEditor(_AM_COUNTDOWN_EVENTS_DESCRIPTION, $helper->getConfig('countdownEditorUser'), $editorOptions, $nohtml = false, $onfailure = 'textarea');
             }
         } else {
-            $descEditor = new \XoopsFormDhtmlTextArea(AM_COUNTDOWN_EVENTS_DESCRIPTION, 'description', $this->targetObject->getVar('description', 'e'), '100%', '100%');
+            $descEditor = new \XoopsFormDhtmlTextArea(_AM_COUNTDOWN_EVENTS_DESCRIPTION, 'description', $this->targetObject->getVar('description', 'e'), '100%', '100%');
         }
         $this->addElement($descEditor);
         // Enddatetime
-        $this->addElement(new \XoopsFormDateTime(AM_COUNTDOWN_EVENTS_ENDDATETIME, 'enddatetime', '', strtotime($this->targetObject->getVar('enddatetime'))));
+        $this->addElement(new \XoopsFormDateTime(_AM_COUNTDOWN_EVENTS_ENDDATETIME, 'enddatetime', '', strtotime($this->targetObject->getVar('enddatetime'))));
 
         $this->addElement(new \XoopsFormHidden('op', 'save'));
         $this->addElement(new \XoopsFormButton('', 'submit', _SUBMIT, 'submit'));

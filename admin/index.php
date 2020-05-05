@@ -33,10 +33,10 @@ $adminObject = \Xmf\Module\Admin::getInstance();
 /** @var XoopsPersistableObjectHandler $eventsHandler */
 $totalEvents = $eventsHandler->getCount();
 // InfoBox Statistics
-$adminObject->addInfoBox(AM_COUNTDOWN_STATISTICS);
+$adminObject->addInfoBox(_AM_COUNTDOWN_STATISTICS);
 
 // InfoBox events
-$adminObject->addInfoBoxLine(sprintf(AM_COUNTDOWN_THEREARE_EVENTS, $totalEvents));
+$adminObject->addInfoBoxLine(sprintf(_AM_COUNTDOWN_THEREARE_EVENTS, $totalEvents));
 // Render Index
 $adminObject->displayNavigation(basename(__FILE__));
 
@@ -45,7 +45,7 @@ $adminObject->displayNavigation(basename(__FILE__));
 if ($helper->getConfig('displaySampleButton')) {
     xoops_loadLanguage('admin/modulesadmin', 'system');
     require_once __DIR__ . '/../testdata/index.php';
-    $adminObject->addItemButton(_AM_SYSTEM_MODULES_INSTALL_TESTDATA, '__DIR__ . /../../testdata/index.php?op=load', 'add');
+    $adminObject->addItemButton(__AM_SYSTEM_MODULES_INSTALL_TESTDATA, '__DIR__ . /../../testdata/index.php?op=load', 'add');
 
     $adminObject->addItemButton(constant('CO_' . $moduleDirNameUpper . '_' . 'ADD_SAMPLEDATA'), '__DIR__ . /../../testdata/index.php?op=load', 'add');
 

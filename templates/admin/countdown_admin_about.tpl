@@ -9,41 +9,41 @@
                         <label> Version : </label>
                         <text><{$module_version}></text>
                         <br>
-                        <!--label><{$smarty.const.AM_COUNTDOWN_ABOUT_RELEASEDATE}></label><text><{$module_release}></text><br /-->
-                        <label><{$smarty.const.AM_COUNTDOWN_ABOUT_DESCRIPTION}></label>
+                        <!--label><{$smarty.const._AM_COUNTDOWN_ABOUT_RELEASEDATE}></label><text><{$module_release}></text><br /-->
+                        <label><{$smarty.const._AM_COUNTDOWN_ABOUT_DESCRIPTION}></label>
                         <text><{$module_description}></text>
                         <br>
-                        <label><{$smarty.const.AM_COUNTDOWN_ABOUT_AUTHOR}></label>
+                        <label><{$smarty.const._AM_COUNTDOWN_ABOUT_AUTHOR}></label>
                         <text><{$module_author}></text>
                         <br>
-                        <label><{$smarty.const.AM_COUNTDOWN_ABOUT_CREDITS}></label>
+                        <label><{$smarty.const._AM_COUNTDOWN_ABOUT_CREDITS}></label>
                         <text><{$module_credits}></text>
                         <br>
-                        <label><{$smarty.const.AM_COUNTDOWN_ABOUT_LICENSE}></label>
+                        <label><{$smarty.const._AM_COUNTDOWN_ABOUT_LICENSE}></label>
                         <text><a class="tooltip" href="<{$module_license_url}>" rel="external" title="<{$module_license}><br><{$module_license_url}>"><{$module_license}></a></text>
                     </div>
                 </fieldset>
                 <fieldset>
-                    <legend class="Slideshow_MediumTitle bold shadowlight"><{$smarty.const.AM_COUNTDOWN_ABOUT_MODULE_INFO}></legend>
+                    <legend class="Slideshow_MediumTitle bold shadowlight"><{$smarty.const._AM_COUNTDOWN_ABOUT_MODULE_INFO}></legend>
                     <div>
-                        <label><{$smarty.const.AM_COUNTDOWN_ABOUT_RELEASEDATE}></label>
+                        <label><{$smarty.const._AM_COUNTDOWN_ABOUT_RELEASEDATE}></label>
                         <text class="bold"><{$module_update_date}></text>
                         <br>
-                        <label><{$smarty.const.AM_COUNTDOWN_ABOUT_MODULE_STATUS}></label>
+                        <label><{$smarty.const._AM_COUNTDOWN_ABOUT_MODULE_STATUS}></label>
                         <text><{$module_status}></text>
                         <br>
-                        <label><{$smarty.const.AM_COUNTDOWN_ABOUT_WEBSITE}></label>
+                        <label><{$smarty.const._AM_COUNTDOWN_ABOUT_WEBSITE}></label>
                         <text><a class="tooltip" href="<{$module_website_url}>" rel="external" title="<{$module_website_name}> - <{$module_website_url}>"><{$module_website_name}></a></text>
                         <br>
                     </div>
                 </fieldset>
                 <fieldset>
-                    <legend class="Slideshow_MediumTitle bold shadowlight"><{$smarty.const.AM_COUNTDOWN_ABOUT_AUTHOR_INFO}></legend>
+                    <legend class="Slideshow_MediumTitle bold shadowlight"><{$smarty.const._AM_COUNTDOWN_ABOUT_AUTHOR_INFO}></legend>
                     <div>
-                        <label><{$smarty.const.AM_COUNTDOWN_ABOUT_AUTHOR_NAME}></label>
+                        <label><{$smarty.const._AM_COUNTDOWN_ABOUT_AUTHOR_NAME}></label>
                         <text><{$module_author}></text>
                         <br>
-                        <label><{$smarty.const.AM_COUNTDOWN_ABOUT_WEBSITE}></label>
+                        <label><{$smarty.const._AM_COUNTDOWN_ABOUT_WEBSITE}></label>
                         <text><a class="tooltip" href="<{$author_website_url}>" rel="external" title="<{$author_website_name}><br><{$author_website_url}>"><{$author_website_name}></a></text>
                         <br>
                     </div>
@@ -52,7 +52,7 @@
             <td class="aligntop width50">
                 <{if $changelog}>
                     <fieldset>
-                        <legend class="Slideshow_MediumTitle bold shadowlight"><{$smarty.const.AM_COUNTDOWN_ABOUT_CHANGELOG}></legend>
+                        <legend class="Slideshow_MediumTitle bold shadowlight"><{$smarty.const._AM_COUNTDOWN_ABOUT_CHANGELOG}></legend>
                         <div class="txtchangelog"><{$changelog}></div>
                     </fieldset>
                 <{/if}>

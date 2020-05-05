@@ -1,5 +1,5 @@
 <div id="help-template" class="outer">
-    <{include file=$smarty.const.MI_COUNTDOWN_HELP_HEADER}>
+    <{include file=$smarty.const._MI_COUNTDOWN_HELP_HEADER}>
 
     <h4 class="odd">SUPPORT</h4><br>
     <span style="font-family: Arial, sans-serif, sans-serif; font-size: larger;  text-decoration: underline;">For support visit our website at:</span><br><br>

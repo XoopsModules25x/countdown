@@ -34,25 +34,25 @@ $pathModIcon32 = $helper->getModule()->getInfo('modicons32');
 $adminObject   = \Xmf\Module\Admin::getInstance();
 
 $adminmenu[] = [
-    'title' => MI_COUNTDOWN_ADMENU1,
+    'title' => _MI_COUNTDOWN_ADMENU1,
     'link'  => 'admin/index.php',
     'icon'  => "{$pathIcon32}/home.png"
 ];
 
 $adminmenu[] = [
-    'title' => MI_COUNTDOWN_ADMENU2,
+    'title' => _MI_COUNTDOWN_ADMENU2,
     'link'  => 'admin/events.php',
     'icon'  => "{$pathIcon32}/event.png"
 ];
 
 //$adminmenu[] = [
-//    'title' => MI_COUNTDOWN_ADMENU3,
+//    'title' => _MI_COUNTDOWN_ADMENU3,
 //    'link'  => 'admin/permissions.php',
 //    'icon'  => "{$pathIcon32}/permissions.png"
 //];
 
 $adminmenu[] = [
-    'title' => MI_COUNTDOWN_ADMENU4,
+    'title' => _MI_COUNTDOWN_ADMENU4,
     'link'  => 'admin/about.php',
     'icon'  => "{$pathIcon32}/about.png"
 ];

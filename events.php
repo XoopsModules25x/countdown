@@ -120,7 +120,7 @@ if (isset($keywords)) {
     $utility::meta_keywords(xoops_getModuleOption('keywords', $moduleDirName) . ', ' . implode(', ', $keywords));
 }
 //description
-$utility::meta_description(MD_COUNTDOWN_EVENTS_DESC);
+$utility::meta_description(_MD_COUNTDOWN_EVENTS_DESC);
 //
 $GLOBALS['xoopsTpl']->assign('xoops_mpageurl', COUNTDOWN_URL . '/events.php');
 $GLOBALS['xoopsTpl']->assign('countdown_url', COUNTDOWN_URL);

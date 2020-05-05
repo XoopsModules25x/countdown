@@ -55,7 +55,7 @@ class Events extends \XoopsObject
      */
     public function getForm()
     {
-        require_once XOOPS_ROOT_PATH . '/modules/countdown/class/form/EventsForm.php';
+        require_once XOOPS_ROOT_PATH . '/modules/countdown2/class/form/EventsForm.php';
 
         $form = new Form\EventsForm($this);
         return $form;

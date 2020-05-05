@@ -45,7 +45,7 @@ $uploadUrl  = XOOPS_UPLOAD_URL . '/countdown/images/';
 switch ($op) {
     case 'list':
     default:
-        $adminObject->addItemButton(AM_COUNTDOWN_ADD_EVENTS, 'events.php?op=new', 'add');
+        $adminObject->addItemButton(_AM_COUNTDOWN_ADD_EVENTS, 'events.php?op=new', 'add');
         echo $adminObject->displayButton('left');
         $start                 = Request::getInt('start', 0);
         $eventsPaginationLimit = $helper->getConfig('userpager');
@@ -59,7 +59,7 @@ switch ($op) {
         $eventsTempArray = $eventsHandler->getAll($criteria);/*
 //
 // 
-                    <th class='center width5'>".AM_COUNTDOWN_FORM_ACTION."</th>
+                    <th class='center width5'>"._AM_COUNTDOWN_FORM_ACTION."</th>
 //                    </tr>";
 //            $class = "odd";
 */
@@ -96,23 +96,23 @@ switch ($op) {
 
                 //        $field = explode(':', $fields[$i]);
 
-                $selectorid = $utility::selectSorting(AM_COUNTDOWN_EVENTS_ID, 'id');
+                $selectorid = $utility::selectSorting(_AM_COUNTDOWN_EVENTS_ID, 'id');
                 $GLOBALS['xoopsTpl']->assign('selectorid', $selectorid);
                 $eventsArray['id'] = $eventsTempArray[$i]->getVar('id');
 
-                $selectoruid = $utility::selectSorting(AM_COUNTDOWN_EVENTS_UID, 'uid');
+                $selectoruid = $utility::selectSorting(_AM_COUNTDOWN_EVENTS_UID, 'uid');
                 $GLOBALS['xoopsTpl']->assign('selectoruid', $selectoruid);
                 $eventsArray['uid'] = $eventsTempArray[$i]->getVar('uid');
 
-                $selectorname = $utility::selectSorting(AM_COUNTDOWN_EVENTS_NAME, 'name');
+                $selectorname = $utility::selectSorting(_AM_COUNTDOWN_EVENTS_NAME, 'name');
                 $GLOBALS['xoopsTpl']->assign('selectorname', $selectorname);
                 $eventsArray['name'] = $eventsTempArray[$i]->getVar('name');
 
-                $selectordescription = $utility::selectSorting(AM_COUNTDOWN_EVENTS_DESCRIPTION, 'description');
+                $selectordescription = $utility::selectSorting(_AM_COUNTDOWN_EVENTS_DESCRIPTION, 'description');
                 $GLOBALS['xoopsTpl']->assign('selectordescription', $selectordescription);
                 $eventsArray['description'] = ($eventsTempArray[$i]->getVar('description'));
 
-                $selectorenddatetime = $utility::selectSorting(AM_COUNTDOWN_EVENTS_ENDDATETIME, 'enddatetime');
+                $selectorenddatetime = $utility::selectSorting(_AM_COUNTDOWN_EVENTS_ENDDATETIME, 'enddatetime');
                 $GLOBALS['xoopsTpl']->assign('selectorenddatetime', $selectorenddatetime);
                 $eventsArray['enddatetime'] = date(_DATESTRING, strtotime($eventsTempArray[$i]->getVar('enddatetime')));
                 $eventsArray['edit_delete'] = "<a href='events.php?op=edit&id=" . $i . "'><img src=" . $pathIcon16 . "/edit.png alt='" . _EDIT . "' title='" . _EDIT . "'></a>
@@ -148,7 +148,7 @@ switch ($op) {
 
             //                    <tr>
 
-            //                     <th class='center width5'>".AM_COUNTDOWN_FORM_ACTION."XXX</th>
+            //                     <th class='center width5'>"._AM_COUNTDOWN_FORM_ACTION."XXX</th>
             //                    </tr><tr><td class='errorMsg' colspan='6'>There are noXXX events</td></tr>";
             //            echo "</table><br><br>";
 
@@ -160,7 +160,7 @@ switch ($op) {
         break;
 
     case 'new':
-        $adminObject->addItemButton(AM_COUNTDOWN_EVENTS_LIST, 'events.php', 'list');
+        $adminObject->addItemButton(_AM_COUNTDOWN_EVENTS_LIST, 'events.php', 'list');
         echo $adminObject->displayButton('left');
 
         $eventsObject = $eventsHandler->create();
@@ -183,7 +183,7 @@ switch ($op) {
         $eventsObject->setVar('description', Request::getText('description', ''));
         $eventsObject->setVar('enddatetime', date('Y-m-d H:i:s', strtotime($_REQUEST['enddatetime']['date']) + $_REQUEST['enddatetime']['time']));
         if ($eventsHandler->insert($eventsObject)) {
-            redirect_header('events.php?op=list', 2, AM_COUNTDOWN_FORMOK);
+            redirect_header('events.php?op=list', 2, _AM_COUNTDOWN_FORMOK);
         }
 
         echo $eventsObject->getHtmlErrors();
@@ -192,8 +192,8 @@ switch ($op) {
         break;
 
     case 'edit':
-        $adminObject->addItemButton(AM_COUNTDOWN_ADD_EVENTS, 'events.php?op=new', 'add');
-        $adminObject->addItemButton(AM_COUNTDOWN_EVENTS_LIST, 'events.php', 'list');
+        $adminObject->addItemButton(_AM_COUNTDOWN_ADD_EVENTS, 'events.php?op=new', 'add');
+        $adminObject->addItemButton(_AM_COUNTDOWN_EVENTS_LIST, 'events.php', 'list');
         echo $adminObject->displayButton('left');
         $eventsObject = $eventsHandler->get(Request::getString('id', ''));
         $form         = $eventsObject->getForm();
@@ -207,12 +207,12 @@ switch ($op) {
                 redirect_header('events.php', 3, implode(', ', $GLOBALS['xoopsSecurity']->getErrors()));
             }
             if ($eventsHandler->delete($eventsObject)) {
-                redirect_header('events.php', 3, AM_COUNTDOWN_FORMDELOK);
+                redirect_header('events.php', 3, _AM_COUNTDOWN_FORMDELOK);
             } else {
                 echo $eventsObject->getHtmlErrors();
             }
         } else {
-            xoops_confirm(['ok' => 1, 'id' => Request::getString('id', ''), 'op' => 'delete'], Request::getUrl('REQUEST_URI', '', 'SERVER'), sprintf(AM_COUNTDOWN_FORMSUREDEL, $eventsObject->getVar('id')));
+            xoops_confirm(['ok' => 1, 'id' => Request::getString('id', ''), 'op' => 'delete'], Request::getUrl('REQUEST_URI', '', 'SERVER'), sprintf(_AM_COUNTDOWN_FORMSUREDEL, $eventsObject->getVar('id')));
         }
         break;
 
@@ -221,9 +221,9 @@ switch ($op) {
         $id_field = Request::getString('id', '');
 
         if ($utility::cloneRecord('countdown_events', 'id', $id_field)) {
-            redirect_header('events.php', 3, AM_COUNTDOWN_CLONED_OK);
+            redirect_header('events.php', 3, _AM_COUNTDOWN_CLONED_OK);
         } else {
-            redirect_header('events.php', 3, AM_COUNTDOWN_CLONED_FAILED);
+            redirect_header('events.php', 3, _AM_COUNTDOWN_CLONED_FAILED);
         }
 
         break;
