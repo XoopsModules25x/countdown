@@ -92,7 +92,6 @@ $modversion['comments']['callback']['approve'] = 'countdown_com_approve';
 $modversion['comments']['callback']['update']  = 'countdown_com_update';
 //  ------------------- Templates -----------------------------//
 $modversion['templates'][] = ['file' => 'countdown_header.tpl', 'description' => ''];
-$modversion['templates'][] = ['file' => 'countdown_index.tpl', 'description' => ''];
 $modversion['templates'][] = ['file' => 'countdown_events.tpl', 'description' => ''];
 
 $modversion['templates'][] = ['file' => 'countdown_events_list.tpl', 'description' => ''];
