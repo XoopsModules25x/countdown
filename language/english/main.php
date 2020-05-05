@@ -23,7 +23,7 @@
 // Main
 
 define('MD_COUNTDOWN_ADMIN', 'Admin');
-define('MD_COUNTDOWN_INDEX', 'Home');
+define('MD_COUNTDOWN_INDEX', 'Countdown');
 define('MD_COUNTDOWN_ACTION', 'Action');
 define('MD_COUNTDOWN_VIEW', 'View');
 define('MD_COUNTDOWN_PRINT', 'Print');
