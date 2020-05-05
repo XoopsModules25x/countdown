@@ -6,10 +6,6 @@
     <{include file="db:system_fbcomments.tpl"}>
 <{/if}>
 
-<{if $xoops_isadmin}>
-<a href="<{$admin}>"><{$smarty.const.MD_COUNTDOWN_ADMIN}></a>
-<{/if}>
-
 <div class="pad2 marg2">
     <{if $comment_mode == "flat"}>
         <{include file="db:system_comments_flat.tpl"}>

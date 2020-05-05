@@ -1,35 +1,32 @@
 <{include file="db:countdown_header.tpl"}>
 <div class="panel panel-info">
-    <div class="panel-heading"><h2 class="panel-title"><strong>Events</strong></h2></div>
+    <h5><strong><{$smarty.const.MD_COUNTDOWN_EVENTS}></strong></h5>
 
     <table class="table table-striped">
         <thead>
         <tr>
-            <th><{$smarty.const.MD_COUNTDOWN_EVENTS_ID}></th>
-            <{*<th><{$smarty.const.MD_COUNTDOWN_EVENTS_UID}></th>*}>
-            <th><{$smarty.const.MD_COUNTDOWN_EVENTS_NAME}></th>
-            <th><{$smarty.const.MD_COUNTDOWN_EVENTS_DESCRIPTION}></th>
-            <th><{$smarty.const.MD_COUNTDOWN_EVENTS_ENDDATETIME}></th>
-            <th><{$smarty.const.MD_COUNTDOWN_TIME_REMAINING}></th>
-            <th><{$smarty.const.MD_COUNTDOWN_ACTION}></th>
+            <th><{$smarty.const.MD_COUNTDOWN_EVENTS}></th>
         </tr>
         </thead>
         <{foreach item=events from=$events}>
             <tbody>
             <tr>
-
-                <td><{$events.id}></td>
-                <{*<td><{$events.uid}></td>*}>
-                <td><{$events.name}></td>
-                <td><{$events.description}></td>
-                <td><{$events.enddatetime}></td>
                 <td>
+				#<{$events.id}>	<{*<{$events.uid}>*}><br>
+				<strong><{$smarty.const.MD_COUNTDOWN_EVENTS_NAME}></strong>   <br>        
+					<a href="events.php?op=view&id=<{$events.id}>"><{$events.name}></a>
+				<br>
+				<strong> <{$smarty.const.MD_COUNTDOWN_EVENTS_DESCRIPTION}> </strong><br>            
+					<{$events.description}>
+				<br>
+				<strong><{$smarty.const.MD_COUNTDOWN_EVENTS_ENDDATETIME}> </strong><br>
+						<{$events.enddatetime}>
+                <br>
+				<strong><{$smarty.const.MD_COUNTDOWN_TIME_REMAINING}> </strong><br>
                     <div id="app-timer">
                             <time-item v-for="times in times" v-bind:time="times"></time-item>
                     </div>
-                </td>
-                <td>
-                    <a href="events.php?op=view&id=<{$events.id}>" title="<{$smarty.const._PREVIEW}>"><img src="<{xoModuleIcons16 search.png}>" alt="<{$smarty.const._PREVIEW}>" title="<{$smarty.const._PREVIEW}>"</a> &nbsp;
+                <br>
                     <{if $xoops_isadmin == true}>
                         <a href="admin/events.php?op=edit&id=<{$events.id}>" title="<{$smarty.const._EDIT}>"><img src="<{xoModuleIcons16 edit.png}>" alt="<{$smarty.const._EDIT}>" title="<{$smarty.const._EDIT}>"/></a>
                         &nbsp;
@@ -48,8 +45,6 @@
 
 
 <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
-
-
 <script>
     // template for number card
     Vue.component("time-item", {
