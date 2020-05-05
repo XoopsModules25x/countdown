@@ -34,12 +34,17 @@ define('MD_COUNTDOWN_DESC', 'This module shows countdown to events');
 define('MD_COUNTDOWN_INDEX_DESC', '');
 // Events
 define('MD_COUNTDOWN_EVENTS', 'Events');
+define('MD_COUNTDOWN_EVENTS_NAME', 'Event Name');
 define('MD_COUNTDOWN_EVENTS_DESC', 'Events description');
 define('MD_COUNTDOWN_EVENTS_ID', 'ID');
 define('MD_COUNTDOWN_EVENTS_UID', 'User');
 define('MD_COUNTDOWN_EVENTS_NAME', 'Event');
 define('MD_COUNTDOWN_EVENTS_DESCRIPTION', 'Description');
 define('MD_COUNTDOWN_EVENTS_ENDDATETIME', 'End Date/Time');
+define('MD_COUNTDOWN_EVENTS_DATE', 'Date of Event');
 define('MD_COUNTDOWN_TIME_REMAINING', 'Time Remaining');
-
-
+define('MD_COUNTDOWN_YESTERDAY', 'Yesterday');
+define('MD_COUNTDOWN_TODAY', 'Today');
+define('MD_COUNTDOWN_PASTEVENT', 'Past Event');
+define('MD_COUNTDOWN_TOMORROW', 'Tomorrow');
+define('MD_COUNTDOWN_POSTEDBY', 'Posted by');
