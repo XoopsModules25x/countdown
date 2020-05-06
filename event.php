@@ -65,13 +65,16 @@ $id = Request::getInt('id', 0, 'GET');
         $criteria->setStart($start);
         $events['id']             = $eventsObject->getVar('event_id');
         $events['uid']            = $eventsObject->getVar('event_uid');
+		$memberHandler 			  = xoops_getHandler('member');
+		$myevent        		  = $memberHandler->getUser($eventsObject->getVar('event_uid'));
+		$events['postername']     = $myevent->getVar('uname');
         $events['name']           = $eventsObject->getVar('event_name');
 		$events['picture']        = $eventsObject->getVar('event_picture');
         $events['description']    = ($eventsObject->getVar('event_description'));
         $events['enddatetime']    = date(_DATESTRING, strtotime($eventsObject->getVar('event_enddatetime')));
         $events['enddatetimeiso'] = $eventsObject->getVar('event_enddatetime');
-		$events['date_created']   = formatTimestamp($eventsObject->getVar(('date_created'));
-		$events['date_updated']   = formatTimestamp($eventsObject->getVar(('date_updated'));
+		$events['date_created']   = formatTimestamp($eventsObject->getVar('date_created'));
+		$events['date_updated']   = formatTimestamp($eventsObject->getVar('date_updated'));
         //       $GLOBALS['xoopsTpl']->append('events', $events);
         $keywords[] = $eventsObject->getVar('event_id');
 

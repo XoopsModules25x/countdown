@@ -54,6 +54,7 @@
                                                         <{else}>
                                                             <small><{$events.date_updated|date_format}></small>
                                                         <{/if}>
+														<span class="fa fa-user-circle-o"></span> <{$events.postername}>
                       </p>
 			
                 <!--<a href="events.php?op=view&id=<{$events.id}>" title="<{$smarty.const._PREVIEW}>"><img src="<{xoModuleIcons16 search.png}>" alt="<{$smarty.const._PREVIEW}>" title="<{$smarty.const._PREVIEW}>"</a>    &nbsp;-->

@@ -103,6 +103,9 @@ switch ($op) {
                 $selectoruid = $utility::selectSorting(_AM_COUNTDOWN_EVENTS_POSTERNAME, 'event_uid');
                 $GLOBALS['xoopsTpl']->assign('selectoruid', $selectoruid);
                 $eventsArray['event_uid'] = $eventsTempArray[$i]->getVar('event_uid');
+				$memberHandler = xoops_getHandler('member');
+				$myevent        = $memberHandler->getUser($eventsTempArray[$i]->getVar('event_uid'));
+				$eventsArray['event_postername']  = $myevent->getVar('uname');
 
                 $selectorname = $utility::selectSorting(_AM_COUNTDOWN_EVENTS_NAME, 'event_name');
                 $GLOBALS['xoopsTpl']->assign('selectorname', $selectorname);

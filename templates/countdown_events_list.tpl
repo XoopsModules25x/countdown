@@ -45,6 +45,7 @@
                                                         <{else}>
                                                             <small><{$events.date_updated|date_format}></small>
                                                         <{/if}>
+														<span class="fa fa-user-circle-o"></span> <{$events.postername}>
                       </p>
 					
 					

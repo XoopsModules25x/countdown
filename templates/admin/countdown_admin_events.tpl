@@ -19,11 +19,11 @@
                 <tr>
                     <th align="center" width="5%"><input name="allbox" title="allbox" id="allbox" onclick="xoopsCheckAll('select', 'allbox');" type="checkbox" title="Check All" value="Check All"/></th>
                     <th class="center"><{$selectorid}></th>
-                    <th class="center"><{$selectoruid}></th>
                     <th class="center"><{$selectorname}></th>
                     <th class="center"><{$selectordescription}></th>
                     <th class="center"><{$selectorenddatetime}></th>
 					<th class="center"><{$selectorpicture}></th>
+					<th class="center"><{$selectoruid}></th>
 					<th class="center"><{$selectordatecreated}></th>
                     <th class="center"><{$selectordateupdated}></th>
                     <th class="center width5"><{$smarty.const._AM_COUNTDOWN_FORM_ACTION}></th>
@@ -33,11 +33,11 @@
 
                         <td align="center" style="vertical-align:middle;"><input type="checkbox" name="events_id[]" title="events_id[]" id="events_id[]" value="<{$eventsArray.events_id}>"/></td>
                         <td class='center'><{$eventsArray.event_id}></td>
-                        <td class='center'><{$eventsArray.event_uid}></td>
                         <td class='center'><{$eventsArray.event_name}></td>
                         <td class='center'><{$eventsArray.event_description}></td>
                         <td class='center'><{$eventsArray.event_enddatetime}></td>
 						<td class='center'><{$eventsArray.event_picture}></td>
+						<td class='center'><{$eventsArray.event_postername}></td>
 						<td class='center'><{$eventsArray.date_created}></td>
                         <td class='center'><{$eventsArray.date_updated}></td>
                         <td class="center width5"><{$eventsArray.edit_delete}></td>
@@ -52,11 +52,11 @@
 
                     <th align="center" width="5%"><input name="allbox" title="allbox" id="allbox" onclick="xoopsCheckAll('select', 'allbox');" type="checkbox" title="Check All" value="Check All"/></th>
                     <th class="center"><{$selectorid}></th>
-                    <th class="center"><{$selectoruid}></th>
                     <th class="center"><{$selectorname}></th>
                     <th class="center"><{$selectordescription}></th>
                     <th class="center"><{$selectorenddatetime}></th>
 					<th class="center"><{$selectorpicture}></th>
+					<th class="center"><{$selectoruid}></th>
 					<th class="center"><{$selectordatecreated}></th>
                     <th class="center"><{$selectordateupdated}></th>
                     <th class="center width5"><{$smarty.const._AM_COUNTDOWN_FORM_ACTION}></th>

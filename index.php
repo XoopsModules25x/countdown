@@ -54,15 +54,18 @@ $id = Request::getInt('event_id', 0, 'GET');
 
         if ($eventsCount > 0) {
             foreach (array_keys($eventsArray) as $i) {
-                $events['id']             = $eventsArray[$i]->getVar('event_id');
-                $events['uid']            = $eventsArray[$i]->getVar('event_uid');
-                $events['name']           = $eventsArray[$i]->getVar('event_name');
-                $events['description']    = ($eventsArray[$i]->getVar('event_description'));
-				$events['picture']        = ($eventsArray[$i]->getVar('event_picture'));
-                $events['enddatetime']    = date(_DATESTRING, strtotime($eventsArray[$i]->getVar('event_enddatetime')));
-                $events['enddatetimeiso'] = $eventsArray[$i]->getVar('event_enddatetime');
-				$events['date_created']   = formatTimestamp($eventsArray[$i]->getVar('date_created'));
-				$events['date_updated']   = formatTimestamp($eventsArray[$i]->getVar('date_updated'));
+                $events['id']                = $eventsArray[$i]->getVar('event_id');
+                $events['uid']               = $eventsArray[$i]->getVar('event_uid');
+				$memberHandler 			     = xoops_getHandler('member');
+				$myevent        		     = $memberHandler->getUser($eventsArray[$i]->getVar('event_uid'));
+				$events['postername']        = $myevent->getVar('uname');
+                $events['name']              = $eventsArray[$i]->getVar('event_name');
+                $events['description']       = ($eventsArray[$i]->getVar('event_description'));
+				$events['picture']           = ($eventsArray[$i]->getVar('event_picture'));
+                $events['enddatetime']       = date(_DATESTRING, strtotime($eventsArray[$i]->getVar('event_enddatetime')));
+                $events['enddatetimeiso']    = $eventsArray[$i]->getVar('event_enddatetime');
+				$events['date_created']      = formatTimestamp($eventsArray[$i]->getVar('date_created'));
+				$events['date_updated']      = formatTimestamp($eventsArray[$i]->getVar('date_updated'));
                 $GLOBALS['xoopsTpl']->append('events', $events);
                 $keywords[] = $eventsArray[$i]->getVar('event_id');
                 unset($events);
