@@ -2,7 +2,7 @@
 <div class="panel panel-info">
 
     <h5><strong><{$smarty.const._MD_COUNTDOWN_EVENTS}></strong></h5>
-    <table class="table table-striped">
+    <table id="events" class="table table-striped">
         <thead>
         <tr>
 
@@ -10,8 +10,8 @@
 
         </tr>
         </thead>
-        <{foreach item=events from=$events}>
             <tbody>
+        <{foreach item=events from=$events}>
             <tr>
                 <td>
 				#<{$events.id}>	<{*<{$events.uid}>*}><br>
@@ -37,9 +37,9 @@
                     <{/if}>
                 </td>
             </tr>
-            </tbody>
-        <{/foreach}>
-    </table>
+		<{/foreach}> 
+	 </tbody>
+     </table>
 </div>
 <{$pagenav}>
 <{$commentsnav}> <{$lang_notice}>
@@ -103,3 +103,37 @@
     });
 
 </script>
+
+  <script>
+                                $(document).ready(function () {
+                                    $('#events').DataTable({
+                                        "ordering": false,
+                                        "lengthChange": false,
+                                        "displayLength": <{$eventperpage}>,
+                                        "language": {
+                                            "decimal": "<{$smarty.const._MD_COUNTDOWN_DTABLE_DECIMAL}>",
+                                            "emptyTable": "<{$smarty.const._MD_COUNTDOWN_DTABLE_EMPTYTABLE}>",
+                                            "info": "<{$smarty.const._MD_COUNTDOWN_DTABLE_INFOSHOWING}> _START_ <{$smarty.const._MD_COUNTDOWN_DTABLE_INFOTO}> _END_ <{$smarty.const._MD_COUNTDOWN_DTABLE_INFOOF}> _TOTAL_ <{$smarty.const._MD_COUNTDOWN_DTABLE_INFOENTRIES}>",
+                                            "infoEmpty": "<{$smarty.const._MD_COUNTDOWN_DTABLE_INFOEMPTY}>",
+                                            "infoFiltered": "(<{$smarty.const._MD_COUNTDOWN_DTABLE_INFOFILTEREDFROM}> _MAX_ <{$smarty.const._MD_COUNTDOWN_DTABLE_INFOFILTEREDTOTALENTRIES}>)",
+                                            "infoPostFix": "<{$smarty.const._MD_COUNTDOWN_DTABLE_INFOPOSTFIX}>",
+                                            "thousands": "<{$smarty.const._MD_COUNTDOWN_DTABLE_THOUSANDS}>",
+                                            "lengthMenu": "<{$smarty.const._MD_COUNTDOWN_DTABLE_LENGTHMENUSHOW}> _MENU_ <{$smarty.const._MD_COUNTDOWN_DTABLE_LENGTHMENUENTRIES}>",
+                                            "loadingRecords": "<{$smarty.const._MD_COUNTDOWN_DTABLE_LOADINGRECORDS}>",
+                                            "processing": "<{$smarty.const._MD_COUNTDOWN_DTABLE_PROCESSING}>",
+                                            "search": "<{$smarty.const._MD_COUNTDOWN_DTABLE_SEARCH}>",
+                                            "zeroRecords": "<{$smarty.const._MD_COUNTDOWN_DTABLE_ZERORECORDS}>",
+                                            "paginate": {
+                                                "first": "<{$smarty.const._MD_COUNTDOWN_DTABLE_FIRST}>",
+                                                "last": "<{$smarty.const._MD_COUNTDOWN_DTABLE_LAST}>",
+                                                "next": "<{$smarty.const._MD_COUNTDOWN_DTABLE_NEXT}>",
+                                                "previous": "<{$smarty.const._MD_COUNTDOWN_DTABLE_PREVIOUS}>"
+                                            },
+                                            "aria": {
+                                                "sortAscending": "<{$smarty.const._MD_COUNTDOWN_DTABLE_SORT_ASCENDING}>",
+                                                "sortDescending": "<{$smarty.const._MD_COUNTDOWN_DTABLE_SORT_DESCENSING}>"
+                                            }
+                                        }
+                                    });
+                                });
+                            </script>

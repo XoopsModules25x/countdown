@@ -101,4 +101,5 @@ $GLOBALS['xoopsTpl']->assign('adv', xoops_getModuleOption('advertise', $moduleDi
 $GLOBALS['xoopsTpl']->assign('admin', COUNTDOWN2_ADMIN);
 $GLOBALS['xoopsTpl']->assign('copyright', $copyright);
 //
-require_once XOOPS_ROOT_PATH . '/footer.php';
+require __DIR__ . '/footer.php';
+require dirname(__DIR__, 2) . '/footer.php';
