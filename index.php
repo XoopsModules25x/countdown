@@ -48,50 +48,7 @@ $criteria->setStart($start);
 $eventsCount = $eventsHandler->getCount($criteria);
 $eventsArray = $eventsHandler->getAll($criteria);
 
-$op = Request::getCmd('op', '');
 $id = Request::getInt('event_id', 0, 'GET');
-
-switch ($op) {
-    case 'view':
-        //        viewItem();
-        $GLOBALS['xoopsOption']['template_main'] = 'countdown_events.tpl';
-        $eventsPaginationLimit                   = 1;
-        $myid                                    = $id;
-        //id
-        $eventsObject = $eventsHandler->get($myid);
-
-        $criteria = new \CriteriaCompo();
-        $criteria->setSort('event_id');
-        $criteria->setOrder('DESC');
-        $criteria->setLimit($eventsPaginationLimit);
-        $criteria->setStart($start);
-        $events['id']             = $eventsObject->getVar('event_id');
-        $events['uid']            = $eventsObject->getVar('event_uid');
-        $events['name']           = $eventsObject->getVar('event_name');
-        $events['description']    = ($eventsObject->getVar('event_description'));
-        $events['enddatetime']    = date(_DATESTRING, strtotime($eventsObject->getVar('event_enddatetime')));
-        $events['enddatetimeiso'] = $eventsObject->getVar('event_enddatetime');
-        //       $GLOBALS['xoopsTpl']->append('events', $events);
-        $keywords[] = $eventsObject->getVar('event_id');
-
-        $GLOBALS['xoopsTpl']->assign('events', $events);
-        $start = $id;
-
-        // Display Navigation
-        if ($eventsCount > $eventsPaginationLimit) {
-
-            $GLOBALS['xoopsTpl']->assign('xoops_mpageurl', COUNTDOWN_URL . '/events.php');
-            require_once XOOPS_ROOT_PATH . '/class/pagenav.php';
-            $pagenav = new \XoopsPageNav($eventsCount, $eventsPaginationLimit, $start, 'op=view&id');
-            $GLOBALS['xoopsTpl']->assign('pagenav', $pagenav->renderNav(4));
-        }
-
-        break;
-    case 'list':
-    default:
-        //        viewall();
-        $GLOBALS['xoopsOption']['template_main'] = 'countdown_events_list.tpl';
-        //    require_once __DIR__ . '/header.php';
 
         if ($eventsCount > 0) {
             foreach (array_keys($eventsArray) as $i) {
@@ -113,7 +70,6 @@ switch ($op) {
                 $GLOBALS['xoopsTpl']->assign('pagenav', $pagenav->renderNav(4));
             }
         }
-}
 
 //keywords
 if (isset($keywords)) {
