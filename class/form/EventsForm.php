@@ -23,6 +23,7 @@
 
 use Xmf\Request;
 use XoopsModules\Countdown;
+use XoopsFormTextDateSelect;
 
 require_once __DIR__ . '/../../include/common.php';
 
@@ -109,6 +110,20 @@ class EventsForm extends \XoopsThemeForm
 		// Poster Name
         $this->addElement(new \XoopsFormSelectUser(_AM_COUNTDOWN_EVENTS_POSTERNAME, 'event_uid', false, $this->targetObject->getVar('event_uid'), 1, false), false);
         
+		// Data_creation
+        $this->addElement(
+            new XoopsFormTextDateSelect(
+                \AM_SUICO_IMAGES_DATE_CREATED, 'date_created', 0, \formatTimestamp($this->targetObject->getVar('date_created'), 's')
+            )
+        );
+        // Data_update
+        $this->addElement(
+            new XoopsFormTextDateSelect(
+                \AM_SUICO_IMAGES_DATE_UPDATED, 'date_updated', 0, \formatTimestamp($this->targetObject->getVar('date_updated'), 's')
+            )
+        );
+		
+		
         $this->addElement(new \XoopsFormHidden('op', 'save'));
         $this->addElement(new \XoopsFormButton('', 'submit', _SUBMIT, 'submit'));
     }

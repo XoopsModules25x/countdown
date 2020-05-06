@@ -38,6 +38,16 @@
                         &nbsp;
                         <a href="admin/events.php?op=delete&id=<{$events.id}>" title="<{$smarty.const._DELETE}>"><img src="<{xoModuleIcons16 delete.png}>" alt="<{$smarty.const._DELETE}>" title="<{$smarty.const._DELETE}>"</a>
                     <{/if}>
+					
+					 <p class="text-muted"><span class="fa fa-calendar"></span>
+                                                        <{if $events.date_created == $events.date_updated}>
+                                                            <small><{$events.date_created|date_format}></small>
+                                                        <{else}>
+                                                            <small><{$events.date_updated|date_format}></small>
+                                                        <{/if}>
+                      </p>
+					
+					
                 </td>
             </tr>
 		<{/foreach}> 

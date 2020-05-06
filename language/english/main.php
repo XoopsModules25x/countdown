@@ -41,6 +41,8 @@ define('_MD_COUNTDOWN_EVENTS_PICTURE', 'Picture');
 define('_MD_COUNTDOWN_EVENTS_DESCRIPTION', 'Description');
 define('_MD_COUNTDOWN_EVENTS_ENDDATETIME', 'End Date/Time');
 define('_MD_COUNTDOWN_EVENTS_DATE', 'Date of Event');
+define('_MD_COUNTDOWN_EVENTS_DATE_CREATED', 'Created');
+define('_MD_COUNTDOWN_EVENTS_DATE_UPDATED', 'Updated');
 define('_MD_COUNTDOWN_TIME_REMAINING', 'Time Remaining');
 define('_MD_COUNTDOWN_YESTERDAY', 'Yesterday');
 define('_MD_COUNTDOWN_TODAY', 'Today');

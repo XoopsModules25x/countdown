@@ -61,6 +61,8 @@ $id = Request::getInt('event_id', 0, 'GET');
 				$events['picture']        = ($eventsArray[$i]->getVar('event_picture'));
                 $events['enddatetime']    = date(_DATESTRING, strtotime($eventsArray[$i]->getVar('event_enddatetime')));
                 $events['enddatetimeiso'] = $eventsArray[$i]->getVar('event_enddatetime');
+				$events['date_created']   = formatTimestamp($eventsArray[$i]->getVar('date_created'));
+				$events['date_updated']   = formatTimestamp($eventsArray[$i]->getVar('date_updated'));
                 $GLOBALS['xoopsTpl']->append('events', $events);
                 $keywords[] = $eventsArray[$i]->getVar('event_id');
                 unset($events);

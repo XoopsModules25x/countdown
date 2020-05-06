@@ -47,6 +47,15 @@
         <tr>
             <td><{$smarty.const._MD_COUNTDOWN_ACTION}></td>
             <td>
+			
+				 <p class="text-muted"><span class="fa fa-calendar"></span>
+                                                        <{if $events.date_created == $events.date_updated}>
+                                                            <small><{$events.date_created|date_format}></small>
+                                                        <{else}>
+                                                            <small><{$events.date_updated|date_format}></small>
+                                                        <{/if}>
+                      </p>
+			
                 <!--<a href="events.php?op=view&id=<{$events.id}>" title="<{$smarty.const._PREVIEW}>"><img src="<{xoModuleIcons16 search.png}>" alt="<{$smarty.const._PREVIEW}>" title="<{$smarty.const._PREVIEW}>"</a>    &nbsp;-->
                 <{if $xoops_isadmin == true}>
                     <a href="admin/events.php?op=edit&id=<{$events.id}>" title="<{$smarty.const._EDIT}>"><img src="<{xoModuleIcons16 edit.png}>" alt="<{$smarty.const._EDIT}>" title="<{$smarty.const._EDIT}>"/></a>

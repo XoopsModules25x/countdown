@@ -58,6 +58,8 @@ define('_AM_COUNTDOWN_EVENTS_ENDDATETIME', 'End Date/Time');
 define('_AM_COUNTDOWN_TIME_REMAINING', 'Time Remaining');
 define('_AM_COUNTDOWN_EVENTS_PICTURE', 'Picture');
 define('_AM_COUNTDOWN_EVENTS_POSTERNAME', 'Poster Name');
+define('_AM_COUNTDOWN_EVENTS_DATE_CREATED', 'Created');
+define('_AM_COUNTDOWN_EVENTS_DATE_UPDATED', 'Updated');
 //Blocks.php
 //Permissions
 define('_AM_COUNTDOWN_PERMISSIONS_GLOBAL', 'Global permissions');

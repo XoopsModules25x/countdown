@@ -46,6 +46,8 @@ class Events extends \XoopsObject
         $this->initVar('event_description', XOBJ_DTYPE_OTHER);
         $this->initVar('event_enddatetime', XOBJ_DTYPE_TIMESTAMP);
 		$this->initVar('event_picture', XOBJ_DTYPE_TXTBOX);
+		$this->initVar('date_created', \XOBJ_DTYPE_INT, 0, false);
+        $this->initVar('date_updated', \XOBJ_DTYPE_INT, 0, false);
     }
 
     /**

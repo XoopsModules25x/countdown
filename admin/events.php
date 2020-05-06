@@ -100,7 +100,7 @@ switch ($op) {
                 $GLOBALS['xoopsTpl']->assign('selectorid', $selectorid);
                 $eventsArray['event_id'] = $eventsTempArray[$i]->getVar('event_id');
 
-                $selectoruid = $utility::selectSorting(_AM_COUNTDOWN_EVENTS_UID, 'event_uid');
+                $selectoruid = $utility::selectSorting(_AM_COUNTDOWN_EVENTS_POSTERNAME, 'event_uid');
                 $GLOBALS['xoopsTpl']->assign('selectoruid', $selectoruid);
                 $eventsArray['event_uid'] = $eventsTempArray[$i]->getVar('event_uid');
 
@@ -120,6 +120,14 @@ switch ($op) {
                 $GLOBALS['xoopsTpl']->assign('selectorpicture', $selectorpicture);
                 $eventsArray['event_picture']     = "<img src='" . $uploadUrl . $eventsTempArray[$i]->getVar('event_picture') . "' name='" . 'name' . "' id=" . 'id' . " alt='' style='max-width:100px'>";
                 
+				$selectordatecreated = $utility::selectSorting(_AM_COUNTDOWN_EVENTS_DATE_CREATED, 'date_created');
+                $GLOBALS['xoopsTpl']->assign('selectordatecreated', $selectordatecreated);
+                $eventsArray['date_created'] = formatTimestamp($eventsTempArray[$i]->getVar('date_created'));
+				
+				$selectordateupdated = $utility::selectSorting(_AM_COUNTDOWN_EVENTS_DATE_UPDATED, 'date_updated');
+                $GLOBALS['xoopsTpl']->assign('selectordateupdated', $selectordateupdated);
+                $eventsArray['date_updated'] = formatTimestamp($eventsTempArray[$i]->getVar('date_updated'));
+				
                 $eventsArray['edit_delete'] = "<a href='events.php?op=edit&id=" . $i . "'><img src=" . $pathIcon16 . "/edit.png alt='" . _EDIT . "' title='" . _EDIT . "'></a>
                <a href='events.php?op=delete&id=" . $i . "'><img src=" . $pathIcon16 . "/delete.png alt='" . _DELETE . "' title='" . _DELETE . "'></a>
                <a href='events.php?op=clone&id=" . $i . "'><img src=" . $pathIcon16 . "/editcopy.png alt='" . _CLONE . "' title='" . _CLONE . "'></a>";
@@ -163,8 +171,12 @@ switch ($op) {
         $eventsObject->setVar('event_name', Request::getVar('event_name', ''));
         $eventsObject->setVar('event_description', Request::getText('event_description', ''));
         $eventsObject->setVar('event_enddatetime', date('Y-m-d H:i:s', strtotime($_REQUEST['event_enddatetime']['date']) + $_REQUEST['event_enddatetime']['time']));
-        
-		 require_once XOOPS_ROOT_PATH . '/class/uploader.php';
+        $dateTimeObj = \DateTime::createFromFormat(_SHORTDATESTRING, Request::getString('date_created', '', 'POST'));
+        $eventsObject->setVar('date_created', $dateTimeObj->getTimestamp());
+        $dateTimeObj = \DateTime::createFromFormat(_SHORTDATESTRING, Request::getString('date_updated', '', 'POST'));
+        $eventsObject->setVar('date_updated', $dateTimeObj->getTimestamp());
+		
+		require_once XOOPS_ROOT_PATH . '/class/uploader.php';
         $uploadDir = XOOPS_UPLOAD_PATH . '/countdown/images/';
         $uploader  = new \XoopsMediaUploader($uploadDir, $helper->getConfig('mimetypes'), $helper->getConfig('maxsize'), null, null);
         if ($uploader->fetchMedia(Request::getArray('xoops_upload_file', '', 'POST')[0])) {

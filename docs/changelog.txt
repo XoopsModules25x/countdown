@@ -1,5 +1,6 @@
 <h5>2.0        [NOT RELEASED]</h5>  Dev: Xoops 2.5.9, PHP 7.2.0
 <hr>
+ - Add date created and date updated to event (liomj)
  - Change uid to Poster Name (liomj)
  - Add option to add event picture (liomj)
  - Update Languages (liomj)
