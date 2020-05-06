@@ -48,6 +48,8 @@ $criteria->setStart($start);
 $eventsCount = $eventsHandler->getCount($criteria);
 $eventsArray = $eventsHandler->getAll($criteria);
 
+$moduleDirNameUpper = strtoupper($moduleDirName);
+
 $id = Request::getInt('id', 0, 'GET');
 
         //viewItem();
@@ -75,10 +77,9 @@ $id = Request::getInt('id', 0, 'GET');
 
         // Display Navigation
         if ($eventsCount > $eventsPaginationLimit) {
-
-            $GLOBALS['xoopsTpl']->assign('xoops_mpageurl', COUNTDOWN_URL . '/events.php');
+            $GLOBALS['xoopsTpl']->assign('xoops_mpageurl', COUNTDOWN2_URL . '/event.php');
             require_once XOOPS_ROOT_PATH . '/class/pagenav.php';
-            $pagenav = new \XoopsPageNav($eventsCount, $eventsPaginationLimit, $start, 'op=view&id');
+            $pagenav = new \XoopsPageNav($eventsCount, $eventsPaginationLimit, $start, 'id');
             $GLOBALS['xoopsTpl']->assign('pagenav', $pagenav->renderNav(4));
         }
 
@@ -90,14 +91,14 @@ if (isset($keywords)) {
 //description
 $utility::meta_description(_MD_COUNTDOWN_EVENTS_DESC);
 //
-$GLOBALS['xoopsTpl']->assign('xoops_mpageurl', COUNTDOWN_URL . '/events.php');
-$GLOBALS['xoopsTpl']->assign('countdown_url', COUNTDOWN_URL);
+$GLOBALS['xoopsTpl']->assign('xoops_mpageurl', COUNTDOWN2_URL . '/event.php');
+$GLOBALS['xoopsTpl']->assign('countdown_url', COUNTDOWN2_URL);
 $GLOBALS['xoopsTpl']->assign('adv', xoops_getModuleOption('advertise', $moduleDirName));
 //
 //$GLOBALS['xoopsTpl']->assign('bookmarks', xoops_getModuleOption('bookmarks', $moduleDirName));
 //$GLOBALS['xoopsTpl']->assign('fbcomments', xoops_getModuleOption('fbcomments', $moduleDirName));
 //
-$GLOBALS['xoopsTpl']->assign('admin', COUNTDOWN_ADMIN);
+$GLOBALS['xoopsTpl']->assign('admin', COUNTDOWN2_ADMIN);
 $GLOBALS['xoopsTpl']->assign('copyright', $copyright);
 //
 require_once XOOPS_ROOT_PATH . '/footer.php';
