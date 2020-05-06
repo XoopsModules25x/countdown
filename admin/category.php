@@ -141,7 +141,7 @@ switch ($op) {
         if (!$GLOBALS['xoopsSecurity']->check()) {
             redirect_header('category.php', 3, implode(',', $GLOBALS['xoopsSecurity']->getErrors()));
         }
-        if (0 != Request::getInt('id', 0)) {
+        if (0 != Request::getInt('category_id', 0)) {
             $categoryObject = $categoryHandler->get(Request::getInt('category_id', 0));
         } else {
             $categoryObject = $categoryHandler->create();

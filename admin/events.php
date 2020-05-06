@@ -151,6 +151,14 @@ switch ($op) {
 
         break;
 
+    
+    
+    
+    
+    
+    
+    
+    
     case 'new':
         $adminObject->addItemButton(_AM_COUNTDOWN_EVENTS_LIST, 'events.php', 'list');
         echo $adminObject->displayButton('left');
@@ -164,7 +172,7 @@ switch ($op) {
         if (!$GLOBALS['xoopsSecurity']->check()) {
             redirect_header('events.php', 3, implode(',', $GLOBALS['xoopsSecurity']->getErrors()));
         }
-        if (0 != Request::getInt('id', 0)) {
+        if (0 != Request::getInt('event_id', 0)) {
             $eventsObject = $eventsHandler->get(Request::getInt('event_id', 0));
         } else {
             $eventsObject = $eventsHandler->create();
