@@ -19,8 +19,8 @@
             <{*<td><{$events.uid}></td>*}>
         <{*</tr>*}>
 		<tr>
-            <td><{$smarty.const._MD_COUNTDOWN_EVENTS_PICTURE}></td>
-            <td>	<img src="<{$xoops_url}>/uploads/countdown/images/<{$events.picture}>" alt="<{$events.name}>" title="<{$events.name}>"><br></td>
+            <td><{$smarty.const._MD_COUNTDOWN_EVENTS_LOGO}></td>
+            <td>	<img src="<{$xoops_url}>/uploads/countdown/images/<{$events.logo}>" alt="<{$events.name}>" title="<{$events.name}>"><br></td>
         </tr>       
 	   <tr>
             <td><{$smarty.const._MD_COUNTDOWN_EVENTS_NAME}></td>

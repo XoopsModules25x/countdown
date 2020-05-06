@@ -37,7 +37,7 @@ define('_MD_COUNTDOWN_EVENTS_DESC', 'Events description');
 define('_MD_COUNTDOWN_EVENTS_ID', 'ID');
 define('_MD_COUNTDOWN_EVENTS_UID', 'User');
 define('_MD_COUNTDOWN_EVENTS_NAME', 'Event Name');
-define('_MD_COUNTDOWN_EVENTS_PICTURE', 'Event Logo');
+define('_MD_COUNTDOWN_EVENTS_LOGO', 'Event Logo');
 define('_MD_COUNTDOWN_EVENTS_DESCRIPTION', 'Description');
 define('_MD_COUNTDOWN_EVENTS_ENDDATETIME', 'Event Date/Time');
 define('_MD_COUNTDOWN_EVENTS_DATE', 'Date of Event');

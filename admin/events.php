@@ -119,9 +119,9 @@ switch ($op) {
                 $GLOBALS['xoopsTpl']->assign('selectorenddatetime', $selectorenddatetime);
                 $eventsArray['event_enddatetime'] = date(_DATESTRING, strtotime($eventsTempArray[$i]->getVar('event_enddatetime')));
 				
-				$selectorpicture = $utility::selectSorting(_AM_COUNTDOWN_EVENTS_PICTURE, 'event_picture');
-                $GLOBALS['xoopsTpl']->assign('selectorpicture', $selectorpicture);
-                $eventsArray['event_picture']     = "<img src='" . $uploadUrl . $eventsTempArray[$i]->getVar('event_picture') . "' name='" . 'name' . "' id=" . 'id' . " alt='' style='max-width:100px'>";
+				$selectorlogo = $utility::selectSorting(_AM_COUNTDOWN_EVENTS_LOGO, 'event_logo');
+                $GLOBALS['xoopsTpl']->assign('selectorlogo', $selectorlogo);
+                $eventsArray['event_logo']     = "<img src='" . $uploadUrl . $eventsTempArray[$i]->getVar('event_logo') . "' name='" . 'name' . "' id=" . 'id' . " alt='' style='max-width:100px'>";
                 
 				$selectordatecreated = $utility::selectSorting(_AM_COUNTDOWN_EVENTS_DATE_CREATED, 'date_created');
                 $GLOBALS['xoopsTpl']->assign('selectordatecreated', $selectordatecreated);
@@ -187,16 +187,16 @@ switch ($op) {
             //$extension = preg_replace( '/^.+\.([^.]+)$/sU' , '' , $_FILES['attachedfile']['name']);
             //$imgName = str_replace(' ', '', $_POST['']).'.'.$extension;
 
-            $uploader->setPrefix('picture_');
+            $uploader->setPrefix('logo_');
             $uploader->fetchMedia(Request::getArray('xoops_upload_file', '', 'POST')[0]);
             if (!$uploader->upload()) {
                 $errors = $uploader->getErrors();
                 redirect_header('javascript:history.go(-1)', 3, $errors);
             } else {
-                $eventsObject->setVar('event_picture', $uploader->getSavedFileName());
+                $eventsObject->setVar('event_logo', $uploader->getSavedFileName());
             }
         } else {
-            $eventsObject->setVar('event_picture', Request::getVar('event_picture', ''));
+            $eventsObject->setVar('event_logo', Request::getVar('event_logo', ''));
         }
 	
 		if ($eventsHandler->insert($eventsObject)) {

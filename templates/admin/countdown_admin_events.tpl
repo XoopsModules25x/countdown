@@ -22,7 +22,7 @@
                     <th class="center"><{$selectorname}></th>
                     <th class="center"><{$selectordescription}></th>
                     <th class="center"><{$selectorenddatetime}></th>
-					<th class="center"><{$selectorpicture}></th>
+					<th class="center"><{$selectorlogo}></th>
 					<th class="center"><{$selectoruid}></th>
 					<th class="center"><{$selectordatecreated}></th>
                     <th class="center"><{$selectordateupdated}></th>
@@ -36,7 +36,7 @@
                         <td class='center'><{$eventsArray.event_name}></td>
                         <td class='center'><{$eventsArray.event_description}></td>
                         <td class='center'><{$eventsArray.event_enddatetime}></td>
-						<td class='center'><{$eventsArray.event_picture}></td>
+						<td class='center'><{$eventsArray.event_logo}></td>
 						<td class='center'><{$eventsArray.event_postername}></td>
 						<td class='center'><{$eventsArray.date_created}></td>
                         <td class='center'><{$eventsArray.date_updated}></td>
@@ -55,7 +55,7 @@
                     <th class="center"><{$selectorname}></th>
                     <th class="center"><{$selectordescription}></th>
                     <th class="center"><{$selectorenddatetime}></th>
-					<th class="center"><{$selectorpicture}></th>
+					<th class="center"><{$selectorlogo}></th>
 					<th class="center"><{$selectoruid}></th>
 					<th class="center"><{$selectordatecreated}></th>
                     <th class="center"><{$selectordateupdated}></th>

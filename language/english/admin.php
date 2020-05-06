@@ -56,7 +56,7 @@ define('_AM_COUNTDOWN_EVENTS_NAME', 'Event Name');
 define('_AM_COUNTDOWN_EVENTS_DESCRIPTION', 'Description');
 define('_AM_COUNTDOWN_EVENTS_ENDDATETIME', 'Event Date/Time');
 define('_AM_COUNTDOWN_TIME_REMAINING', 'Countdown');
-define('_AM_COUNTDOWN_EVENTS_PICTURE', 'Event Logo');
+define('_AM_COUNTDOWN_EVENTS_LOGO', 'Event Logo');
 define('_AM_COUNTDOWN_EVENTS_POSTERNAME', 'Poster Name');
 define('_AM_COUNTDOWN_EVENTS_DATE_CREATED', 'Created');
 define('_AM_COUNTDOWN_EVENTS_DATE_UPDATED', 'Updated');
