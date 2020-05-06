@@ -17,7 +17,7 @@
 				#<{$events.id}>	<{*<{$events.uid}>*}><br>
 
 				<strong><{$smarty.const._MD_COUNTDOWN_EVENTS_NAME}></strong>   <br>        
-					<a href="event.php?op=view&id=<{$events.id}>"><{$events.name}></a>
+					<a href="event.php?id=<{$events.id}>"><{$events.name}></a>
 				<br>
 				<strong> <{$smarty.const._MD_COUNTDOWN_EVENTS_DESCRIPTION}> </strong><br>            
 					<{$events.description}>

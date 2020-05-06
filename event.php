@@ -25,7 +25,7 @@
 use Xmf\Request;
 use XoopsModules\Countdown;
 
-$GLOBALS['xoopsOption']['template_main'] = 'countdown_events_list.tpl';
+$GLOBALS['xoopsOption']['template_main'] = 'countdown_events.tpl';
 require_once __DIR__ . '/header.php';
 $start = Request::getInt('start', 0);
 // Define Stylesheet
@@ -48,13 +48,9 @@ $criteria->setStart($start);
 $eventsCount = $eventsHandler->getCount($criteria);
 $eventsArray = $eventsHandler->getAll($criteria);
 
-$op = Request::getCmd('op', '');
-$id = Request::getInt('event_id', 0, 'GET');
+$id = Request::getInt('id', 0, 'GET');
 
-switch ($op) {
-    case 'view':
         //        viewItem();
-        $GLOBALS['xoopsOption']['template_main'] = 'countdown_events.tpl';
         $eventsPaginationLimit                   = 1;
         $myid                                    = $id;
         //id
@@ -86,34 +82,6 @@ switch ($op) {
             $GLOBALS['xoopsTpl']->assign('pagenav', $pagenav->renderNav(4));
         }
 
-        break;
-    case 'list':
-    default:
-        //        viewall();
-        $GLOBALS['xoopsOption']['template_main'] = 'countdown_events_list.tpl';
-        //    require_once __DIR__ . '/header.php';
-
-        if ($eventsCount > 0) {
-            foreach (array_keys($eventsArray) as $i) {
-                $events['id']             = $eventsArray[$i]->getVar('event_id');
-                $events['uid']            = $eventsArray[$i]->getVar('event_uid');
-                $events['name']           = $eventsArray[$i]->getVar('event_name');
-                $events['description']    = ($eventsArray[$i]->getVar('event_description'));
-                $events['enddatetime']    = date(_DATESTRING, strtotime($eventsArray[$i]->getVar('event_enddatetime')));
-                $events['enddatetimeiso'] = $eventsArray[$i]->getVar('event_enddatetime');
-                $GLOBALS['xoopsTpl']->append('events', $events);
-                $keywords[] = $eventsArray[$i]->getVar('event_id');
-                unset($events);
-            }
-            // Display Navigation
-            if ($eventsCount > $eventsPaginationLimit) {
-                $GLOBALS['xoopsTpl']->assign('xoops_mpageurl', COUNTDOWN_URL . '/events.php');
-                require_once XOOPS_ROOT_PATH . '/class/pagenav.php';
-                $pagenav = new \XoopsPageNav($eventsCount, $eventsPaginationLimit, $start, 'start');
-                $GLOBALS['xoopsTpl']->assign('pagenav', $pagenav->renderNav(4));
-            }
-        }
-}
 
 //keywords
 if (isset($keywords)) {
