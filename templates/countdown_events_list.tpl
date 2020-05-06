@@ -16,6 +16,9 @@
                 <td>
 				#<{$events.id}>	<{*<{$events.uid}>*}><br>
 
+
+				<img src="<{$xoops_url}>/uploads/countdown/images/<{$events.picture}>" alt="<{$events.name}>" title="<{$events.name}>"><br>
+     
 				<strong><{$smarty.const._MD_COUNTDOWN_EVENTS_NAME}></strong>   <br>        
 					<a href="event.php?id=<{$events.id}>"><{$events.name}></a>
 				<br>

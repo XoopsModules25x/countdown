@@ -66,6 +66,7 @@ $id = Request::getInt('id', 0, 'GET');
         $events['id']             = $eventsObject->getVar('event_id');
         $events['uid']            = $eventsObject->getVar('event_uid');
         $events['name']           = $eventsObject->getVar('event_name');
+		$events['picture']        = $eventsObject->getVar('event_picture');
         $events['description']    = ($eventsObject->getVar('event_description'));
         $events['enddatetime']    = date(_DATESTRING, strtotime($eventsObject->getVar('event_enddatetime')));
         $events['enddatetimeiso'] = $eventsObject->getVar('event_enddatetime');

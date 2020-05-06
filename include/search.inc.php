@@ -12,7 +12,7 @@ function countdown_search($queryarray, $andor, $limit, $offset, $userid)
 {
     $sql = 'SELECT * FROM ' . $GLOBALS['xoopsDB']->prefix('countdown_events') . ' ';
     if (0 != $userid) {
-        $sql .= " WHERE uid='$userid'";
+        $sql .= " WHERE event_uid='$userid'";
     }
     // because count() returns 1 even if a supplied variable
     // is not an array, we must check if $querryarray is really an array

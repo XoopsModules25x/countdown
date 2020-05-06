@@ -29,6 +29,8 @@ if ((!defined('XOOPS_ROOT_PATH')) || !$GLOBALS['xoopsUser'] instanceof \XoopsUse
     exit('Restricted access' . PHP_EOL);
 }
 
+include __DIR__ . '/../preloads/autoloader.php';
+
 /**
  * @param string $tablename
  *

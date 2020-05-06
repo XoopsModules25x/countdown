@@ -115,6 +115,11 @@ switch ($op) {
                 $selectorenddatetime = $utility::selectSorting(_AM_COUNTDOWN_EVENTS_ENDDATETIME, 'event_enddatetime');
                 $GLOBALS['xoopsTpl']->assign('selectorenddatetime', $selectorenddatetime);
                 $eventsArray['event_enddatetime'] = date(_DATESTRING, strtotime($eventsTempArray[$i]->getVar('event_enddatetime')));
+				
+				$selectorpicture = $utility::selectSorting(_AM_COUNTDOWN_PICTURE, 'event_picture');
+                $GLOBALS['xoopsTpl']->assign('selectorpicture', $selectorpicture);
+                $eventsArray['event_picture']     = "<img src='" . $uploadUrl . $eventsTempArray[$i]->getVar('event_picture') . "' name='" . 'name' . "' id=" . 'id' . " alt='' style='max-width:100px'>";
+                
                 $eventsArray['edit_delete'] = "<a href='events.php?op=edit&id=" . $i . "'><img src=" . $pathIcon16 . "/edit.png alt='" . _EDIT . "' title='" . _EDIT . "'></a>
                <a href='events.php?op=delete&id=" . $i . "'><img src=" . $pathIcon16 . "/delete.png alt='" . _DELETE . "' title='" . _DELETE . "'></a>
                <a href='events.php?op=clone&id=" . $i . "'><img src=" . $pathIcon16 . "/editcopy.png alt='" . _CLONE . "' title='" . _CLONE . "'></a>";
@@ -158,7 +163,28 @@ switch ($op) {
         $eventsObject->setVar('event_name', Request::getVar('event_name', ''));
         $eventsObject->setVar('event_description', Request::getText('event_description', ''));
         $eventsObject->setVar('event_enddatetime', date('Y-m-d H:i:s', strtotime($_REQUEST['event_enddatetime']['date']) + $_REQUEST['event_enddatetime']['time']));
-        if ($eventsHandler->insert($eventsObject)) {
+        
+		 require_once XOOPS_ROOT_PATH . '/class/uploader.php';
+        $uploadDir = XOOPS_UPLOAD_PATH . '/countdown/images/';
+        $uploader  = new \XoopsMediaUploader($uploadDir, $helper->getConfig('mimetypes'), $helper->getConfig('maxsize'), null, null);
+        if ($uploader->fetchMedia(Request::getArray('xoops_upload_file', '', 'POST')[0])) {
+
+            //$extension = preg_replace( '/^.+\.([^.]+)$/sU' , '' , $_FILES['attachedfile']['name']);
+            //$imgName = str_replace(' ', '', $_POST['']).'.'.$extension;
+
+            $uploader->setPrefix('picture_');
+            $uploader->fetchMedia(Request::getArray('xoops_upload_file', '', 'POST')[0]);
+            if (!$uploader->upload()) {
+                $errors = $uploader->getErrors();
+                redirect_header('javascript:history.go(-1)', 3, $errors);
+            } else {
+                $eventsObject->setVar('event_picture', $uploader->getSavedFileName());
+            }
+        } else {
+            $eventsObject->setVar('event_picture', Request::getVar('event_picture', ''));
+        }
+	
+		if ($eventsHandler->insert($eventsObject)) {
             redirect_header('events.php?op=list', 2, _AM_COUNTDOWN_FORMOK);
         }
 

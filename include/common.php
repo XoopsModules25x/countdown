@@ -97,6 +97,7 @@ $icons = [
     'add'     => "<img src='" . $pathIcon16 . "/add.png' alt='" . _ADD . "' align='middle'>",
     '0'       => "<img src='" . $pathIcon16 . "/0.png' alt='" . 0 . "' align='middle'>",
     '1'       => "<img src='" . $pathIcon16 . "/1.png' alt='" . 1 . "' align='middle'>",
+    'active'  => "<img src='" . $pathIcon16 . "/active.gif' alt='" . _MD_ACTIVE . "' align='middle'>",
 ];
 
 $debug = false;

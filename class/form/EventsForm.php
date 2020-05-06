@@ -88,6 +88,26 @@ class EventsForm extends \XoopsThemeForm
         // Enddatetime
         $this->addElement(new \XoopsFormDateTime(_AM_COUNTDOWN_EVENTS_ENDDATETIME, 'event_enddatetime', '', strtotime($this->targetObject->getVar('event_enddatetime'))));
 
+		// Picture
+        $picture = $this->targetObject->getVar('event_picture') ?: 'blank.png';
+
+        $uploadDir   = '/uploads/countdown/images/';
+        $imgtray     = new \XoopsFormElementTray(_AM_COUNTDOWN_PICTURE, '<br>');
+        $imgpath     = sprintf(_AM_COUNTDOWN_FORMIMAGE_PATH, $uploadDir);
+        $imageselect = new \XoopsFormSelect($imgpath, 'event_picture', $picture);
+        $imageArray  = \XoopsLists::getImgListAsArray(XOOPS_ROOT_PATH . $uploadDir);
+        foreach ($imageArray as $image) {
+            $imageselect->addOption((string)$image, $image);
+        }
+        $imageselect->setExtra("onchange='showImgSelected(\"image_picture\", \"picture\", \"" . $uploadDir . '", "", "' . XOOPS_URL . "\")'");
+        $imgtray->addElement($imageselect);
+        $imgtray->addElement(new \XoopsFormLabel('', "<br><img src='" . XOOPS_URL . '/' . $uploadDir . '/' . $picture . "' name='image_picture' id='image_picture' alt='' />"));
+        $fileseltray = new \XoopsFormElementTray('', '<br>');
+        $fileseltray->addElement(new \XoopsFormFile(_AM_COUNTDOWN_FORMUPLOAD, 'event_picture', $helper->getConfig('maxsize')));
+        $fileseltray->addElement(new \XoopsFormLabel(''));
+        $imgtray->addElement($fileseltray);
+        $this->addElement($imgtray);
+		
         $this->addElement(new \XoopsFormHidden('op', 'save'));
         $this->addElement(new \XoopsFormButton('', 'submit', _SUBMIT, 'submit'));
     }

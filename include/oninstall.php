@@ -11,10 +11,10 @@
 */
 
 /**
- * Module: countdown
+ * Module: Countdown
  *
  * @category        Module
- * @package         countdown
+ * @package         Countdown
  * @author          XOOPS Development Team <name@site.com> - <https://xoops.org>
  * @copyright       {@link https://xoops.org/ XOOPS Project}
  * @license         GPL 2.0 or later
@@ -25,6 +25,8 @@
 use XoopsModules\Countdown;
 use XoopsModules\Countdown\Common;
 
+include __DIR__ . '/../preloads/autoloader.php';
+
 /**
  * Prepares system prior to attempting to install module
  * @param \XoopsModule $module {@link XoopsModule}
@@ -33,7 +35,6 @@ use XoopsModules\Countdown\Common;
  */
 function xoops_module_pre_install_countdown(\XoopsModule $module)
 {
-    include __DIR__ . '/../preloads/autoloader.php';
     /** @var Countdown\Utility $utility */
     $utility = new Countdown\Utility();
 
@@ -58,11 +59,10 @@ function xoops_module_pre_install_countdown(\XoopsModule $module)
  * @param XoopsModule $module {@link XoopsModule}
  *
  * @return bool true if installation successful, false if not
+ * @throws \UnexpectedValueException
  */
 function xoops_module_install_countdown(\XoopsModule $module)
 {
-    include __DIR__ . '/../preloads/autoloader.php';
-
     $moduleDirName = basename(dirname(__DIR__));
 
     /** @var Countdown\Helper $helper */
@@ -77,9 +77,10 @@ function xoops_module_install_countdown(\XoopsModule $module)
     $helper->loadLanguage('modinfo');
 
     // default Permission Settings ----------------------
-    $moduleId  = $module->getVar('mid');
-    $moduleId2 = $helper->getModule()->mid();
+//    $moduleId0  = $module->getVar('mid');
+    $moduleId = $helper->getModule()->mid();
     //$moduleName = $module->getVar('name');
+    /** @var \XoopsGroupPermHandler $gpermHandler */
     $gpermHandler = xoops_getHandler('groupperm');
     // access rights ------------------------------------------
     $gpermHandler->addRight($moduleDirName . '_approve', 1, XOOPS_GROUP_ADMIN, $moduleId);
@@ -117,6 +118,10 @@ function xoops_module_install_countdown(\XoopsModule $module)
     //delete .html entries from the tpl table
     $sql = 'DELETE FROM ' . $GLOBALS['xoopsDB']->prefix('tplfile') . " WHERE `tpl_module` = '" . $module->getVar('dirname', 'n') . "' AND `tpl_file` LIKE '%.html%'";
     $GLOBALS['xoopsDB']->queryF($sql);
+
+    if (!$GLOBALS['xoopsDB']->queryF($sql)) {
+        throw new \UnexpectedValueException('Could not delete the records: ' . $GLOBALS['xoopsDB']->error());
+    }
 
     return true;
 }

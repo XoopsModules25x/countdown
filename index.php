@@ -58,6 +58,7 @@ $id = Request::getInt('event_id', 0, 'GET');
                 $events['uid']            = $eventsArray[$i]->getVar('event_uid');
                 $events['name']           = $eventsArray[$i]->getVar('event_name');
                 $events['description']    = ($eventsArray[$i]->getVar('event_description'));
+				$events['picture']        = ($eventsArray[$i]->getVar('event_picture'));
                 $events['enddatetime']    = date(_DATESTRING, strtotime($eventsArray[$i]->getVar('event_enddatetime')));
                 $events['enddatetimeiso'] = $eventsArray[$i]->getVar('event_enddatetime');
                 $GLOBALS['xoopsTpl']->append('events', $events);

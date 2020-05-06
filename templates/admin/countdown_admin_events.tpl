@@ -23,7 +23,7 @@
                     <th class="center"><{$selectorname}></th>
                     <th class="center"><{$selectordescription}></th>
                     <th class="center"><{$selectorenddatetime}></th>
-
+					 <th class="center"><{$selectorpicture}></th>
                     <th class="center width5"><{$smarty.const._AM_COUNTDOWN_FORM_ACTION}></th>
                 </tr>
                 <{foreach item=eventsArray from=$eventsArrays}>
@@ -35,7 +35,7 @@
                         <td class='center'><{$eventsArray.event_name}></td>
                         <td class='center'><{$eventsArray.event_description}></td>
                         <td class='center'><{$eventsArray.event_enddatetime}></td>
-
+						<td class='center'><{$eventsArray.event_picture}></td>
 
                         <td class="center width5"><{$eventsArray.edit_delete}></td>
                     </tr>
@@ -53,7 +53,7 @@
                     <th class="center"><{$selectorname}></th>
                     <th class="center"><{$selectordescription}></th>
                     <th class="center"><{$selectorenddatetime}></th>
-
+					<th class="center"><{$selectorpicture}></th>
                     <th class="center width5"><{$smarty.const._AM_COUNTDOWN_FORM_ACTION}></th>
                 </tr>
                 <tr>

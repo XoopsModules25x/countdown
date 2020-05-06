@@ -1,4 +1,13 @@
 <h5>2.0        [NOT RELEASED]</h5>  Dev: Xoops 2.5.9, PHP 7.2.0
 <hr>
- - Original release Countdown2 (XOOPS Development Team)
+ - Add option to add event picture (liomj)
+ - Update Languages (liomj)
+ - Update Templates (liomj)
+ - Add Data Tables to Event List Page (liomj)
+ - Incude search event using XOOPS Search System (liomj)
+ - Separate Event List and Event View Page (liomj)
+ - Fix Undefined Constant (liomj)
+ - Fix Missing eventsform (liomj)
+ - Update db_fields (liomj)
+ - Original release Countdown2 (Mamba/XOOPS Development Team)
  - it's a rewrite of the original Countdown by Eric Juden (ejuden01)
