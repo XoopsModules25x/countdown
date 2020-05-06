@@ -61,8 +61,6 @@ class EventsForm extends \XoopsThemeForm
 
         // Id
         $this->addElement(new \XoopsFormLabel(_AM_COUNTDOWN_EVENTS_ID, $this->targetObject->getVar('event_id'), 'event_id'));
-        // Uid
-        $this->addElement(new \XoopsFormSelectUser(_AM_COUNTDOWN_EVENTS_UID, 'event_uid', false, $this->targetObject->getVar('event_uid'), 1, false), false);
         // Name
         $this->addElement(new \XoopsFormText(_AM_COUNTDOWN_EVENTS_NAME, 'event_name', 50, 255, $this->targetObject->getVar('event_name')), false);
         // Description
@@ -92,7 +90,7 @@ class EventsForm extends \XoopsThemeForm
         $picture = $this->targetObject->getVar('event_picture') ?: 'blank.png';
 
         $uploadDir   = '/uploads/countdown/images/';
-        $imgtray     = new \XoopsFormElementTray(_AM_COUNTDOWN_PICTURE, '<br>');
+        $imgtray     = new \XoopsFormElementTray(_AM_COUNTDOWN_EVENTS_PICTURE, '<br>');
         $imgpath     = sprintf(_AM_COUNTDOWN_FORMIMAGE_PATH, $uploadDir);
         $imageselect = new \XoopsFormSelect($imgpath, 'event_picture', $picture);
         $imageArray  = \XoopsLists::getImgListAsArray(XOOPS_ROOT_PATH . $uploadDir);
@@ -108,6 +106,9 @@ class EventsForm extends \XoopsThemeForm
         $imgtray->addElement($fileseltray);
         $this->addElement($imgtray);
 		
+		// Poster Name
+        $this->addElement(new \XoopsFormSelectUser(_AM_COUNTDOWN_EVENTS_POSTERNAME, 'event_uid', false, $this->targetObject->getVar('event_uid'), 1, false), false);
+        
         $this->addElement(new \XoopsFormHidden('op', 'save'));
         $this->addElement(new \XoopsFormButton('', 'submit', _SUBMIT, 'submit'));
     }

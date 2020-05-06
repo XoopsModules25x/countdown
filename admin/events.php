@@ -116,7 +116,7 @@ switch ($op) {
                 $GLOBALS['xoopsTpl']->assign('selectorenddatetime', $selectorenddatetime);
                 $eventsArray['event_enddatetime'] = date(_DATESTRING, strtotime($eventsTempArray[$i]->getVar('event_enddatetime')));
 				
-				$selectorpicture = $utility::selectSorting(_AM_COUNTDOWN_PICTURE, 'event_picture');
+				$selectorpicture = $utility::selectSorting(_AM_COUNTDOWN_EVENTS_PICTURE, 'event_picture');
                 $GLOBALS['xoopsTpl']->assign('selectorpicture', $selectorpicture);
                 $eventsArray['event_picture']     = "<img src='" . $uploadUrl . $eventsTempArray[$i]->getVar('event_picture') . "' name='" . 'name' . "' id=" . 'id' . " alt='' style='max-width:100px'>";
                 
