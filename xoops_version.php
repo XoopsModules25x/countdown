@@ -75,7 +75,9 @@ $modversion = [
     'sqlfile'             => ['mysql' => 'sql/mysql.sql'],
     // ------------------- Tables ----------------------------
     'tables'              => [
-        $moduleDirName . '_' . 'events',
+       // $moduleDirName . '_' . 'categories',$moduleDirName . '_' . 'events',
+	    'countdown_categories',
+		'countdown_events',
     ],
 ];
 // ------------------- Search -----------------------------//
@@ -100,7 +102,7 @@ $modversion['templates'][] = ['file' => 'countdown_footer.tpl', 'description' =>
 $modversion['templates'][] = ['file' => 'admin/countdown_admin_about.tpl', 'description' => ''];
 $modversion['templates'][] = ['file' => 'admin/countdown_admin_help.tpl', 'description' => ''];
 $modversion['templates'][] = ['file' => 'admin/countdown_admin_events.tpl', 'description' => ''];
-
+$modversion['templates'][] = ['file' => 'admin/countdown_admin_category.tpl', 'description' => ''];
 // ------------------- Help files ------------------- //
 $modversion['helpsection'] = [
     ['name' => _MI_COUNTDOWN_OVERVIEW, 'link' => 'page=help'],

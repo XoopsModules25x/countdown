@@ -25,9 +25,10 @@ define('_MI_COUNTDOWN_NAME', 'Countdown');
 define('_MI_COUNTDOWN_DESC', 'This module is for doing following...');
 //Menu
 define('_MI_COUNTDOWN_ADMENU1', 'Home');
-define('_MI_COUNTDOWN_ADMENU2', 'Events');
-define('_MI_COUNTDOWN_ADMENU3', 'Permissions');
-define('_MI_COUNTDOWN_ADMENU4', 'About');
+define('_MI_COUNTDOWN_ADMENU2', 'Category');
+define('_MI_COUNTDOWN_ADMENU3', 'Events');
+define('_MI_COUNTDOWN_ADMENU4', 'Permission');
+define('_MI_COUNTDOWN_ADMENU5', 'About');
 //Blocks
 //Config
 define('_MI_COUNTDOWN_EDITOR_ADMIN', 'Editor: Admin');

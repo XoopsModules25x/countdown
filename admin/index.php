@@ -32,11 +32,14 @@ $adminObject = \Xmf\Module\Admin::getInstance();
 //count "total Events"
 /** @var XoopsPersistableObjectHandler $eventsHandler */
 $totalEvents = $eventsHandler->getCount();
+$totalCategories = $categoryHandler->getCount();
 // InfoBox Statistics
 $adminObject->addInfoBox(_AM_COUNTDOWN_STATISTICS);
 
 // InfoBox events
 $adminObject->addInfoBoxLine(sprintf(_AM_COUNTDOWN_THEREARE_EVENTS, $totalEvents));
+$adminObject->addInfoBoxLine(sprintf(_AM_COUNTDOWN_THEREARE_CATEGORIES, $totalCategories));
+
 // Render Index
 $adminObject->displayNavigation(basename(__FILE__));
 

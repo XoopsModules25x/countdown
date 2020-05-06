@@ -1,4 +1,16 @@
 #
+# Structure table for `countdown_categories` 
+#
+
+CREATE TABLE `countdown_categories` (
+  `category_id` INT(11)     NOT NULL  AUTO_INCREMENT,
+  `category_title` varchar(256) NOT NULL,
+  `category_weight` int(11) NOT NULL  DEFAULT 0,
+  PRIMARY KEY (`category_id`)
+) 
+  ENGINE=MyISAM ;
+
+#
 # Structure table for `countdown_events` 5
 #
 

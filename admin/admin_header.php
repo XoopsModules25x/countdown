@@ -47,6 +47,7 @@ $pathModIcon32 = $helper->getModule()->getInfo('modicons32');
 
 /** @var \XoopsPersistableObjectHandler $eventsHandler */
 $eventsHandler = new Countdown\EventsHandler($db);
+$categoryHandler = new Countdown\CategoryHandler($db);
 
 $myts = \MyTextSanitizer::getInstance();
 if (!isset($xoopsTpl) || !is_object($xoopsTpl)) {

@@ -27,9 +27,12 @@ use Xmf\Request;
 //Index
 define('_AM_COUNTDOWN_STATISTICS', 'Countdown statistics');
 define('_AM_COUNTDOWN_THEREARE_EVENTS', "There are <span class='bold'>%s</span> Events in the database");
+define('_AM_COUNTDOWN_THEREARE_CATEGORIES', "There are <span class='bold'>%s</span> Categories in the database");
 //Buttons
 define('_AM_COUNTDOWN_ADD_EVENTS', 'Add new Events');
 define('_AM_COUNTDOWN_EVENTS_LIST', 'List of Events');
+define('_AM_COUNTDOWN_ADD_CATEGORY', 'Add new Category');
+define('_AM_COUNTDOWN_CATEGORY_LIST', 'List of Categories');
 //General
 define('_AM_COUNTDOWN_FORMOK', 'Registered successfull');
 define('_AM_COUNTDOWN_FORMDELOK', 'Deleted successfull');
@@ -45,7 +48,14 @@ define('_AM_COUNTDOWN_SELECTED_DEACTIVATE', 'De-activate selected item(s)');
 define('_AM_COUNTDOWN_SELECTED_ERROR', 'You selected nothing to delete');
 define('_AM_COUNTDOWN_CLONED_OK', 'Record cloned successfully');
 define('_AM_COUNTDOWN_CLONED_FAILED', 'Cloning of the record has failed');
-
+// Category
+define('_AM_COUNTDOWN_CATEGORY_ADD', 'Add a category');
+define('_AM_COUNTDOWN_CATEGORY_EDIT', 'Edit category');
+define('_AM_COUNTDOWN_CATEGORY_DELETE', 'Delete category');
+define('_AM_COUNTDOWN_CATEGORY_ID', 'ID');
+define('_AM_COUNTDOWN_CATEGORY_UID', 'User');
+define('_AM_COUNTDOWN_CATEGORY_TITLE', 'Category Title');
+define('_AM_COUNTDOWN_CATEGORY_WEIGHT', 'Category Weight');
 // Events
 define('_AM_COUNTDOWN_EVENTS_ADD', 'Add a events');
 define('_AM_COUNTDOWN_EVENTS_EDIT', 'Edit events');
@@ -57,6 +67,7 @@ define('_AM_COUNTDOWN_EVENTS_DESCRIPTION', 'Description');
 define('_AM_COUNTDOWN_EVENTS_ENDDATETIME', 'Event Date/Time');
 define('_AM_COUNTDOWN_TIME_REMAINING', 'Countdown');
 define('_AM_COUNTDOWN_EVENTS_LOGO', 'Event Logo');
+define('_AM_COUNTDOWN_EVENTS_CATEGORY', 'Event Category');
 define('_AM_COUNTDOWN_EVENTS_POSTERNAME', 'Poster Name');
 define('_AM_COUNTDOWN_EVENTS_DATE_CREATED', 'Created');
 define('_AM_COUNTDOWN_EVENTS_DATE_UPDATED', 'Updated');

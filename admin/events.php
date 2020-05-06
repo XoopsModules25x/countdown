@@ -45,7 +45,7 @@ $uploadUrl  = XOOPS_UPLOAD_URL . '/countdown/images/';
 switch ($op) {
     case 'list':
     default:
-        $adminObject->addItemButton(_AM_COUNTDOWN_ADD_EVENTS, 'events.php?op=new', 'add');
+        $adminObject->addItemButton(_AM_COUNTDOWN_EVENTS_ADD, 'events.php?op=new', 'add');
         echo $adminObject->displayButton('left');
         $start                 = Request::getInt('start', 0);
         $eventsPaginationLimit = $helper->getConfig('userpager');

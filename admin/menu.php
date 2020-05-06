@@ -41,18 +41,24 @@ $adminmenu[] = [
 
 $adminmenu[] = [
     'title' => _MI_COUNTDOWN_ADMENU2,
+    'link'  => 'admin/category.php',
+    'icon'  => "{$pathIcon32}/category.png"
+];
+
+$adminmenu[] = [
+    'title' => _MI_COUNTDOWN_ADMENU3,
     'link'  => 'admin/events.php',
     'icon'  => "{$pathIcon32}/event.png"
 ];
 
 //$adminmenu[] = [
-//    'title' => _MI_COUNTDOWN_ADMENU3,
+//    'title' => _MI_COUNTDOWN_ADMENU4,
 //    'link'  => 'admin/permissions.php',
 //    'icon'  => "{$pathIcon32}/permissions.png"
 //];
 
 $adminmenu[] = [
-    'title' => _MI_COUNTDOWN_ADMENU4,
+    'title' => _MI_COUNTDOWN_ADMENU5,
     'link'  => 'admin/about.php',
     'icon'  => "{$pathIcon32}/about.png"
 ];
