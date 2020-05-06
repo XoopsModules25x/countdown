@@ -61,18 +61,18 @@ switch ($op) {
         $eventsObject = $eventsHandler->get($myid);
 
         $criteria = new \CriteriaCompo();
-        $criteria->setSort('id');
+        $criteria->setSort('event_id');
         $criteria->setOrder('DESC');
         $criteria->setLimit($eventsPaginationLimit);
         $criteria->setStart($start);
-        $events['id']             = $eventsObject->getVar('id');
-        $events['uid']            = $eventsObject->getVar('uid');
-        $events['name']           = $eventsObject->getVar('name');
-        $events['description']    = ($eventsObject->getVar('description'));
-        $events['enddatetime']    = date(_DATESTRING, strtotime($eventsObject->getVar('enddatetime')));
-        $events['enddatetimeiso'] = $eventsObject->getVar('enddatetime');
+        $events['id']             = $eventsObject->getVar('event_id');
+        $events['uid']            = $eventsObject->getVar('event_uid');
+        $events['name']           = $eventsObject->getVar('event_name');
+        $events['description']    = ($eventsObject->getVar('event_description'));
+        $events['enddatetime']    = date(_DATESTRING, strtotime($eventsObject->getVar('event_enddatetime')));
+        $events['enddatetimeiso'] = $eventsObject->getVar('event_enddatetime');
         //       $GLOBALS['xoopsTpl']->append('events', $events);
-        $keywords[] = $eventsObject->getVar('id');
+        $keywords[] = $eventsObject->getVar('event_id');
 
         $GLOBALS['xoopsTpl']->assign('events', $events);
         $start = $id;
@@ -95,14 +95,14 @@ switch ($op) {
 
         if ($eventsCount > 0) {
             foreach (array_keys($eventsArray) as $i) {
-                $events['id']             = $eventsArray[$i]->getVar('id');
-                $events['uid']            = $eventsArray[$i]->getVar('uid');
-                $events['name']           = $eventsArray[$i]->getVar('name');
-                $events['description']    = ($eventsArray[$i]->getVar('description'));
-                $events['enddatetime']    = date(_DATESTRING, strtotime($eventsArray[$i]->getVar('enddatetime')));
-                $events['enddatetimeiso'] = $eventsArray[$i]->getVar('enddatetime');
+                $events['id']             = $eventsArray[$i]->getVar('event_id');
+                $events['uid']            = $eventsArray[$i]->getVar('event_uid');
+                $events['name']           = $eventsArray[$i]->getVar('event_name');
+                $events['description']    = ($eventsArray[$i]->getVar('event_description'));
+                $events['enddatetime']    = date(_DATESTRING, strtotime($eventsArray[$i]->getVar('event_enddatetime')));
+                $events['enddatetimeiso'] = $eventsArray[$i]->getVar('event_enddatetime');
                 $GLOBALS['xoopsTpl']->append('events', $events);
-                $keywords[] = $eventsArray[$i]->getVar('id');
+                $keywords[] = $eventsArray[$i]->getVar('event_id');
                 unset($events);
             }
             // Display Navigation
@@ -126,8 +126,8 @@ $GLOBALS['xoopsTpl']->assign('xoops_mpageurl', COUNTDOWN_URL . '/events.php');
 $GLOBALS['xoopsTpl']->assign('countdown_url', COUNTDOWN_URL);
 $GLOBALS['xoopsTpl']->assign('adv', xoops_getModuleOption('advertise', $moduleDirName));
 //
-$GLOBALS['xoopsTpl']->assign('bookmarks', xoops_getModuleOption('bookmarks', $moduleDirName));
-$GLOBALS['xoopsTpl']->assign('fbcomments', xoops_getModuleOption('fbcomments', $moduleDirName));
+//$GLOBALS['xoopsTpl']->assign('bookmarks', xoops_getModuleOption('bookmarks', $moduleDirName));
+//$GLOBALS['xoopsTpl']->assign('fbcomments', xoops_getModuleOption('fbcomments', $moduleDirName));
 //
 $GLOBALS['xoopsTpl']->assign('admin', COUNTDOWN_ADMIN);
 $GLOBALS['xoopsTpl']->assign('copyright', $copyright);

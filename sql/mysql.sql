@@ -3,11 +3,11 @@
 #
 
 CREATE TABLE `countdown_events` (
-  `id`          INT(11)     NOT NULL  AUTO_INCREMENT,
-  `uid`         INT(11)     NOT NULL  DEFAULT 0,
-  `name`        VARCHAR(255) NOT NULL,
-  `description` MEDIUMTEXT  NOT NULL,
-  `enddatetime` TIMESTAMP   NOT NULL  DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`)
+  `event_id`          INT(11)     NOT NULL  AUTO_INCREMENT,
+  `event_name`        VARCHAR(255) NOT NULL,
+  `event_description` MEDIUMTEXT  NOT NULL,
+  `event_enddatetime` TIMESTAMP   NOT NULL  DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `event_uid`         INT(11)     NOT NULL  DEFAULT 0,
+  PRIMARY KEY (`event_id`)
 )
   ENGINE = MyISAM;

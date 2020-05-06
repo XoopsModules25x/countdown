@@ -40,11 +40,11 @@ class Events extends \XoopsObject
     public function __construct()
     {
         parent::__construct();
-        $this->initVar('id', XOBJ_DTYPE_INT);
-        $this->initVar('uid', XOBJ_DTYPE_INT);
-        $this->initVar('name', XOBJ_DTYPE_TXTBOX);
-        $this->initVar('description', XOBJ_DTYPE_OTHER);
-        $this->initVar('enddatetime', XOBJ_DTYPE_TIMESTAMP);
+        $this->initVar('event_id', XOBJ_DTYPE_INT);
+        $this->initVar('event_uid', XOBJ_DTYPE_INT);
+        $this->initVar('event_name', XOBJ_DTYPE_TXTBOX);
+        $this->initVar('event_description', XOBJ_DTYPE_OTHER);
+        $this->initVar('event_enddatetime', XOBJ_DTYPE_TIMESTAMP);
     }
 
     /**
@@ -68,7 +68,7 @@ class Events extends \XoopsObject
     {
         $permHelper = new \Xmf\Module\Helper\Permission();
         //return $this->publisher->getHandler('permission')->getGrantedGroupsById('events_read', id);
-        return $permHelper->getGroupsForItem('sbcolumns_read', $this->getVar('id'));
+        return $permHelper->getGroupsForItem('sbcolumns_read', $this->getVar('event_id'));
     }
 
     /**
@@ -78,7 +78,7 @@ class Events extends \XoopsObject
     {
         $permHelper = new \Xmf\Module\Helper\Permission();
         //        return $this->publisher->getHandler('permission')->getGrantedGroupsById('events_submit', id);
-        return $permHelper->getGroupsForItem('sbcolumns_submit', $this->getVar('id'));
+        return $permHelper->getGroupsForItem('sbcolumns_submit', $this->getVar('event_id'));
     }
 
     /**
@@ -88,7 +88,7 @@ class Events extends \XoopsObject
     {
         $permHelper = new \Xmf\Module\Helper\Permission();
         //        return $this->publisher->getHandler('permission')->getGrantedGroupsById('events_moderation', id);
-        return $permHelper->getGroupsForItem('sbcolumns_moderation', $this->getVar('id'));
+        return $permHelper->getGroupsForItem('sbcolumns_moderation', $this->getVar('event_id'));
     }
 }
 

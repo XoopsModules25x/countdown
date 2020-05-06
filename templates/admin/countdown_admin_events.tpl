@@ -30,11 +30,11 @@
                     <tr class="<{cycle values="odd,even"}>">
 
                         <td align="center" style="vertical-align:middle;"><input type="checkbox" name="events_id[]" title="events_id[]" id="events_id[]" value="<{$eventsArray.events_id}>"/></td>
-                        <td class='center'><{$eventsArray.id}></td>
-                        <td class='center'><{$eventsArray.uid}></td>
-                        <td class='center'><{$eventsArray.name}></td>
-                        <td class='center'><{$eventsArray.description}></td>
-                        <td class='center'><{$eventsArray.enddatetime}></td>
+                        <td class='center'><{$eventsArray.event_id}></td>
+                        <td class='center'><{$eventsArray.event_uid}></td>
+                        <td class='center'><{$eventsArray.event_name}></td>
+                        <td class='center'><{$eventsArray.event_description}></td>
+                        <td class='center'><{$eventsArray.event_enddatetime}></td>
 
 
                         <td class="center width5"><{$eventsArray.edit_delete}></td>

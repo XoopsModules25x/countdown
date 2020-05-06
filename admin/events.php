@@ -51,7 +51,7 @@ switch ($op) {
         $eventsPaginationLimit = $helper->getConfig('userpager');
 
         $criteria = new \CriteriaCompo();
-        $criteria->setSort('id ASC, id');
+        $criteria->setSort('event_id ASC, event_id');
         $criteria->setOrder('ASC');
         $criteria->setLimit($eventsPaginationLimit);
         $criteria->setStart($start);
@@ -96,25 +96,25 @@ switch ($op) {
 
                 //        $field = explode(':', $fields[$i]);
 
-                $selectorid = $utility::selectSorting(_AM_COUNTDOWN_EVENTS_ID, 'id');
+                $selectorid = $utility::selectSorting(_AM_COUNTDOWN_EVENTS_ID, 'event_id');
                 $GLOBALS['xoopsTpl']->assign('selectorid', $selectorid);
-                $eventsArray['id'] = $eventsTempArray[$i]->getVar('id');
+                $eventsArray['event_id'] = $eventsTempArray[$i]->getVar('event_id');
 
-                $selectoruid = $utility::selectSorting(_AM_COUNTDOWN_EVENTS_UID, 'uid');
+                $selectoruid = $utility::selectSorting(_AM_COUNTDOWN_EVENTS_UID, 'event_uid');
                 $GLOBALS['xoopsTpl']->assign('selectoruid', $selectoruid);
-                $eventsArray['uid'] = $eventsTempArray[$i]->getVar('uid');
+                $eventsArray['event_uid'] = $eventsTempArray[$i]->getVar('event_uid');
 
-                $selectorname = $utility::selectSorting(_AM_COUNTDOWN_EVENTS_NAME, 'name');
+                $selectorname = $utility::selectSorting(_AM_COUNTDOWN_EVENTS_NAME, 'event_name');
                 $GLOBALS['xoopsTpl']->assign('selectorname', $selectorname);
-                $eventsArray['name'] = $eventsTempArray[$i]->getVar('name');
+                $eventsArray['event_name'] = $eventsTempArray[$i]->getVar('event_name');
 
-                $selectordescription = $utility::selectSorting(_AM_COUNTDOWN_EVENTS_DESCRIPTION, 'description');
+                $selectordescription = $utility::selectSorting(_AM_COUNTDOWN_EVENTS_DESCRIPTION, 'event_description');
                 $GLOBALS['xoopsTpl']->assign('selectordescription', $selectordescription);
-                $eventsArray['description'] = ($eventsTempArray[$i]->getVar('description'));
+                $eventsArray['event_description'] = ($eventsTempArray[$i]->getVar('event_description'));
 
-                $selectorenddatetime = $utility::selectSorting(_AM_COUNTDOWN_EVENTS_ENDDATETIME, 'enddatetime');
+                $selectorenddatetime = $utility::selectSorting(_AM_COUNTDOWN_EVENTS_ENDDATETIME, 'event_enddatetime');
                 $GLOBALS['xoopsTpl']->assign('selectorenddatetime', $selectorenddatetime);
-                $eventsArray['enddatetime'] = date(_DATESTRING, strtotime($eventsTempArray[$i]->getVar('enddatetime')));
+                $eventsArray['event_enddatetime'] = date(_DATESTRING, strtotime($eventsTempArray[$i]->getVar('event_enddatetime')));
                 $eventsArray['edit_delete'] = "<a href='events.php?op=edit&id=" . $i . "'><img src=" . $pathIcon16 . "/edit.png alt='" . _EDIT . "' title='" . _EDIT . "'></a>
                <a href='events.php?op=delete&id=" . $i . "'><img src=" . $pathIcon16 . "/delete.png alt='" . _DELETE . "' title='" . _DELETE . "'></a>
                <a href='events.php?op=clone&id=" . $i . "'><img src=" . $pathIcon16 . "/editcopy.png alt='" . _CLONE . "' title='" . _CLONE . "'></a>";
@@ -129,30 +129,6 @@ switch ($op) {
                 $pagenav = new \XoopsPageNav($eventsCount, $eventsPaginationLimit, $start, 'start', 'op=list' . '&sort=' . $sort . '&order=' . $order . '');
                 $GLOBALS['xoopsTpl']->assign('pagenav', $pagenav->renderNav(4));
             }
-
-            //                     echo "<td class='center width5'>
-
-            //                    <a href='events.php?op=edit&id=".$i."'><img src=".$pathIcon16."/edit.png alt='"._EDIT."' title='"._EDIT."'></a>
-            //                    <a href='events.php?op=delete&id=".$i."'><img src=".$pathIcon16."/delete.png alt='"._DELETE."' title='"._DELETE."'></a>
-            //                    </td>";
-
-            //                echo "</tr>";
-
-            //            }
-
-            //            echo "</table><br><br>";
-
-            //        } else {
-
-            //            echo "<table width='100%' cellspacing='1' class='outer'>
-
-            //                    <tr>
-
-            //                     <th class='center width5'>"._AM_COUNTDOWN_FORM_ACTION."XXX</th>
-            //                    </tr><tr><td class='errorMsg' colspan='6'>There are noXXX events</td></tr>";
-            //            echo "</table><br><br>";
-
-            //-------------------------------------------
 
             echo $GLOBALS['xoopsTpl']->fetch(XOOPS_ROOT_PATH . '/modules/' . $GLOBALS['xoopsModule']->getVar('dirname') . '/templates/admin/countdown_admin_events.tpl');
         }
@@ -173,15 +149,15 @@ switch ($op) {
             redirect_header('events.php', 3, implode(',', $GLOBALS['xoopsSecurity']->getErrors()));
         }
         if (0 != Request::getInt('id', 0)) {
-            $eventsObject = $eventsHandler->get(Request::getInt('id', 0));
+            $eventsObject = $eventsHandler->get(Request::getInt('event_id', 0));
         } else {
             $eventsObject = $eventsHandler->create();
         }
         // Form save fields
-        $eventsObject->setVar('uid', Request::getVar('uid', ''));
-        $eventsObject->setVar('name', Request::getVar('name', ''));
-        $eventsObject->setVar('description', Request::getText('description', ''));
-        $eventsObject->setVar('enddatetime', date('Y-m-d H:i:s', strtotime($_REQUEST['enddatetime']['date']) + $_REQUEST['enddatetime']['time']));
+        $eventsObject->setVar('event_uid', Request::getVar('event_uid', ''));
+        $eventsObject->setVar('event_name', Request::getVar('event_name', ''));
+        $eventsObject->setVar('event_description', Request::getText('event_description', ''));
+        $eventsObject->setVar('event_enddatetime', date('Y-m-d H:i:s', strtotime($_REQUEST['event_enddatetime']['date']) + $_REQUEST['event_enddatetime']['time']));
         if ($eventsHandler->insert($eventsObject)) {
             redirect_header('events.php?op=list', 2, _AM_COUNTDOWN_FORMOK);
         }
@@ -212,7 +188,7 @@ switch ($op) {
                 echo $eventsObject->getHtmlErrors();
             }
         } else {
-            xoops_confirm(['ok' => 1, 'id' => Request::getString('id', ''), 'op' => 'delete'], Request::getUrl('REQUEST_URI', '', 'SERVER'), sprintf(_AM_COUNTDOWN_FORMSUREDEL, $eventsObject->getVar('id')));
+            xoops_confirm(['ok' => 1, 'id' => Request::getString('id', ''), 'op' => 'delete'], Request::getUrl('REQUEST_URI', '', 'SERVER'), sprintf(_AM_COUNTDOWN_FORMSUREDEL, $eventsObject->getVar('event_id')));
         }
         break;
 
@@ -220,7 +196,7 @@ switch ($op) {
 
         $id_field = Request::getString('id', '');
 
-        if ($utility::cloneRecord('countdown_events', 'id', $id_field)) {
+        if ($utility::cloneRecord('countdown_events', 'event_id', $id_field)) {
             redirect_header('events.php', 3, _AM_COUNTDOWN_CLONED_OK);
         } else {
             redirect_header('events.php', 3, _AM_COUNTDOWN_CLONED_FAILED);

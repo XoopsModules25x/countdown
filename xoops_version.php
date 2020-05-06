@@ -243,23 +243,23 @@ $modversion['config'][] = [
     'default'     => ''
 ];
 
-$modversion['config'][] = [
-    'name'        => 'bookmarks',
-    'title'       => '_MI_COUNTDOWN_BOOKMARKS',
-    'description' => '_MI_COUNTDOWN_BOOKMARKS_DESC',
-    'formtype'    => 'yesno',
-    'valuetype'   => 'int',
-    'default'     => 0
-];
+//$modversion['config'][] = [
+//    'name'        => 'bookmarks',
+//    'title'       => '_MI_COUNTDOWN_BOOKMARKS',
+//    'description' => '_MI_COUNTDOWN_BOOKMARKS_DESC',
+//    'formtype'    => 'yesno',
+//    'valuetype'   => 'int',
+//    'default'     => 0
+//];
 
-$modversion['config'][] = [
-    'name'        => 'fbcomments',
-    'title'       => '_MI_COUNTDOWN_FBCOMMENTS',
-    'description' => '_MI_COUNTDOWN_FBCOMMENTS_DESC',
-    'formtype'    => 'yesno',
-    'valuetype'   => 'int',
-    'default'     => 0
-];
+//$modversion['config'][] = [
+  //  'name'        => 'fbcomments',
+  //  'title'       => '_MI_COUNTDOWN_FBCOMMENTS',
+  //  'description' => '_MI_COUNTDOWN_FBCOMMENTS_DESC',
+  //  'formtype'    => 'yesno',
+  //  'valuetype'   => 'int',
+  //  'default'     => 0
+//];
 
 // -------------- Notifications countdown --------------
 $modversion['hasNotification']             = 1;
