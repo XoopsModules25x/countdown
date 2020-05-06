@@ -25,7 +25,7 @@
 use Xmf\Request;
 use XoopsModules\Countdown;
 
-$GLOBALS['xoopsOption']['template_main'] = 'countdown_events.tpl';
+$GLOBALS['xoopsOption']['template_main'] = 'countdown_event.tpl';
 require_once __DIR__ . '/header.php';
 $start = Request::getInt('start', 0);
 // Define Stylesheet
@@ -50,7 +50,7 @@ $eventsArray = $eventsHandler->getAll($criteria);
 
 $id = Request::getInt('id', 0, 'GET');
 
-        //        viewItem();
+        //viewItem();
         $eventsPaginationLimit                   = 1;
         $myid                                    = $id;
         //id
