@@ -151,14 +151,6 @@ switch ($op) {
 
         break;
 
-    
-    
-    
-    
-    
-    
-    
-    
     case 'new':
         $adminObject->addItemButton(_AM_COUNTDOWN_EVENTS_LIST, 'events.php', 'list');
         echo $adminObject->displayButton('left');
