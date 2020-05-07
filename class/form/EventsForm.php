@@ -70,7 +70,7 @@ class EventsForm extends \XoopsThemeForm
         $category_id = $this->targetObject->getVar('event_categoryid');
         }
 		$categoryHandler = \XoopsModules\Countdown\Helper::getInstance()->getHandler('Category');
-		//$objects = $categoryHandler->getList($category_id);
+		$objects = $categoryHandler->getList($category_id);
         //$category_select = new XoopsFormSelect(_AM_COUNTDOWN_CATEGORY, 'event_categoryid', $category_id);
 		$category_select = new XoopsFormSelect(_AM_COUNTDOWN_CATEGORY, 'event_categoryid', $this->targetObject->getVar('event_categoryid', 'e' ), 1, false );
 		$category_select->addOptionArray($objects);

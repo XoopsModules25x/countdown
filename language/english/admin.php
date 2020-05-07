@@ -34,8 +34,8 @@ define('_AM_COUNTDOWN_EVENTS_LIST', 'List of Events');
 define('_AM_COUNTDOWN_ADD_CATEGORY', 'Add new Category');
 define('_AM_COUNTDOWN_CATEGORY_LIST', 'List of Categories');
 //General
-define('_AM_COUNTDOWN_FORMOK', 'Registered successfull');
-define('_AM_COUNTDOWN_FORMDELOK', 'Deleted successfull');
+define('_AM_COUNTDOWN_FORMOK', 'Registered successfully');
+define('_AM_COUNTDOWN_FORMDELOK', 'Deleted successfully');
 define('_AM_COUNTDOWN_FORMSUREDEL', "Are you sure to Delete: <span class='bold red'>%s</span></b>");
 define('_AM_COUNTDOWN_FORMSURERENEW', "Are you sure to Renew: <span class='bold red'>%s</span></b>");
 define('_AM_COUNTDOWN_FORMUPLOAD', 'Upload');
@@ -57,7 +57,8 @@ define('_AM_COUNTDOWN_CATEGORY_ID', 'ID');
 define('_AM_COUNTDOWN_CATEGORY_UID', 'User');
 define('_AM_COUNTDOWN_CATEGORY_TITLE', 'Category Title');
 define('_AM_COUNTDOWN_CATEGORY_WEIGHT', 'Category Weight');
-define('_AM_COUNTDOWN_NOCATEGORY', 'Error: There are no category created yet. Before you can create a new event, you must create a category first.' );
+define('_AM_COUNTDOWN_CATEGORY_EMPTY', 'Error: There are no category created yet. Before you can create a new event, you must create a category first.');
+define('_AM_COUNTDOWN_CATEGORY_DELETECONFIRM', "Are you sure you want to delete <span class='bold red'>%s</span></b> category and <b>ALL</b> of its Events? This action is not reversible !!");
 
 // Events
 define('_AM_COUNTDOWN_EVENTS_ADD', 'Add a events');

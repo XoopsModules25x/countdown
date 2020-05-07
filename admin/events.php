@@ -46,7 +46,7 @@ switch ($op) {
     case 'list':
     default:
 		if (!$totalCategories = $categoryHandler->getCount() ) {
-		xoops_error( _AM_COUNTDOWN_NOCATEGORY);
+		xoops_error( _AM_COUNTDOWN_CATEGORY_EMPTY);
 		xoops_cp_footer();
 		exit();
 		}
@@ -166,7 +166,7 @@ switch ($op) {
 
     case 'new':
         if (!$totalCategories = $categoryHandler->getCount() ) {
-		xoops_error( _AM_COUNTDOWN_NOCATEGORY);
+		xoops_error( _AM_COUNTDOWN_CATEGORY_EMPTY);
 		xoops_cp_footer();
 		exit();
 		}

@@ -175,12 +175,15 @@ switch ($op) {
                 redirect_header('category.php', 3, implode(', ', $GLOBALS['xoopsSecurity']->getErrors()));
             }
             if ($categoryHandler->delete($categoryObject)) {
+				$cat_id = Request::getString('id', '');
+				$sql = 'DELETE FROM ' . $GLOBALS['xoopsDB']->prefix('countdown_events') . " WHERE event_categoryid = '" . $cat_id . "'";
+			    $xoopsDB->query( $sql );
                 redirect_header('category.php', 3, _AM_COUNTDOWN_FORMDELOK);
             } else {
                 echo $categoryObject->getHtmlErrors();
             }
         } else {
-            xoops_confirm(['ok' => 1, 'id' => Request::getString('id', ''), 'op' => 'delete'], Request::getUrl('REQUEST_URI', '', 'SERVER'), sprintf(_AM_COUNTDOWN_FORMSUREDEL, $categoryObject->getVar('category_id')));
+            xoops_confirm(['ok' => 1, 'id' => Request::getString('id', ''), 'op' => 'delete'], Request::getUrl('REQUEST_URI', '', 'SERVER'), sprintf(_AM_COUNTDOWN_CATEGORY_DELETECONFIRM, $categoryObject->getVar('category_title')));
         }
         break;
 
