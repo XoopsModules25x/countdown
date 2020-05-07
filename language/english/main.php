@@ -40,7 +40,6 @@ define('_MD_COUNTDOWN_EVENTS_NAME', 'Event Name');
 define('_MD_COUNTDOWN_EVENTS_LOGO', 'Event Logo');
 define('_MD_COUNTDOWN_EVENTS_DESCRIPTION', 'Description');
 define('_MD_COUNTDOWN_EVENTS_DATE', 'Event Date Time');
-define('_MD_COUNTDOWN_EVENTS_DATE', 'Date of Event');
 define('_MD_COUNTDOWN_EVENTS_DATE_CREATED', 'Created');
 define('_MD_COUNTDOWN_EVENTS_DATE_UPDATED', 'Updated');
 define('_MD_COUNTDOWN_TIME_REMAINING', 'Countdown');
