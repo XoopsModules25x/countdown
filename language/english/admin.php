@@ -49,6 +49,7 @@ define('_AM_COUNTDOWN_SELECTED_ERROR', 'You selected nothing to delete');
 define('_AM_COUNTDOWN_CLONED_OK', 'Record cloned successfully');
 define('_AM_COUNTDOWN_CLONED_FAILED', 'Cloning of the record has failed');
 // Category
+define('_AM_COUNTDOWN_CATEGORY', 'Category');
 define('_AM_COUNTDOWN_CATEGORY_ADD', 'Add a category');
 define('_AM_COUNTDOWN_CATEGORY_EDIT', 'Edit category');
 define('_AM_COUNTDOWN_CATEGORY_DELETE', 'Delete category');
@@ -56,6 +57,8 @@ define('_AM_COUNTDOWN_CATEGORY_ID', 'ID');
 define('_AM_COUNTDOWN_CATEGORY_UID', 'User');
 define('_AM_COUNTDOWN_CATEGORY_TITLE', 'Category Title');
 define('_AM_COUNTDOWN_CATEGORY_WEIGHT', 'Category Weight');
+define('_AM_COUNTDOWN_NOCATEGORY', 'Error: There are no category created yet. Before you can create a new event, you must create a category first.' );
+
 // Events
 define('_AM_COUNTDOWN_EVENTS_ADD', 'Add a events');
 define('_AM_COUNTDOWN_EVENTS_EDIT', 'Edit events');

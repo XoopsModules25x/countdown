@@ -38,6 +38,6 @@ class CategoryHandler extends \XoopsPersistableObjectHandler
 
     public function __construct(\XoopsDatabase $db)
     {
-        parent::__construct($db, 'countdown_categories', Category::class, 'category_id', 'E');
+        parent::__construct($db, 'countdown_categories', Category::class, 'category_id', 'category_title');
     }
 }

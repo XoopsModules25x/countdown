@@ -45,6 +45,11 @@ $uploadUrl  = XOOPS_UPLOAD_URL . '/countdown/images/';
 switch ($op) {
     case 'list':
     default:
+		if (!$totalCategories = $categoryHandler->getCount() ) {
+		xoops_error( _AM_COUNTDOWN_NOCATEGORY);
+		xoops_cp_footer();
+		exit();
+		}
         $adminObject->addItemButton(_AM_COUNTDOWN_EVENTS_ADD, 'events.php?op=new', 'add');
         echo $adminObject->displayButton('left');
         $start                 = Request::getInt('start', 0);
@@ -152,7 +157,12 @@ switch ($op) {
         break;
 
     case 'new':
-        $adminObject->addItemButton(_AM_COUNTDOWN_EVENTS_LIST, 'events.php', 'list');
+        if (!$totalCategories = $categoryHandler->getCount() ) {
+		xoops_error( _AM_COUNTDOWN_NOCATEGORY);
+		xoops_cp_footer();
+		exit();
+		}
+		$adminObject->addItemButton(_AM_COUNTDOWN_EVENTS_LIST, 'events.php', 'list');
         echo $adminObject->displayButton('left');
 
         $eventsObject = $eventsHandler->create();

@@ -23,7 +23,9 @@
 
 use Xmf\Request;
 use XoopsModules\Countdown;
+use XoopsModules\Countdown\Common;
 use XoopsFormTextDateSelect;
+use XoopsFormSelect;
 
 require_once __DIR__ . '/../../include/common.php';
 
@@ -62,6 +64,17 @@ class EventsForm extends \XoopsThemeForm
 
         // Id
         $this->addElement(new \XoopsFormLabel(_AM_COUNTDOWN_EVENTS_ID, $this->targetObject->getVar('event_id'), 'event_id'));
+		//Category
+		$category_id = 0;
+		if (!$this->targetObject->isNew()) {
+        $category_id = $this->targetObject->getVar('event_category');
+        }
+		$categoryHandler = \XoopsModules\Countdown\Helper::getInstance()->getHandler('Category');
+		//$objects = $categoryHandler->getList($category_id);
+        //$category_select = new XoopsFormSelect(_AM_COUNTDOWN_CATEGORY, 'event_category', $category_id);
+		$category_select = new XoopsFormSelect(_AM_COUNTDOWN_CATEGORY, 'event_category', $this->targetObject->getVar('event_category', 'e' ), 1, false );
+		$category_select->addOptionArray($objects);
+        $this->addElement($category_select);
         // Name
         $this->addElement(new \XoopsFormText(_AM_COUNTDOWN_EVENTS_NAME, 'event_name', 50, 255, $this->targetObject->getVar('event_name')), false);
         // Description
@@ -113,13 +126,13 @@ class EventsForm extends \XoopsThemeForm
 		// Data_creation
         $this->addElement(
             new XoopsFormTextDateSelect(
-                \AM_SUICO_IMAGES_DATE_CREATED, 'date_created', 0, \formatTimestamp($this->targetObject->getVar('date_created'), 's')
+                \_AM_COUNTDOWN_EVENTS_DATE_CREATED, 'date_created', 0, \formatTimestamp($this->targetObject->getVar('date_created'), 's')
             )
         );
         // Data_update
         $this->addElement(
             new XoopsFormTextDateSelect(
-                \AM_SUICO_IMAGES_DATE_UPDATED, 'date_updated', 0, \formatTimestamp($this->targetObject->getVar('date_updated'), 's')
+                \_AM_COUNTDOWN_EVENTS_DATE_UPDATED, 'date_updated', 0, \formatTimestamp($this->targetObject->getVar('date_updated'), 's')
             )
         );
 		
