@@ -93,12 +93,11 @@ $modversion['comments']['callbackFile']        = 'include/comment_functions.php'
 $modversion['comments']['callback']['approve'] = 'countdown_com_approve';
 $modversion['comments']['callback']['update']  = 'countdown_com_update';
 //  ------------------- Templates -----------------------------//
+$modversion['templates'][] = ['file' => 'blocks/countdown_block.tpl', 'description' => ''];
 $modversion['templates'][] = ['file' => 'countdown_header.tpl', 'description' => ''];
 $modversion['templates'][] = ['file' => 'countdown_event.tpl', 'description' => ''];
-
 $modversion['templates'][] = ['file' => 'countdown_events_list.tpl', 'description' => ''];
 $modversion['templates'][] = ['file' => 'countdown_footer.tpl', 'description' => ''];
-
 $modversion['templates'][] = ['file' => 'admin/countdown_admin_about.tpl', 'description' => ''];
 $modversion['templates'][] = ['file' => 'admin/countdown_admin_help.tpl', 'description' => ''];
 $modversion['templates'][] = ['file' => 'admin/countdown_admin_events.tpl', 'description' => ''];
@@ -121,6 +120,17 @@ $modversion['helpsection'] = [
 ];
 
 // ------------------- Blocks -----------------------------//
+$modversion['blocks'] = [
+[
+        'file'        => 'countdown-block.php',
+        'name'        => _MI_COUNTDOWN_COUNTDOWN_BLOCK,
+        'description' => _MI_COUNTDOWN_COUNTDOWN_BLOCKDESC,
+        'show_func'   => 'showCountdown',
+        'edit_func'   => 'editCountdown',
+        'options'     => '0',
+		'template'    => 'countdown_block.tpl',
+    ]
+];
 // ------------------- Config Options -----------------------------//
 xoops_load('xoopseditorhandler');
 $editorHandler          = \XoopsEditorHandler::getInstance();

@@ -30,6 +30,8 @@ define('_MI_COUNTDOWN_ADMENU3', 'Events');
 define('_MI_COUNTDOWN_ADMENU4', 'Permission');
 define('_MI_COUNTDOWN_ADMENU5', 'About');
 //Blocks
+define("_MI_COUNTDOWN_COUNTDOWN_BLOCK","Countdown");
+define("_MI_COUNTDOWN_COUNTDOWN_BLOCKDESC","Countdown Timer Block");
 //Config
 define('_MI_COUNTDOWN_EDITOR_ADMIN', 'Editor: Admin');
 define('_MI_COUNTDOWN_EDITOR_ADMIN_DESC', 'Select the Editor to use by the Admin');

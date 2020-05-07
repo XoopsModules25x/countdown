@@ -1,6 +1,8 @@
 <h5>2.0        [NOT RELEASED]</h5>  Dev: Xoops 2.5.9, PHP 7.2.0
 <hr>
- - Change event date type to int
+ - Add Countdown Block (liomj) 
+ - Fix vue.js countdown timer in templates (liomj)
+ - Change event date type to int (liomj)
  - Add event categories (liomj)
  - Add date created and date updated to event (liomj)
  - Change uid to Poster Name (liomj)
