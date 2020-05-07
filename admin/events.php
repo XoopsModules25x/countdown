@@ -122,7 +122,7 @@ switch ($op) {
 
                 $selectordate = $utility::selectSorting(_AM_COUNTDOWN_EVENTS_DATE, 'event_date');
                 $GLOBALS['xoopsTpl']->assign('selectordate', $selectordate);
-                $eventsArray['event_date'] = formatTimestamp($eventsTempArray[$i]->getVar('event_date'));
+                $eventsArray['event_date'] = date(_DATESTRING, strtotime($eventsTempArray[$i]->getVar('event_date')));
 				
 				$selectorcategory = $utility::selectSorting(_AM_COUNTDOWN_EVENTS_CATEGORY, 'event_categoryid');
                 $GLOBALS['xoopsTpl']->assign('selectorcategory', $selectorcategory);
@@ -191,8 +191,7 @@ switch ($op) {
         $eventsObject->setVar('event_uid', Request::getVar('event_uid', ''));
         $eventsObject->setVar('event_name', Request::getVar('event_name', ''));
         $eventsObject->setVar('event_description', Request::getText('event_description', ''));
-		$dateTimeObj = \DateTime::createFromFormat(_SHORTDATESTRING, Request::getString('event_date', '', 'POST'));
-        $eventsObject->setVar('event_date', $dateTimeObj->getTimestamp());
+        $eventsObject->setVar('event_date', date('Y-m-d H:i:s', strtotime($_REQUEST['event_date']['date']) + $_REQUEST['event_date']['time']));
         $dateTimeObj = \DateTime::createFromFormat(_SHORTDATESTRING, Request::getString('date_created', '', 'POST'));
         $eventsObject->setVar('date_created', $dateTimeObj->getTimestamp());
         $dateTimeObj = \DateTime::createFromFormat(_SHORTDATESTRING, Request::getString('date_updated', '', 'POST'));

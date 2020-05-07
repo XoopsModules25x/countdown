@@ -100,11 +100,7 @@ class EventsForm extends \XoopsThemeForm
         $this->addElement($descEditor);
 
 		// Event Date
-        $this->addElement(
-            new XoopsFormTextDateSelect(
-                \_AM_COUNTDOWN_EVENTS_DATE, 'event_date', 0, \formatTimestamp($this->targetObject->getVar('event_date'), 's')
-            )
-        );
+       $this->addElement(new \XoopsFormDateTime(_AM_COUNTDOWN_EVENTS_DATE, 'event_date', '', strtotime($this->targetObject->getVar('event_date'))));
 
 		// Logo
         $logo = $this->targetObject->getVar('event_logo') ?: 'blank.png';
