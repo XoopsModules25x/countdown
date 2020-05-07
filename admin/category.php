@@ -75,7 +75,7 @@ switch ($op) {
         $GLOBALS['xoopsTpl']->assign('categoryRows', $categoryTempRows);
         $categoryArray = [];
 
-        //    $fields = explode('|', id:int:11::NOT NULL::primary:ID|uid:int:11::NOT NULL:0::User|name:varchar:50::NOT NULL:::Event|description:mediumtext:0::NOT NULL:::Description|enddatetime:timestamp:11::NOT NULL:0::End Date/Time);
+        //    $fields = explode('|', id:int:11::NOT NULL::primary:ID|uid:int:11::NOT NULL:0::User|name:varchar:50::NOT NULL:::Event|description:mediumtext:0::NOT NULL:::Description|date:timestamp:11::NOT NULL:0::End Date/Time);
         //    $fieldsCount    = count($fields);
 
         $criteria = new \CriteriaCompo();

@@ -80,7 +80,7 @@ switch ($op) {
         $GLOBALS['xoopsTpl']->assign('eventsRows', $eventsTempRows);
         $eventsArray = [];
 
-        //    $fields = explode('|', id:int:11::NOT NULL::primary:ID|uid:int:11::NOT NULL:0::User|name:varchar:50::NOT NULL:::Event|description:mediumtext:0::NOT NULL:::Description|enddatetime:timestamp:11::NOT NULL:0::End Date/Time);
+        //    $fields = explode('|', id:int:11::NOT NULL::primary:ID|uid:int:11::NOT NULL:0::User|name:varchar:50::NOT NULL:::Event|description:mediumtext:0::NOT NULL:::Description|date:timestamp:11::NOT NULL:0::End Date/Time);
         //    $fieldsCount    = count($fields);
 
         $criteria = new \CriteriaCompo();
@@ -120,17 +120,17 @@ switch ($op) {
                 $GLOBALS['xoopsTpl']->assign('selectordescription', $selectordescription);
                 $eventsArray['event_description'] = ($eventsTempArray[$i]->getVar('event_description'));
 
-                $selectorenddatetime = $utility::selectSorting(_AM_COUNTDOWN_EVENTS_ENDDATETIME, 'event_enddatetime');
-                $GLOBALS['xoopsTpl']->assign('selectorenddatetime', $selectorenddatetime);
-                $eventsArray['event_enddatetime'] = date(_DATESTRING, strtotime($eventsTempArray[$i]->getVar('event_enddatetime')));
+                $selectordate = $utility::selectSorting(_AM_COUNTDOWN_EVENTS_DATE, 'event_date');
+                $GLOBALS['xoopsTpl']->assign('selectordate', $selectordate);
+                $eventsArray['event_date'] = formatTimestamp($eventsTempArray[$i]->getVar('event_date'));
 				
 				$selectorcategory = $utility::selectSorting(_AM_COUNTDOWN_EVENTS_CATEGORY, 'event_categoryid');
                 $GLOBALS['xoopsTpl']->assign('selectorcategory', $selectorcategory);
                 $eventsArray['event_categoryid'] = $eventsTempArray[$i]->getVar('event_categoryid');
 				$categoryHandler = \XoopsModules\Countdown\Helper::getInstance()->getHandler('Category');
 				//$mycategory      = $categoryHandler->get($eventsTempArray[$i]->getVar('event_categoryid'));
-				//$mycategory      = $categoryHandler->getList(1,0);
-				//$eventsArray['event_categoryidname']  = $mycategory->getVar('category_title');
+				//$mycategory      = $categoryHandler->getList();
+				//$eventsArray['event_categoryname']  = $mycategory->getVar('category_title');
 				
 				$selectorlogo = $utility::selectSorting(_AM_COUNTDOWN_EVENTS_LOGO, 'event_logo');
                 $GLOBALS['xoopsTpl']->assign('selectorlogo', $selectorlogo);
@@ -191,7 +191,8 @@ switch ($op) {
         $eventsObject->setVar('event_uid', Request::getVar('event_uid', ''));
         $eventsObject->setVar('event_name', Request::getVar('event_name', ''));
         $eventsObject->setVar('event_description', Request::getText('event_description', ''));
-        $eventsObject->setVar('event_enddatetime', date('Y-m-d H:i:s', strtotime($_REQUEST['event_enddatetime']['date']) + $_REQUEST['event_enddatetime']['time']));
+		$dateTimeObj = \DateTime::createFromFormat(_SHORTDATESTRING, Request::getString('event_date', '', 'POST'));
+        $eventsObject->setVar('event_date', $dateTimeObj->getTimestamp());
         $dateTimeObj = \DateTime::createFromFormat(_SHORTDATESTRING, Request::getString('date_created', '', 'POST'));
         $eventsObject->setVar('date_created', $dateTimeObj->getTimestamp());
         $dateTimeObj = \DateTime::createFromFormat(_SHORTDATESTRING, Request::getString('date_updated', '', 'POST'));

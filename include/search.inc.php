@@ -31,7 +31,7 @@ function countdown_search($queryarray, $andor, $limit, $offset, $userid)
     while (false !== ($myrow = $GLOBALS['xoopsDB']->fetchArray($result))) {
         $ret[$i]['link']  = '' . XOOPS_URL . "/modules/countdown2/events.php?op=view&id=" . $myrow['event_id'] . '';
         $ret[$i]['title'] = '' . htmlspecialchars($myrow['event_name'], ENT_QUOTES | ENT_HTML5) . '';
-        $ret[$i]['time']  = '';
+        $ret[$i]['time']  = '' . $myrow['event_date'] . '';
         $ret[$i]['uid']   = '' . $myrow['event_uid'] . '';
         $i++;
     }

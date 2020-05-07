@@ -70,10 +70,11 @@ class EventsForm extends \XoopsThemeForm
         $category_id = $this->targetObject->getVar('event_categoryid');
         }
 		$categoryHandler = \XoopsModules\Countdown\Helper::getInstance()->getHandler('Category');
-		$objects = $categoryHandler->getList($category_id);
-        //$category_select = new XoopsFormSelect(_AM_COUNTDOWN_CATEGORY, 'event_categoryid', $category_id);
-		$category_select = new XoopsFormSelect(_AM_COUNTDOWN_CATEGORY, 'event_categoryid', $this->targetObject->getVar('event_categoryid', 'e' ), 1, false );
-		$category_select->addOptionArray($objects);
+		//$objects = $categoryHandler->getList();
+        $category_select = new XoopsFormSelect(_AM_COUNTDOWN_CATEGORY, 'event_categoryid', $category_id);
+	//	$category_select = new XoopsFormSelect(_AM_COUNTDOWN_CATEGORY, 'event_categoryid', $this->targetObject->getVar('event_categoryid', 'e' ), 1, false );
+
+		//$category_select->addOptionArray($objects);
         $this->addElement($category_select);
         // Name
         $this->addElement(new \XoopsFormText(_AM_COUNTDOWN_EVENTS_NAME, 'event_name', 50, 255, $this->targetObject->getVar('event_name')), false);
@@ -97,8 +98,13 @@ class EventsForm extends \XoopsThemeForm
             $descEditor = new \XoopsFormDhtmlTextArea(_AM_COUNTDOWN_EVENTS_DESCRIPTION, 'event_description', $this->targetObject->getVar('event_description', 'e'), '100%', '100%');
         }
         $this->addElement($descEditor);
-        // Enddatetime
-        $this->addElement(new \XoopsFormDateTime(_AM_COUNTDOWN_EVENTS_ENDDATETIME, 'event_enddatetime', '', strtotime($this->targetObject->getVar('event_enddatetime'))));
+
+		// Event Date
+        $this->addElement(
+            new XoopsFormTextDateSelect(
+                \_AM_COUNTDOWN_EVENTS_DATE, 'event_date', 0, \formatTimestamp($this->targetObject->getVar('event_date'), 's')
+            )
+        );
 
 		// Logo
         $logo = $this->targetObject->getVar('event_logo') ?: 'blank.png';

@@ -47,6 +47,7 @@ if (file_exists($GLOBALS['xoops']->path($stylesheet))) {
 }
 /** @var \XoopsPersistableObjectHandler $eventsHandler */
 $eventsHandler = new Countdown\EventsHandler($db);
+$categoryHandler = new Countdown\CategoryHandler($db);
 
 // Load language files
 $helper->loadLanguage('main');

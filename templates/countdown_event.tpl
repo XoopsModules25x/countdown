@@ -31,11 +31,11 @@
             <td><{$events.description}></td>
         </tr>
         <tr>
-            <td><{$smarty.const._MD_COUNTDOWN_EVENTS_ENDDATETIME}></td>
-            <td><{$events.enddatetime}></td>
+            <td><{$smarty.const._MD_COUNTDOWN_EVENTS_DATE}></td>
+            <td><{$events.date}></td>
         </tr>
         <tr>
-            <td><{$smarty.const._MD_COUNTDOWN_EVENTS_ENDDATETIME}></td>
+            <td><{$smarty.const._MD_COUNTDOWN_EVENTS_DATE}></td>
             <td>
                 <div id="app-timer" class="container-fluid">
                     <div class="row">
@@ -92,7 +92,7 @@
     var app = new Vue({
         el: "#app-timer",
         data: {
-            endTime: "<{$events.enddatetimeiso}>",
+            endTime: "<{$events.dateiso}>",
             times: [
                 {id: 0, text: " Days, " + '\xa0', time: 45},
                 {id: 1, text: " Hours," + '\xa0', time: 35},
