@@ -20,7 +20,7 @@
         <{*</tr>*}>
 		<tr>
             <td><{$smarty.const._MD_COUNTDOWN_EVENTS_LOGO}></td>
-            <td>	<img src="<{$xoops_url}>/uploads/countdown/images/<{$events.logo}>" alt="<{$events.name}>" title="<{$events.name}>"><br></td>
+            <td>	<img src="<{$xoops_url}>/uploads/countdown/images/<{$events.logo}>" alt="<{$events.name}>" title="<{$events.name}>" class="img-fluid"><br></td>
         </tr>       
 	   <tr>
             <td><{$smarty.const._MD_COUNTDOWN_EVENTS_NAME}></td>
@@ -54,7 +54,7 @@
                                                         <{else}>
                                                             <small><{$events.date_updated|date_format}></small>
                                                         <{/if}>
-														<span class="fa fa-user-circle-o"></span> <{$events.postername}>
+														<span class="fa fa-user-circle-o"></span> <{$events.postername}>  <span class="fa fa-tag"></span> <{$events.category}>
                       </p>
 			
                 <!--<a href="events.php?op=view&id=<{$events.id}>" title="<{$smarty.const._PREVIEW}>"><img src="<{xoModuleIcons16 search.png}>" alt="<{$smarty.const._PREVIEW}>" title="<{$smarty.const._PREVIEW}>"</a>    &nbsp;-->

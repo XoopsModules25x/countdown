@@ -124,6 +124,14 @@ switch ($op) {
                 $GLOBALS['xoopsTpl']->assign('selectorenddatetime', $selectorenddatetime);
                 $eventsArray['event_enddatetime'] = date(_DATESTRING, strtotime($eventsTempArray[$i]->getVar('event_enddatetime')));
 				
+				$selectorcategory = $utility::selectSorting(_AM_COUNTDOWN_EVENTS_CATEGORY, 'event_categoryid');
+                $GLOBALS['xoopsTpl']->assign('selectorcategory', $selectorcategory);
+                $eventsArray['event_categoryid'] = $eventsTempArray[$i]->getVar('event_categoryid');
+				$categoryHandler = \XoopsModules\Countdown\Helper::getInstance()->getHandler('Category');
+				//$mycategory      = $categoryHandler->get($eventsTempArray[$i]->getVar('event_categoryid'));
+				//$mycategory      = $categoryHandler->getList(1,0);
+				//$eventsArray['event_categoryidname']  = $mycategory->getVar('category_title');
+				
 				$selectorlogo = $utility::selectSorting(_AM_COUNTDOWN_EVENTS_LOGO, 'event_logo');
                 $GLOBALS['xoopsTpl']->assign('selectorlogo', $selectorlogo);
                 $eventsArray['event_logo']     = "<img src='" . $uploadUrl . $eventsTempArray[$i]->getVar('event_logo') . "' name='" . 'name' . "' id=" . 'id' . " alt='' style='max-width:100px'>";

@@ -17,7 +17,7 @@
 				#<{$events.id}>	<{*<{$events.uid}>*}><br>
 
 
-				<img src="<{$xoops_url}>/uploads/countdown/images/<{$events.logo}>" alt="<{$events.name}>" title="<{$events.name}>"><br>
+				<img src="<{$xoops_url}>/uploads/countdown/images/<{$events.logo}>" alt="<{$events.name}>" title="<{$events.name}>" class="img-fluid"><br>
      
 				<strong><{$smarty.const._MD_COUNTDOWN_EVENTS_NAME}></strong>   <br>        
 					<a href="event.php?id=<{$events.id}>"><{$events.name}></a>
@@ -45,7 +45,7 @@
                                                         <{else}>
                                                             <small><{$events.date_updated|date_format}></small>
                                                         <{/if}>
-														<span class="fa fa-user-circle-o"></span> <{$events.postername}>
+														<span class="fa fa-user-circle-o"></span> <{$events.postername}> <span class="fa fa-tag"></span> <{$events.category}>
                       </p>
 					
 					
