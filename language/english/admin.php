@@ -68,7 +68,7 @@ define('_AM_COUNTDOWN_EVENTS_ID', 'ID');
 define('_AM_COUNTDOWN_EVENTS_UID', 'User');
 define('_AM_COUNTDOWN_EVENTS_NAME', 'Event Name');
 define('_AM_COUNTDOWN_EVENTS_DESCRIPTION', 'Description');
-define('_AM_COUNTDOWN_EVENTS_DATE', 'Event Date/Time');
+define('_AM_COUNTDOWN_EVENTS_DATE', 'Event Date');
 define('_AM_COUNTDOWN_TIME_REMAINING', 'Countdown');
 define('_AM_COUNTDOWN_EVENTS_LOGO', 'Event Logo');
 define('_AM_COUNTDOWN_EVENTS_CATEGORY', 'Event Category');
