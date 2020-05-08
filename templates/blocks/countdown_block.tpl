@@ -53,13 +53,14 @@ Vue.component('Timer',{
                             <button id="btn-status" type="button" class="btn btn-countdown"> {{ statusText }}</button>
                         </li>
                     </ul> 
-				<p><span class="fa fa-calendar"></span>
+				<p><small><span class="fa fa-info-circle"></span>&nbsp;<{$block.postinfo}></small>
+				 <!--<span class="fa fa-calendar"></span>
                   <{if $block.date_created == $block.date_updated}>
                        <small><{$block.date_created|date_format}></small>
                   <{else}>
                         <small><{$block.date_updated|date_format}></small>
                   <{/if}>
-				  <small><span class="fa fa-user-circle-o"></span> <{$block.postername}>  <span class="fa fa-tag"></span> <{$block.category}></small>
+				  <small><span class="fa fa-user-circle-o"></span> <{$block.postername}>  <span class="fa fa-tag"></span> <{$block.category}></small>-->
                       </p>
 </div>
   `,

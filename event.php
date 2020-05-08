@@ -76,7 +76,8 @@ $id = Request::getInt('id', 0, 'GET');
 	    $events['dateiso']        = $eventsObject->getVar('event_date');
 		$events['date_created']   = formatTimestamp($eventsObject->getVar('date_created'));
 		$events['date_updated']   = formatTimestamp($eventsObject->getVar('date_updated'));
-        //       $GLOBALS['xoopsTpl']->append('events', $events);
+        $events['postinfo']		     = sprintf(_MD_COUNTDOWN_POSTEDBY, $myevent->getVar('uname'), formatTimestamp($eventsObject->getVar('date_created')), $eventsObject->getVar('event_categoryid')); 
+		//       $GLOBALS['xoopsTpl']->append('events', $events);
         $keywords[] = $eventsObject->getVar('event_id');
 
         $GLOBALS['xoopsTpl']->assign('events', $events);

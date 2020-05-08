@@ -48,7 +48,7 @@ define('_MD_COUNTDOWN_YESTERDAY', 'Yesterday');
 define('_MD_COUNTDOWN_TODAY', 'Today');
 define('_MD_COUNTDOWN_PASTEVENT', 'Past Event');
 define('_MD_COUNTDOWN_TOMORROW', 'Tomorrow');
-define('_MD_COUNTDOWN_POSTEDBY', 'Posted by');
+define('_MD_COUNTDOWN_POSTEDBY', 'Posted by %s on %s in %s');
 define('_MD_COUNTDOWN_DAY', 'Days');
 define('_MD_COUNTDOWN_HOURS', 'Hours');
 define('_MD_COUNTDOWN_MINUTES', 'Minutes');

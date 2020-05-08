@@ -22,6 +22,7 @@ function showCountdown($options){
                 $block['dateiso']           = $row['event_date'];
 				$block['date_created']      = formatTimestamp($row['date_created']);
 				$block['date_updated']      = formatTimestamp($row['date_updated']);
+				$block['postinfo']		    = sprintf(_MB_COUNTDOWN_POSTEDBY, $myevent->getVar('uname'), formatTimestamp($row['date_created']), $row['event_categoryid']); 
 	}
 	
     return $block;

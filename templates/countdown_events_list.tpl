@@ -41,9 +41,10 @@
  Vue.component('Timer',{
 	template: `
   	<div class="rounded bg-gradient-1 text-white shadow p-5 text-center mb-5">
-                    <p class="mb-0 font-weight-bold text-uppercase"><{$events.name}><br><small><{$events.date|date_format:"%A, %B %e %Y %l:%M %p"}></small>
+                    <p class="mb-0 font-weight-bold text-uppercase text-white"><a href="<{$xoops_url}>/modules/countdown2/event.php?id=<{$events.id}>"><{$events.name}></a><br><small><{$events.date|date_format:"%A, %B %e %Y %l:%M %p"}></small>
+					<a href="<{$xoops_url}>/modules/countdown2/event.php?id=<{$events.id}>">
 					<img src="<{$xoops_url}>/uploads/countdown/images/<{$events.logo}>" alt="<{$events.name}>" title="<{$events.name}>" class="img-fluid"><br>
-					<a href="<{$xoops_url}>/modules/countdown2/event.php?id=<{$events.id}>"><span class="text-body"><{$events.name}></span></a>
+					<span class="text-body"><{$events.name}></span></a>
 					<br><small><{$events.date|date_format:"%A, %B %e %Y %l:%M %p"}></small><br>
 					  <{$events.description}>
 					</p>
@@ -65,14 +66,16 @@
                         </li>
                     </ul>   
 					
-				 <p><span class="fa fa-calendar"></span>
+				 <p>
+				 <small><span class="fa fa-info-circle"></span>&nbsp;<{$events.postinfo}></small>
+				 <!--<span class="fa fa-calendar"></span>
                   <{if $events.date_created == $events.date_updated}>
                        <small><{$events.date_created|date_format}></small>
                   <{else}>
                         <small><{$events.date_updated|date_format}></small>
                   <{/if}>
 				  <small><span class="fa fa-user-circle-o"></span> <{$events.postername}>  <span class="fa fa-tag"></span> <{$events.category}></small>
-                      </p>
+                     --> </p>
 			
                 <{if $xoops_isadmin == true}>
 				 <p class="float-right">
