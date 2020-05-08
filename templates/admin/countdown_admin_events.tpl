@@ -37,7 +37,8 @@
                         <td class='center'><{$eventsArray.event_name}></td>
                         <td class='center'><{$eventsArray.event_description}></td>
                         <td class='center'><{$eventsArray.event_date}></td>
-					    <td class='center'><{$eventsArray.event_categoryname}></td>
+					    <td class='center'><{$eventsArray.event_categoryid}></td>
+						<!--<td class='center'><{$eventsArray.event_categoryname}></td>-->
 						<td class='center'><{$eventsArray.event_logo}></td>
 						<td class='center'><{$eventsArray.event_postername}></td>
 						<td class='center'><{$eventsArray.date_created}></td>

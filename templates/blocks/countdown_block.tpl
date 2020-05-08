@@ -1,149 +1,149 @@
-<style>
-hr.style1{
-	border-top: 1px dashed #f1f1f1;
-}
+#<{$block.id}>	<{*<{$block.uid}>*}><br>
 
 
-.circle-badge {
-  height: 60px;
-  width: 60px;
-  line-height:60px;
-  text-align: center;
-  border-radius: 50px;
-  background: #1ACAC0;
-  color:white;
-  margin-left:auto;
-  margin-right:auto;
-}
-
-.countdown li {
-  display: inline-block;
-  font-size: 1.0em;
-  font-weight:bold;
-  list-style-type: none;
-  padding: 1em;
-  text-transform: uppercase;
-}
-
-.countdown li span {
-  display: block;
-  font-size: 2.5rem;
-}
-</style>
-
-	<{assign var="event_id" value=$block.event_id}>
-	
-	<{php}>
-	
-
-	$event_id=$this->get_template_vars('event_id'); 
-//echo "$event_id";			
-
-
-// The current date
-	date_default_timezone_set("Asia/Kuching");
-$date = date('Y-m-d');
-      global $xoopsDB;
-$result = $xoopsDB->query("SELECT * FROM ".$xoopsDB->prefix("countdown_events")." WHERE id IN ($event_id)"); 
-
-
-			
+				<img src="<{$xoops_url}>/uploads/countdown/images/<{$block.logo}>" alt="<{$block.name}>" title="<{$block.name}>" class="img-fluid"><br>
      
+				<strong><{$smarty.const._MB_COUNTDOWN_EVENTS_NAME}></strong>   <br>        
+					<a href="event.php?id=<{$block.id}>"><{$block.name}></a>
+				<br>
+				<strong> <{$smarty.const._MB_COUNTDOWN_EVENTS_DESCRIPTION}> </strong><br>            
+					<{$block.description}>
+				<br>
+				<strong><{$smarty.const._MB_COUNTDOWN_EVENTS_DATE}> </strong><br>
+						<{$block.date}>
+                <br>
+				<strong><{$smarty.const._MB_COUNTDOWN_TIME_REMAINING}> </strong><br>
+               <div id="timer<{$block.id}>" class="timer">
+<!--  Timer Component  -->
+  <Timer 
+         starttime="<{$smarty.now|date_format:"%Y-%m-%d %H:%M:%S"}>" 
+         endtime="<{$block.dateiso}>" 
+         trans='{  
+         "day":"Day",
+         "hours":"Hours",
+         "minutes":"Minuts",
+         "seconds":"Seconds",
+         "expired":"Event has been expired.",
+         "running":"Till the end of event.",
+         "upcoming":"Till start of event.",
+         "status": {
+            "expired":"Expired",
+            "running":"Running",
+            "upcoming":"Future"
+           }}'
+         ></Timer>
+<!--  End! Timer Component  -->
+</div>
 
-			
-			
 
-while($row=$xoopsDB->fetchArray($result)) {
-			
-		$name=$row['name'];
-		$description=$row['description'];	
-		$enddatetime=$row['enddatetime'];	
-		$eventdate = date("Y-m-d", strtotime($enddatetime));
-		$displaydate = date("d.m.Y", strtotime($enddatetime));
-		
-		
+<script>
+ Vue.component('Timer',{
+	template: `
+  	<div>
+      <div class="day">
+        <span class="number">{{ days }}</span>
+        <div class="format">{{ wordString.day }}</div>
+      </div>
+      <div class="hour">
+        <span class="number">{{ hours }}</span>
+        <div class="format">{{ wordString.hours }}</div>
+      </div>
+      <div class="min">
+        <span class="number">{{ minutes }}</span>
+        <div class="format">{{ wordString.minutes }}</div>
+      </div>
+      <div class="sec">
+        <span class="number">{{ seconds }}</span>
+        <div class="format">{{ wordString.seconds }}</div>
+      </div>
+      <div class="message">{{ message }}</div>
+      <div class="status-tag" :class="statusType">{{ statusText }}</div>
+    </div>
+  `,
+  props: ['starttime','endtime','trans'] ,
+  data: function(){
+  	return{
+    	timer:"",
+      wordString: {},
+      start: "",
+      end: "",
+      interval: "",
+      days:"",
+      minutes:"",
+      hours:"",
+      seconds:"",
+      message:"",
+      statusType:"",
+      statusText: "",
+    
+    };
+  },
+  created: function () {
+        this.wordString = JSON.parse(this.trans);
+    },
+  mounted(){
+    this.start = new Date(this.starttime).getTime();
+    this.end = new Date(this.endtime).getTime();
+    // Update the count down every 1 second
+    this.timerCount(this.start,this.end);
+    this.interval = setInterval(() => {
+        this.timerCount(this.start,this.end);
+    }, 1000);
+  },
+  methods: {
+    timerCount: function(start,end){
+        // Get todays date and time
+        var now = new Date().getTime();
 
-	if ($date <= $eventdate) {
-		
-	 echo "<div class='container-fluid'><div class='row text-center'><div class='alert alert-info alert-dismissable fade in'>";
-			echo "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>";
-			echo "<h2>COUNTDOWN</h2>";   
-			echo "<h4>$name</h4>";
-			echo "<h4><i class='fa fa-calendar-check-o' aria-hidden='true'></i> $displaydate</h4>";
-			if ($description !=''){echo "$description";}
-			
-			date_default_timezone_set("Asia/Kuching");
-			$today = new DateTime(); // This object represents current date/time
-$today->setTime( 0, 0, 0 ); // reset time part, to prevent partial comparison
+        // Find the distance between now an the count down date
+        var distance = start - now;
+        var passTime =  end - now;
 
-//echo "Current Date : ";
-$currentdate=$today ->format('Y-m-d'); 
-//echo $currentdate;
+        if(distance < 0 && passTime < 0){
+            this.message = this.wordString.expired;
+            this.statusType = "expired";
+            this.statusText = this.wordString.status.expired;
+            clearInterval(this.interval);
+            return;
 
-//echo "<br /><br />";
+        }else if(distance < 0 && passTime > 0){
+            this.calcTime(passTime);
+            this.message = this.wordString.running;
+            this.statusType = "running";
+            this.statusText = this.wordString.status.running;
 
-//echo "Event Date: $eventdate";;
-//echo "<br /><br />";
-//$match_date = DateTime::createFromFormat( "Y.m.d\\TH:i", $eventdate );
-$match_date = DateTime::createFromFormat( "Y-m-d", $eventdate );
-$match_date->setTime( 0, 0, 0 ); // reset time part, to prevent partial comparison
-
-$diff = $today->diff( $match_date );
-$diffDays = (integer)$diff->format( "%R%a" ); // Extract days count in interval
-
-switch( $diffDays ) {
-    case 0:
-             //  echo "<button type='button' class='btn btn-success'>Today</button>";
-        break;
-    case -1:
-       // echo "<button type='button' class='btn btn-default'>Yesterday</button>";
-        break;	
-    case +1:
-      echo "<br /><button type='button' class='btn btn-danger btn-lg'>Tomorrow</button>";
-	  
-        break;	
-    default:
-
-	if ($diffDays > 1) {
-		//echo "//Future Event<br />";
-		
-list($y,$m,$d) = explode('-', $diff->format('%y-%m-%d'));
-if ($matchdate < $eventdate ) {
-    $months = $y*12 + $m;
-    $weeks = floor($d/7);
-    $days = $d%7;
-echo "<ul class='countdown'>";
-    //printf('Countdown To Event : ');
-    if ($months) {printf('<li><span id="month" class="circle-badge">%d</span> month%s </li>', $months, $months>1?'s':'');}
-    if ($weeks) {printf('<li><span id="week" class="circle-badge">%d</span> week%s </li>', $weeks, $weeks>1?'s':'');}
-    if ($days) {printf('<li><span id="day" class="circle-badge">%d</span> day%s </li>', $days, $days>1?'s':'');}
-echo "</ul>";	
-	
-    }	
-}
-else
-{
-//echo "Past Event";	
-}
-	
-        break;	
-
-		
-		
-
-}
-			
-		
-			
-		} //stay visible	
-
-	echo "</div></div></div>";			
+        } else if( distance > 0 && passTime > 0 ){
+            this.calcTime(distance); 
+            this.message = this.wordString.upcoming;
+            this.statusType = "upcoming";
+            this.statusText = this.wordString.status.upcoming;
         }
-      
+    },
+    calcTime: function(dist){
+      // Time calculations for days, hours, minutes and seconds
+        this.days = Math.floor(dist / (1000 * 60 * 60 * 24));
+        this.hours = Math.floor((dist % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        this.minutes = Math.floor((dist % (1000 * 60 * 60)) / (1000 * 60));
+        this.seconds = Math.floor((dist % (1000 * 60)) / 1000);
+    }
+    
+  }
+});
 
+new Vue({
+  el: "#timer<{$block.id}>",
+});
+</script>
 
-
-
-
-
-	<{/php}>
+                <br>					
+					 <p class="text-muted"><span class="fa fa-calendar"></span>
+                                                        <{if $block.date_created == $block.date_updated}>
+                                                            <small><{$block.date_created|date_format}></small>
+                                                        <{else}>
+                                                            <small><{$block.date_updated|date_format}></small>
+                                                        <{/if}>
+														<span class="fa fa-user-circle-o"></span> <{$block.postername}> <span class="fa fa-tag"></span> <{$block.category}>
+                      </p>
+					
+	
+	

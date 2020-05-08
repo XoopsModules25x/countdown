@@ -22,4 +22,20 @@
  */
  
 define("_MB_COUNTDOWN_COUNTDOWN_BLOCK","Countdown");
-define("_MB_COUNTDOWN_EVENTTODISPLAY","Insert Event ID to display");
+define("_MB_COUNTDOWN_EVENTTODISPLAY","<b>Select event to display</b>");
+define('_MB_COUNTDOWN_EVENTS', 'Events');
+define('_MB_COUNTDOWN_EVENTS_DESC', 'Events description');
+define('_MB_COUNTDOWN_EVENTS_ID', 'ID');
+define('_MB_COUNTDOWN_EVENTS_UID', 'User');
+define('_MB_COUNTDOWN_EVENTS_NAME', 'Event Name');
+define('_MB_COUNTDOWN_EVENTS_LOGO', 'Event Logo');
+define('_MB_COUNTDOWN_EVENTS_DESCRIPTION', 'Description');
+define('_MB_COUNTDOWN_EVENTS_DATE', 'Event Date Time');
+define('_MB_COUNTDOWN_EVENTS_DATE_CREATED', 'Created');
+define('_MB_COUNTDOWN_EVENTS_DATE_UPDATED', 'Updated');
+define('_MB_COUNTDOWN_TIME_REMAINING', 'Countdown');
+define('_MB_COUNTDOWN_YESTERDAY', 'Yesterday');
+define('_MB_COUNTDOWN_TODAY', 'Today');
+define('_MB_COUNTDOWN_PASTEVENT', 'Past Event');
+define('_MB_COUNTDOWN_TOMORROW', 'Tomorrow');
+define('_MB_COUNTDOWN_POSTEDBY', 'Posted by');
