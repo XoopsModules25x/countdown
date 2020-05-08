@@ -1,12 +1,5 @@
 
-<{include file="db:countdown_header.tpl"}>
-    <h5><a href="<{$countdown_url}>/event.php?id=<{$events.id}>"><{$smarty.const._MD_COUNTDOWN_EVENT}> : <{$events.name}></a></h5>
-		<img src="<{$xoops_url}>/uploads/countdown/images/<{$events.logo}>" alt="<{$events.name}>" title="<{$events.name}>" class="img-fluid"><br><br>
-        		
-            <p class="float-right"><span class="fa fa-calendar"></span> <{$events.date|date_format:"%A, %B %e %Y %l:%M %p"}></p>    
-			<h6><a href="<{$countdown_url}>/event.php?id=<{$events.id}>"><{$events.name}></a></h6>
-			<{$events.description}>
-                    
+<{include file="db:countdown_header.tpl"}>  
                 <div id="timer<{$events.id}>" class="timer">
 <!--  Timer Component  -->
   <Timer 
@@ -35,7 +28,12 @@
 Vue.component('Timer',{
 	template: `
 	  <div class="rounded bg-gradient-1 text-white shadow p-5 text-center mb-5">
-                    <p class="mb-0 font-weight-bold text-uppercase"><{$events.name}><br><small><{$events.date|date_format:"%A, %B %e %Y %l:%M %p"}></small></p>
+                    <p class="mb-0 font-weight-bold text-uppercase"><{$events.name}><br><small><{$events.date|date_format:"%A, %B %e %Y %l:%M %p"}></small>
+					<img src="<{$xoops_url}>/uploads/countdown/images/<{$events.logo}>" alt="<{$events.name}>" title="<{$events.name}>" class="img-fluid"><br>
+					<a href="<{$xoops_url}>/modules/countdown2/event.php?id=<{$events.id}>"><span class="text-body"><{$events.name}></span></a>
+					<br><small><{$events.date|date_format:"%A, %B %e %Y %l:%M %p"}></small><br>
+					  <{$events.description}>
+					</p>
                     <div id="clock-c" class="countdown py-4">
 				      <div v-show ="statusType !== 'expired'">
           <span class="h1 text-body font-weight-bold">{{ days }}</span> {{ wordString.day }}
@@ -52,7 +50,23 @@ Vue.component('Timer',{
                         <li class="list-inline-item pt-2">
                             <button id="btn-status" type="button" class="btn btn-countdown"> {{ statusText }}</button>
                         </li>
-                    </ul>            
+                    </ul>   
+					
+				 <p><span class="fa fa-calendar"></span>
+                  <{if $events.date_created == $events.date_updated}>
+                       <small><{$events.date_created|date_format}></small>
+                  <{else}>
+                        <small><{$events.date_updated|date_format}></small>
+                  <{/if}>
+				  <small><span class="fa fa-user-circle-o"></span> <{$events.postername}>  <span class="fa fa-tag"></span> <{$events.category}></small>
+                      </p>
+			
+                <{if $xoops_isadmin == true}>
+				 <p class="float-right">
+                    <a href="admin/events.php?op=edit&id=<{$events.id}>" target="_blank" title="<{$smarty.const._EDIT}>"><img src="<{xoModuleIcons16 edit.png}>" alt="<{$smarty.const._EDIT}>" title="<{$smarty.const._EDIT}>"/></a>
+                    <a href="admin/events.php?op=delete&id=<{$events.id}>" title="<{$smarty.const._DELETE}>"><img src="<{xoModuleIcons16 delete.png}>" alt="<{$smarty.const._DELETE}>" title="<{$smarty.const._DELETE}>"</a>
+                <{/if}>
+				</p>
 </div>
   `,
   props: ['starttime','endtime','trans'] ,
@@ -130,22 +144,7 @@ new Vue({
 });
 </script>
             
-				 <p class="text-muted"><span class="fa fa-calendar"></span>
-                  <{if $events.date_created == $events.date_updated}>
-                       <small><{$events.date_created|date_format}></small>
-                  <{else}>
-                        <small><{$events.date_updated|date_format}></small>
-                  <{/if}>
-				  <small><span class="fa fa-user-circle-o"></span> <{$events.postername}>  <span class="fa fa-tag"></span> <{$events.category}></small>
-                      </p>
-			
-                <{if $xoops_isadmin == true}>
-				 <p class="float-right">
-                    <a href="admin/events.php?op=edit&id=<{$events.id}>" target="_blank" title="<{$smarty.const._EDIT}>"><img src="<{xoModuleIcons16 edit.png}>" alt="<{$smarty.const._EDIT}>" title="<{$smarty.const._EDIT}>"/></a>
-                    <a href="admin/events.php?op=delete&id=<{$events.id}>" title="<{$smarty.const._DELETE}>"><img src="<{xoModuleIcons16 delete.png}>" alt="<{$smarty.const._DELETE}>" title="<{$smarty.const._DELETE}>"</a>
-                <{/if}>
-				</p>
-            
+          
 <br><div id="pagenav"><{$pagenav}></div>
 <{$commentsnav}> <{$lang_notice}>
 <{if $comment_mode == "flat"}> <{include file="db:system_comments_flat.tpl"}> <{elseif $comment_mode == "thread"}> <{include file="db:system_comments_thread.tpl"}> <{elseif $comment_mode == "nest"}> <{include file="db:system_comments_nest.tpl"}> <{/if}>

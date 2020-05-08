@@ -1,13 +1,7 @@
 
  <link rel="stylesheet" type="text/css" href="<{$xoops_url}>/modules/countdown2/assets/css/countdown.css">
  <script src="<{$xoops_url}>/modules/countdown2/assets/js/vue.min.js"></script>
-  <h5><a href="<{$xoops_url}>/modules/countdown2/event.php?id=<{$block.id}>"><{$block.name}></a></h5>
-		<img src="<{$xoops_url}>/uploads/countdown/images/<{$block.logo}>" alt="<{$block.name}>" title="<{$block.name}>" class="img-fluid"><br><br>
-        		
-            <p class="float-right"><span class="fa fa-calendar"></span> <{$block.date|date_format:"%A, %B %e %Y %l:%M %p"}></p>    
-			<h6><a href="<{$countdown_url}>/event.php?id=<{$block.id}>"><{$block.name}></a></h6>
-			<{$block.description}>
-                    
+
                 <div id="timer<{$block.id}>" class="timer">
 <!--  Timer Component  -->
   <Timer 
@@ -36,7 +30,12 @@
 Vue.component('Timer',{
 	template: `
 	  <div class="rounded bg-gradient-1 text-white shadow p-5 text-center mb-5">
-                    <p class="mb-0 font-weight-bold text-uppercase"><{$block.name}><br><small><{$block.date|date_format:"%A, %B %e %Y %l:%M %p"}></small></p>
+                    <p class="mb-0 font-weight-bold text-uppercase">
+					<img src="<{$xoops_url}>/uploads/countdown/images/<{$block.logo}>" alt="<{$block.name}>" title="<{$block.name}>" class="img-fluid"><br>
+					<a href="<{$xoops_url}>/modules/countdown2/event.php?id=<{$block.id}>"><span class="text-body"><{$block.name}></span></a>
+					<br><small><{$block.date|date_format:"%A, %B %e %Y %l:%M %p"}></small><br>
+					  <{$block.description}>
+					</p>
                     <div id="clock-c" class="countdown py-4">
 				      <div v-show ="statusType !== 'expired'">
           <span class="h1 text-body font-weight-bold">{{ days }}</span> {{ wordString.day }}
@@ -53,7 +52,15 @@ Vue.component('Timer',{
                         <li class="list-inline-item pt-2">
                             <button id="btn-status" type="button" class="btn btn-countdown"> {{ statusText }}</button>
                         </li>
-                    </ul>            
+                    </ul> 
+				<p><span class="fa fa-calendar"></span>
+                  <{if $block.date_created == $block.date_updated}>
+                       <small><{$block.date_created|date_format}></small>
+                  <{else}>
+                        <small><{$block.date_updated|date_format}></small>
+                  <{/if}>
+				  <small><span class="fa fa-user-circle-o"></span> <{$block.postername}>  <span class="fa fa-tag"></span> <{$block.category}></small>
+                      </p>
 </div>
   `,
   props: ['starttime','endtime','trans'] ,
@@ -130,12 +137,3 @@ new Vue({
   el: "#timer<{$block.id}>",
 });
 </script>
-            
-				 <p class="text-muted"><span class="fa fa-calendar"></span>
-                  <{if $block.date_created == $block.date_updated}>
-                       <small><{$block.date_created|date_format}></small>
-                  <{else}>
-                        <small><{$block.date_updated|date_format}></small>
-                  <{/if}>
-				  <small><span class="fa fa-user-circle-o"></span> <{$block.postername}>  <span class="fa fa-tag"></span> <{$block.category}></small>
-                      </p>
