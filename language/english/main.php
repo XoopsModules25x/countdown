@@ -32,6 +32,7 @@ define('_MD_COUNTDOWN_TITLE', 'Countdown');
 define('_MD_COUNTDOWN_DESC', 'This module shows countdown to events');
 define('_MD_COUNTDOWN_INDEX_DESC', '');
 // Events
+define('_MD_COUNTDOWN_EVENT', 'Event');
 define('_MD_COUNTDOWN_EVENTS', 'Events');
 define('_MD_COUNTDOWN_EVENTS_DESC', 'Events description');
 define('_MD_COUNTDOWN_EVENTS_ID', 'ID');
@@ -48,6 +49,19 @@ define('_MD_COUNTDOWN_TODAY', 'Today');
 define('_MD_COUNTDOWN_PASTEVENT', 'Past Event');
 define('_MD_COUNTDOWN_TOMORROW', 'Tomorrow');
 define('_MD_COUNTDOWN_POSTEDBY', 'Posted by');
+define('_MD_COUNTDOWN_DAY', 'Days');
+define('_MD_COUNTDOWN_HOURS', 'Hours');
+define('_MD_COUNTDOWN_MINUTES', 'Minutes');
+define('_MD_COUNTDOWN_SECONDS', 'Seconds');
+define('_MD_COUNTDOWN_EXPIRED', 'Event has been expired');
+define('_MD_COUNTDOWN_TILLEND', 'Till the end of event');
+define('_MD_COUNTDOWN_TILLSTART', 'Till start of event');
+define('_MD_COUNTDOWN_STATUS_EXPIRED', 'Expired');
+define('_MD_COUNTDOWN_STATUS_RUNNING', 'Running');
+define('_MD_COUNTDOWN_STATUS_FUTURE', 'Future');
+
+
+
 
 //Data Tables
 define('_MD_COUNTDOWN_DTABLE_DECIMAL', '');

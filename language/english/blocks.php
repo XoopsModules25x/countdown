@@ -23,6 +23,7 @@
  
 define("_MB_COUNTDOWN_COUNTDOWN_BLOCK","Countdown");
 define("_MB_COUNTDOWN_EVENTTODISPLAY","<b>Select event to display</b>");
+define('_MB_COUNTDOWN_EVENT', 'Event');
 define('_MB_COUNTDOWN_EVENTS', 'Events');
 define('_MB_COUNTDOWN_EVENTS_DESC', 'Events description');
 define('_MB_COUNTDOWN_EVENTS_ID', 'ID');
@@ -39,3 +40,14 @@ define('_MB_COUNTDOWN_TODAY', 'Today');
 define('_MB_COUNTDOWN_PASTEVENT', 'Past Event');
 define('_MB_COUNTDOWN_TOMORROW', 'Tomorrow');
 define('_MB_COUNTDOWN_POSTEDBY', 'Posted by');
+define('_MB_COUNTDOWN_DAY', 'Days');
+define('_MB_COUNTDOWN_HOURS', 'Hours');
+define('_MB_COUNTDOWN_MINUTES', 'Minutes');
+define('_MB_COUNTDOWN_SECONDS', 'Seconds');
+define('_MB_COUNTDOWN_EXPIRED', 'Event has been expired');
+define('_MB_COUNTDOWN_TILLEND', 'Till the end of event');
+define('_MB_COUNTDOWN_TILLSTART', 'Till start of event');
+define('_MB_COUNTDOWN_STATUS_EXPIRED', 'Expired');
+define('_MB_COUNTDOWN_STATUS_RUNNING', 'Running');
+define('_MB_COUNTDOWN_STATUS_FUTURE', 'Future');
+

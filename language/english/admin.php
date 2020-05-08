@@ -61,6 +61,8 @@ define('_AM_COUNTDOWN_CATEGORY_EMPTY', 'Error: There are no category created yet
 define('_AM_COUNTDOWN_CATEGORY_DELETECONFIRM', "Are you sure you want to delete <span class='bold red'>%s</span></b> category and <b>ALL</b> of its Events? This action is not reversible !!");
 
 // Events
+define('_AM_COUNTDOWN_EVENT', 'Event');
+define('_AM_COUNTDOWN_EVENTS', 'Events');
 define('_AM_COUNTDOWN_EVENTS_ADD', 'Add a events');
 define('_AM_COUNTDOWN_EVENTS_EDIT', 'Edit events');
 define('_AM_COUNTDOWN_EVENTS_DELETE', 'Delete events');
@@ -75,6 +77,16 @@ define('_AM_COUNTDOWN_EVENTS_CATEGORY', 'Event Category');
 define('_AM_COUNTDOWN_EVENTS_POSTERNAME', 'Poster Name');
 define('_AM_COUNTDOWN_EVENTS_DATE_CREATED', 'Created');
 define('_AM_COUNTDOWN_EVENTS_DATE_UPDATED', 'Updated');
+define('_AM_COUNTDOWN_DAY', 'Days');
+define('_AM_COUNTDOWN_HOURS', 'Hours');
+define('_AM_COUNTDOWN_MINUTES', 'Minutes');
+define('_AM_COUNTDOWN_SECONDS', 'Seconds');
+define('_AM_COUNTDOWN_EXPIRED', 'Event has been expired');
+define('_AM_COUNTDOWN_TILLEND', 'Till the end of event');
+define('_AM_COUNTDOWN_TILLSTART', 'Till start of event');
+define('_AM_COUNTDOWN_STATUS_EXPIRED', 'Expired');
+define('_AM_COUNTDOWN_STATUS_RUNNING', 'Running');
+define('_AM_COUNTDOWN_STATUS_FUTURE', 'Future');
 //Blocks.php
 //Permissions
 define('_AM_COUNTDOWN_PERMISSIONS_GLOBAL', 'Global permissions');

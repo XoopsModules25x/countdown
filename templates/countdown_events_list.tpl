@@ -14,38 +14,29 @@
         <{foreach item=events from=$events}>
             <tr>
                 <td>
-				#<{$events.id}>	<{*<{$events.uid}>*}><br>
-
-
-				<img src="<{$xoops_url}>/uploads/countdown/images/<{$events.logo}>" alt="<{$events.name}>" title="<{$events.name}>" class="img-fluid"><br>
-     
-				<strong><{$smarty.const._MD_COUNTDOWN_EVENTS_NAME}></strong>   <br>        
-					<a href="event.php?id=<{$events.id}>"><{$events.name}></a>
-				<br>
-				<strong> <{$smarty.const._MD_COUNTDOWN_EVENTS_DESCRIPTION}> </strong><br>            
-					<{$events.description}>
-				<br>
-				<strong><{$smarty.const._MD_COUNTDOWN_EVENTS_DATE}> </strong><br>
-						<{$events.date}>
-                <br>
-				<strong><{$smarty.const._MD_COUNTDOWN_TIME_REMAINING}> </strong><br>
+				<h5><a href="<{$countdown_url}>/event.php?id=<{$events.id}>"><{$events.name}></a></h5>
+					<img src="<{$xoops_url}>/uploads/countdown/images/<{$events.logo}>" alt="<{$events.name}>" title="<{$events.name}>" class="img-fluid"><br><br>
+        		
+            <p class="float-right"><span class="fa fa-calendar"></span> <{$events.date|date_format:"%A, %B %e %Y %l:%M %p"}></p>    
+			<h6><a href="<{$countdown_url}>/event.php?id=<{$events.id}>"><{$events.name}></a></h6>
+			<{$events.description}>
                <div id="timer<{$events.id}>" class="timer">
 <!--  Timer Component  -->
   <Timer 
          starttime="<{$smarty.now|date_format:"%Y-%m-%d %H:%M:%S"}>" 
          endtime="<{$events.dateiso}>" 
          trans='{  
-         "day":"Day",
-         "hours":"Hours",
-         "minutes":"Minuts",
-         "seconds":"Seconds",
-         "expired":"Event has been expired.",
-         "running":"Till the end of event.",
-         "upcoming":"Till start of event.",
+         "day":"<{$smarty.const._MD_COUNTDOWN_DAY}>",
+         "hours":"<{$smarty.const._MD_COUNTDOWN_HOURS}>",
+         "minutes":"<{$smarty.const._MD_COUNTDOWN_MINUTES}>",
+         "seconds":"<{$smarty.const._MD_COUNTDOWN_SECONDS}>",
+         "expired":"<{$smarty.const._MD_COUNTDOWN_EXPIRED}>",
+         "running":"<{$smarty.const._MD_COUNTDOWN_TILLEND}>",
+         "upcoming":"<{$smarty.const._MD_COUNTDOWN_TILLSTART}>",
          "status": {
-            "expired":"Expired",
-            "running":"Running",
-            "upcoming":"Future"
+            "expired":"<{$smarty.const._MD_COUNTDOWN_STATUS_EXPIRED}>",
+            "running":"<{$smarty.const._MD_COUNTDOWN_STATUS_RUNNING}>",
+            "upcoming":"<{$smarty.const._MD_COUNTDOWN_STATUS_FUTURE}>"
            }}'
          ></Timer>
 <!--  End! Timer Component  -->
@@ -56,25 +47,29 @@
  Vue.component('Timer',{
 	template: `
   	<div>
-      <div class="day">
-        <span class="number">{{ days }}</span>
-        <div class="format">{{ wordString.day }}</div>
-      </div>
-      <div class="hour">
-        <span class="number">{{ hours }}</span>
-        <div class="format">{{ wordString.hours }}</div>
-      </div>
-      <div class="min">
-        <span class="number">{{ minutes }}</span>
-        <div class="format">{{ wordString.minutes }}</div>
-      </div>
-      <div class="sec">
-        <span class="number">{{ seconds }}</span>
-        <div class="format">{{ wordString.seconds }}</div>
-      </div>
-      <div class="message">{{ message }}</div>
-      <div class="status-tag" :class="statusType">{{ statusText }}</div>
-    </div>
+
+
+	  
+	  <div class="rounded bg-gradient-1 text-white shadow p-5 text-center mb-5">
+                    <p class="mb-4 font-weight-bold text-uppercase"><{$events.name}><br><small><{$events.date|date_format:"%A, %B %e %Y %l:%M %p"}></small></p>
+				  <div id="clock-c" class="countdown py-4">
+				      <div v-show ="statusType !== 'expired'">
+          <span class="h1 text-body font-weight-bold">{{ days }}</span> {{ wordString.day }}
+          <span class="h1 text-body font-weight-bold">{{ hours }}</span> {{ wordString.hours }}
+          <span class="h1 text-body font-weight-bold">{{ minutes }}</span> {{ wordString.minutes }}
+          <span class="h1 text-body font-weight-bold">{{ seconds }}</span> {{ wordString.seconds }}
+	</div>
+	</div>
+                    <!-- Call to actions -->
+                    <ul class="list-inline">
+                        <li class="list-inline-item pt-2">
+                            <button id="btn-message" type="button" class="btn btn-countdown"> {{ message }}</button>
+                        </li>
+                        <li class="list-inline-item pt-2">
+                            <button id="btn-status" type="button" class="btn btn-countdown"> {{ statusText }}</button>
+                        </li>
+                    </ul>
+</div>
   `,
   props: ['starttime','endtime','trans'] ,
   data: function(){
@@ -151,21 +146,21 @@ new Vue({
 });
 </script>
 
-                <br>
-                    <{if $xoops_isadmin == true}>
-                        <a href="admin/events.php?op=edit&id=<{$events.id}>" title="<{$smarty.const._EDIT}>"><img src="<{xoModuleIcons16 edit.png}>" alt="<{$smarty.const._EDIT}>" title="<{$smarty.const._EDIT}>"/></a>
-                        &nbsp;
-                        <a href="admin/events.php?op=delete&id=<{$events.id}>" title="<{$smarty.const._DELETE}>"><img src="<{xoModuleIcons16 delete.png}>" alt="<{$smarty.const._DELETE}>" title="<{$smarty.const._DELETE}>"</a>
-                    <{/if}>
-					
-					 <p class="text-muted"><span class="fa fa-calendar"></span>
-                                                        <{if $events.date_created == $events.date_updated}>
-                                                            <small><{$events.date_created|date_format}></small>
-                                                        <{else}>
-                                                            <small><{$events.date_updated|date_format}></small>
-                                                        <{/if}>
-														<span class="fa fa-user-circle-o"></span> <{$events.postername}> <span class="fa fa-tag"></span> <{$events.category}>
+                    	 <p class="text-muted"><span class="fa fa-calendar"></span>
+                  <{if $events.date_created == $events.date_updated}>
+                       <small><{$events.date_created|date_format}></small>
+                  <{else}>
+                        <small><{$events.date_updated|date_format}></small>
+                  <{/if}>
+				  <small><span class="fa fa-user-circle-o"></span> <{$events.postername}>  <span class="fa fa-tag"></span> <{$events.category}></small>
                       </p>
+			
+				<{if $xoops_isadmin == true}>
+				 <p class="float-right">
+                    <a href="admin/events.php?op=edit&id=<{$events.id}>" target="_blank" title="<{$smarty.const._EDIT}>"><img src="<{xoModuleIcons16 edit.png}>" alt="<{$smarty.const._EDIT}>" title="<{$smarty.const._EDIT}>"/></a>
+                    <a href="admin/events.php?op=delete&id=<{$events.id}>" title="<{$smarty.const._DELETE}>"><img src="<{xoModuleIcons16 delete.png}>" alt="<{$smarty.const._DELETE}>" title="<{$smarty.const._DELETE}>"</a>
+                <{/if}>
+				</p>
 					
 					
                 </td>
@@ -175,9 +170,6 @@ new Vue({
      </table>
 </div>
 <{$pagenav}>
-<{$commentsnav}> <{$lang_notice}>
-<{if $comment_mode == "flat"}> <{include file="db:system_comments_flat.tpl"}> <{elseif $comment_mode == "thread"}> <{include file="db:system_comments_thread.tpl"}> <{elseif $comment_mode == "nest"}> <{include file="db:system_comments_nest.tpl"}> <{/if}>
-<{include file="db:countdown_footer.tpl"}>
 
   <script>
                                 $(document).ready(function () {

@@ -76,7 +76,7 @@ switch ($op) {
             $pagenav = new \XoopsPageNav($eventsTempRows, $eventsPaginationLimit, $start, 'start', 'op=list' . '&sort=' . $sort . '&order=' . $order . '');
             $GLOBALS['xoopsTpl']->assign('pagenav', null === $pagenav ? $pagenav->renderNav() : '');
         }
-
+        $GLOBALS['xoopsTpl']->assign('countdown_url', COUNTDOWN2_URL);
         $GLOBALS['xoopsTpl']->assign('eventsRows', $eventsTempRows);
         $eventsArray = [];
 

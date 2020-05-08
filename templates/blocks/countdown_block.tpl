@@ -1,35 +1,30 @@
-#<{$block.id}>	<{*<{$block.uid}>*}><br>
 
-
-				<img src="<{$xoops_url}>/uploads/countdown/images/<{$block.logo}>" alt="<{$block.name}>" title="<{$block.name}>" class="img-fluid"><br>
-     
-				<strong><{$smarty.const._MB_COUNTDOWN_EVENTS_NAME}></strong>   <br>        
-					<a href="event.php?id=<{$block.id}>"><{$block.name}></a>
-				<br>
-				<strong> <{$smarty.const._MB_COUNTDOWN_EVENTS_DESCRIPTION}> </strong><br>            
-					<{$block.description}>
-				<br>
-				<strong><{$smarty.const._MB_COUNTDOWN_EVENTS_DATE}> </strong><br>
-						<{$block.date}>
-                <br>
-				<strong><{$smarty.const._MB_COUNTDOWN_TIME_REMAINING}> </strong><br>
-               <div id="timer<{$block.id}>" class="timer">
+ <link rel="stylesheet" type="text/css" href="<{$xoops_url}>/modules/countdown2/assets/css/countdown.css">
+ <script src="<{$xoops_url}>/modules/countdown2/assets/js/vue.min.js"></script>
+  <h5><a href="<{$xoops_url}>/modules/countdown2/event.php?id=<{$block.id}>"><{$block.name}></a></h5>
+		<img src="<{$xoops_url}>/uploads/countdown/images/<{$block.logo}>" alt="<{$block.name}>" title="<{$block.name}>" class="img-fluid"><br><br>
+        		
+            <p class="float-right"><span class="fa fa-calendar"></span> <{$block.date|date_format:"%A, %B %e %Y %l:%M %p"}></p>    
+			<h6><a href="<{$countdown_url}>/event.php?id=<{$block.id}>"><{$block.name}></a></h6>
+			<{$block.description}>
+                    
+                <div id="timer<{$block.id}>" class="timer">
 <!--  Timer Component  -->
   <Timer 
          starttime="<{$smarty.now|date_format:"%Y-%m-%d %H:%M:%S"}>" 
          endtime="<{$block.dateiso}>" 
          trans='{  
-         "day":"Day",
-         "hours":"Hours",
-         "minutes":"Minuts",
-         "seconds":"Seconds",
-         "expired":"Event has been expired.",
-         "running":"Till the end of event.",
-         "upcoming":"Till start of event.",
+         "day":"<{$smarty.const._MB_COUNTDOWN_DAY}>",
+         "hours":"<{$smarty.const._MB_COUNTDOWN_HOURS}>",
+         "minutes":"<{$smarty.const._MB_COUNTDOWN_MINUTES}>",
+         "seconds":"<{$smarty.const._MB_COUNTDOWN_SECONDS}>",
+         "expired":"<{$smarty.const._MB_COUNTDOWN_EXPIRED}>",
+         "running":"<{$smarty.const._MB_COUNTDOWN_TILLEND}>",
+         "upcoming":"<{$smarty.const._MB_COUNTDOWN_TILLSTART}>",
          "status": {
-            "expired":"Expired",
-            "running":"Running",
-            "upcoming":"Future"
+            "expired":"<{$smarty.const._MB_COUNTDOWN_STATUS_EXPIRED}>",
+            "running":"<{$smarty.const._MB_COUNTDOWN_STATUS_RUNNING}>",
+            "upcoming":"<{$smarty.const._MB_COUNTDOWN_STATUS_FUTURE}>"
            }}'
          ></Timer>
 <!--  End! Timer Component  -->
@@ -37,28 +32,29 @@
 
 
 <script>
- Vue.component('Timer',{
+ 
+Vue.component('Timer',{
 	template: `
-  	<div>
-      <div class="day">
-        <span class="number">{{ days }}</span>
-        <div class="format">{{ wordString.day }}</div>
-      </div>
-      <div class="hour">
-        <span class="number">{{ hours }}</span>
-        <div class="format">{{ wordString.hours }}</div>
-      </div>
-      <div class="min">
-        <span class="number">{{ minutes }}</span>
-        <div class="format">{{ wordString.minutes }}</div>
-      </div>
-      <div class="sec">
-        <span class="number">{{ seconds }}</span>
-        <div class="format">{{ wordString.seconds }}</div>
-      </div>
-      <div class="message">{{ message }}</div>
-      <div class="status-tag" :class="statusType">{{ statusText }}</div>
-    </div>
+	  <div class="rounded bg-gradient-1 text-white shadow p-5 text-center mb-5">
+                    <p class="mb-0 font-weight-bold text-uppercase"><{$block.name}><br><small><{$block.date|date_format:"%A, %B %e %Y %l:%M %p"}></small></p>
+                    <div id="clock-c" class="countdown py-4">
+				      <div v-show ="statusType !== 'expired'">
+          <span class="h1 text-body font-weight-bold">{{ days }}</span> {{ wordString.day }}
+          <span class="h1 text-body font-weight-bold">{{ hours }}</span> {{ wordString.hours }}
+          <span class="h1 text-body font-weight-bold">{{ minutes }}</span> {{ wordString.minutes }}
+          <span class="h1 text-body font-weight-bold">{{ seconds }}</span> {{ wordString.seconds }}
+	</div>
+	</div>
+                    <!-- Call to actions -->
+                    <ul class="list-inline">
+                        <li class="list-inline-item pt-2">
+                            <button id="btn-message" type="button" class="btn btn-countdown"> {{ message }}</button>
+                        </li>
+                        <li class="list-inline-item pt-2">
+                            <button id="btn-status" type="button" class="btn btn-countdown"> {{ statusText }}</button>
+                        </li>
+                    </ul>            
+</div>
   `,
   props: ['starttime','endtime','trans'] ,
   data: function(){
@@ -134,16 +130,12 @@ new Vue({
   el: "#timer<{$block.id}>",
 });
 </script>
-
-                <br>					
-					 <p class="text-muted"><span class="fa fa-calendar"></span>
-                                                        <{if $block.date_created == $block.date_updated}>
-                                                            <small><{$block.date_created|date_format}></small>
-                                                        <{else}>
-                                                            <small><{$block.date_updated|date_format}></small>
-                                                        <{/if}>
-														<span class="fa fa-user-circle-o"></span> <{$block.postername}> <span class="fa fa-tag"></span> <{$block.category}>
+            
+				 <p class="text-muted"><span class="fa fa-calendar"></span>
+                  <{if $block.date_created == $block.date_updated}>
+                       <small><{$block.date_created|date_format}></small>
+                  <{else}>
+                        <small><{$block.date_updated|date_format}></small>
+                  <{/if}>
+				  <small><span class="fa fa-user-circle-o"></span> <{$block.postername}>  <span class="fa fa-tag"></span> <{$block.category}></small>
                       </p>
-					
-	
-	

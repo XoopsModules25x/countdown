@@ -90,13 +90,8 @@ $utility::meta_description(_MD_COUNTDOWN_EVENTS_DESC);
 $GLOBALS['xoopsTpl']->assign('eventperpage',  $eventsPaginationLimit);
 $GLOBALS['xoopsTpl']->assign('xoops_mpageurl', COUNTDOWN2_URL . '/index.php');
 $GLOBALS['xoopsTpl']->assign('countdown_url', COUNTDOWN2_URL);
-$GLOBALS['xoopsTpl']->assign('adv', xoops_getModuleOption('advertise', $moduleDirName));
-//
-//$GLOBALS['xoopsTpl']->assign('bookmarks', xoops_getModuleOption('bookmarks', $moduleDirName));
-//$GLOBALS['xoopsTpl']->assign('fbcomments', xoops_getModuleOption('fbcomments', $moduleDirName));
-//
 $GLOBALS['xoopsTpl']->assign('admin', COUNTDOWN2_ADMIN);
 $GLOBALS['xoopsTpl']->assign('copyright', $copyright);
-//
+
 require __DIR__ . '/footer.php';
 require dirname(__DIR__, 2) . '/footer.php';
