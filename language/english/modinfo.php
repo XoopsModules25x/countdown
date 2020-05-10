@@ -32,26 +32,6 @@ define('_MI_COUNTDOWN_ADMENU5', 'About');
 //Blocks
 define("_MI_COUNTDOWN_COUNTDOWN_BLOCK","Countdown");
 define("_MI_COUNTDOWN_COUNTDOWN_BLOCKDESC","Countdown Timer Block");
-//Config
-define('_MI_COUNTDOWN_EDITOR_ADMIN', 'Editor: Admin');
-define('_MI_COUNTDOWN_EDITOR_ADMIN_DESC', 'Select the Editor to use by the Admin');
-define('_MI_COUNTDOWN_EDITOR_USER', 'Editor: User');
-define('_MI_COUNTDOWN_EDITOR_USER_DESC', 'Select the Editor to use by the User');
-define('_MI_COUNTDOWN_KEYWORDS', 'Keywords');
-define('_MI_COUNTDOWN_KEYWORDS_DESC', 'Insert here the keywords (separate by comma)');
-define('_MI_COUNTDOWN_ADMINPAGER', 'Admin: records / page');
-define('_MI_COUNTDOWN_ADMINPAGER_DESC', 'Admin: # of records shown per page');
-define('_MI_COUNTDOWN_USERPAGER', 'User: records / page');
-define('_MI_COUNTDOWN_USERPAGER_DESC', 'User: # of records shown per page');
-define('_MI_COUNTDOWN_MAXSIZE', 'Max size');
-define('_MI_COUNTDOWN_MAXSIZE_DESC', 'Set a number of max size uploads file in byte');
-define('_MI_COUNTDOWN_MIMETYPES', 'Mime Types');
-define('_MI_COUNTDOWN_MIMETYPES_DESC', 'Set the mime types selected');
-define('_MI_COUNTDOWN_IDPAYPAL', 'Paypal ID');
-define('_MI_COUNTDOWN_IDPAYPAL_DESC', 'Insert here your PayPal ID for donactions.');
-define('_MI_COUNTDOWN_ADVERTISE', 'Advertisement Code');
-define('_MI_COUNTDOWN_ADVERTISE_DESC', 'Insert here the advertisement code');
-
 // Help
 define('_MI_COUNTDOWN_DIRNAME', basename(dirname(dirname(__DIR__))));
 define('_MI_COUNTDOWN_HELP_HEADER', __DIR__ . '/help/helpheader.tpl');
@@ -79,8 +59,65 @@ define('_MI_COUNTDOWN_SUPPORT', 'Support');
 //define('_MI_COUNTDOWN_HELP5', 'YYYYY');
 //define('_MI_COUNTDOWN_HELP6', 'YYYYY');
 
+//Config
+define('_MI_COUNTDOWN_DISPLAYEVENTDESCRIPTION_TITLE', 'Display Event Description ?');
+define('_MI_COUNTDOWN_DISPLAYEVENTDESCRIPTION_DESC', 'Display event description in event list and event view page ?');
+define('_MI_COUNTDOWN_DISPLAYPOSTINFO_TITLE', 'Display Event Post Info ?');
+define('_MI_COUNTDOWN_DISPLAYPOSTINFO_DESC', 'Display submitted date, poster name and category in event list and event view page ?');
+define('_MI_COUNTDOWN_DISPLAYEVENTLOGO_TITLE', 'Display Event Logo ?');
+define('_MI_COUNTDOWN_DISPLAYEVENTLOGO_DESC', 'Display event logo in event list and event view page ?');
+define('_MI_COUNTDOWN_EDITOR_ADMIN', 'Editor: Admin');
+define('_MI_COUNTDOWN_EDITOR_ADMIN_DESC', 'Select the Editor to use by the Admin');
+define('_MI_COUNTDOWN_EDITOR_USER', 'Editor: User');
+define('_MI_COUNTDOWN_EDITOR_USER_DESC', 'Select the Editor to use by the User');
+define('_MI_COUNTDOWN_KEYWORDS', 'Meta Keywords');
+define('_MI_COUNTDOWN_KEYWORDS_DESC', 'Insert here the keywords (separate by comma)');
+define('_MI_COUNTDOWN_ADMINEVENTPERPAGE', 'Admin: Event per page');
+define('_MI_COUNTDOWN_ADMINEVENTPERPAGE_DESC', 'Admin: Event records shown per page');
+define('_MI_COUNTDOWN_USEREVENTPERPAGE', 'User: Event per page');
+define('_MI_COUNTDOWN_USEREVENTPERPAGE_DESC', 'User: Eevent records shown per page');
+define('_MI_COUNTDOWN_MAXSIZE', 'Max size');
+define('_MI_COUNTDOWN_MAXSIZE_DESC', 'Set a number of max size uploads file in byte');
+define('_MI_COUNTDOWN_MIMETYPES', 'Mime Types');
+define('_MI_COUNTDOWN_MIMETYPES_DESC', 'Set the mime types selected');
+
 // Permissions Groups
 define('_MI_COUNTDOWN_GROUPS', 'Groups access');
 define('_MI_COUNTDOWN_GROUPS_DESC', 'Select general access permission for groups.');
 define('_MI_COUNTDOWN_ADMINGROUPS', 'Admin Group Permissions');
 define('_MI_COUNTDOWN_ADMINGROUPS_DESC', 'Which groups have access to tools and permissions page');
+
+// Preferences
+define('_MI_COUNTDOWN_CONFCAT_EVENTS', 'Event Preferences');
+define('_MI_COUNTDOWN_CONFCAT_EVENTS_DSC', '');
+define('_MI_COUNTDOWN_CONFCAT_GENERAL', 'General Preferences');
+define('_MI_COUNTDOWN_CONFCAT_GENERAL_DSC', '');
+define('_MI_COUNTDOWN_CONFCAT_IMAGE', 'Image Upload Preferences');
+define('_MI_COUNTDOWN_CONFCAT_IMAGE_DSC', '');
+define('_MI_COUNTDOWN_CONFCAT_EDITOR', 'Editor Preferences');
+define('_MI_COUNTDOWN_CONFCAT_EDITOR_DSC', '');
+define('_MI_COUNTDOWN_CONFCAT_PERMISSION', 'Permission Preferences');
+define('_MI_COUNTDOWN_CONFCAT_PERMISSION_DSC', '');
+define('_MI_COUNTDOWN_CONFCAT_COMMENT', 'Comment Preferences');
+define('_MI_COUNTDOWN_CONFCAT_COMMENT_DSC', '');
+
+
+
+//Config Categories Styling:
+define('_MI_COUNTDOWN_CONFIG_STYLING_START', '<span style="color: #FF0000; font-size: Small;  font-weight: bold;">:: ');
+define('_MI_COUNTDOWN_CONFIG_STYLING_END', ' ::</span> ');
+define('_MI_COUNTDOWN_CONFIG_STYLING_DESC_START', '<span style="color: #FF0000; font-size: Small;">');
+define('_MI_COUNTDOWN_CONFIG_STYLING_DESC_END', '</span> ');
+define('_MI_COUNTDOWN_CONFIG_EVENTS', _MI_COUNTDOWN_CONFIG_STYLING_START . _MI_COUNTDOWN_CONFCAT_EVENTS . _MI_COUNTDOWN_CONFIG_STYLING_END);
+define('_MI_COUNTDOWN_CONFIG_EVENTS_DSC', _MI_COUNTDOWN_CONFIG_STYLING_DESC_START . _MI_COUNTDOWN_CONFCAT_EVENTS_DSC . _MI_COUNTDOWN_CONFIG_STYLING_DESC_END);
+define('_MI_COUNTDOWN_CONFIG_GENERAL', _MI_COUNTDOWN_CONFIG_STYLING_START . _MI_COUNTDOWN_CONFCAT_GENERAL . _MI_COUNTDOWN_CONFIG_STYLING_END);
+define('_MI_COUNTDOWN_CONFIG_GENERAL_DSC', _MI_COUNTDOWN_CONFIG_STYLING_DESC_START . _MI_COUNTDOWN_CONFCAT_GENERAL_DSC . _MI_COUNTDOWN_CONFIG_STYLING_DESC_END);
+define('_MI_COUNTDOWN_CONFIG_IMAGE', _MI_COUNTDOWN_CONFIG_STYLING_START . _MI_COUNTDOWN_CONFCAT_IMAGE . _MI_COUNTDOWN_CONFIG_STYLING_END);
+define('_MI_COUNTDOWN_CONFIG_IMAGE_DSC', _MI_COUNTDOWN_CONFIG_STYLING_DESC_START . _MI_COUNTDOWN_CONFCAT_IMAGE_DSC . _MI_COUNTDOWN_CONFIG_STYLING_DESC_END);
+define('_MI_COUNTDOWN_CONFIG_PERMISSION', _MI_COUNTDOWN_CONFIG_STYLING_START . _MI_COUNTDOWN_CONFCAT_PERMISSION . _MI_COUNTDOWN_CONFIG_STYLING_END);
+define('_MI_COUNTDOWN_CONFIG_PERMISSION_DSC', _MI_COUNTDOWN_CONFIG_STYLING_DESC_START . _MI_COUNTDOWN_CONFCAT_PERMISSION_DSC . _MI_COUNTDOWN_CONFIG_STYLING_DESC_END);
+define('_MI_COUNTDOWN_CONFIG_EDITOR', _MI_COUNTDOWN_CONFIG_STYLING_START . _MI_COUNTDOWN_CONFCAT_EDITOR . _MI_COUNTDOWN_CONFIG_STYLING_END);
+define('_MI_COUNTDOWN_CONFIG_EDITOR_DSC', _MI_COUNTDOWN_CONFIG_STYLING_DESC_START . _MI_COUNTDOWN_CONFCAT_EDITOR_DSC . _MI_COUNTDOWN_CONFIG_STYLING_DESC_END);
+define('_MI_COUNTDOWN_CONFIG_COMMENT', _MI_COUNTDOWN_CONFIG_STYLING_START . _MI_COUNTDOWN_CONFCAT_COMMENT . _MI_COUNTDOWN_CONFIG_STYLING_END);
+define('_MI_COUNTDOWN_CONFIG_COMMENT_DSC', _MI_COUNTDOWN_CONFIG_STYLING_DESC_START . _MI_COUNTDOWN_CONFCAT_COMMENT_DSC . _MI_COUNTDOWN_CONFIG_STYLING_DESC_END);
+

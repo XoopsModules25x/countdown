@@ -23,3 +23,9 @@ $xoTheme->addStylesheet(XOOPS_URL . '/modules/' . $xoopsModule->getVar('dirname'
 $xoTheme->addScript(XOOPS_URL . '/modules/' . $xoopsModule->getVar('dirname') . '/assets/js/jquery.dataTables.js');
 $xoTheme->addScript(XOOPS_URL . '/modules/' . $xoopsModule->getVar('dirname') . '/assets/js/dataTables.responsive.min.js');
 $xoTheme->addScript(XOOPS_URL . '/modules/' . $xoopsModule->getVar('dirname') . '/assets/js/vue.min.js');
+
+//Module Configuration
+$xoopsTpl->assign('displaypostinfo', $xoopsModuleConfig['displaypostinfo']);
+$xoopsTpl->assign('displayeventlogo', $xoopsModuleConfig['displayeventlogo']);
+$xoopsTpl->assign('displayeventlogo', $xoopsModuleConfig['displayeventlogo']);
+$xoopsTpl->assign('displayeventdescription', $xoopsModuleConfig['displayeventdescription']);

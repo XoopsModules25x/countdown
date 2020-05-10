@@ -25,7 +25,7 @@
 use Xmf\Request;
 use XoopsModules\Countdown;
 
-$GLOBALS['xoopsOption']['template_main'] = 'countdown_event.tpl';
+$GLOBALS['xoopsOption']['template_main'] = 'countdown_event_view.tpl';
 require_once __DIR__ . '/header.php';
 $start = Request::getInt('start', 0);
 // Define Stylesheet
@@ -37,7 +37,7 @@ $db = \XoopsDatabaseFactory::getDatabaseConnection();
 /** @var \XoopsPersistableObjectHandler $eventsHandler */
 $eventsHandler = new Countdown\EventsHandler($db);
 
-$eventsPaginationLimit = $helper->getConfig('userpager');
+$eventsPaginationLimit = $helper->getConfig('usereventperpage');
 
 $criteria = new \CriteriaCompo();
 

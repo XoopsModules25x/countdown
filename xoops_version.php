@@ -95,7 +95,7 @@ $modversion['comments']['callback']['update']  = 'countdown_com_update';
 //  ------------------- Templates -----------------------------//
 $modversion['templates'][] = ['file' => 'blocks/countdown_block.tpl', 'description' => ''];
 $modversion['templates'][] = ['file' => 'countdown_header.tpl', 'description' => ''];
-$modversion['templates'][] = ['file' => 'countdown_event.tpl', 'description' => ''];
+$modversion['templates'][] = ['file' => 'countdown_event_view.tpl', 'description' => ''];
 $modversion['templates'][] = ['file' => 'countdown_events_list.tpl', 'description' => ''];
 $modversion['templates'][] = ['file' => 'countdown_footer.tpl', 'description' => ''];
 $modversion['templates'][] = ['file' => 'admin/countdown_admin_about.tpl', 'description' => ''];
@@ -127,11 +127,143 @@ $modversion['blocks'] = [
         'description' => _MI_COUNTDOWN_COUNTDOWN_BLOCKDESC,
         'show_func'   => 'showCountdown',
         'edit_func'   => 'editCountdown',
-        'options'     => '0',
+        'options'     => '0|1|1|1',
 		'template'    => 'countdown_block.tpl',
     ]
 ];
 // ------------------- Config Options -----------------------------//
+$modversion['config'][] = [
+    'name'        => 'events_configs',
+    'title'       => '_MI_COUNTDOWN_CONFIG_GENERAL',
+    'description' => '_MI_COUNTDOWN_CONFIG_GENERALDSC',
+    'formtype'    => 'line_break',
+    'valuetype'   => 'textbox',
+    'default'     => 'odd',
+    'category'    => 'group_header',
+];
+
+
+$modversion['config'][] = [
+    'name'        => 'keywords',
+    'title'       => '_MI_COUNTDOWN_KEYWORDS',
+    'description' => '_MI_COUNTDOWN_KEYWORDS_DESC',
+    'formtype'    => 'textbox',
+    'valuetype'   => 'text',
+    'default'     => 'countdown,'
+];
+
+
+//Configs
+$modversion['config'][] = [
+    'name'        => 'events_configs',
+    'title'       => '_MI_COUNTDOWN_CONFIG_EVENTS',
+    'description' => '_MI_COUNTDOWN_CONFIG_EVENTSDSC',
+    'formtype'    => 'line_break',
+    'valuetype'   => 'textbox',
+    'default'     => 'odd',
+    'category'    => 'group_header',
+];
+
+$modversion['config'][] = [
+    'name'        => 'displayeventlogo',
+    'title'       => '_MI_COUNTDOWN_DISPLAYEVENTLOGO_TITLE',
+    'description' => '_MI_COUNTDOWN_DISPLAYEVENTLOGO_DESC',
+    'formtype'    => 'yesno',
+    'valuetype'   => 'int',
+    'default'     => 1,
+    'category'    => 'general',
+];
+
+$modversion['config'][] = [
+    'name'        => 'displayeventdescription',
+    'title'       => '_MI_COUNTDOWN_DISPLAYEVENTDESCRIPTION_TITLE',
+    'description' => '_MI_COUNTDOWN_DISPLAYEVENTDESCRIPTION_DESC',
+    'formtype'    => 'yesno',
+    'valuetype'   => 'int',
+    'default'     => 1,
+    'category'    => 'general',
+];
+
+$modversion['config'][] = [
+    'name'        => 'displaypostinfo',
+    'title'       => '_MI_COUNTDOWN_DISPLAYPOSTINFO_TITLE',
+    'description' => '_MI_COUNTDOWN_DISPLAYPOSTINFO_DESC',
+    'formtype'    => 'yesno',
+    'valuetype'   => 'int',
+    'default'     => 1,
+    'category'    => 'general',
+];
+
+$modversion['config'][] = [
+    'name'        => 'admineventperpage',
+    'title'       => '_MI_COUNTDOWN_ADMINEVENTPERPAGE',
+    'description' => '_MI_COUNTDOWN_ADMINEVENTPERPAGE_DESC',
+    'formtype'    => 'textbox',
+    'valuetype'   => 'int',
+    'default'     => 10
+];
+
+$modversion['config'][] = [
+    'name'        => 'usereventperpage',
+    'title'       => '_MI_COUNTDOWN_USEREVENTPERPAGE',
+    'description' => '_MI_COUNTDOWN_USEREVENTPERPAGE_DESC',
+    'formtype'    => 'textbox',
+    'valuetype'   => 'int',
+    'default'     => 10
+];
+
+//Configs
+$modversion['config'][] = [
+    'name'        => 'image_configs',
+    'title'       => '_MI_COUNTDOWN_CONFIG_IMAGE',
+    'description' => '_MI_COUNTDOWN_CONFIG_IMAGEDSC',
+    'formtype'    => 'line_break',
+    'valuetype'   => 'textbox',
+    'default'     => 'odd',
+    'category'    => 'group_header',
+];
+
+// --------------Uploads : maxsize of image --------------
+$modversion['config'][] = [
+    'name'        => 'maxsize',
+    'title'       => '_MI_COUNTDOWN_MAXSIZE',
+    'description' => '_MI_COUNTDOWN_MAXSIZE_DESC',
+    'formtype'    => 'textbox',
+    'valuetype'   => 'int',
+    'default'     => 5000000
+];
+
+// --------------Uploads : mimetypes of image --------------
+$modversion['config'][] = [
+    'name'        => 'mimetypes',
+    'title'       => '_MI_COUNTDOWN_MIMETYPES',
+    'description' => '_MI_COUNTDOWN_MIMETYPES_DESC',
+    'formtype'    => 'select_multi',
+    'valuetype'   => 'array',
+    'default'     => ['image/gif', 'image/jpeg', 'image/png'],
+    'options'     => [
+        'bmp'   => 'image/bmp',
+        'gif'   => 'image/gif',
+        'pjpeg' => 'image/pjpeg',
+        'jpeg'  => 'image/jpeg',
+        'jpg'   => 'image/jpg',
+        'jpe'   => 'image/jpe',
+        'png'   => 'image/png'
+    ]
+];
+
+
+//Configs
+$modversion['config'][] = [
+    'name'        => 'editor_configs',
+    'title'       => '_MI_COUNTDOWN_CONFIG_EDITOR',
+    'description' => '_MI_COUNTDOWN_CONFIG_EDITORDSC',
+    'formtype'    => 'line_break',
+    'valuetype'   => 'textbox',
+    'default'     => 'odd',
+    'category'    => 'group_header',
+];
+
 xoops_load('xoopseditorhandler');
 $editorHandler          = \XoopsEditorHandler::getInstance();
 $modversion['config'][] = [
@@ -153,6 +285,19 @@ $modversion['config'][] = [
     'options'     => array_flip($editorHandler->getList()),
     'default'     => 'dhtmltextarea'
 ];
+
+
+//Configs
+$modversion['config'][] = [
+    'name'        => 'permission_configs',
+    'title'       => '_MI_COUNTDOWN_CONFIG_PERMISSION',
+    'description' => '_MI_COUNTDOWN_CONFIG_PERMISSONDSC',
+    'formtype'    => 'line_break',
+    'valuetype'   => 'textbox',
+    'default'     => 'odd',
+    'category'    => 'group_header',
+];
+
 
 // -------------- Get groups --------------
 /** @var XoopsMemberHandler $memberHandler */
@@ -190,67 +335,15 @@ $modversion['config'][] = [
     'default'     => $admin_groups
 ];
 
+
+//Configs
 $modversion['config'][] = [
-    'name'        => 'keywords',
-    'title'       => '_MI_COUNTDOWN_KEYWORDS',
-    'description' => '_MI_COUNTDOWN_KEYWORDS_DESC',
-    'formtype'    => 'textbox',
-    'valuetype'   => 'text',
-    'default'     => 'countdown,'
+    'name'        => 'comment_configs',
+    'title'       => '_MI_COUNTDOWN_CONFIG_COMMENT',
+    'description' => '_MI_COUNTDOWN_CONFIG_COMMENTDSC',
+    'formtype'    => 'line_break',
+    'valuetype'   => 'textbox',
+    'default'     => 'odd',
+    'category'    => 'group_header',
 ];
 
-// --------------Uploads : maxsize of image --------------
-$modversion['config'][] = [
-    'name'        => 'maxsize',
-    'title'       => '_MI_COUNTDOWN_MAXSIZE',
-    'description' => '_MI_COUNTDOWN_MAXSIZE_DESC',
-    'formtype'    => 'textbox',
-    'valuetype'   => 'int',
-    'default'     => 5000000
-];
-
-// --------------Uploads : mimetypes of image --------------
-$modversion['config'][] = [
-    'name'        => 'mimetypes',
-    'title'       => '_MI_COUNTDOWN_MIMETYPES',
-    'description' => '_MI_COUNTDOWN_MIMETYPES_DESC',
-    'formtype'    => 'select_multi',
-    'valuetype'   => 'array',
-    'default'     => ['image/gif', 'image/jpeg', 'image/png'],
-    'options'     => [
-        'bmp'   => 'image/bmp',
-        'gif'   => 'image/gif',
-        'pjpeg' => 'image/pjpeg',
-        'jpeg'  => 'image/jpeg',
-        'jpg'   => 'image/jpg',
-        'jpe'   => 'image/jpe',
-        'png'   => 'image/png'
-    ]
-];
-
-$modversion['config'][] = [
-    'name'        => 'adminpager',
-    'title'       => '_MI_COUNTDOWN_ADMINPAGER',
-    'description' => '_MI_COUNTDOWN_ADMINPAGER_DESC',
-    'formtype'    => 'textbox',
-    'valuetype'   => 'int',
-    'default'     => 10
-];
-
-$modversion['config'][] = [
-    'name'        => 'userpager',
-    'title'       => '_MI_COUNTDOWN_USERPAGER',
-    'description' => '_MI_COUNTDOWN_USERPAGER_DESC',
-    'formtype'    => 'textbox',
-    'valuetype'   => 'int',
-    'default'     => 10
-];
-
-$modversion['config'][] = [
-    'name'        => 'advertise',
-    'title'       => '_MI_COUNTDOWN_ADVERTISE',
-    'description' => '_MI_COUNTDOWN_ADVERTISE_DESC',
-    'formtype'    => 'textarea',
-    'valuetype'   => 'text',
-    'default'     => ''
-];

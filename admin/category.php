@@ -48,7 +48,7 @@ switch ($op) {
         $adminObject->addItemButton(_AM_COUNTDOWN_CATEGORY_ADD, 'category.php?op=new', 'add');
         echo $adminObject->displayButton('left');
         $start                 = Request::getInt('start', 0);
-        $categoryPaginationLimit = $helper->getConfig('userpager');
+        $categoryPaginationLimit = $helper->getConfig('usereventperpage');
 
         $criteria = new \CriteriaCompo();
         $criteria->setSort('category_id ASC, category_id');

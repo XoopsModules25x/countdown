@@ -37,7 +37,7 @@ $db = \XoopsDatabaseFactory::getDatabaseConnection();
 /** @var \XoopsPersistableObjectHandler $eventsHandler */
 $eventsHandler = new Countdown\EventsHandler($db);
 
-$eventsPaginationLimit = $helper->getConfig('userpager');
+$eventsPaginationLimit = $helper->getConfig('usereventperpage');
 
 $criteria = new \CriteriaCompo();
 
@@ -67,7 +67,7 @@ $id = Request::getInt('event_id', 0, 'GET');
                 $events['dateiso']           = $eventsArray[$i]->getVar('event_date');
 				$events['date_created']      = formatTimestamp($eventsArray[$i]->getVar('date_created'));
 				$events['date_updated']      = formatTimestamp($eventsArray[$i]->getVar('date_updated'));
-                $events['postinfo']		     = sprintf(_MD_COUNTDOWN_POSTEDBY, $myevent->getVar('uname'), formatTimestamp($eventsArray[$i]->getVar('date_created')), $eventsArray[$i]->getVar('event_categoryid')); 
+                $events['postinfo']		     = sprintf(_MD_COUNTDOWN_POSTEDBY, $myevent->getVar('uname'), formatTimestamp($eventsArray[$i]->getVar('date_created'),), $eventsArray[$i]->getVar('event_categoryid')); 
 
 				$GLOBALS['xoopsTpl']->append('events', $events);
                 $keywords[] = $eventsArray[$i]->getVar('event_id');
