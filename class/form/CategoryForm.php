@@ -64,7 +64,7 @@ class CategoryForm extends \XoopsThemeForm
         // Name
         $this->addElement(new \XoopsFormText(_AM_COUNTDOWN_CATEGORY_TITLE, 'category_title', 50, 255, $this->targetObject->getVar('category_title')), false);
 		 // Weight
-        $this->addElement(new \XoopsFormText(_AM_COUNTDOWN_CATEGORY_WEIGHT, 'category_weight', 5, 255, $this->targetObject->getVar('category_weight')), false);
+        $this->addElement(new \XoopsFormText(_AM_COUNTDOWN_CATEGORY_WEIGHT, 'category_weight', 3, 255, $this->targetObject->getVar('category_weight')), false);
       
         $this->addElement(new \XoopsFormHidden('op', 'save'));
         $this->addElement(new \XoopsFormButton('', 'submit', _SUBMIT, 'submit'));
