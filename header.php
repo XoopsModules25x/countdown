@@ -22,8 +22,9 @@
  * @since           1.0.0
  */
 
-use Xmf\Module\Helper;
+use Xmf\Request;
 use XoopsModules\Countdown;
+use XoopsModules\Countdown\Helper;
 use XoopsModules\Countdown\Common;
 
 require_once dirname(dirname(__DIR__)) . '/mainfile.php';
@@ -41,6 +42,12 @@ require_once __DIR__ . '/include/common.php';
 $db = \XoopsDatabaseFactory::getDatabaseConnection();
 
 $myts       = \MyTextSanitizer::getInstance();
+
+if (!isset($GLOBALS['xoTheme']) || !is_object($GLOBALS['xoTheme'])) {
+    require $GLOBALS['xoops']->path('class/theme.php');
+    $GLOBALS['xoTheme'] = new xos_opal_Theme();
+}
+
 $stylesheet = "modules/{$moduleDirName}/assets/css/style.css";
 if (file_exists($GLOBALS['xoops']->path($stylesheet))) {
     $GLOBALS['xoTheme']->addStylesheet($GLOBALS['xoops']->url("www/{$stylesheet}"));

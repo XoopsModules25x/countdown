@@ -81,7 +81,7 @@ define('_AM_COUNTDOWN_DAY', 'Days');
 define('_AM_COUNTDOWN_HOURS', 'Hours');
 define('_AM_COUNTDOWN_MINUTES', 'Minutes');
 define('_AM_COUNTDOWN_SECONDS', 'Seconds');
-define('_AM_COUNTDOWN_EXPIRED', 'Event has been expired');
+define('_AM_COUNTDOWN_EXPIRED', 'Past Event');
 define('_AM_COUNTDOWN_TILLEND', 'Till the end of event');
 define('_AM_COUNTDOWN_TILLSTART', 'Till start of event');
 define('_AM_COUNTDOWN_STATUS_EXPIRED', 'Expired');

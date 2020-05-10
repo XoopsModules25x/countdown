@@ -53,7 +53,7 @@ define('_MD_COUNTDOWN_DAY', 'Days');
 define('_MD_COUNTDOWN_HOURS', 'Hours');
 define('_MD_COUNTDOWN_MINUTES', 'Minutes');
 define('_MD_COUNTDOWN_SECONDS', 'Seconds');
-define('_MD_COUNTDOWN_EXPIRED', 'Event has been expired');
+define('_COUNTDOWN_PASTEVENT', 'Past Event');
 define('_MD_COUNTDOWN_TILLEND', 'Till the end of event');
 define('_MD_COUNTDOWN_TILLSTART', 'Till start of event');
 define('_MD_COUNTDOWN_STATUS_EXPIRED', 'Expired');

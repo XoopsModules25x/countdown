@@ -70,13 +70,17 @@ $id = Request::getInt('id', 0, 'GET');
 		$events['postername']     = $myevent->getVar('uname');
         $events['name']           = $eventsObject->getVar('event_name');
 		$events['category']       = $eventsObject->getVar('event_categoryid');
+		$categoryHandler          = $helper->getHandler('Category');
+		//$category                 = $categoryHandler->get($eventsObject->getVar('event_categoryid'));
+		//$events['categoryname']   = $category->getVar('category_title');
+		
 		$events['logo']           = $eventsObject->getVar('event_logo');
         $events['description']    = ($eventsObject->getVar('event_description'));
         $events['date']           = date(_DATESTRING, strtotime($eventsObject->getVar('event_date')));
 	    $events['dateiso']        = $eventsObject->getVar('event_date');
 		$events['date_created']   = formatTimestamp($eventsObject->getVar('date_created'));
 		$events['date_updated']   = formatTimestamp($eventsObject->getVar('date_updated'));
-        $events['postinfo']		     = sprintf(_MD_COUNTDOWN_POSTEDBY, $myevent->getVar('uname'), formatTimestamp($eventsObject->getVar('date_created')), $eventsObject->getVar('event_categoryid')); 
+        $events['postinfo']		     = sprintf(_MD_COUNTDOWN_POSTEDBY, $myevent->getVar('uname'), formatTimestamp($eventsObject->getVar('date_created'),'M d Y'), $eventsObject->getVar('event_categoryid')); 
 		//       $GLOBALS['xoopsTpl']->append('events', $events);
         $keywords[] = $eventsObject->getVar('event_id');
 

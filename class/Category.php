@@ -20,8 +20,8 @@
  * @link            https://xoops.org/
  * @since           1.0.0
  */
-use XoopsModules\Countdown;
-use XoopsModules\Countdown\Form;
+//use XoopsModules\Countdown;
+//use XoopsModules\Countdown\Form;
 
 $moduleDirName = basename(dirname(__DIR__));
 
@@ -44,7 +44,7 @@ class Category extends \XoopsObject
         $this->initVar('category_title', XOBJ_DTYPE_TXTBOX);
 		$this->initVar('category_weight', XOBJ_DTYPE_TXTBOX);
     }
-
+	
     /**
      * Get form
      *

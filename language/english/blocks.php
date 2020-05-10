@@ -45,7 +45,7 @@ define('_MB_COUNTDOWN_DAY', 'Days');
 define('_MB_COUNTDOWN_HOURS', 'Hours');
 define('_MB_COUNTDOWN_MINUTES', 'Minutes');
 define('_MB_COUNTDOWN_SECONDS', 'Seconds');
-define('_MB_COUNTDOWN_EXPIRED', 'Event has been expired');
+define('_MB_COUNTDOWN_EXPIRED', 'Past Event');
 define('_MB_COUNTDOWN_TILLEND', 'Till the end of event');
 define('_MB_COUNTDOWN_TILLSTART', 'Till start of event');
 define('_MB_COUNTDOWN_STATUS_EXPIRED', 'Expired');
