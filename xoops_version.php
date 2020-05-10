@@ -185,9 +185,9 @@ $modversion['config'][] = [
 ];
 
 $modversion['config'][] = [
-    'name'        => 'displaypostinfo',
-    'title'       => '_MI_COUNTDOWN_DISPLAYPOSTINFO_TITLE',
-    'description' => '_MI_COUNTDOWN_DISPLAYPOSTINFO_DESC',
+    'name'        => 'displayinfo',
+    'title'       => '_MI_COUNTDOWN_DISPLAYINFO_TITLE',
+    'description' => '_MI_COUNTDOWN_DISPLAYINFO_DESC',
     'formtype'    => 'yesno',
     'valuetype'   => 'int',
     'default'     => 1,

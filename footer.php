@@ -25,7 +25,7 @@ $xoTheme->addScript(XOOPS_URL . '/modules/' . $xoopsModule->getVar('dirname') . 
 $xoTheme->addScript(XOOPS_URL . '/modules/' . $xoopsModule->getVar('dirname') . '/assets/js/vue.min.js');
 
 //Module Configuration
-$xoopsTpl->assign('displaypostinfo', $xoopsModuleConfig['displaypostinfo']);
+$xoopsTpl->assign('displayinfo', $xoopsModuleConfig['displayinfo']);
 $xoopsTpl->assign('displayeventlogo', $xoopsModuleConfig['displayeventlogo']);
 $xoopsTpl->assign('displayeventlogo', $xoopsModuleConfig['displayeventlogo']);
 $xoopsTpl->assign('displayeventdescription', $xoopsModuleConfig['displayeventdescription']);

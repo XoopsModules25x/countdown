@@ -51,6 +51,11 @@
 body {
     min-height: 100vh;
 }
+.bg-gradient-0 {
+    background: #4287f5;
+    background: -webkit-linear-gradient(to right, #4287f5, #86a8e7, #91eae4);
+    background: linear-gradient(to right, #4287f5, #86a8e7, #91eae4);
+}
 
 .bg-gradient-1 {
     background: #7f7fd5;

@@ -67,8 +67,15 @@ $id = Request::getInt('event_id', 0, 'GET');
                 $events['date']              = date(_DATESTRING, strtotime($eventsArray[$i]->getVar('event_date')));
                 $events['dateiso']           = $eventsArray[$i]->getVar('event_date');
 				$events['date_created']      = formatTimestamp($eventsArray[$i]->getVar('date_created'));
+				$date_created      			 = formatTimestamp($eventsArray[$i]->getVar('date_created'));
 				$events['date_updated']      = formatTimestamp($eventsArray[$i]->getVar('date_updated'));
-                $events['postinfo']		     = sprintf(_MD_COUNTDOWN_POSTEDBY, \XoopsUser::getUnameFromId($eventsArray[$i]->getVar('event_uid')), formatTimestamp($eventsArray[$i]->getVar('date_created'),'M d Y'), $eventsArray[$i]->getVar('event_categoryid')); 
+				$date_updated                = formatTimestamp($eventsArray[$i]->getVar('date_updated'));
+      
+			if ($date_created == $date_updated){
+			$events['info']		     = sprintf(_MD_COUNTDOWN_POSTEDBY, \XoopsUser::getUnameFromId($eventsArray[$i]->getVar('event_uid')), formatTimestamp($eventsArray[$i]->getVar('date_created'),'M d Y'), $eventsArray[$i]->getVar('event_categoryid'));} 
+			else{
+			$events['info']		     = sprintf(_MD_COUNTDOWN_POSTEDBY, \XoopsUser::getUnameFromId($eventsArray[$i]->getVar('event_uid')), formatTimestamp($eventsArray[$i]->getVar('date_updated'),'M d Y'), $eventsArray[$i]->getVar('event_categoryid'));}
+
 
 				$GLOBALS['xoopsTpl']->append('events', $events);
                 $keywords[] = $eventsArray[$i]->getVar('event_id');

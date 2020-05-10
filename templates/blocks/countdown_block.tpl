@@ -29,12 +29,12 @@
  
 Vue.component('Timer',{
 	template: `
-	  <div class="rounded bg-gradient-1 text-white shadow p-5 text-center mb-5">
+	  <div class="rounded bg-gradient-0 text-white shadow p-5 text-center mb-5">
                     <p class="mb-0 font-weight-bold text-uppercase">
 					<{if $block.displayeventlogo == 1}>
 					<img src="<{$xoops_url}>/uploads/countdown/images/<{$block.logo}>" alt="<{$block.name}>" title="<{$block.name}>" class="img-fluid"><br><{/if}>
-					<a href="<{$xoops_url}>/modules/countdown2/event.php?id=<{$block.id}>"><span class="text-body"><{$block.name}></span></a>
-					<br><small><{$block.date|date_format:"%A, %B %e %Y %l:%M %p"}></small><br>
+					<h4><a href="<{$xoops_url}>/modules/countdown2/event.php?id=<{$block.id}>"><span class="text-body"><{$block.name}></span></a></h4>
+					<small><{$block.date|date_format:"%A, %B %e %Y %l:%M %p"}></small><br>
 					  <{$block.description}>
 					</p>
                     <div id="clock-c" class="countdown py-4">
@@ -55,16 +55,8 @@ Vue.component('Timer',{
                         </li>
                     </ul> 
 					
-					<{if $block.displaypostinfo == 1}>
-				<p><small><span class="fa fa-info-circle"></span>&nbsp;<{$block.postinfo}></small></p><{/if}>
-				 <!--<span class="fa fa-calendar"></span>
-                  <{if $block.date_created == $block.date_updated}>
-                       <small><{$block.date_created|date_format}></small>
-                  <{else}>
-                        <small><{$block.date_updated|date_format}></small>
-                  <{/if}>
-				  <small><span class="fa fa-user-circle-o"></span> <{$block.submitter}>  <span class="fa fa-tag"></span> <{$block.category}></small>-->
-                      
+					<{if $block.displayinfo == 1}>
+				<p><small><span class="fa fa-info-circle"></span>&nbsp;<{$block.info}></small></p><{/if}>              
 </div>
   `,
   props: ['starttime','endtime','trans'] ,

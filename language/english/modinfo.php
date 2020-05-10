@@ -62,8 +62,8 @@ define('_MI_COUNTDOWN_SUPPORT', 'Support');
 //Config
 define('_MI_COUNTDOWN_DISPLAYEVENTDESCRIPTION_TITLE', 'Display Event Description ?');
 define('_MI_COUNTDOWN_DISPLAYEVENTDESCRIPTION_DESC', 'Display event description in event list and event view page ?');
-define('_MI_COUNTDOWN_DISPLAYPOSTINFO_TITLE', 'Display Event Post Info ?');
-define('_MI_COUNTDOWN_DISPLAYPOSTINFO_DESC', 'Display submitted date, poster name and category in event list and event view page ?');
+define('_MI_COUNTDOWN_DISPLAYINFO_TITLE', 'Display Event Info ?');
+define('_MI_COUNTDOWN_DISPLAYINFO_DESC', 'Display submitted date, poster name and category in event list and event view page ?');
 define('_MI_COUNTDOWN_DISPLAYEVENTLOGO_TITLE', 'Display Event Logo ?');
 define('_MI_COUNTDOWN_DISPLAYEVENTLOGO_DESC', 'Display event logo in event list and event view page ?');
 define('_MI_COUNTDOWN_EDITOR_ADMIN', 'Editor: Admin');

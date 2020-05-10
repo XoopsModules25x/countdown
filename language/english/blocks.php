@@ -52,6 +52,6 @@ define('_MB_COUNTDOWN_STATUS_EXPIRED', 'Expired');
 define('_MB_COUNTDOWN_STATUS_RUNNING', 'Running');
 define('_MB_COUNTDOWN_STATUS_FUTURE', 'Future');
 
-define('_MB_COUNTDOWN_DISPLAYPOSTINFO', '<strong>Display Event Post Info ?</strong>');
+define('_MB_COUNTDOWN_DISPLAYINFO', '<strong>Display Event Info ?</strong>');
 define('_MB_COUNTDOWN_DISPLAYEVENTLOGO', '<strong>Display Event Logo ?</strong>');
 define('_MB_COUNTDOWN_DISPLAYEVENTDESCRIPTION', '<strong>Display Event Desciption ?</strong>');

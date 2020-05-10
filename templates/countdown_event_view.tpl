@@ -58,8 +58,8 @@ template: `
                     </ul>   
 					
 				 
-				 <{if $displaypostinfo == 1}>
-				 <p><small><span class="fa fa-info-circle"></span>&nbsp;<{$events.postinfo}></small></p><{/if}>
+				 <{if $displayinfo == 1}>
+				 <p><small><span class="fa fa-info-circle"></span>&nbsp;<{$events.info}></small></p><{/if}>
 				 <{$events.categoryname}>
                 <{if $xoops_isadmin == true}>
                     <p class="float-right">

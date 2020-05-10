@@ -22,10 +22,16 @@ function showCountdown($options){
                 $block['date']              = date(_DATESTRING, strtotime($row['event_date']));
                 $block['dateiso']           = $row['event_date'];
 				$block['date_created']      = formatTimestamp($row['date_created']);
+				$date_created      			= formatTimestamp($row['date_created']);
 				$block['date_updated']      = formatTimestamp($row['date_updated']);
-				$block['postinfo']		    = sprintf(_MB_COUNTDOWN_POSTEDBY, \XoopsUser::getUnameFromId($row['event_uid']), formatTimestamp($row['date_created'],'M d Y'), $row['event_categoryid']); 
+				$date_updated      			= formatTimestamp($row['date_updated']);
+
+			if ($date_created == $date_updated){
+			$block['info']		    = sprintf(_MB_COUNTDOWN_POSTEDBY, \XoopsUser::getUnameFromId($row['event_uid']), formatTimestamp($row['date_created'],'M d Y'), $row['event_categoryid']); }
+			else{
+			$block['info']		    = sprintf(_MB_COUNTDOWN_POSTEDBY, \XoopsUser::getUnameFromId($row['event_uid']), formatTimestamp($row['date_updated'],'M d Y'), $row['event_categoryid']); }
 				}
-				$block['displaypostinfo']   = $options[1];
+				$block['displayinfo']   = $options[1];
 				$block['displayeventlogo']  = $options[2];
     return $block;
 }
@@ -77,7 +83,7 @@ function editCountdown($options)
     $form .= "&nbsp;<input type='radio' name='options[2]' value='0'" . $chk . ' >' . _NO . '<br>';
 	
 	
-	$form .= _MB_COUNTDOWN_DISPLAYPOSTINFO . '&nbsp;';
+	$form .= _MB_COUNTDOWN_DISPLAYINFO . '&nbsp;';
     if (1 == $options[3]) {
         $chk = " checked='checked'";
     }
