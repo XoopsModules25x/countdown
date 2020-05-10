@@ -11,9 +11,7 @@ function showCountdown($options){
 	while($row=$GLOBALS['xoopsDB']->fetchArray($result)) {
 				$block['id']                = $row['event_id'];
                 $block['uid']               = $row['event_uid'];
-				$memberHandler 			    = xoops_getHandler('member');
-				$myevent        		    = $memberHandler->getUser($row['event_uid']);
-				$block['postername']        = $myevent->getVar('uname');
+				$block['postername']        = \XoopsUser::getUnameFromId($row['event_uid']);
                 $block['name']              = $row['event_name'];
                 $block['description']       = $row['event_description'];
 			    $block['category']          = $row['event_categoryid'];
@@ -22,7 +20,7 @@ function showCountdown($options){
                 $block['dateiso']           = $row['event_date'];
 				$block['date_created']      = formatTimestamp($row['date_created']);
 				$block['date_updated']      = formatTimestamp($row['date_updated']);
-				$block['postinfo']		    = sprintf(_MB_COUNTDOWN_POSTEDBY, $myevent->getVar('uname'), formatTimestamp($row['date_created']), $row['event_categoryid']); 
+				$block['postinfo']		    = sprintf(_MB_COUNTDOWN_POSTEDBY, \XoopsUser::getUnameFromId($row['event_uid']), formatTimestamp($row['date_created'],'M d Y'), $row['event_categoryid']); 
 	}
 				$block['displaypostinfo']   = $options[1];
 				$block['displayeventlogo']  = $options[2];

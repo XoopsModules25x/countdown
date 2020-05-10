@@ -56,9 +56,7 @@ $id = Request::getInt('event_id', 0, 'GET');
             foreach (array_keys($eventsArray) as $i) {
                 $events['id']                = $eventsArray[$i]->getVar('event_id');
                 $events['uid']               = $eventsArray[$i]->getVar('event_uid');
-				$memberHandler 			     = xoops_getHandler('member');
-				$myevent        		     = $memberHandler->getUser($eventsArray[$i]->getVar('event_uid'));
-				$events['postername']        = $myevent->getVar('uname');
+				$events['postername']        = \XoopsUser::getUnameFromId($eventsArray[$i]->getVar('event_uid'));
                 $events['name']              = $eventsArray[$i]->getVar('event_name');
                 $events['description']       = $eventsArray[$i]->getVar('event_description');
 			    $events['category']          = $eventsArray[$i]->getVar('event_categoryid');
@@ -71,7 +69,7 @@ $id = Request::getInt('event_id', 0, 'GET');
                 $events['dateiso']           = $eventsArray[$i]->getVar('event_date');
 				$events['date_created']      = formatTimestamp($eventsArray[$i]->getVar('date_created'));
 				$events['date_updated']      = formatTimestamp($eventsArray[$i]->getVar('date_updated'));
-                $events['postinfo']		     = sprintf(_MD_COUNTDOWN_POSTEDBY, $myevent->getVar('uname'), formatTimestamp($eventsArray[$i]->getVar('date_created'),'M d Y'), $eventsArray[$i]->getVar('event_categoryid')); 
+                $events['postinfo']		     = sprintf(_MD_COUNTDOWN_POSTEDBY, \XoopsUser::getUnameFromId($eventsArray[$i]->getVar('event_uid')), formatTimestamp($eventsArray[$i]->getVar('date_created'),'M d Y'), $eventsArray[$i]->getVar('event_categoryid')); 
 
 				$GLOBALS['xoopsTpl']->append('events', $events);
                 $keywords[] = $eventsArray[$i]->getVar('event_id');

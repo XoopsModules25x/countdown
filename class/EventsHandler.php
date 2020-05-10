@@ -38,6 +38,6 @@ class EventsHandler extends \XoopsPersistableObjectHandler
 
     public function __construct(\XoopsDatabase $db)
     {
-        parent::__construct($db, 'countdown_events', Events::class, 'event_id', 'E');
+        parent::__construct($db, 'countdown_events', Events::class, 'event_id', 'event_name');
     }
 }

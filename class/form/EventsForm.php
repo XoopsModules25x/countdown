@@ -49,7 +49,8 @@ class EventsForm extends \XoopsThemeForm
      */
     public function __construct($target)
     {
-        global $helper;
+		$helper = \XoopsModules\Countdown\Helper::getInstance();
+		
         $this->targetObject = $target;
 
         $title = $this->targetObject->isNew() ? sprintf(_AM_COUNTDOWN_EVENTS_ADD) : sprintf(_AM_COUNTDOWN_EVENTS_EDIT);
