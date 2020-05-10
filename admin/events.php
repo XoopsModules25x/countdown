@@ -108,7 +108,7 @@ switch ($op) {
                 $selectoruid = $utility::selectSorting(_AM_COUNTDOWN_EVENTS_POSTERNAME, 'event_uid');
                 $GLOBALS['xoopsTpl']->assign('selectoruid', $selectoruid);
                 $eventsArray['event_uid'] = $eventsTempArray[$i]->getVar('event_uid');
-				$eventsArray['event_postername'] = \XoopsUser::getUnameFromId($eventsTempArray[$i]->getVar('event_uid'));
+				$eventsArray['event_submitter'] = \XoopsUser::getUnameFromId($eventsTempArray[$i]->getVar('event_uid'));
 			
                 $selectorname = $utility::selectSorting(_AM_COUNTDOWN_EVENTS_NAME, 'event_name');
                 $GLOBALS['xoopsTpl']->assign('selectorname', $selectorname);
@@ -125,23 +125,33 @@ switch ($op) {
 				$selectorcategory = $utility::selectSorting(_AM_COUNTDOWN_EVENTS_CATEGORY, 'event_categoryid');
                 $GLOBALS['xoopsTpl']->assign('selectorcategory', $selectorcategory);
                 $eventsArray['event_categoryid'] = $eventsTempArray[$i]->getVar('event_categoryid');
-				$categoryHandler = \XoopsModules\Countdown\Helper::getInstance()->getHandler('Category');
-				//$mycategory      = $categoryHandler->get($eventsTempArray[$i]->getVar('event_categoryid'));
-				//$mycategory      = $categoryHandler->getList();
-				//$eventsArray['event_categoryname']  = $mycategory->getVar('category_title');
+				//$categoryHandler          = $helper->getHandler('category');
+				//$categoryObj              = $categoryHandler->get($eventsTempArray[$i]->getVar('event_categoryid'));
+				//$eventsArray['event_categoryname']    = $categoryObj->getVar('category_title');
 				
 				$selectorlogo = $utility::selectSorting(_AM_COUNTDOWN_EVENTS_LOGO, 'event_logo');
                 $GLOBALS['xoopsTpl']->assign('selectorlogo', $selectorlogo);
                 $eventsArray['event_logo']     = "<img src='" . $uploadUrl . $eventsTempArray[$i]->getVar('event_logo') . "' name='" . 'name' . "' id=" . 'id' . " alt='' style='max-width:100px'>";
-                
+                	
 				$selectordatecreated = $utility::selectSorting(_AM_COUNTDOWN_EVENTS_DATE_CREATED, 'date_created');
                 $GLOBALS['xoopsTpl']->assign('selectordatecreated', $selectordatecreated);
                 $eventsArray['date_created'] = formatTimestamp($eventsTempArray[$i]->getVar('date_created'));
+				 $date_created = formatTimestamp($eventsTempArray[$i]->getVar('date_created'));
 				
 				$selectordateupdated = $utility::selectSorting(_AM_COUNTDOWN_EVENTS_DATE_UPDATED, 'date_updated');
                 $GLOBALS['xoopsTpl']->assign('selectordateupdated', $selectordateupdated);
                 $eventsArray['date_updated'] = formatTimestamp($eventsTempArray[$i]->getVar('date_updated'));
+				$date_updated = formatTimestamp($eventsTempArray[$i]->getVar('date_updated'));
 				
+				$selectorsubmitted = $utility::selectSorting(_AM_COUNTDOWN_EVENTS_SUBMITTED, 'date_created');
+                $GLOBALS['xoopsTpl']->assign('selectorsubmitted', $selectorsubmitted);
+
+						if ($date_created == $date_updated){
+						$selectorsubmitted = $utility::selectSorting(_AM_COUNTDOWN_EVENTS_SUBMITTED, 'date_created');}
+					   else{
+						$selectorsubmitted = $utility::selectSorting(_AM_COUNTDOWN_EVENTS_SUBMITTED, 'date_updated');}
+					   
+				$GLOBALS['xoopsTpl']->assign('selectorsubmitted', $selectorsubmitted);   
                 $eventsArray['edit_delete'] = "<a href='events.php?op=edit&id=" . $i . "'><img src=" . $pathIcon16 . "/edit.png alt='" . _EDIT . "' title='" . _EDIT . "'></a>
                <a href='events.php?op=delete&id=" . $i . "'><img src=" . $pathIcon16 . "/delete.png alt='" . _DELETE . "' title='" . _DELETE . "'></a>
                <a href='events.php?op=clone&id=" . $i . "'><img src=" . $pathIcon16 . "/editcopy.png alt='" . _CLONE . "' title='" . _CLONE . "'></a>";

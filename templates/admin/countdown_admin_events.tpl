@@ -25,8 +25,7 @@
 					<th class="center"><{$selectorcategory}></th>
 					<th class="center"><{$selectorlogo}></th>
 					<th class="center"><{$selectoruid}></th>
-					<th class="center"><{$selectordatecreated}></th>
-                    <th class="center"><{$selectordateupdated}></th>
+                    <th class="center"><{$selectorsubmitted}></th>
                     <th class="center width5"><{$smarty.const._AM_COUNTDOWN_FORM_ACTION}></th>
                 </tr>
                 <{foreach item=eventsArray from=$eventsArrays}>
@@ -40,9 +39,14 @@
 					    <td class='center'><{$eventsArray.event_categoryid}></td>
 						<!--<td class='center'><{$eventsArray.event_categoryname}></td>-->
 						<td class='center'><{$eventsArray.event_logo}></td>
-						<td class='center'><{$eventsArray.event_postername}></td>
-						<td class='center'><{$eventsArray.date_created}></td>
-                        <td class='center'><{$eventsArray.date_updated}></td>
+						<td class='center'><{$eventsArray.event_submitter}></td>
+						<td class='center'>
+						<{if $eventsArray.date_created == $eventsArray.date_updated}>
+                       <{$eventsArray.date_created|date_format|date_format:"%B %e %Y"}>
+						<{else}>
+                        <{$eventsArray.date_updated|date_format:"%B %e %Y"}>
+						<{/if}>
+						</td>
                         <td class="center width5"><{$eventsArray.edit_delete}></td>
                     </tr>
                 <{/foreach}>
@@ -61,8 +65,7 @@
 				    <th class="center"><{$selectorcategory}></th>
 					<th class="center"><{$selectorlogo}></th>
 					<th class="center"><{$selectoruid}></th>
-					<th class="center"><{$selectordatecreated}></th>
-                    <th class="center"><{$selectordateupdated}></th>
+					<th class="center"><{$selectordatesubmitted}></th>
                     <th class="center width5"><{$smarty.const._AM_COUNTDOWN_FORM_ACTION}></th>
                 </tr>
                 <tr>

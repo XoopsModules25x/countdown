@@ -65,13 +65,12 @@ $id = Request::getInt('id', 0, 'GET');
         $criteria->setStart($start);
         $events['id']             = $eventsObject->getVar('event_id');
         $events['uid']            = $eventsObject->getVar('event_uid');
-		$events['postername']     = \XoopsUser::getUnameFromId($eventsObject->getVar('event_uid'));
+		$events['submitter']      = \XoopsUser::getUnameFromId($eventsObject->getVar('event_uid'));
         $events['name']           = $eventsObject->getVar('event_name');
 		$events['category']       = $eventsObject->getVar('event_categoryid');
-		$categoryHandler          = $helper->getHandler('Category');
-		//$category                 = $categoryHandler->get($eventsObject->getVar('event_categoryid'));
-		//$events['categoryname']   = $category->getVar('category_title');
-		
+		//$categoryHandler          = $helper->getHandler('category');
+		//$categoryObj              = $categoryHandler->get($eventsObject->getVar('event_categoryid'));
+		//$events['categoryname']   = $categoryObj->getVar('category_title');
 		$events['logo']           = $eventsObject->getVar('event_logo');
         $events['description']    = ($eventsObject->getVar('event_description'));
         $events['date']           = date(_DATESTRING, strtotime($eventsObject->getVar('event_date')));

@@ -73,10 +73,14 @@ class EventsForm extends \XoopsThemeForm
 		$categoryHandler = \XoopsModules\Countdown\Helper::getInstance()->getHandler('Category');
 		//$objects = $categoryHandler->getList();
         $category_select = new XoopsFormSelect(_AM_COUNTDOWN_CATEGORY, 'event_categoryid', $category_id);
-	//	$category_select = new XoopsFormSelect(_AM_COUNTDOWN_CATEGORY, 'event_categoryid', $this->targetObject->getVar('event_categoryid', 'e' ), 1, false );
-
 		//$category_select->addOptionArray($objects);
         $this->addElement($category_select);
+		
+		//$categoryHandler = $helper->getHandler('category');
+		//$category_select = new \XoopsFormSelect( _AM_COUNTDOWN_CATEGORY, 'event_categoryid', $category_id);
+		//$category_select->addOptionArray($categoryHandler->getList());
+		//$form->addElement($category_select, true);
+		
         // Name
         $this->addElement(new \XoopsFormText(_AM_COUNTDOWN_EVENTS_NAME, 'event_name', 50, 255, $this->targetObject->getVar('event_name')), false);
         // Description
@@ -123,7 +127,7 @@ class EventsForm extends \XoopsThemeForm
         $imgtray->addElement($fileseltray);
         $this->addElement($imgtray);
 		
-		// Poster Name
+		// Submitter
         $this->addElement(new \XoopsFormSelectUser(_AM_COUNTDOWN_EVENTS_POSTERNAME, 'event_uid', false, $this->targetObject->getVar('event_uid'), 1, false), false);
         
 		// Data_creation

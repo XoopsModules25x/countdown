@@ -56,14 +56,13 @@ $id = Request::getInt('event_id', 0, 'GET');
             foreach (array_keys($eventsArray) as $i) {
                 $events['id']                = $eventsArray[$i]->getVar('event_id');
                 $events['uid']               = $eventsArray[$i]->getVar('event_uid');
-				$events['postername']        = \XoopsUser::getUnameFromId($eventsArray[$i]->getVar('event_uid'));
+				$events['submitter']        = \XoopsUser::getUnameFromId($eventsArray[$i]->getVar('event_uid'));
                 $events['name']              = $eventsArray[$i]->getVar('event_name');
                 $events['description']       = $eventsArray[$i]->getVar('event_description');
 			    $events['category']          = $eventsArray[$i]->getVar('event_categoryid');
-				//$category                 = $categoryHandler->get($eventsObject->getVar('event_categoryid'));
-				//$events['categoryname']   = $category->getVar('category_title');
-		
-				
+				//$categoryHandler          = $helper->getHandler('category');
+				//$categoryObj              = $categoryHandler->get($eventsArray[$i]->getVar('event_categoryid'));
+				//$events['categoryname']   = $categoryObj->getVar('category_title');
 				$events['logo']              = $eventsArray[$i]->getVar('event_logo');
                 $events['date']              = date(_DATESTRING, strtotime($eventsArray[$i]->getVar('event_date')));
                 $events['dateiso']           = $eventsArray[$i]->getVar('event_date');

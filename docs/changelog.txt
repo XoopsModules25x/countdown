@@ -5,7 +5,7 @@
  - Change event date type to int (liomj)
  - Add event categories (liomj)
  - Add date created and date updated to event (liomj)
- - Change uid to Poster Name (liomj)
+ - Change uid to Submitter (liomj)
  - Add option to add event logo (liomj)
  - Update Languages (liomj)
  - Update Templates (liomj)

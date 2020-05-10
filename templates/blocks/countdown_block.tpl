@@ -63,7 +63,7 @@ Vue.component('Timer',{
                   <{else}>
                         <small><{$block.date_updated|date_format}></small>
                   <{/if}>
-				  <small><span class="fa fa-user-circle-o"></span> <{$block.postername}>  <span class="fa fa-tag"></span> <{$block.category}></small>-->
+				  <small><span class="fa fa-user-circle-o"></span> <{$block.submitter}>  <span class="fa fa-tag"></span> <{$block.category}></small>-->
                       
 </div>
   `,
