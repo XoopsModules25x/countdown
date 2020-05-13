@@ -1,4 +1,9 @@
-<h5>2.0        [NOT RELEASED]</h5>  Dev: Xoops 2.5.9, PHP 7.2.0
+<h5>2.1        [NOT RELEASED]</h5>  Dev: Xoops 2.5.11, PHP 7.4.5
+<hr>
+
+
+
+<h5>2.1        [NOT RELEASED]</h5>  Dev: Xoops 2.5.9, PHP 7.2.0
 <hr>
  - Add Countdown Block (liomj) 
  - Fix vue.js countdown timer in templates (liomj)
@@ -15,5 +20,10 @@
  - Fix Undefined Constant (liomj)
  - Fix Missing eventsform (liomj)
  - Update db_fields (liomj)
- - Original release Countdown2 (Mamba/XOOPS Development Team)
- - it's a rewrite of the original Countdown by Eric Juden (ejuden01)
+
+
+ <h5>2.0        [NOT RELEASED]</h5>  Dev: Xoops 2.5.9, PHP 7.2.0
+ <hr>
+  - Original release Countdown2 (XOOPS Development Team)
+  - it's a rewrite of the original Countdown by Eric Juden (ejuden01)
+
