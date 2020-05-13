@@ -34,17 +34,17 @@ template: `
 						<img src="<{$xoops_url}>/uploads/countdown/images/<{$events.logo}>" alt="<{$events.name}>" title="<{$events.name}>" class="img-fluid float-right" width="200">
 						</a>
 					<{/if}>
-					<h2><a href="<{$xoops_url}>/modules/countdown2/event.php?id=<{$events.id}>"><{$events.name}></a></h2>
+					<h4><a href="<{$xoops_url}>/modules/countdown2/event.php?id=<{$events.id}>"><{$events.name}></a></h4>
 					<small><b><{$smarty.const._MD_COUNTDOWN_EVENTS_DATE}> :</b> <{$events.date|date_format:"%A, %B %e %Y %l:%M %p"}></small><br>
 					<{if $displayeventdescription == 1}>
 					  <{$events.description}><{/if}>
 					</p>
                     <div id="clock-c" class="countdown py-4">
 				      <div v-show ="statusType !== 'expired'">
-          <span class="h1 text-body font-weight-bold">{{ days }}</span> {{ wordString.day }}
-          <span class="h1 text-body font-weight-bold">{{ hours }}</span> {{ wordString.hours }}
-          <span class="h1 text-body font-weight-bold">{{ minutes }}</span> {{ wordString.minutes }}
-          <span class="h1 text-body font-weight-bold">{{ seconds }}</span> {{ wordString.seconds }}
+          <span class="h4 text-body font-weight-bold">{{ days }}</span> {{ wordString.day }}
+          <span class="h4 text-body font-weight-bold">{{ hours }}</span> {{ wordString.hours }}
+          <span class="h4 text-body font-weight-bold">{{ minutes }}</span> {{ wordString.minutes }}
+          <span class="h4 text-body font-weight-bold">{{ seconds }}</span> {{ wordString.seconds }}
 	</div>
 	</div>
                     <!-- Call to actions -->

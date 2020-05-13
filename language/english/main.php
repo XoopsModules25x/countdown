@@ -59,6 +59,7 @@ define('_MD_COUNTDOWN_TILLSTART', 'Till start of event');
 define('_MD_COUNTDOWN_STATUS_EXPIRED', 'Expired');
 define('_MD_COUNTDOWN_STATUS_RUNNING', 'Running');
 define('_MD_COUNTDOWN_STATUS_FUTURE', 'Future');
+define('_MD_COUNTDOWN_EVENT_ALL', 'All Events');
 define('_MD_COUNTDOWN_EVENT_EXPIRED', 'Expired Events');
 define('_MD_COUNTDOWN_EVENT_RUNNING', 'Running Events');
 
