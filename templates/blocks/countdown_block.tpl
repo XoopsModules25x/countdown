@@ -39,10 +39,10 @@ Vue.component('Timer',{
 					</p>
                     <div id="clock-c" class="countdown py-4">
 				      <div v-show ="statusType !== 'expired'">
-          <span class="h1 text-body font-weight-bold">{{ days }}</span> {{ wordString.day }}
-          <span class="h1 text-body font-weight-bold">{{ hours }}</span> {{ wordString.hours }}
-          <span class="h1 text-body font-weight-bold">{{ minutes }}</span> {{ wordString.minutes }}
-          <span class="h1 text-body font-weight-bold">{{ seconds }}</span> {{ wordString.seconds }}
+          <span class="h4 text-body font-weight-bold">{{ days }}</span> {{ wordString.day }}
+          <span class="h4 text-body font-weight-bold">{{ hours }}</span> {{ wordString.hours }}
+          <span class="h4 text-body font-weight-bold">{{ minutes }}</span> {{ wordString.minutes }}
+          <span class="h4 text-body font-weight-bold">{{ seconds }}</span> {{ wordString.seconds }}
 	</div>
 	</div>
                     <!-- Call to actions -->

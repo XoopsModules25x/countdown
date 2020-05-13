@@ -29,6 +29,9 @@ define('_MI_COUNTDOWN_ADMENU2', 'Category');
 define('_MI_COUNTDOWN_ADMENU3', 'Events');
 define('_MI_COUNTDOWN_ADMENU4', 'Permission');
 define('_MI_COUNTDOWN_ADMENU5', 'About');
+define('_MI_COUNTDOWN_EVENT_ALL', 'All Event');
+define('_MI_COUNTDOWN_EVENT_EXPIRED', 'Expired Event');
+define('_MI_COUNTDOWN_EVENT_RUNNING', 'Running Event');
 //Blocks
 define("_MI_COUNTDOWN_COUNTDOWN_BLOCK","Countdown");
 define("_MI_COUNTDOWN_COUNTDOWN_BLOCKDESC","Countdown Timer Block");

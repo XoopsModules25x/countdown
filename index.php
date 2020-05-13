@@ -42,8 +42,22 @@ $eventsPaginationLimit = $helper->getConfig('usereventperpage');
 $criteria = new \CriteriaCompo();
 
 $criteria->setOrder('DESC');
+$criteria->setSort('event_id');
 $criteria->setLimit($eventsPaginationLimit);
 $criteria->setStart($start);
+$op = Request::getCmd('op', '');
+$today=date("Y-m-d H:i:s",time());
+
+switch ($op) {
+    case '':
+    default: //Do nothing, we want to view all
+    break;
+    case 'running':
+	$criteria->add(new Criteria('event_date',$today, '>'));
+	break;
+    case 'expired':
+	$criteria->add(new Criteria('event_date',$today, '<'));       
+}
 
 $eventsCount = $eventsHandler->getCount($criteria);
 $eventsArray = $eventsHandler->getAll($criteria);
