@@ -81,6 +81,22 @@ $modversion = [
     ],
 ];
 // ------------------- Search -----------------------------//
+$modversion['sub']     = [
+    [
+        'name' => _MI_COUNTDOWN_EVENT_ALL,
+        'url'  => 'index.php',
+    ],
+	[
+        'name' =>  _MI_COUNTDOWN_EVENT_RUNNING,
+        'url'  => 'index.php?op=running',
+    ],
+	[
+        'name' => _MI_COUNTDOWN_EVENT_EXPIRED,
+        'url'  => 'index.php?op=expired',
+    ],
+  
+];
+// ------------------- Search -----------------------------//
 $modversion['hasSearch']      = 1;
 $modversion['search']['file'] = 'include/search.inc.php';
 $modversion['search']['func'] = 'countdown_search';

@@ -1,5 +1,6 @@
 <h5>2.0        [NOT RELEASED]</h5>  Dev: Xoops 2.5.9, PHP 7.2.0
 <hr>
+ - Add running, expired event submenu (liomj)
  - Add Countdown Block (liomj) 
  - Fix vue.js countdown timer in templates (liomj)
  - Change event date type to int (liomj)
@@ -10,7 +11,7 @@
  - Update Languages (liomj)
  - Update Templates (liomj)
  - Add Data Tables to Event List Page (liomj)
- - Incude search event using XOOPS Search System (liomj)
+ - Include search event using XOOPS Search System (liomj)
  - Separate Event List and Event View Page (liomj)
  - Fix Undefined Constant (liomj)
  - Fix Missing eventsform (liomj)

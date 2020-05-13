@@ -34,7 +34,7 @@ template: `
 						<img src="<{$xoops_url}>/uploads/countdown/images/<{$events.logo}>" alt="<{$events.name}>" title="<{$events.name}>" class="img-fluid float-right" width="200">
 						</a>
 					<{/if}>
-					<a href="<{$xoops_url}>/modules/countdown2/event.php?id=<{$events.id}>"><{$events.name}></a><br>
+					<h2><a href="<{$xoops_url}>/modules/countdown2/event.php?id=<{$events.id}>"><{$events.name}></a></h2>
 					<small><b><{$smarty.const._MD_COUNTDOWN_EVENTS_DATE}> :</b> <{$events.date|date_format:"%A, %B %e %Y %l:%M %p"}></small><br>
 					<{if $displayeventdescription == 1}>
 					  <{$events.description}><{/if}>
