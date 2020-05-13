@@ -42,6 +42,7 @@ $eventsPaginationLimit = $helper->getConfig('usereventperpage');
 $criteria = new \CriteriaCompo();
 
 $criteria->setOrder('DESC');
+$criteria->setSort('event_id');
 $criteria->setLimit($eventsPaginationLimit);
 $criteria->setStart($start);
 $op = Request::getCmd('op', '');

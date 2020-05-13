@@ -1,5 +1,6 @@
 <h5>2.0        [NOT RELEASED]</h5>  Dev: Xoops 2.5.9, PHP 7.2.0
 <hr>
+ - Fix order and sort (liomj)
  - Add running, expired event submenu (liomj)
  - Add Countdown Block (liomj) 
  - Fix vue.js countdown timer in templates (liomj)
