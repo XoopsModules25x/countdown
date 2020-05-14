@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace XoopsModules\Countdown2;
 
 /*
@@ -12,13 +14,13 @@ namespace XoopsModules\Countdown2;
  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 */
 /**
- * Module: countdown
+ * Module: Countdown2
  *
  * @category        Module
- * @package         countdown
- * @author          XOOPS Development Team <name@site.com> - <https://xoops.org>
+ * @package         countdown2
+ * @author          XOOPS Development Team <https://xoops.org>
  * @copyright       {@link https://xoops.org/ XOOPS Project}
- * @license         GPL 2.0 or later
+ * @license         GNU GPL 2 or later (https://www.gnu.org/licenses/gpl-2.0.html)
  * @link            https://xoops.org/
  * @since           1.0.0
  */

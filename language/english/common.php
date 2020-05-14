@@ -132,10 +132,6 @@ define('CO_' . $moduleDirNameUpper . '_' . 'PERMNOTSET', 'The permission cannot 
 //define('CO_' . $moduleDirNameUpper . '_' . 'SETMPERM', 'Set the permission');
 define('CO_' . $moduleDirNameUpper . '_' . 'FILECOPIED', 'The file has been copied');
 define('CO_' . $moduleDirNameUpper . '_' . 'FILENOTCOPIED', 'The file cannot be copied');
-//define('CO_' . $moduleDirNameUpper . '_' . 'PERMSET', 'The permission has been set');
-//define('CO_' . $moduleDirNameUpper . '_' . 'PERMNOTSET', 'The permission cannot be set');
-define('CO_' . $moduleDirNameUpper . '_' . 'TRUNCATE_LENGTH', 'Number of Characters to truncate to the long text field');
-define('CO_' . $moduleDirNameUpper . '_' . 'TRUNCATE_LENGTH_DESC', 'Set the maximum number of characters to truncate the long text fields');
 
 //image config
 define('CO_' . $moduleDirNameUpper . '_' . 'IMAGE_WIDTH', 'Image Display Width');
