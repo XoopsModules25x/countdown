@@ -41,8 +41,8 @@ $sort  = Request::getString('sort', '');
 $adminObject->displayNavigation(basename(__FILE__));
 /** @var Permission $permHelper */
 $permHelper = new \Xmf\Module\Helper\Permission();
-$uploadDir  = XOOPS_UPLOAD_PATH . '/countdown/images/';
-$uploadUrl  = XOOPS_UPLOAD_URL . '/countdown/images/';
+$uploadDir  = XOOPS_UPLOAD_PATH . '/countdown2/images/';
+$uploadUrl  = XOOPS_UPLOAD_URL . '/countdown2/images/';
 
 switch ($op) {
     case 'list':

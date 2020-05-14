@@ -31,7 +31,7 @@ template: `
                     <p class="mb-0 p-2 font-weight-bold text-body">
 					<{if $displayeventlogo == 1}>
 						<a href="<{$xoops_url}>/modules/countdown2/event.php?id=<{$events.id}>">
-						<img src="<{$xoops_url}>/uploads/countdown/images/<{$events.logo}>" alt="<{$events.name}>" title="<{$events.name}>" class="img-fluid float-right" width="200">
+						<img src="<{$xoops_url}>/uploads/countdown2/images/<{$events.logo}>" alt="<{$events.name}>" title="<{$events.name}>" class="img-fluid float-right" width="200">
 						</a>
 					<{/if}>
 					<h4><a href="<{$xoops_url}>/modules/countdown2/event.php?id=<{$events.id}>"><{$events.name}></a></h4>

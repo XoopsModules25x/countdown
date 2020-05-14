@@ -114,7 +114,7 @@ class EventsForm extends \XoopsThemeForm
 		// Logo
         $logo = $this->targetObject->getVar('event_logo') ?: 'blank.png';
 
-        $uploadDir   = '/uploads/countdown/images/';
+        $uploadDir   = '/uploads/countdown2/images/';
         $imgtray     = new \XoopsFormElementTray(_AM_COUNTDOWN_EVENTS_LOGO, '<br>');
         $imgpath     = sprintf(_AM_COUNTDOWN_FORMIMAGE_PATH, $uploadDir);
         $imageselect = new \XoopsFormSelect($imgpath, 'event_logo', $logo);
