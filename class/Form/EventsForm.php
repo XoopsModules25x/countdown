@@ -1,4 +1,8 @@
-<?php namespace XoopsModules\Countdown\Form;
+<?php
+
+declare(strict_types=1);
+
+namespace XoopsModules\Countdown2\Form;
 
 /*
  You may not change or alter any portion of this comment or credits
@@ -10,27 +14,27 @@
  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 */
 /**
- * Module: countdown
+ * Module: Countdown2
  *
  * @category        Module
- * @package         countdown
- * @author          XOOPS Development Team <name@site.com> - <https://xoops.org>
+ * @package         countdown2
+ * @author          XOOPS Development Team <https://xoops.org>
  * @copyright       {@link https://xoops.org/ XOOPS Project}
- * @license         GPL 2.0 or later
+ * @license         GNU GPL 2 or later (https://www.gnu.org/licenses/gpl-2.0.html)
  * @link            https://xoops.org/
  * @since           1.0.0
  */
 
 use Xmf\Request;
-use XoopsModules\Countdown;
-use XoopsModules\Countdown\Common;
+use XoopsModules\Countdown2;
+use XoopsModules\Countdown2\Common;
 use XoopsFormTextDateSelect;
 use XoopsFormSelect;
 
-require_once __DIR__ . '/../../include/common.php';
+require_once  dirname(dirname(__DIR__)) . '/include/common.php';
 
 $moduleDirName = basename(dirname(dirname(__DIR__)));
-$helper        = Countdown\Helper::getInstance();
+$helper        = Countdown2\Helper::getInstance();
 $permHelper    = new \Xmf\Module\Helper\Permission();
 
 xoops_load('XoopsFormLoader');
@@ -49,7 +53,7 @@ class EventsForm extends \XoopsThemeForm
      */
     public function __construct($target)
     {
-		$helper = \XoopsModules\Countdown\Helper::getInstance();
+		$helper = \XoopsModules\Countdown2\Helper::getInstance();
 		
         $this->targetObject = $target;
 
@@ -70,7 +74,7 @@ class EventsForm extends \XoopsThemeForm
 		if (!$this->targetObject->isNew()) {
         $category_id = $this->targetObject->getVar('event_categoryid');
         }
-		$categoryHandler = \XoopsModules\Countdown\Helper::getInstance()->getHandler('Category');
+		$categoryHandler = \XoopsModules\Countdown2\Helper::getInstance()->getHandler('Category');
 		//$objects = $categoryHandler->getList();
         $category_select = new XoopsFormSelect(_AM_COUNTDOWN_CATEGORY, 'event_categoryid', $category_id);
 		//$category_select->addOptionArray($objects);
@@ -120,7 +124,7 @@ class EventsForm extends \XoopsThemeForm
         }
         $imageselect->setExtra("onchange='showImgSelected(\"image_logo\", \"logo\", \"" . $uploadDir . '", "", "' . XOOPS_URL . "\")'");
         $imgtray->addElement($imageselect);
-        $imgtray->addElement(new \XoopsFormLabel('', "<br><img src='" . XOOPS_URL . '/' . $uploadDir . '/' . $logo . "' name='image_logo' id='image_logo' alt='' />"));
+        $imgtray->addElement(new \XoopsFormLabel('', "<br><img src='" . XOOPS_URL . '/' . $uploadDir . '/' . $logo . "' name='image_logo' id='image_logo' alt=''>"));
         $fileseltray = new \XoopsFormElementTray('', '<br>');
         $fileseltray->addElement(new \XoopsFormFile(_AM_COUNTDOWN_FORMUPLOAD, 'event_logo', $helper->getConfig('maxsize')));
         $fileseltray->addElement(new \XoopsFormLabel(''));

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  You may not change or alter any portion of this comment or credits
  of supporting developers from this source code or any supporting source code
@@ -11,25 +13,25 @@
 */
 
 /**
- * Module: countdown
+ * Module: Countdown2
  *
  * @category        Module
- * @package         countdown
- * @author          XOOPS Development Team <name@site.com> - <https://xoops.org>
+ * @package         countdown2
+ * @author          XOOPS Development Team <https://xoops.org>
  * @copyright       {@link https://xoops.org/ XOOPS Project}
- * @license         GPL 2.0 or later
+ * @license         GNU GPL 2 or later (https://www.gnu.org/licenses/gpl-2.0.html)
  * @link            https://xoops.org/
  * @since           1.0.0
  */
 
-use XoopsModules\Countdown;
+use XoopsModules\Countdown2;
 
 if ((!defined('XOOPS_ROOT_PATH')) || !$GLOBALS['xoopsUser'] instanceof \XoopsUser
     || !$GLOBALS['xoopsUser']->IsAdmin()) {
     exit('Restricted access' . PHP_EOL);
 }
 
-include __DIR__ . '/../preloads/autoloader.php';
+require  dirname(__DIR__) . '/preloads/autoloader.php';
 
 /**
  * @param string $tablename
@@ -52,10 +54,10 @@ function tableExists($tablename)
  */
 function xoops_module_pre_update_countdown(\XoopsModule $module)
 {
-    /** @var Countdown\Helper $helper */
-    /** @var Countdown\Utility $utility */
-    $helper  = Countdown\Helper::getInstance();
-    $utility = new Countdown\Utility();
+    /** @var Countdown2\Helper $helper */
+    /** @var Countdown2\Utility $utility */
+    $helper  = Countdown2\Helper::getInstance();
+    $utility = new Countdown2\Utility();
 
     $xoopsSuccess = $utility::checkVerXoops($module);
     $phpSuccess   = $utility::checkVerPhp($module);
@@ -76,12 +78,12 @@ function xoops_module_update_countdown(\XoopsModule $module, $previousVersion = 
     $moduleDirName      = basename(dirname(__DIR__));
     $moduleDirNameUpper = strtoupper($moduleDirName);
 
-    /** @var Countdown\Helper $helper */
-    /** @var Countdown\Utility $utility */
-    /** @var Countdown\Common\Configurator $configurator */
-    $helper       = Countdown\Helper::getInstance();
-    $utility      = new Countdown\Utility();
-    $configurator = new Countdown\Common\Configurator();
+    /** @var Countdown2\Helper $helper */
+    /** @var Countdown2\Utility $utility */
+    /** @var Countdown2\Common\Configurator $configurator */
+    $helper       = Countdown2\Helper::getInstance();
+    $utility      = new Countdown2\Utility();
+    $configurator = new Countdown2\Common\Configurator();
     $helper->loadLanguage('common');
 
     if ($previousVersion < 240) {
@@ -137,7 +139,7 @@ function xoops_module_update_countdown(\XoopsModule $module, $previousVersion = 
 
         //  ---  COPY blank.png FILES ---------------
         if (count($configurator->copyBlankFiles) > 0) {
-            $file = __DIR__ . '/../assets/images/blank.png';
+            $file =  dirname(__DIR__) . '/assets/images/blank.png';
             foreach (array_keys($configurator->copyBlankFiles) as $i) {
                 $dest = $configurator->copyBlankFiles[$i] . '/blank.png';
                 $utility::copyFile($file, $dest);

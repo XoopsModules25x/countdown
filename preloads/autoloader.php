@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  You may not change or alter any portion of this comment or credits
  of supporting developers from this source code or any supporting source code
@@ -10,13 +12,13 @@
  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 */
 /**
- * Module: countdown
+ * Module: Countdown2
  *
  * @category        Module
- * @package         countdown
- * @author          XOOPS Development Team <name@site.com> - <https://xoops.org>
+ * @package         countdown2
+ * @author          XOOPS Development Team <https://xoops.org>
  * @copyright       {@link https://xoops.org/ XOOPS Project}
- * @license         GPL 2.0 or later
+ * @license         GNU GPL 2 or later (https://www.gnu.org/licenses/gpl-2.0.html)
  * @link            https://xoops.org/
  * @since           1.0.0
  */
@@ -24,25 +26,25 @@
 
 spl_autoload_register(function ($class) {
     // project-specific namespace prefix
-    $prefix = 'XoopsModules\\Countdown\\';
+    $prefix = 'XoopsModules\\' . ucfirst(basename(dirname(__DIR__)));
 
     // base directory for the namespace prefix
-    $base_dir = __DIR__ . '/../class/';
+    $baseDir =  dirname(__DIR__) . '/class/';
 
     // does the class use the namespace prefix?
-    $len = strlen($prefix);
+    $len = mb_strlen($prefix);
 
     if (0 !== strncmp($prefix, $class, $len)) {
         return;
     }
 
     // get the relative class name
-    $relative_class = substr($class, $len);
+    $relativeClass = mb_substr($class, $len);
 
     // replace the namespace prefix with the base directory, replace namespace
     // separators with directory separators in the relative class name, append
     // with .php
-    $file = $base_dir . str_replace('\\', '/', $relative_class) . '.php';
+    $file = $baseDir . str_replace('\\', '/', $relativeClass) . '.php';
 
     // if the file exists, require it
     if (file_exists($file)) {

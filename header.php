@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  You may not change or alter any portion of this comment or credits
  of supporting developers from this source code or any supporting source code
@@ -11,29 +13,29 @@
 */
 
 /**
- * Module: countdown
+ * Module: Countdown2
  *
  * @category        Module
- * @package         countdown
- * @author          XOOPS Development Team <name@site.com> - <https://xoops.org>
+ * @package         countdown2
+ * @author          XOOPS Development Team <https://xoops.org>
  * @copyright       {@link https://xoops.org/ XOOPS Project}
- * @license         GPL 2.0 or later
+ * @license         GNU GPL 2 or later (https://www.gnu.org/licenses/gpl-2.0.html)
  * @link            https://xoops.org/
  * @since           1.0.0
  */
 
 use Xmf\Request;
-use XoopsModules\Countdown;
-use XoopsModules\Countdown\Helper;
-use XoopsModules\Countdown\Common;
+use XoopsModules\Countdown2;
+use XoopsModules\Countdown2\Helper;
+use XoopsModules\Countdown2\Common;
 
 require_once dirname(dirname(__DIR__)) . '/mainfile.php';
 require_once XOOPS_ROOT_PATH . '/header.php';
 
 $moduleDirName = basename(__DIR__);
 
-$helper       = Countdown\Helper::getInstance();
-$utility      = new Countdown\Utility();
+$helper       = Countdown2\Helper::getInstance();
+$utility      = new Countdown2\Utility();
 $configurator = new Common\Configurator();
 $copyright    = $configurator->modCopyright;
 
@@ -53,8 +55,8 @@ if (file_exists($GLOBALS['xoops']->path($stylesheet))) {
     $GLOBALS['xoTheme']->addStylesheet($GLOBALS['xoops']->url("www/{$stylesheet}"));
 }
 /** @var \XoopsPersistableObjectHandler $eventsHandler */
-$eventsHandler = new Countdown\EventsHandler($db);
-$categoryHandler = new Countdown\CategoryHandler($db);
+$eventsHandler = new Countdown2\EventsHandler($db);
+$categoryHandler = new Countdown2\CategoryHandler($db);
 
 // Load language files
 $helper->loadLanguage('main');

@@ -1,4 +1,8 @@
-<?php namespace XoopsModules\Countdown;
+<?php
+
+declare(strict_types=1);
+
+namespace XoopsModules\Countdown2;
 
 /*
  You may not change or alter any portion of this comment or credits
@@ -10,18 +14,18 @@
  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 */
 /**
- * Module: countdown
+ * Module: Countdown2
  *
  * @category        Module
- * @package         countdown
- * @author          XOOPS Development Team <name@site.com> - <https://xoops.org>
+ * @package         countdown2
+ * @author          XOOPS Development Team <https://xoops.org>
  * @copyright       {@link https://xoops.org/ XOOPS Project}
- * @license         GPL 2.0 or later
+ * @license         GNU GPL 2 or later (https://www.gnu.org/licenses/gpl-2.0.html)
  * @link            https://xoops.org/
  * @since           1.0.0
  */
-use XoopsModules\Countdown;
-use XoopsModules\Countdown\Form;
+use XoopsModules\Countdown2;
+use XoopsModules\Countdown2\Form;
 
 $moduleDirName = basename(dirname(__DIR__));
 
@@ -59,8 +63,6 @@ class Events extends \XoopsObject
      */
     public function getForm()
     {
-        require_once XOOPS_ROOT_PATH . '/modules/countdown2/class/form/EventsForm.php';
-
         $form = new Form\EventsForm($this);
         return $form;
     }

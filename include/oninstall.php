@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  You may not change or alter any portion of this comment or credits
  of supporting developers from this source code or any supporting source code
@@ -11,21 +13,21 @@
 */
 
 /**
- * Module: Countdown
+ * Module: Countdown2
  *
  * @category        Module
- * @package         Countdown
+ * @package         Countdown2
  * @author          XOOPS Development Team <name@site.com> - <https://xoops.org>
  * @copyright       {@link https://xoops.org/ XOOPS Project}
- * @license         GPL 2.0 or later
+ * @license         GNU GPL 2 or later (https://www.gnu.org/licenses/gpl-2.0.html)
  * @link            https://xoops.org/
  * @since           1.0.0
  */
 
-use XoopsModules\Countdown;
-use XoopsModules\Countdown\Common;
+use XoopsModules\Countdown2;
+use XoopsModules\Countdown2\Common;
 
-include __DIR__ . '/../preloads/autoloader.php';
+require  dirname(__DIR__) . '/preloads/autoloader.php';
 
 /**
  * Prepares system prior to attempting to install module
@@ -35,8 +37,8 @@ include __DIR__ . '/../preloads/autoloader.php';
  */
 function xoops_module_pre_install_countdown(\XoopsModule $module)
 {
-    /** @var Countdown\Utility $utility */
-    $utility = new Countdown\Utility();
+    /** @var Countdown2\Utility $utility */
+    $utility = new Countdown2\Utility();
 
     //check for minimum XOOPS version
     $xoopsSuccess = $utility::checkVerXoops($module);
@@ -65,11 +67,11 @@ function xoops_module_install_countdown(\XoopsModule $module)
 {
     $moduleDirName = basename(dirname(__DIR__));
 
-    /** @var Countdown\Helper $helper */
-    /** @var Countdown\Utility $utility */
+    /** @var Countdown2\Helper $helper */
+    /** @var Countdown2\Utility $utility */
     /** @var Common\Configurator $configurator */
-    $helper       = Countdown\Helper::getInstance();
-    $utility      = new Countdown\Utility();
+    $helper       = Countdown2\Helper::getInstance();
+    $utility      = new Countdown2\Utility();
     $configurator = new Common\Configurator();
 
     // Load language files
@@ -98,7 +100,7 @@ function xoops_module_install_countdown(\XoopsModule $module)
     }
     //  ---  COPY blank.png FILES ---------------
     if (count($configurator->copyBlankFiles) > 0) {
-        $file = __DIR__ . '/../assets/images/blank.png';
+        $file =  dirname(__DIR__) . '/assets/images/blank.png';
         foreach (array_keys($configurator->copyBlankFiles) as $i) {
             $dest = $configurator->copyBlankFiles[$i] . '/blank.png';
             $utility::copyFile($file, $dest);
@@ -107,7 +109,7 @@ function xoops_module_install_countdown(\XoopsModule $module)
 
     //  ---  COPY test folder files ---------------
     if (count($configurator->copyTestFolders) > 0) {
-        //        $file = __DIR__ . '/../testdata/images/';
+        //        $file =  dirname(__DIR__) . '/testdata/images/';
         foreach (array_keys($configurator->copyTestFolders) as $i) {
             $src  = $configurator->copyTestFolders[$i][0];
             $dest = $configurator->copyTestFolders[$i][1];

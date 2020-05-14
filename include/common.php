@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  You may not change or alter any portion of this comment or credits
  of supporting developers from this source code or any supporting source code
@@ -11,38 +13,38 @@
 */
 
 /**
- * Module: countdown
+ * Module: Countdown2
  *
  * @category        Module
- * @package         countdown
- * @author          XOOPS Development Team <name@site.com> - <https://xoops.org>
+ * @package         countdown2
+ * @author          XOOPS Development Team <https://xoops.org>
  * @copyright       {@link https://xoops.org/ XOOPS Project}
- * @license         GPL 2.0 or later
+ * @license         GNU GPL 2 or later (https://www.gnu.org/licenses/gpl-2.0.html)
  * @link            https://xoops.org/
  * @since           1.0.0
  */
 
-use XoopsModules\Countdown;
+use XoopsModules\Countdown2;
 
-include __DIR__ . '/../preloads/autoloader.php';
+require  dirname(__DIR__) . '/preloads/autoloader.php';
 
 $moduleDirName      = basename(dirname(__DIR__));
 $moduleDirNameUpper = strtoupper($moduleDirName);
 
 /** @var \XoopsDatabase $db */
-/** @var  Countdown\Helper $helper */
-/** @var Countdown\Utility $utility */
+/** @var  Countdown2\Helper $helper */
+/** @var Countdown2\Utility $utility */
 
 $db      = \XoopsDatabaseFactory::getDatabaseConnection();
-$helper  = Countdown\Helper::getInstance();
-$utility = new Countdown\Utility();
-//$configurator = new Countdown\Common\Configurator();
+$helper  = Countdown2\Helper::getInstance();
+$utility = new Countdown2\Utility();
+//$configurator = new Countdown2\Common\Configurator();
 
 $helper->loadLanguage('common');
 
 //handlers/** @var \XoopsPersistableObjectHandler $eventsHandler */ 
-$eventsHandler = new Countdown\EventsHandler($db);
-$categoryHandler = new Countdown\CategoryHandler($db);
+$eventsHandler = new Countdown2\EventsHandler($db);
+$categoryHandler = new Countdown2\CategoryHandler($db);
 
 $pathIcon16 = Xmf\Module\Admin::iconUrl('', 16);
 $pathIcon32 = Xmf\Module\Admin::iconUrl('', 32);
@@ -72,13 +74,13 @@ if (!defined($moduleDirNameUpper . '_CONSTANTS_DEFINED')) {
 //define option du module
 //define($moduleDirNameUpper. '_DISPLAY_CAT', $helper->getConfig('$mod_name_cat_display', 'none'));
 
-//require_once __DIR__ . '/../include/seo_functions.php';
-//require_once __DIR__ . '/../class/PageNav.php';
+//require_once  dirname(__DIR__) . '/include/seo_functions.php';
+//require_once  dirname(__DIR__) . '/class/PageNav.php';
 
 //require_once XOOPS_ROOT_PATH . '/class/tree.php';
 
-//require_once __DIR__ . '/../class/Tree.php';
-//require_once __DIR__ . '/../class/FormSelect.php';
+//require_once  dirname(__DIR__) . '/class/Tree.php';
+//require_once  dirname(__DIR__) . '/class/FormSelect.php';
 
 // Load only if module is installed
 //if (is_object($helper->getModule())) {

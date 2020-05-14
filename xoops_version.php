@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  You may not change or alter any portion of this comment or credits
  of supporting developers from this source code or any supporting source code
@@ -9,14 +11,15 @@
  but WITHOUT ANY WARRANTY; without even the implied warranty of
  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 */
+
 /**
- * Module: countdown
+ * Module: Countdown2
  *
  * @category        Module
- * @package         countdown
- * @author          XOOPS Development Team <name@site.com> - <https://xoops.org>
+ * @package         countdown2
+ * @author          XOOPS Development Team <https://xoops.org>
  * @copyright       {@link https://xoops.org/ XOOPS Project}
- * @license         GPL 2.0 or later
+ * @license         GNU GPL 2 or later (https://www.gnu.org/licenses/gpl-2.0.html)
  * @link            https://xoops.org/
  * @since           1.0.0
  */
@@ -34,18 +37,15 @@ $modversion = [
     'author_website_url'  => 'https://xoops.org',
     'author_website_name' => 'XOOPS Project',
     'credits'             => 'XOOPS Development Team',
-    //    'license' => 'GPL 2.0 or later',
     'help'                => 'page=help',
-    'license'             => 'GPL 2.0 or later',
+    'license'             => 'GNU GPL 2 or later (https://www.gnu.org/licenses/gpl-2.0.html)',
     'license_url'         => 'www.gnu.org/licenses/gpl-2.0.html',
-
-    'release_info' => 'release_info',
-    'release_file' => XOOPS_URL . "/modules/{$moduleDirName}/docs/release_info file",
-
+    'release_info'        => 'release_info',
+    'release_file'        => XOOPS_URL . "/modules/{$moduleDirName}/docs/release_info file",
     'manual'              => 'Installation.txt',
     'manual_file'         => XOOPS_URL . "/modules/{$moduleDirName}/docs/link to manual file",
-    'min_php'             => '5.5',
-    'min_xoops'           => '2.5.9',
+    'min_php'             => '7.1',
+    'min_xoops'           => '2.5.10',
     'min_admin'           => '1.2',
     'min_db'              => ['mysql' => '5.5'],
     'image'               => 'assets/images/countdown_logo.png',
@@ -75,26 +75,26 @@ $modversion = [
     'sqlfile'             => ['mysql' => 'sql/mysql.sql'],
     // ------------------- Tables ----------------------------
     'tables'              => [
-       // $moduleDirName . '_' . 'categories',$moduleDirName . '_' . 'events',
-	    'countdown_categories',
-		'countdown_events',
+        // $moduleDirName . '_' . 'categories',$moduleDirName . '_' . 'events',
+        'countdown_categories',
+        'countdown_events',
     ],
 ];
 // ------------------- Search -----------------------------//
-$modversion['sub']     = [
+$modversion['sub'] = [
     [
         'name' => _MI_COUNTDOWN_EVENT_ALL,
         'url'  => 'index.php',
     ],
-	[
-        'name' =>  _MI_COUNTDOWN_EVENT_RUNNING,
+    [
+        'name' => _MI_COUNTDOWN_EVENT_RUNNING,
         'url'  => 'index.php?op=running',
     ],
-	[
+    [
         'name' => _MI_COUNTDOWN_EVENT_EXPIRED,
         'url'  => 'index.php?op=expired',
     ],
-  
+
 ];
 // ------------------- Search -----------------------------//
 $modversion['hasSearch']      = 1;
@@ -124,28 +124,19 @@ $modversion['helpsection'] = [
     ['name' => _MI_COUNTDOWN_DISCLAIMER, 'link' => 'page=disclaimer'],
     ['name' => _MI_COUNTDOWN_LICENSE, 'link' => 'page=license'],
     ['name' => _MI_COUNTDOWN_SUPPORT, 'link' => 'page=support'],
-
-    //    ['name' => _MI_COUNTDOWN_HELP1, 'link' => 'page=help1'],
-    //    ['name' => _MI_COUNTDOWN_HELP2, 'link' => 'page=help2']
-    //    ['name' => _MI_COUNTDOWN_HELP3, 'link' => 'page=help3'],
-    //    ['name' => _MI_COUNTDOWN_HELP4, 'link' => 'page=help4'],
-    //    ['name' => _MI_COUNTDOWN_HOWTO, 'link' => 'page=__howto'],
-    //    ['name' => _MI_COUNTDOWN_REQUIREMENTS, 'link' => 'page=__requirements'],
-    //    ['name' => _MI_COUNTDOWN_CREDITS, 'link' => 'page=__credits'],
-
 ];
 
 // ------------------- Blocks -----------------------------//
 $modversion['blocks'] = [
-[
+    [
         'file'        => 'countdown-block.php',
         'name'        => _MI_COUNTDOWN_COUNTDOWN_BLOCK,
         'description' => _MI_COUNTDOWN_COUNTDOWN_BLOCKDESC,
         'show_func'   => 'showCountdown',
         'edit_func'   => 'editCountdown',
         'options'     => '0|1|1|1',
-		'template'    => 'countdown_block.tpl',
-    ]
+        'template'    => 'countdown_block.tpl',
+    ],
 ];
 // ------------------- Config Options -----------------------------//
 $modversion['config'][] = [
@@ -158,16 +149,14 @@ $modversion['config'][] = [
     'category'    => 'group_header',
 ];
 
-
 $modversion['config'][] = [
     'name'        => 'keywords',
     'title'       => '_MI_COUNTDOWN_KEYWORDS',
     'description' => '_MI_COUNTDOWN_KEYWORDS_DESC',
     'formtype'    => 'textbox',
     'valuetype'   => 'text',
-    'default'     => 'countdown,'
+    'default'     => 'countdown,',
 ];
-
 
 //Configs
 $modversion['config'][] = [
@@ -216,7 +205,7 @@ $modversion['config'][] = [
     'description' => '_MI_COUNTDOWN_ADMINEVENTPERPAGE_DESC',
     'formtype'    => 'textbox',
     'valuetype'   => 'int',
-    'default'     => 10
+    'default'     => 10,
 ];
 
 $modversion['config'][] = [
@@ -225,7 +214,7 @@ $modversion['config'][] = [
     'description' => '_MI_COUNTDOWN_USEREVENTPERPAGE_DESC',
     'formtype'    => 'textbox',
     'valuetype'   => 'int',
-    'default'     => 10
+    'default'     => 10,
 ];
 
 //Configs
@@ -246,7 +235,7 @@ $modversion['config'][] = [
     'description' => '_MI_COUNTDOWN_MAXSIZE_DESC',
     'formtype'    => 'textbox',
     'valuetype'   => 'int',
-    'default'     => 5000000
+    'default'     => 5000000,
 ];
 
 // --------------Uploads : mimetypes of image --------------
@@ -264,10 +253,9 @@ $modversion['config'][] = [
         'jpeg'  => 'image/jpeg',
         'jpg'   => 'image/jpg',
         'jpe'   => 'image/jpe',
-        'png'   => 'image/png'
-    ]
+        'png'   => 'image/png',
+    ],
 ];
-
 
 //Configs
 $modversion['config'][] = [
@@ -289,7 +277,7 @@ $modversion['config'][] = [
     'formtype'    => 'select',
     'valuetype'   => 'text',
     'options'     => array_flip($editorHandler->getList()),
-    'default'     => 'tinymce'
+    'default'     => 'tinymce',
 ];
 
 $modversion['config'][] = [
@@ -299,9 +287,8 @@ $modversion['config'][] = [
     'formtype'    => 'select',
     'valuetype'   => 'text',
     'options'     => array_flip($editorHandler->getList()),
-    'default'     => 'dhtmltextarea'
+    'default'     => 'dhtmltextarea',
 ];
-
 
 //Configs
 $modversion['config'][] = [
@@ -313,7 +300,6 @@ $modversion['config'][] = [
     'default'     => 'odd',
     'category'    => 'group_header',
 ];
-
 
 // -------------- Get groups --------------
 /** @var XoopsMemberHandler $memberHandler */
@@ -329,7 +315,7 @@ $modversion['config'][] = [
     'formtype'    => 'select_multi',
     'valuetype'   => 'array',
     'options'     => $groups,
-    'default'     => $groups
+    'default'     => $groups,
 ];
 
 // -------------- Get Admin groups --------------
@@ -348,9 +334,8 @@ $modversion['config'][] = [
     'formtype'    => 'select_multi',
     'valuetype'   => 'array',
     'options'     => $admin_groups,
-    'default'     => $admin_groups
+    'default'     => $admin_groups,
 ];
-
 
 //Configs
 $modversion['config'][] = [

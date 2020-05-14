@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  You may not change or alter any portion of this comment or credits
  of supporting developers from this source code or any supporting source code
@@ -11,19 +13,19 @@
 */
 
 /**
- * Module: countdown
+ * Module: Countdown2
  *
  * @category        Module
- * @package         countdown
- * @author          XOOPS Development Team <name@site.com> - <https://xoops.org>
+ * @package         countdown2
+ * @author          XOOPS Development Team <https://xoops.org>
  * @copyright       {@link https://xoops.org/ XOOPS Project}
- * @license         GPL 2.0 or later
+ * @license         GNU GPL 2 or later (https://www.gnu.org/licenses/gpl-2.0.html)
  * @link            https://xoops.org/
  * @since           1.0.0
  */
 
 use Xmf\Request;
-use XoopsModules\Countdown;
+use XoopsModules\Countdown2;
 
 $GLOBALS['xoopsOption']['template_main'] = 'countdown_events_list.tpl';
 require_once __DIR__ . '/header.php';
@@ -35,7 +37,7 @@ $db = \XoopsDatabaseFactory::getDatabaseConnection();
 
 // Get Handler
 /** @var \XoopsPersistableObjectHandler $eventsHandler */
-$eventsHandler = new Countdown\EventsHandler($db);
+$eventsHandler = new Countdown2\EventsHandler($db);
 
 $eventsPaginationLimit = $helper->getConfig('usereventperpage');
 
@@ -106,10 +108,10 @@ $id = Request::getInt('event_id', 0, 'GET');
 
 //keywords
 if (isset($keywords)) {
-    $utility::meta_keywords(xoops_getModuleOption('keywords', $moduleDirName) . ', ' . implode(', ', $keywords));
+    $utility::metaKeywords(xoops_getModuleOption('keywords', $moduleDirName) . ', ' . implode(', ', $keywords));
 }
 //description
-$utility::meta_description(_MD_COUNTDOWN_EVENTS_DESC);
+$utility::metaDescription(_MD_COUNTDOWN_EVENTS_DESC);
 //
 $GLOBALS['xoopsTpl']->assign('eventperpage',  $eventsPaginationLimit);
 $GLOBALS['xoopsTpl']->assign('xoops_mpageurl', COUNTDOWN2_URL . '/index.php');

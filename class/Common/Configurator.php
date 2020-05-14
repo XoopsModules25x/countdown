@@ -1,4 +1,8 @@
-<?php namespace XoopsModules\Countdown\common;
+<?php
+
+declare(strict_types=1);
+
+namespace XoopsModules\Countdown2\Common;
 
 /*
  You may not change or alter any portion of this comment or credits
@@ -10,18 +14,18 @@
  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 */
 /**
- * Module: countdown
+ * Module: Countdown2
  *
  * @category        Module
- * @package         countdown
- * @author          XOOPS Development Team <name@site.com> - <https://xoops.org>
+ * @package         countdown2
+ * @author          XOOPS Development Team <https://xoops.org>
  * @copyright       {@link https://xoops.org/ XOOPS Project}
- * @license         GPL 2.0 or later
+ * @license         GNU GPL 2 or later (https://www.gnu.org/licenses/gpl-2.0.html)
  * @link            https://xoops.org/
  * @since           1.0.0
  */
 
-require_once __DIR__ . '/../../include/common.php';
+//require_once  dirname(dirname(__DIR__)) . '/include/common.php';
 
 /**
  * Class Configurator
@@ -36,18 +40,17 @@ class Configurator
     public $templateFolders = [];
     public $oldFiles        = [];
     public $oldFolders      = [];
+    public $renameTables    = [];
+    public $moduleStats     = [];
     public $modCopyright;
+    public $icons;
 
     /**
      * Configurator constructor.
      */
     public function __construct()
     {
-        $moduleDirName = basename(dirname(__DIR__));
-        $capsDirName   = strtoupper($moduleDirName);
-
-        $config = include __DIR__ . '/../../include/config.php';
-
+        $config                = include dirname(dirname(__DIR__)) . '/config/config.php';
         $this->name            = $config->name;
         $this->paths           = $config->paths;
         $this->uploadFolders   = $config->uploadFolders;
@@ -56,7 +59,11 @@ class Configurator
         $this->templateFolders = $config->templateFolders;
         $this->oldFiles        = $config->oldFiles;
         $this->oldFolders      = $config->oldFolders;
+        $this->renameTables    = $config->renameTables;
+        $this->moduleStats     = $config->moduleStats;
         $this->modCopyright    = $config->modCopyright;
 
+        $this->icons = include dirname(dirname(__DIR__)) . '/config/icons.php';
+        $this->paths = include dirname(dirname(__DIR__)) . '/config/paths.php';
     }
 }
