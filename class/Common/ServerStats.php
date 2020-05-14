@@ -1,4 +1,4 @@
-<?php namespace XoopsModules\Countdown2\common;
+<?php namespace XoopsModules\Countdown2\Common;
 
 /*
  You may not change or alter any portion of this comment or credits

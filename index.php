@@ -106,10 +106,10 @@ $id = Request::getInt('event_id', 0, 'GET');
 
 //keywords
 if (isset($keywords)) {
-    $utility::meta_keywords(xoops_getModuleOption('keywords', $moduleDirName) . ', ' . implode(', ', $keywords));
+    $utility::metaKeywords(xoops_getModuleOption('keywords', $moduleDirName) . ', ' . implode(', ', $keywords));
 }
 //description
-$utility::meta_description(_MD_COUNTDOWN_EVENTS_DESC);
+$utility::metaDescription(_MD_COUNTDOWN_EVENTS_DESC);
 //
 $GLOBALS['xoopsTpl']->assign('eventperpage',  $eventsPaginationLimit);
 $GLOBALS['xoopsTpl']->assign('xoops_mpageurl', COUNTDOWN2_URL . '/index.php');
