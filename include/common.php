@@ -24,7 +24,7 @@
 
 use XoopsModules\Countdown2;
 
-include __DIR__ . '/../preloads/autoloader.php';
+require  dirname(__DIR__) . '/preloads/autoloader.php';
 
 $moduleDirName      = basename(dirname(__DIR__));
 $moduleDirNameUpper = strtoupper($moduleDirName);
@@ -72,13 +72,13 @@ if (!defined($moduleDirNameUpper . '_CONSTANTS_DEFINED')) {
 //define option du module
 //define($moduleDirNameUpper. '_DISPLAY_CAT', $helper->getConfig('$mod_name_cat_display', 'none'));
 
-//require_once __DIR__ . '/../include/seo_functions.php';
-//require_once __DIR__ . '/../class/PageNav.php';
+//require_once  dirname(__DIR__) . '/include/seo_functions.php';
+//require_once  dirname(__DIR__) . '/class/PageNav.php';
 
 //require_once XOOPS_ROOT_PATH . '/class/tree.php';
 
-//require_once __DIR__ . '/../class/Tree.php';
-//require_once __DIR__ . '/../class/FormSelect.php';
+//require_once  dirname(__DIR__) . '/class/Tree.php';
+//require_once  dirname(__DIR__) . '/class/FormSelect.php';
 
 // Load only if module is installed
 //if (is_object($helper->getModule())) {

@@ -39,7 +39,7 @@ function showCountdown($options){
 function editCountdown($options)
 {	
 	$form = _MB_COUNTDOWN_EVENTTODISPLAY . '&nbsp;';;
-    $form .= "<input type='hidden' name='options[0]' value='" . $options[0] . "' />&nbsp;";
+    $form .= "<input type='hidden' name='options[0]' value='" . $options[0] . "'>&nbsp;";
 	$form .= "<select name='options[0]'>";
 	$form .= "<option>". _MB_COUNTDOWN_EVENTTODISPLAY ."</option>";
 	//$query = $GLOBALS['xoopsDB']->query("SELECT * FROM ".$GLOBALS['xoopsDB']->prefix("countdown_events")." WHERE event_id IN ($selected_id)"); 
@@ -62,35 +62,35 @@ function editCountdown($options)
 	
 	$form .= _MB_COUNTDOWN_DISPLAYEVENTDESCRIPTION . '&nbsp;';
     if (1 == $options[1]) {
-        $chk = " checked='checked'";
+        $chk = " checked";
     }
     $form .= "<input type='radio' name='options[1]' value='1'" . $chk . ' >&nbsp;' . _YES . '';
     $chk  = '';
     if (0 == $options[1]) {
-        $chk = " checked='checked'";
+        $chk = " checked";
     }
     $form .= "&nbsp;<input type='radio' name='options[1]' value='0'" . $chk . ' >' . _NO . '<br>';
 	
 	$form .= _MB_COUNTDOWN_DISPLAYEVENTLOGO . '&nbsp;';
     if (1 == $options[2]) {
-        $chk = " checked='checked'";
+        $chk = " checked";
     }
     $form .= "<input type='radio' name='options[2]' value='1'" . $chk . ' >&nbsp;' . _YES . '';
     $chk  = '';
     if (0 == $options[2]) {
-        $chk = " checked='checked'";
+        $chk = " checked";
     }
     $form .= "&nbsp;<input type='radio' name='options[2]' value='0'" . $chk . ' >' . _NO . '<br>';
 	
 	
 	$form .= _MB_COUNTDOWN_DISPLAYINFO . '&nbsp;';
     if (1 == $options[3]) {
-        $chk = " checked='checked'";
+        $chk = " checked";
     }
     $form .= "<input type='radio' name='options[3]' value='1'" . $chk . ' >&nbsp;' . _YES . '';
     $chk  = '';
     if (0 == $options[3]) {
-        $chk = " checked='checked'";
+        $chk = " checked";
     }
     $form .= "&nbsp;<input type='radio' name='options[3]' value='0'" . $chk . ' >' . _NO . '<br>';
     return $form;

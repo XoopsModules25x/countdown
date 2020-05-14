@@ -24,7 +24,7 @@
 
 use Xmf\Request;
 
-require_once __DIR__ . '/../../mainfile.php';
+require_once  dirname(dirname(__DIR__)) . '/mainfile.php';
 require_once XOOPS_ROOT_PATH . '/modules/countdown/class/events.php';
 $com_itemid = Request::getInt('com_itemid', 0);
 if ($com_itemid > 0) {
@@ -34,5 +34,5 @@ if ($com_itemid > 0) {
     
     $events         = $eventsHandler->get($com_itemid);
     $com_replytitle = $events->getVar('id');
-    include XOOPS_ROOT_PATH . '/include/comment_new.php';
+    require XOOPS_ROOT_PATH . '/include/comment_new.php';
 }

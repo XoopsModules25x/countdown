@@ -27,7 +27,7 @@ use XoopsModules\Countdown2\Common;
 use XoopsFormTextDateSelect;
 use XoopsFormSelect;
 
-require_once __DIR__ . '/../../include/common.php';
+require_once  dirname(dirname(__DIR__)) . '/include/common.php';
 
 $moduleDirName = basename(dirname(dirname(__DIR__)));
 $helper        = Countdown2\Helper::getInstance();
@@ -120,7 +120,7 @@ class EventsForm extends \XoopsThemeForm
         }
         $imageselect->setExtra("onchange='showImgSelected(\"image_logo\", \"logo\", \"" . $uploadDir . '", "", "' . XOOPS_URL . "\")'");
         $imgtray->addElement($imageselect);
-        $imgtray->addElement(new \XoopsFormLabel('', "<br><img src='" . XOOPS_URL . '/' . $uploadDir . '/' . $logo . "' name='image_logo' id='image_logo' alt='' />"));
+        $imgtray->addElement(new \XoopsFormLabel('', "<br><img src='" . XOOPS_URL . '/' . $uploadDir . '/' . $logo . "' name='image_logo' id='image_logo' alt=''>"));
         $fileseltray = new \XoopsFormElementTray('', '<br>');
         $fileseltray->addElement(new \XoopsFormFile(_AM_COUNTDOWN_FORMUPLOAD, 'event_logo', $helper->getConfig('maxsize')));
         $fileseltray->addElement(new \XoopsFormLabel(''));

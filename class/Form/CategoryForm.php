@@ -24,7 +24,7 @@
 use Xmf\Request;
 use XoopsModules\Countdown2;
 
-require_once __DIR__ . '/../../include/common.php';
+require_once  dirname(dirname(__DIR__)) . '/include/common.php';
 
 $moduleDirName = basename(dirname(dirname(__DIR__)));
 $helper        = Countdown2\Helper::getInstance();

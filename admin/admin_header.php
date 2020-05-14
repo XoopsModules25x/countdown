@@ -25,12 +25,12 @@
 use Xmf\Request;
 use XoopsModules\Countdown2;
 
-require_once __DIR__ . '/../../../include/cp_header.php';
-require_once __DIR__ . '/../../../class/xoopsformloader.php';
+require_once  dirname(dirname(dirname(__DIR__))) . '/include/cp_header.php';
+require_once  dirname(dirname(dirname(__DIR__))) . '/class/xoopsformloader.php';
 
-require_once __DIR__ . '/../include/common.php';
+require_once  dirname(__DIR__) . '/include/common.php';
 
-include __DIR__ . '/../preloads/autoloader.php';
+require  dirname(__DIR__) . '/preloads/autoloader.php';
 
 $moduleDirName = basename(dirname(__DIR__));
 

@@ -78,10 +78,10 @@
 				 <p><small><span class="fa fa-info-circle"></span>&nbsp;<{$events.info}></small></p><{/if}>
 			
 		
-                <{if $xoops_isadmin == true}>
+                <{if $xoops_isadmin === true}>
                     <p class="float-right">
-					<a href="admin/events.php?op=edit&id=<{$events.id}>" target="_blank" title="<{$smarty.const._EDIT}>"><img src="<{xoModuleIcons16 edit.png}>" alt="<{$smarty.const._EDIT}>" title="<{$smarty.const._EDIT}>"/></a>
-                    <a href="admin/events.php?op=delete&id=<{$events.id}>" target="_blank" title="<{$smarty.const._DELETE}>"><img src="<{xoModuleIcons16 delete.png}>" alt="<{$smarty.const._DELETE}>" title="<{$smarty.const._DELETE}>"/></a>
+					<a href="admin/events.php?op=edit&id=<{$events.id}>" target="_blank" title="<{$smarty.const._EDIT}>"><img src="<{xoModuleIcons16 edit.png}>" alt="<{$smarty.const._EDIT}>" title="<{$smarty.const._EDIT}>"></a>
+                    <a href="admin/events.php?op=delete&id=<{$events.id}>" target="_blank" title="<{$smarty.const._DELETE}>"><img src="<{xoModuleIcons16 delete.png}>" alt="<{$smarty.const._DELETE}>" title="<{$smarty.const._DELETE}>"></a>
 					</p>
 				<{/if}>
 				

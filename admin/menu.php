@@ -24,7 +24,7 @@
 
 use XoopsModules\Countdown2;
 
-include __DIR__ . '/../preloads/autoloader.php';
+require  dirname(__DIR__) . '/preloads/autoloader.php';
 
 $helper = Countdown2\Helper::getInstance();
 
