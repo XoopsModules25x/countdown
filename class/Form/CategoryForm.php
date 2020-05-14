@@ -1,4 +1,4 @@
-<?php namespace XoopsModules\Countdown\Form;
+<?php namespace XoopsModules\Countdown2\Form;
 
 /*
  You may not change or alter any portion of this comment or credits
@@ -22,12 +22,12 @@
  */
 
 use Xmf\Request;
-use XoopsModules\Countdown;
+use XoopsModules\Countdown2;
 
 require_once __DIR__ . '/../../include/common.php';
 
 $moduleDirName = basename(dirname(dirname(__DIR__)));
-$helper        = Countdown\Helper::getInstance();
+$helper        = Countdown2\Helper::getInstance();
 $permHelper    = new \Xmf\Module\Helper\Permission();
 
 xoops_load('XoopsFormLoader');

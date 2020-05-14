@@ -1,4 +1,6 @@
-<?php namespace XoopsModules\Countdown;
+<?php
+
+namespace XoopsModules\Countdown2;
 
 /*
  You may not change or alter any portion of this comment or credits
@@ -20,8 +22,8 @@
  * @link            https://xoops.org/
  * @since           1.0.0
  */
-//use XoopsModules\Countdown;
-//use XoopsModules\Countdown\Form;
+//use XoopsModules\Countdown2;
+//use XoopsModules\Countdown2\Form;
 
 $moduleDirName = basename(dirname(__DIR__));
 

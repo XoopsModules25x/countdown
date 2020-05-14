@@ -26,6 +26,6 @@
 
  <h5>2.0        [NOT RELEASED]</h5>  Dev: Xoops 2.5.9, PHP 7.2.0
  <hr>
-  - Original release Countdown2 (XOOPS Development Team)
+  - Original release Countdown (XOOPS Development Team)
   - it's a rewrite of the original Countdown by Eric Juden (ejuden01)
 

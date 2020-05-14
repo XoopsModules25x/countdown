@@ -22,7 +22,7 @@
  * @since           1.0.0
  */
 
-use XoopsModules\Countdown;
+use XoopsModules\Countdown2;
 
 if ((!defined('XOOPS_ROOT_PATH')) || !$GLOBALS['xoopsUser'] instanceof \XoopsUser
     || !$GLOBALS['xoopsUser']->IsAdmin()) {
@@ -52,10 +52,10 @@ function tableExists($tablename)
  */
 function xoops_module_pre_update_countdown(\XoopsModule $module)
 {
-    /** @var Countdown\Helper $helper */
-    /** @var Countdown\Utility $utility */
-    $helper  = Countdown\Helper::getInstance();
-    $utility = new Countdown\Utility();
+    /** @var Countdown2\Helper $helper */
+    /** @var Countdown2\Utility $utility */
+    $helper  = Countdown2\Helper::getInstance();
+    $utility = new Countdown2\Utility();
 
     $xoopsSuccess = $utility::checkVerXoops($module);
     $phpSuccess   = $utility::checkVerPhp($module);
@@ -76,12 +76,12 @@ function xoops_module_update_countdown(\XoopsModule $module, $previousVersion = 
     $moduleDirName      = basename(dirname(__DIR__));
     $moduleDirNameUpper = strtoupper($moduleDirName);
 
-    /** @var Countdown\Helper $helper */
-    /** @var Countdown\Utility $utility */
-    /** @var Countdown\Common\Configurator $configurator */
-    $helper       = Countdown\Helper::getInstance();
-    $utility      = new Countdown\Utility();
-    $configurator = new Countdown\Common\Configurator();
+    /** @var Countdown2\Helper $helper */
+    /** @var Countdown2\Utility $utility */
+    /** @var Countdown2\Common\Configurator $configurator */
+    $helper       = Countdown2\Helper::getInstance();
+    $utility      = new Countdown2\Utility();
+    $configurator = new Countdown2\Common\Configurator();
     $helper->loadLanguage('common');
 
     if ($previousVersion < 240) {

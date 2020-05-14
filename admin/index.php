@@ -23,8 +23,8 @@
  */
 
 use Xmf\Request;
-use XoopsModules\Countdown;
-use XoopsModules\Countdown\Common;
+use XoopsModules\Countdown2;
+use XoopsModules\Countdown2\Common;
 
 require_once __DIR__ . '/admin_header.php';
 xoops_cp_header();
@@ -39,6 +39,20 @@ $adminObject->addInfoBox(_AM_COUNTDOWN_STATISTICS);
 // InfoBox events
 $adminObject->addInfoBoxLine(sprintf(_AM_COUNTDOWN_THEREARE_EVENTS, $totalEvents));
 $adminObject->addInfoBoxLine(sprintf(_AM_COUNTDOWN_THEREARE_CATEGORIES, $totalCategories));
+
+//------ check Upload Folders ---------------
+$adminObject->addConfigBoxLine('');
+$redirectFile = $_SERVER['SCRIPT_NAME'];
+
+$configurator  = new Common\Configurator();
+$uploadFolders = $configurator->uploadFolders;
+foreach ($uploadFolders as $value) {
+    Countdown2\Utility::prepareFolder($value);
+}
+
+foreach (array_keys($uploadFolders) as $i) {
+    $adminObject->addConfigBoxLine(Common\DirectoryChecker::getDirectoryStatus($uploadFolders[$i], 0777, $redirectFile));
+}
 
 // Render Index
 $adminObject->displayNavigation(basename(__FILE__));

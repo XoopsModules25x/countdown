@@ -23,7 +23,7 @@
  */
 
 use Xmf\Request;
-use XoopsModules\Countdown;
+use XoopsModules\Countdown2;
 
 require_once __DIR__ . '/../../../include/cp_header.php';
 require_once __DIR__ . '/../../../class/xoopsformloader.php';
@@ -34,8 +34,8 @@ include __DIR__ . '/../preloads/autoloader.php';
 
 $moduleDirName = basename(dirname(__DIR__));
 
-/** @var Countdown\Helper $helper */
-$helper = Countdown\Helper::getInstance();
+/** @var Countdown2\Helper $helper */
+$helper = Countdown2\Helper::getInstance();
 /** @var Xmf\Module\Admin $adminObject */
 $adminObject = \Xmf\Module\Admin::getInstance();
 
@@ -46,8 +46,8 @@ $pathIcon32    = \Xmf\Module\Admin::iconUrl('', 32);
 $pathModIcon32 = $helper->getModule()->getInfo('modicons32');
 
 /** @var \XoopsPersistableObjectHandler $eventsHandler */
-$eventsHandler = new Countdown\EventsHandler($db);
-$categoryHandler = new Countdown\CategoryHandler($db);
+$eventsHandler = new Countdown2\EventsHandler($db);
+$categoryHandler = new Countdown2\CategoryHandler($db);
 
 $myts = \MyTextSanitizer::getInstance();
 if (!isset($xoopsTpl) || !is_object($xoopsTpl)) {

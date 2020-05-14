@@ -23,7 +23,7 @@
  */
 
 use Xmf\Request;
-use XoopsModules\Countdown;
+use XoopsModules\Countdown2;
 
 $GLOBALS['xoopsOption']['template_main'] = 'countdown_events_list.tpl';
 require_once __DIR__ . '/header.php';
@@ -35,7 +35,7 @@ $db = \XoopsDatabaseFactory::getDatabaseConnection();
 
 // Get Handler
 /** @var \XoopsPersistableObjectHandler $eventsHandler */
-$eventsHandler = new Countdown\EventsHandler($db);
+$eventsHandler = new Countdown2\EventsHandler($db);
 
 $eventsPaginationLimit = $helper->getConfig('usereventperpage');
 

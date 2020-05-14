@@ -22,11 +22,11 @@
  * @since           1.0.0
  */
 
-use XoopsModules\Countdown;
+use XoopsModules\Countdown2;
 
 include __DIR__ . '/../preloads/autoloader.php';
 
-$helper = Countdown\Helper::getInstance();
+$helper = Countdown2\Helper::getInstance();
 
 // get path to icons
 $pathIcon32    = \Xmf\Module\Admin::menuIconPath('');

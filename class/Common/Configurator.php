@@ -1,4 +1,4 @@
-<?php namespace XoopsModules\Countdown\common;
+<?php namespace XoopsModules\Countdown2\common;
 
 /*
  You may not change or alter any portion of this comment or credits
@@ -21,7 +21,7 @@
  * @since           1.0.0
  */
 
-require_once __DIR__ . '/../../include/common.php';
+//require_once __DIR__ . '/../../include/common.php';
 
 /**
  * Class Configurator
@@ -36,18 +36,17 @@ class Configurator
     public $templateFolders = [];
     public $oldFiles        = [];
     public $oldFolders      = [];
+    public $renameTables    = [];
+    public $moduleStats     = [];
     public $modCopyright;
+    public $icons;
 
     /**
      * Configurator constructor.
      */
     public function __construct()
     {
-        $moduleDirName = basename(dirname(__DIR__));
-        $capsDirName   = strtoupper($moduleDirName);
-
-        $config = include __DIR__ . '/../../include/config.php';
-
+        $config                = include dirname(dirname(__DIR__)) . '/config/config.php';
         $this->name            = $config->name;
         $this->paths           = $config->paths;
         $this->uploadFolders   = $config->uploadFolders;
@@ -56,7 +55,11 @@ class Configurator
         $this->templateFolders = $config->templateFolders;
         $this->oldFiles        = $config->oldFiles;
         $this->oldFolders      = $config->oldFolders;
+        $this->renameTables    = $config->renameTables;
+        $this->moduleStats     = $config->moduleStats;
         $this->modCopyright    = $config->modCopyright;
 
+        $this->icons = include dirname(dirname(__DIR__)) . '/config/icons.php';
+        $this->paths = include dirname(dirname(__DIR__)) . '/config/paths.php';
     }
 }

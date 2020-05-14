@@ -22,7 +22,7 @@
  * @since           1.0.0
  */
 
-use XoopsModules\Countdown;
+use XoopsModules\Countdown2;
 
 /**
  * Prepares system prior to attempting to uninstall module
@@ -49,11 +49,11 @@ function xoops_module_uninstall_countdown(\XoopsModule $module)
     $moduleDirName      = basename(dirname(__DIR__));
     $moduleDirNameUpper = strtoupper($moduleDirName); //$capsDirName
 
-    /** @var Countdown\Helper $helper */
-    /** @var Countdown\Utility $utility */
-    $helper  = Countdown\Helper::getInstance();
-    $utility = new Countdown\Utility();
-    //    $configurator = new Countdown\Common\Configurator();
+    /** @var Countdown2\Helper $helper */
+    /** @var Countdown2\Utility $utility */
+    $helper  = Countdown2\Helper::getInstance();
+    $utility = new Countdown2\Utility();
+    //    $configurator = new Countdown2\Common\Configurator();
 
     // Load language files
     $helper->loadLanguage('admin');

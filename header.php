@@ -23,17 +23,17 @@
  */
 
 use Xmf\Request;
-use XoopsModules\Countdown;
-use XoopsModules\Countdown\Helper;
-use XoopsModules\Countdown\Common;
+use XoopsModules\Countdown2;
+use XoopsModules\Countdown2\Helper;
+use XoopsModules\Countdown2\Common;
 
 require_once dirname(dirname(__DIR__)) . '/mainfile.php';
 require_once XOOPS_ROOT_PATH . '/header.php';
 
 $moduleDirName = basename(__DIR__);
 
-$helper       = Countdown\Helper::getInstance();
-$utility      = new Countdown\Utility();
+$helper       = Countdown2\Helper::getInstance();
+$utility      = new Countdown2\Utility();
 $configurator = new Common\Configurator();
 $copyright    = $configurator->modCopyright;
 
@@ -53,8 +53,8 @@ if (file_exists($GLOBALS['xoops']->path($stylesheet))) {
     $GLOBALS['xoTheme']->addStylesheet($GLOBALS['xoops']->url("www/{$stylesheet}"));
 }
 /** @var \XoopsPersistableObjectHandler $eventsHandler */
-$eventsHandler = new Countdown\EventsHandler($db);
-$categoryHandler = new Countdown\CategoryHandler($db);
+$eventsHandler = new Countdown2\EventsHandler($db);
+$categoryHandler = new Countdown2\CategoryHandler($db);
 
 // Load language files
 $helper->loadLanguage('main');

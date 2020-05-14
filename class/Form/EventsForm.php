@@ -1,4 +1,4 @@
-<?php namespace XoopsModules\Countdown\Form;
+<?php namespace XoopsModules\Countdown2\Form;
 
 /*
  You may not change or alter any portion of this comment or credits
@@ -22,15 +22,15 @@
  */
 
 use Xmf\Request;
-use XoopsModules\Countdown;
-use XoopsModules\Countdown\Common;
+use XoopsModules\Countdown2;
+use XoopsModules\Countdown2\Common;
 use XoopsFormTextDateSelect;
 use XoopsFormSelect;
 
 require_once __DIR__ . '/../../include/common.php';
 
 $moduleDirName = basename(dirname(dirname(__DIR__)));
-$helper        = Countdown\Helper::getInstance();
+$helper        = Countdown2\Helper::getInstance();
 $permHelper    = new \Xmf\Module\Helper\Permission();
 
 xoops_load('XoopsFormLoader');
@@ -49,7 +49,7 @@ class EventsForm extends \XoopsThemeForm
      */
     public function __construct($target)
     {
-		$helper = \XoopsModules\Countdown\Helper::getInstance();
+		$helper = \XoopsModules\Countdown2\Helper::getInstance();
 		
         $this->targetObject = $target;
 
@@ -70,7 +70,7 @@ class EventsForm extends \XoopsThemeForm
 		if (!$this->targetObject->isNew()) {
         $category_id = $this->targetObject->getVar('event_categoryid');
         }
-		$categoryHandler = \XoopsModules\Countdown\Helper::getInstance()->getHandler('Category');
+		$categoryHandler = \XoopsModules\Countdown2\Helper::getInstance()->getHandler('Category');
 		//$objects = $categoryHandler->getList();
         $category_select = new XoopsFormSelect(_AM_COUNTDOWN_CATEGORY, 'event_categoryid', $category_id);
 		//$category_select->addOptionArray($objects);

@@ -22,7 +22,7 @@
  * @since           1.0.0
  */
 
-use XoopsModules\Countdown;
+use XoopsModules\Countdown2;
 
 include __DIR__ . '/../preloads/autoloader.php';
 
@@ -30,19 +30,19 @@ $moduleDirName      = basename(dirname(__DIR__));
 $moduleDirNameUpper = strtoupper($moduleDirName);
 
 /** @var \XoopsDatabase $db */
-/** @var  Countdown\Helper $helper */
-/** @var Countdown\Utility $utility */
+/** @var  Countdown2\Helper $helper */
+/** @var Countdown2\Utility $utility */
 
 $db      = \XoopsDatabaseFactory::getDatabaseConnection();
-$helper  = Countdown\Helper::getInstance();
-$utility = new Countdown\Utility();
-//$configurator = new Countdown\Common\Configurator();
+$helper  = Countdown2\Helper::getInstance();
+$utility = new Countdown2\Utility();
+//$configurator = new Countdown2\Common\Configurator();
 
 $helper->loadLanguage('common');
 
 //handlers/** @var \XoopsPersistableObjectHandler $eventsHandler */ 
-$eventsHandler = new Countdown\EventsHandler($db);
-$categoryHandler = new Countdown\CategoryHandler($db);
+$eventsHandler = new Countdown2\EventsHandler($db);
+$categoryHandler = new Countdown2\CategoryHandler($db);
 
 $pathIcon16 = Xmf\Module\Admin::iconUrl('', 16);
 $pathIcon32 = Xmf\Module\Admin::iconUrl('', 32);
