@@ -13,10 +13,10 @@ declare(strict_types=1);
 */
 
 /**
- * Module: Countdown2
+ * Module: Countdown
  *
  * @category        Module
- * @package         countdown2
+ * @package         countdown
  * @author          XOOPS Development Team <https://xoops.org>
  * @copyright       {@link https://xoops.org/ XOOPS Project}
  * @license         GNU GPL 2 or later (https://www.gnu.org/licenses/gpl-2.0.html)
@@ -24,7 +24,7 @@ declare(strict_types=1);
  * @since           1.0.0
  */
 
-use XoopsModules\Countdown2;
+use XoopsModules\Countdown;
 
 /**
  * Prepares system prior to attempting to uninstall module
@@ -51,11 +51,11 @@ function xoops_module_uninstall_countdown(\XoopsModule $module)
     $moduleDirName      = basename(dirname(__DIR__));
     $moduleDirNameUpper = strtoupper($moduleDirName); //$capsDirName
 
-    /** @var Countdown2\Helper $helper */
-    /** @var Countdown2\Utility $utility */
-    $helper  = Countdown2\Helper::getInstance();
-    $utility = new Countdown2\Utility();
-    //    $configurator = new Countdown2\Common\Configurator();
+    /** @var Countdown\Helper $helper */
+    /** @var Countdown\Utility $utility */
+    $helper  = Countdown\Helper::getInstance();
+    $utility = new Countdown\Utility();
+    //    $configurator = new Countdown\Common\Configurator();
 
     // Load language files
     $helper->loadLanguage('admin');

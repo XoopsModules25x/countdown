@@ -13,10 +13,10 @@ declare(strict_types=1);
 */
 
 /**
- * Module: Countdown2
+ * Module: Countdown
  *
  * @category        Module
- * @package         countdown2
+ * @package         countdown
  * @author          XOOPS Development Team <https://xoops.org>
  * @copyright       {@link https://xoops.org/ XOOPS Project}
  * @license         GNU GPL 2 or later (https://www.gnu.org/licenses/gpl-2.0.html)
@@ -41,8 +41,8 @@ $sort  = Request::getString('sort', '');
 $adminObject->displayNavigation(basename(__FILE__));
 /** @var Permission $permHelper */
 $permHelper = new \Xmf\Module\Helper\Permission();
-$uploadDir  = XOOPS_UPLOAD_PATH . '/countdown2/images/';
-$uploadUrl  = XOOPS_UPLOAD_URL . '/countdown2/images/';
+$uploadDir  = XOOPS_UPLOAD_PATH . '/countdown/images/';
+$uploadUrl  = XOOPS_UPLOAD_URL . '/countdown/images/';
 
 switch ($op) {
     case 'list':

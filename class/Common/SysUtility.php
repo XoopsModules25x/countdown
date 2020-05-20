@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace XoopsModules\Countdown2\Common;
+namespace XoopsModules\Countdown\Common;
 
 /*
  You may not change or alter any portion of this comment or credits
@@ -15,17 +15,17 @@ namespace XoopsModules\Countdown2\Common;
 */
 
 /**
- * Module: Countdown2
+ * Module: Countdown
  *
  * @category        Module
- * @package         countdown2
+ * @package         countdown
  * @author          XOOPS Development Team <https://xoops.org>
  * @copyright       {@link https://xoops.org/ XOOPS Project}
  * @license         GNU GPL 2 or later (https://www.gnu.org/licenses/gpl-2.0.html)
  */
 
 use Xmf\Request;
-use XoopsModules\Countdown2;
+use XoopsModules\Countdown;
 
 /**
  * Class SysUtility
@@ -49,8 +49,8 @@ class SysUtility
 
         $select_view   = '';
         $moduleDirName = basename(dirname(__DIR__));
-        /** @var Countdown2\Helper $helper */
-        $helper = Countdown2\Helper::getInstance();
+        /** @var Countdown\Helper $helper */
+        $helper = Countdown\Helper::getInstance();
 
         //$pathModIcon16 = XOOPS_URL . '/modules/' . $moduleDirName . '/' . $helper->getConfig('modicons16');
         $pathModIcon16 = $helper->url($helper->getModule()->getInfo('modicons16'));

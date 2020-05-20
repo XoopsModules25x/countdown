@@ -1,2 +1,2 @@
-# countdown2
+# countdown
 Counts down time for user created events.

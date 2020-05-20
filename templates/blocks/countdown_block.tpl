@@ -1,6 +1,6 @@
 
- <link rel="stylesheet" type="text/css" href="<{$xoops_url}>/modules/countdown2/assets/css/countdown.css">
- <script src="<{$xoops_url}>/modules/countdown2/assets/js/vue.min.js"></script>
+ <link rel="stylesheet" type="text/css" href="<{$xoops_url}>/modules/countdown/assets/css/countdown.css">
+ <script src="<{$xoops_url}>/modules/countdown/assets/js/vue.min.js"></script>
 
                 <div id="timer<{$block.id}>" class="timer">
 <!--  Timer Component  -->
@@ -32,8 +32,8 @@ Vue.component('Timer',{
 	  <div class="rounded bg-gradient-0 text-white shadow p-5 text-center mb-5">
                     <p class="mb-0 font-weight-bold text-uppercase">
 					<{if $block.displayeventlogo == 1}>
-					<img src="<{$xoops_url}>/uploads/countdown2/images/<{$block.logo}>" alt="<{$block.name}>" title="<{$block.name}>" class="img-fluid"><br><{/if}>
-					<h4><a href="<{$xoops_url}>/modules/countdown2/event.php?id=<{$block.id}>"><span class="text-body"><{$block.name}></span></a></h4>
+					<img src="<{$xoops_url}>/uploads/countdown/images/<{$block.logo}>" alt="<{$block.name}>" title="<{$block.name}>" class="img-fluid"><br><{/if}>
+					<h4><a href="<{$xoops_url}>/modules/countdown/event.php?id=<{$block.id}>"><span class="text-body"><{$block.name}></span></a></h4>
 					<small><{$block.date|date_format:"%A, %B %e %Y %l:%M %p"}></small><br>
 					  <{$block.description}>
 					</p>

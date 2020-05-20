@@ -13,10 +13,10 @@ declare(strict_types=1);
 */
 
 /**
- * Module: Countdown2
+ * Module: Countdown
  *
  * @category        Module
- * @package         countdown2
+ * @package         countdown
  * @author          XOOPS Development Team <https://xoops.org>
  * @copyright       {@link https://xoops.org/ XOOPS Project}
  * @license         GNU GPL 2 or later (https://www.gnu.org/licenses/gpl-2.0.html)
@@ -25,8 +25,8 @@ declare(strict_types=1);
  */
 
 use Xmf\Request;
-use XoopsModules\Countdown2;
-use XoopsModules\Countdown2\Common;
+use XoopsModules\Countdown;
+use XoopsModules\Countdown\Common;
 
 require __DIR__ . '/admin_header.php';
 xoops_cp_header();
@@ -49,7 +49,7 @@ $redirectFile = $_SERVER['SCRIPT_NAME'];
 $configurator  = new Common\Configurator();
 $uploadFolders = $configurator->uploadFolders;
 foreach ($uploadFolders as $value) {
-    Countdown2\Utility::prepareFolder($value);
+    Countdown\Utility::prepareFolder($value);
 }
 
 foreach (array_keys($uploadFolders) as $i) {

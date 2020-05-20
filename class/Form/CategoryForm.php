@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace XoopsModules\Countdown2\Form;
+namespace XoopsModules\Countdown\Form;
 
 /*
  You may not change or alter any portion of this comment or credits
@@ -14,10 +14,10 @@ namespace XoopsModules\Countdown2\Form;
  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 */
 /**
- * Module: Countdown2
+ * Module: Countdown
  *
  * @category        Module
- * @package         countdown2
+ * @package         countdown
  * @author          XOOPS Development Team <https://xoops.org>
  * @copyright       {@link https://xoops.org/ XOOPS Project}
  * @license         GNU GPL 2 or later (https://www.gnu.org/licenses/gpl-2.0.html)
@@ -26,12 +26,12 @@ namespace XoopsModules\Countdown2\Form;
  */
 
 use Xmf\Request;
-use XoopsModules\Countdown2;
+use XoopsModules\Countdown;
 
 require_once  dirname(dirname(__DIR__)) . '/include/common.php';
 
 $moduleDirName = basename(dirname(dirname(__DIR__)));
-$helper        = Countdown2\Helper::getInstance();
+$helper        = Countdown\Helper::getInstance();
 $permHelper    = new \Xmf\Module\Helper\Permission();
 
 xoops_load('XoopsFormLoader');
