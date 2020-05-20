@@ -95,7 +95,7 @@ $id = Request::getInt('id', 0, 'GET');
 
         // Display Navigation
         if ($eventsCount > $eventsPaginationLimit) {
-            $GLOBALS['xoopsTpl']->assign('xoops_mpageurl', COUNTDOWN2_URL . '/event.php');
+            $GLOBALS['xoopsTpl']->assign('event_url', COUNTDOWN2_URL . '/event.php');
             require_once XOOPS_ROOT_PATH . '/class/pagenav.php';
             $pagenav = new \XoopsPageNav($eventsCount, $eventsPaginationLimit, $start, 'id');
             $GLOBALS['xoopsTpl']->assign('pagenav', $pagenav->renderNav(4));
@@ -109,7 +109,7 @@ if (isset($keywords)) {
 //description
 $utility::metaDescription(_MD_COUNTDOWN_EVENTS_DESC);
 //
-$GLOBALS['xoopsTpl']->assign('xoops_mpageurl', COUNTDOWN2_URL . '/event.php');
+$GLOBALS['xoopsTpl']->assign('event_url', COUNTDOWN2_URL . '/event.php');
 $GLOBALS['xoopsTpl']->assign('countdown_url', COUNTDOWN2_URL);
 $GLOBALS['xoopsTpl']->assign('admin', COUNTDOWN2_ADMIN);
 $GLOBALS['xoopsTpl']->assign('copyright', $copyright);
