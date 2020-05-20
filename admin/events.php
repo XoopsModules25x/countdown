@@ -13,10 +13,10 @@ declare(strict_types=1);
 */
 
 /**
- * Module: Countdown2
+ * Module: Countdown
  *
  * @category        Module
- * @package         countdown2
+ * @package         countdown
  * @author          XOOPS Development Team <https://xoops.org>
  * @copyright       {@link https://xoops.org/ XOOPS Project}
  * @license         GNU GPL 2 or later (https://www.gnu.org/licenses/gpl-2.0.html)
@@ -41,8 +41,8 @@ $sort  = Request::getString('sort', '');
 $adminObject->displayNavigation(basename(__FILE__));
 /** @var Permission $permHelper */
 $permHelper = new \Xmf\Module\Helper\Permission();
-$uploadDir  = XOOPS_UPLOAD_PATH . '/countdown2/images/';
-$uploadUrl  = XOOPS_UPLOAD_URL . '/countdown2/images/';
+$uploadDir  = XOOPS_UPLOAD_PATH . '/countdown/images/';
+$uploadUrl  = XOOPS_UPLOAD_URL . '/countdown/images/';
 
 switch ($op) {
     case 'list':
@@ -78,7 +78,7 @@ switch ($op) {
             $pagenav = new \XoopsPageNav($eventsTempRows, $eventsPaginationLimit, $start, 'start', 'op=list' . '&sort=' . $sort . '&order=' . $order . '');
             $GLOBALS['xoopsTpl']->assign('pagenav', null === $pagenav ? $pagenav->renderNav() : '');
         }
-        $GLOBALS['xoopsTpl']->assign('countdown_url', COUNTDOWN2_URL);
+        $GLOBALS['xoopsTpl']->assign('countdown_url', COUNTDOWN_URL);
         $GLOBALS['xoopsTpl']->assign('eventsRows', $eventsTempRows);
         $eventsArray = [];
 
@@ -208,7 +208,7 @@ switch ($op) {
         $eventsObject->setVar('date_updated', $dateTimeObj->getTimestamp());
 		
 		require_once XOOPS_ROOT_PATH . '/class/uploader.php';
-        $uploadDir = XOOPS_UPLOAD_PATH . '/countdown2/images/';
+        $uploadDir = XOOPS_UPLOAD_PATH . '/countdown/images/';
         $uploader  = new \XoopsMediaUploader($uploadDir, $helper->getConfig('mimetypes'), $helper->getConfig('maxsize'), null, null);
         if ($uploader->fetchMedia(Request::getArray('xoops_upload_file', '', 'POST')[0])) {
 

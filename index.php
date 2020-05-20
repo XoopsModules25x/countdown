@@ -13,10 +13,10 @@ declare(strict_types=1);
 */
 
 /**
- * Module: Countdown2
+ * Module: Countdown
  *
  * @category        Module
- * @package         countdown2
+ * @package         countdown
  * @author          XOOPS Development Team <https://xoops.org>
  * @copyright       {@link https://xoops.org/ XOOPS Project}
  * @license         GNU GPL 2 or later (https://www.gnu.org/licenses/gpl-2.0.html)
@@ -25,7 +25,7 @@ declare(strict_types=1);
  */
 
 use Xmf\Request;
-use XoopsModules\Countdown2;
+use XoopsModules\Countdown;
 
 $GLOBALS['xoopsOption']['template_main'] = 'countdown_events_list.tpl';
 require_once __DIR__ . '/header.php';
@@ -37,7 +37,7 @@ $db = \XoopsDatabaseFactory::getDatabaseConnection();
 
 // Get Handler
 /** @var \XoopsPersistableObjectHandler $eventsHandler */
-$eventsHandler = new Countdown2\EventsHandler($db);
+$eventsHandler = new Countdown\EventsHandler($db);
 
 $eventsPaginationLimit = $helper->getConfig('usereventperpage');
 
@@ -99,7 +99,7 @@ $id = Request::getInt('event_id', 0, 'GET');
             }
             // Display Navigation
             if ($eventsCount > $eventsPaginationLimit) {
-				$GLOBALS['xoopsTpl']->assign('index_url', COUNTDOWN2_URL . '/index.php');
+				$GLOBALS['xoopsTpl']->assign('index_url', COUNTDOWN_URL . '/index.php');
                 require_once XOOPS_ROOT_PATH . '/class/pagenav.php';
                 $pagenav = new \XoopsPageNav($eventsCount, $eventsPaginationLimit, $start, 'start');
                 $GLOBALS['xoopsTpl']->assign('pagenav', $pagenav->renderNav(4));
@@ -114,9 +114,9 @@ if (isset($keywords)) {
 $utility::metaDescription(_MD_COUNTDOWN_EVENTS_DESC);
 //
 $GLOBALS['xoopsTpl']->assign('eventperpage',  $eventsPaginationLimit);
-$GLOBALS['xoopsTpl']->assign('index_url', COUNTDOWN2_URL . '/index.php');
-$GLOBALS['xoopsTpl']->assign('countdown_url', COUNTDOWN2_URL);
-$GLOBALS['xoopsTpl']->assign('admin', COUNTDOWN2_ADMIN);
+$GLOBALS['xoopsTpl']->assign('index_url', COUNTDOWN_URL . '/index.php');
+$GLOBALS['xoopsTpl']->assign('countdown_url', COUNTDOWN_URL);
+$GLOBALS['xoopsTpl']->assign('admin', COUNTDOWN_ADMIN);
 $GLOBALS['xoopsTpl']->assign('copyright', $copyright);
 
 require __DIR__ . '/footer.php';

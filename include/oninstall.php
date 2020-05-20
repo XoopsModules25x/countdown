@@ -13,10 +13,10 @@ declare(strict_types=1);
 */
 
 /**
- * Module: Countdown2
+ * Module: Countdown
  *
  * @category        Module
- * @package         Countdown2
+ * @package         Countdown
  * @author          XOOPS Development Team <name@site.com> - <https://xoops.org>
  * @copyright       {@link https://xoops.org/ XOOPS Project}
  * @license         GNU GPL 2 or later (https://www.gnu.org/licenses/gpl-2.0.html)
@@ -24,8 +24,8 @@ declare(strict_types=1);
  * @since           1.0.0
  */
 
-use XoopsModules\Countdown2;
-use XoopsModules\Countdown2\Common;
+use XoopsModules\Countdown;
+use XoopsModules\Countdown\Common;
 
 require  dirname(__DIR__) . '/preloads/autoloader.php';
 
@@ -37,8 +37,8 @@ require  dirname(__DIR__) . '/preloads/autoloader.php';
  */
 function xoops_module_pre_install_countdown(\XoopsModule $module)
 {
-    /** @var Countdown2\Utility $utility */
-    $utility = new Countdown2\Utility();
+    /** @var Countdown\Utility $utility */
+    $utility = new Countdown\Utility();
 
     //check for minimum XOOPS version
     $xoopsSuccess = $utility::checkVerXoops($module);
@@ -67,11 +67,11 @@ function xoops_module_install_countdown(\XoopsModule $module)
 {
     $moduleDirName = basename(dirname(__DIR__));
 
-    /** @var Countdown2\Helper $helper */
-    /** @var Countdown2\Utility $utility */
+    /** @var Countdown\Helper $helper */
+    /** @var Countdown\Utility $utility */
     /** @var Common\Configurator $configurator */
-    $helper       = Countdown2\Helper::getInstance();
-    $utility      = new Countdown2\Utility();
+    $helper       = Countdown\Helper::getInstance();
+    $utility      = new Countdown\Utility();
     $configurator = new Common\Configurator();
 
     // Load language files

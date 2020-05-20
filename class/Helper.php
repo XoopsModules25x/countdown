@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace XoopsModules\Countdown2;
+namespace XoopsModules\Countdown;
 
 /*
  You may not change or alter any portion of this comment or credits
@@ -14,10 +14,10 @@ namespace XoopsModules\Countdown2;
  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 */
 /**
- * Module: Countdown2
+ * Module: Countdown
  *
  * @category        Module
- * @package         countdown2
+ * @package         countdown
  * @author          XOOPS Development Team <https://xoops.org>
  * @copyright       {@link https://xoops.org/ XOOPS Project}
  * @license         GNU GPL 2 or later (https://www.gnu.org/licenses/gpl-2.0.html)
@@ -44,7 +44,7 @@ class Helper extends \Xmf\Module\Helper
     /**
      * @param bool $debug
      *
-     * @return \XoopsModules\Countdown2\Helper
+     * @return \XoopsModules\Countdown\Helper
      */
     public static function getInstance($debug = false)
     {
