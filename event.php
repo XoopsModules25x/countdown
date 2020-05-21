@@ -54,54 +54,54 @@ $moduleDirNameUpper = strtoupper($moduleDirName);
 
 $id = Request::getInt('id', 0, 'GET');
 
-        //viewItem();
-        $eventsPaginationLimit                   = 1;
-        $myid                                    = $id;
-        //id
-        $eventsObject = $eventsHandler->get($myid);
+//viewItem();
+$eventsPaginationLimit = 1;
+$myid                  = $id;
+//id
+$eventsObject = $eventsHandler->get($myid);
 
-        $criteria = new \CriteriaCompo();
-        $criteria->setSort('event_id');
-        $criteria->setOrder('DESC');
-        $criteria->setLimit($eventsPaginationLimit);
-        $criteria->setStart($start);
-        $events['id']             = $eventsObject->getVar('event_id');
-        $events['uid']            = $eventsObject->getVar('event_uid');
-		$events['submitter']      = \XoopsUser::getUnameFromId($eventsObject->getVar('event_uid'));
-        $events['name']           = $eventsObject->getVar('event_name');
-		$events['category']       = $eventsObject->getVar('event_categoryid');
-		$categoryHandler          = $helper->getHandler('category');
-		$categoryObj              = $categoryHandler->get($eventsObject->getVar('event_categoryid'));
-		$events['categoryname']   = $categoryObj->getVar('category_title');
-		$categoryname             = $categoryObj->getVar('category_title'); 
-		$events['logo']           = $eventsObject->getVar('event_logo');
-        $events['description']    = ($eventsObject->getVar('event_description'));
-        $events['date']           = date(_DATESTRING, strtotime($eventsObject->getVar('event_date')));
-	    $events['dateiso']        = $eventsObject->getVar('event_date');
-		$events['date_created']   = formatTimestamp($eventsObject->getVar('date_created'));
-		$date_created   		  = formatTimestamp($eventsObject->getVar('date_created'));
-		$events['date_updated']   = formatTimestamp($eventsObject->getVar('date_updated'));
-		$date_updated  			  = formatTimestamp($eventsObject->getVar('date_updated'));
-		
-			if ($date_created == $date_updated){
-			$events['info']		     = sprintf(_MD_COUNTDOWN_POSTEDBY, \XoopsUser::getUnameFromId($eventsObject->getVar('event_uid')), formatTimestamp($eventsObject->getVar('date_created'),'M d Y'), $categoryname); }
-			else{
-			$events['info']		     = sprintf(_MD_COUNTDOWN_POSTEDBY, \XoopsUser::getUnameFromId($eventsObject->getVar('event_uid')), formatTimestamp($eventsObject->getVar('date_updated'),'M d Y'), $categoryname); }
-							   
-		//       $GLOBALS['xoopsTpl']->append('events', $events);
-        $keywords[] = $eventsObject->getVar('event_id');
+$criteria = new \CriteriaCompo();
+$criteria->setSort('event_id');
+$criteria->setOrder('DESC');
+$criteria->setLimit($eventsPaginationLimit);
+$criteria->setStart($start);
+$events['id']           = $eventsObject->getVar('event_id');
+$events['uid']          = $eventsObject->getVar('event_uid');
+$events['submitter']    = \XoopsUser::getUnameFromId($eventsObject->getVar('event_uid'));
+$events['name']         = $eventsObject->getVar('event_name');
+$events['category']     = $eventsObject->getVar('event_categoryid');
+$categoryHandler        = $helper->getHandler('category');
+$categoryObj            = $categoryHandler->get($eventsObject->getVar('event_categoryid'));
+$events['categoryname'] = $categoryObj->getVar('category_title');
+$categoryname           = $categoryObj->getVar('category_title');
+$events['logo']         = $eventsObject->getVar('event_logo');
+$events['description']  = ($eventsObject->getVar('event_description'));
+$events['date']         = date(_DATESTRING, strtotime($eventsObject->getVar('event_date')));
+$events['dateiso']      = $eventsObject->getVar('event_date');
+$events['date_created'] = formatTimestamp($eventsObject->getVar('date_created'));
+$date_created           = formatTimestamp($eventsObject->getVar('date_created'));
+$events['date_updated'] = formatTimestamp($eventsObject->getVar('date_updated'));
+$date_updated           = formatTimestamp($eventsObject->getVar('date_updated'));
 
-        $GLOBALS['xoopsTpl']->assign('events', $events);
-        $start = $id;
+if ($date_created == $date_updated) {
+    $events['info'] = sprintf(_MD_COUNTDOWN_POSTEDBY, \XoopsUser::getUnameFromId($eventsObject->getVar('event_uid')), formatTimestamp($eventsObject->getVar('date_created'), 'M d Y'), $categoryname);
+} else {
+    $events['info'] = sprintf(_MD_COUNTDOWN_POSTEDBY, \XoopsUser::getUnameFromId($eventsObject->getVar('event_uid')), formatTimestamp($eventsObject->getVar('date_updated'), 'M d Y'), $categoryname);
+}
 
-        // Display Navigation
-        if ($eventsCount > $eventsPaginationLimit) {
-            $GLOBALS['xoopsTpl']->assign('event_url', COUNTDOWN_URL . '/event.php');
-            require_once XOOPS_ROOT_PATH . '/class/pagenav.php';
-            $pagenav = new \XoopsPageNav($eventsCount, $eventsPaginationLimit, $start, 'id');
-            $GLOBALS['xoopsTpl']->assign('pagenav', $pagenav->renderNav(4));
-        }
+//       $GLOBALS['xoopsTpl']->append('events', $events);
+$keywords[] = $eventsObject->getVar('event_id');
 
+$GLOBALS['xoopsTpl']->assign('events', $events);
+$start = $id;
+
+// Display Navigation
+if ($eventsCount > $eventsPaginationLimit) {
+    $GLOBALS['xoopsTpl']->assign('event_url', COUNTDOWN_URL . '/event.php');
+    require_once XOOPS_ROOT_PATH . '/class/pagenav.php';
+    $pagenav = new \XoopsPageNav($eventsCount, $eventsPaginationLimit, $start, 'id');
+    $GLOBALS['xoopsTpl']->assign('pagenav', $pagenav->renderNav(4));
+}
 
 //keywords
 if (isset($keywords)) {

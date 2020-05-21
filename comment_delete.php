@@ -22,6 +22,6 @@ declare(strict_types=1);
  * @link            https://xoops.org/
  * @since           1.0.0
  */
-require_once  dirname(dirname(__DIR__)) . '/mainfile.php';
+require_once dirname(dirname(__DIR__)) . '/mainfile.php';
 require_once __DIR__ . '/header.php';
 require_once XOOPS_ROOT_PATH . '/include/comment_delete.php';

@@ -13,6 +13,7 @@ namespace XoopsModules\Countdown\Form;
  but WITHOUT ANY WARRANTY; without even the implied warranty of
  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 */
+
 /**
  * Module: Countdown
  *
@@ -31,7 +32,7 @@ use XoopsModules\Countdown\Common;
 use XoopsFormTextDateSelect;
 use XoopsFormSelect;
 
-require_once  dirname(dirname(__DIR__)) . '/include/common.php';
+require_once dirname(dirname(__DIR__)) . '/include/common.php';
 
 $moduleDirName = basename(dirname(dirname(__DIR__)));
 $helper        = Countdown\Helper::getInstance();
@@ -53,8 +54,8 @@ class EventsForm extends \XoopsThemeForm
      */
     public function __construct($target)
     {
-		$helper = \XoopsModules\Countdown\Helper::getInstance();
-		
+        $helper = \XoopsModules\Countdown\Helper::getInstance();
+
         $this->targetObject = $target;
 
         $title = $this->targetObject->isNew() ? sprintf(_AM_COUNTDOWN_EVENTS_ADD) : sprintf(_AM_COUNTDOWN_EVENTS_EDIT);
@@ -69,27 +70,27 @@ class EventsForm extends \XoopsThemeForm
 
         // Id
         $this->addElement(new \XoopsFormLabel(_AM_COUNTDOWN_EVENTS_ID, $this->targetObject->getVar('event_id'), 'event_id'));
-		//Category
-		$category_id = 0;
-		if (!$this->targetObject->isNew()) {
-        $category_id = $this->targetObject->getVar('event_categoryid');
+        //Category
+        $category_id = 0;
+        if (!$this->targetObject->isNew()) {
+            $category_id = $this->targetObject->getVar('event_categoryid');
         }
 
         $categoryHandler = $helper->getHandler('category');
-        $categories = $categoryHandler->getObjects();
-        $category_sel = new XoopsFormSelect(_AM_COUNTDOWN_CATEGORY, 'event_categoryid', $this->targetObject->getVar('event_categoryid'));
-        $i = 1;
-		
+        $categories      = $categoryHandler->getObjects();
+        $category_sel    = new XoopsFormSelect(_AM_COUNTDOWN_CATEGORY, 'event_categoryid', $this->targetObject->getVar('event_categoryid'));
+        $i               = 1;
+
         foreach (array_keys($categories) as $i) {
             $category_sel->addOption($categories[$i]->getVar('category_id'), $categories[$i]->getVar('category_title'));
         }
         $this->addElement($category_sel);
-		
+
         // Name
         $this->addElement(new \XoopsFormText(_AM_COUNTDOWN_EVENTS_NAME, 'event_name', 50, 255, $this->targetObject->getVar('event_name')), false);
         // Description
         if (class_exists('XoopsFormEditor')) {
-            $editorOptions           = array();
+            $editorOptions           = [];
             $editorOptions['name']   = 'event_description';
             $editorOptions['value']  = $this->targetObject->getVar('event_description', 'e');
             $editorOptions['rows']   = 5;
@@ -108,10 +109,10 @@ class EventsForm extends \XoopsThemeForm
         }
         $this->addElement($descEditor);
 
-		// Event Date
-       $this->addElement(new \XoopsFormDateTime(_AM_COUNTDOWN_EVENTS_DATE, 'event_date', '', strtotime($this->targetObject->getVar('event_date'))));
+        // Event Date
+        $this->addElement(new \XoopsFormDateTime(_AM_COUNTDOWN_EVENTS_DATE, 'event_date', '', strtotime($this->targetObject->getVar('event_date'))));
 
-		// Logo
+        // Logo
         $logo = $this->targetObject->getVar('event_logo') ?: 'blank.png';
 
         $uploadDir   = '/uploads/countdown/images/';
@@ -130,11 +131,11 @@ class EventsForm extends \XoopsThemeForm
         $fileseltray->addElement(new \XoopsFormLabel(''));
         $imgtray->addElement($fileseltray);
         $this->addElement($imgtray);
-		
-		// Submitter
+
+        // Submitter
         $this->addElement(new \XoopsFormSelectUser(_AM_COUNTDOWN_EVENTS_POSTERNAME, 'event_uid', false, $this->targetObject->getVar('event_uid'), 1, false), false);
-        
-		// Data_creation
+
+        // Data_creation
         $this->addElement(
             new XoopsFormTextDateSelect(
                 \_AM_COUNTDOWN_EVENTS_DATE_CREATED, 'date_created', 0, \formatTimestamp($this->targetObject->getVar('date_created'), 's')
@@ -146,8 +147,7 @@ class EventsForm extends \XoopsThemeForm
                 \_AM_COUNTDOWN_EVENTS_DATE_UPDATED, 'date_updated', 0, \formatTimestamp($this->targetObject->getVar('date_updated'), 's')
             )
         );
-		
-		
+
         $this->addElement(new \XoopsFormHidden('op', 'save'));
         $this->addElement(new \XoopsFormButton('', 'submit', _SUBMIT, 'submit'));
     }

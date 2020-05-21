@@ -13,6 +13,7 @@ namespace XoopsModules\Countdown;
  but WITHOUT ANY WARRANTY; without even the implied warranty of
  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 */
+
 /**
  * Module: Countdown
  *
@@ -47,9 +48,9 @@ class Category extends \XoopsObject
         parent::__construct();
         $this->initVar('category_id', XOBJ_DTYPE_INT);
         $this->initVar('category_title', XOBJ_DTYPE_TXTBOX);
-		$this->initVar('category_weight', XOBJ_DTYPE_TXTBOX);
+        $this->initVar('category_weight', XOBJ_DTYPE_TXTBOX);
     }
-	
+
     /**
      * Get form
      *

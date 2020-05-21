@@ -28,7 +28,6 @@ use Xmf\Request;
 use XoopsModules\Countdown;
 use XoopsModules\Countdown\Common;
 
-
 /**
  * Class Utility
  */

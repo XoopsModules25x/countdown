@@ -59,7 +59,7 @@ class Breadcrumb
     {
         $this->bread[] = [
             'link'  => $link,
-            'title' => $title
+            'title' => $title,
         ];
     }
 

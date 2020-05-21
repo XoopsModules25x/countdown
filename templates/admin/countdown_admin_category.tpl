@@ -20,7 +20,7 @@
                     <th align="center" width="5%"><input name="allbox" title="allbox" id="allbox" onclick="xoopsCheckAll('select', 'allbox');" type="checkbox" title="Check All" value="Check All"></th>
                     <th class="center"><{$selectorid}></th>
                     <th class="center"><{$selectortitle}></th>
-					<th class="center"><{$selectorweight}></th>
+                    <th class="center"><{$selectorweight}></th>
                     <th class="center width5"><{$smarty.const._AM_COUNTDOWN_FORM_ACTION}></th>
                 </tr>
                 <{foreach item=categoryArray from=$categoryArrays}>
@@ -29,7 +29,7 @@
                         <td align="center" style="vertical-align:middle;"><input type="checkbox" name="category_id[]" title="category_id[]" id="category_id[]" value="<{$categoryArray.category_id}>"></td>
                         <td class='center'><{$categoryArray.category_id}></td>
                         <td class='center'><{$categoryArray.category_title}></td>
-						 <td class='center'><{$categoryArray.category_weight}></td>
+                        <td class='center'><{$categoryArray.category_weight}></td>
                         <td class="center width5"><{$categoryArray.edit_delete}></td>
                     </tr>
                 <{/foreach}>
@@ -44,7 +44,7 @@
                     <th class="center"><{$selectorid}></th>
                     <th class="center"><{$selectortitle}></th>
                     <th class="center"><{$selectorweight}></th>
-					<th class="center width5"><{$smarty.const._AM_COUNTDOWN_FORM_ACTION}></th>
+                    <th class="center width5"><{$smarty.const._AM_COUNTDOWN_FORM_ACTION}></th>
                 </tr>
                 <tr>
                     <td class="errorMsg" colspan="11">There are no $category</td>

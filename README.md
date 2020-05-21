@@ -1,2 +1,2 @@
 # countdown
-Counts down time for user created events.
+Countdown is a simple XOOPS module displaying the countdown LIVE to any specific date and time.

@@ -27,12 +27,12 @@ declare(strict_types=1);
 use Xmf\Request;
 use XoopsModules\Countdown;
 
-require_once  dirname(dirname(dirname(__DIR__))) . '/include/cp_header.php';
-require_once  dirname(dirname(dirname(__DIR__))) . '/class/xoopsformloader.php';
+require_once dirname(dirname(dirname(__DIR__))) . '/include/cp_header.php';
+require_once dirname(dirname(dirname(__DIR__))) . '/class/xoopsformloader.php';
 
-require_once  dirname(__DIR__) . '/include/common.php';
+require_once dirname(__DIR__) . '/include/common.php';
 
-require  dirname(__DIR__) . '/preloads/autoloader.php';
+require dirname(__DIR__) . '/preloads/autoloader.php';
 
 $moduleDirName = basename(dirname(__DIR__));
 
@@ -48,7 +48,7 @@ $pathIcon32    = \Xmf\Module\Admin::iconUrl('', 32);
 $pathModIcon32 = $helper->getModule()->getInfo('modicons32');
 
 /** @var \XoopsPersistableObjectHandler $eventsHandler */
-$eventsHandler = new Countdown\EventsHandler($db);
+$eventsHandler   = new Countdown\EventsHandler($db);
 $categoryHandler = new Countdown\CategoryHandler($db);
 
 $myts = \MyTextSanitizer::getInstance();

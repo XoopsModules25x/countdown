@@ -43,7 +43,7 @@ $modulePath = XOOPS_ROOT_PATH . '/modules/' . $moduleDirName;
 require_once __DIR__ . '/include/common.php';
 $db = \XoopsDatabaseFactory::getDatabaseConnection();
 
-$myts       = \MyTextSanitizer::getInstance();
+$myts = \MyTextSanitizer::getInstance();
 
 if (!isset($GLOBALS['xoTheme']) || !is_object($GLOBALS['xoTheme'])) {
     require $GLOBALS['xoops']->path('class/theme.php');
@@ -55,7 +55,7 @@ if (file_exists($GLOBALS['xoops']->path($stylesheet))) {
     $GLOBALS['xoTheme']->addStylesheet($GLOBALS['xoops']->url("www/{$stylesheet}"));
 }
 /** @var \XoopsPersistableObjectHandler $eventsHandler */
-$eventsHandler = new Countdown\EventsHandler($db);
+$eventsHandler   = new Countdown\EventsHandler($db);
 $categoryHandler = new Countdown\CategoryHandler($db);
 
 // Load language files
