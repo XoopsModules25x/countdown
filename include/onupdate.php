@@ -31,7 +31,7 @@ if ((!defined('XOOPS_ROOT_PATH')) || !$GLOBALS['xoopsUser'] instanceof \XoopsUse
     exit('Restricted access' . PHP_EOL);
 }
 
-require  dirname(__DIR__) . '/preloads/autoloader.php';
+require dirname(__DIR__) . '/preloads/autoloader.php';
 
 /**
  * @param string $tablename
@@ -78,8 +78,7 @@ function xoops_module_update_countdown(\XoopsModule $module, $previousVersion = 
     $moduleDirName      = basename(dirname(__DIR__));
     $moduleDirNameUpper = strtoupper($moduleDirName);
 
-    /** @var Countdown\Helper $helper */
-    /** @var Countdown\Utility $utility */
+    /** @var Countdown\Helper $helper */ /** @var Countdown\Utility $utility */
     /** @var Countdown\Common\Configurator $configurator */
     $helper       = Countdown\Helper::getInstance();
     $utility      = new Countdown\Utility();
@@ -87,7 +86,6 @@ function xoops_module_update_countdown(\XoopsModule $module, $previousVersion = 
     $helper->loadLanguage('common');
 
     if ($previousVersion < 240) {
-
         //delete old HTML templates
         if (count($configurator->templateFolders) > 0) {
             foreach ($configurator->templateFolders as $folder) {
@@ -139,7 +137,7 @@ function xoops_module_update_countdown(\XoopsModule $module, $previousVersion = 
 
         //  ---  COPY blank.png FILES ---------------
         if (count($configurator->copyBlankFiles) > 0) {
-            $file =  dirname(__DIR__) . '/assets/images/blank.png';
+            $file = dirname(__DIR__) . '/assets/images/blank.png';
             foreach (array_keys($configurator->copyBlankFiles) as $i) {
                 $dest = $configurator->copyBlankFiles[$i] . '/blank.png';
                 $utility::copyFile($file, $dest);

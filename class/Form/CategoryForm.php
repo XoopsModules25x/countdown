@@ -13,6 +13,7 @@ namespace XoopsModules\Countdown\Form;
  but WITHOUT ANY WARRANTY; without even the implied warranty of
  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 */
+
 /**
  * Module: Countdown
  *
@@ -28,7 +29,7 @@ namespace XoopsModules\Countdown\Form;
 use Xmf\Request;
 use XoopsModules\Countdown;
 
-require_once  dirname(dirname(__DIR__)) . '/include/common.php';
+require_once dirname(dirname(__DIR__)) . '/include/common.php';
 
 $moduleDirName = basename(dirname(dirname(__DIR__)));
 $helper        = Countdown\Helper::getInstance();
@@ -67,9 +68,9 @@ class CategoryForm extends \XoopsThemeForm
         $this->addElement(new \XoopsFormLabel(_AM_COUNTDOWN_CATEGORY_ID, $this->targetObject->getVar('category_id'), 'category_id'));
         // Name
         $this->addElement(new \XoopsFormText(_AM_COUNTDOWN_CATEGORY_TITLE, 'category_title', 50, 255, $this->targetObject->getVar('category_title')), false);
-		 // Weight
+        // Weight
         $this->addElement(new \XoopsFormText(_AM_COUNTDOWN_CATEGORY_WEIGHT, 'category_weight', 3, 255, $this->targetObject->getVar('category_weight')), false);
-      
+
         $this->addElement(new \XoopsFormHidden('op', 'save'));
         $this->addElement(new \XoopsFormButton('', 'submit', _SUBMIT, 'submit'));
     }

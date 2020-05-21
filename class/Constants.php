@@ -13,6 +13,7 @@ namespace XoopsModules\Countdown;
  but WITHOUT ANY WARRANTY; without even the implied warranty of
  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 */
+
 /**
  * Module: Countdown
  *
@@ -24,6 +25,7 @@ namespace XoopsModules\Countdown;
  * @link            https://xoops.org/
  * @since           1.0.0
  */
+
 use XoopsModules\countdown;
 
 /**

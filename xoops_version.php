@@ -75,7 +75,8 @@ $modversion = [
     'sqlfile'             => ['mysql' => 'sql/mysql.sql'],
     // ------------------- Tables ----------------------------
     'tables'              => [
-         $moduleDirName . '_' . 'categories',$moduleDirName . '_' . 'events',
+        $moduleDirName . '_' . 'categories',
+        $moduleDirName . '_' . 'events',
         //'countdown_categories',
         //'countdown_events',
     ],

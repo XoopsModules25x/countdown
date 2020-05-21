@@ -4,14 +4,14 @@ declare(strict_types=1);
 
 function showCountdown($options)
 {
-	$helper = XoopsModules\Countdown\Helper::getInstance();
-	
+    $helper = XoopsModules\Countdown\Helper::getInstance();
+
     $block             = [];
     $block['event_id'] = $options[0];
     $selected_id       = $block['event_id'];
 
-//    $sql = "SELECT * FROM " . $GLOBALS['xoopsDB']->prefix("countdown_events") . " WHERE event_id IN '" . ($selected_id). "'";
-    $sql = "SELECT * FROM " . $GLOBALS['xoopsDB']->prefix("countdown_events") ;
+    //    $sql = "SELECT * FROM " . $GLOBALS['xoopsDB']->prefix("countdown_events") . " WHERE event_id IN '" . ($selected_id). "'";
+    $sql    = "SELECT * FROM " . $GLOBALS['xoopsDB']->prefix("countdown_events");
     $result = $GLOBALS['xoopsDB']->query($sql);
 
     while ($row = $GLOBALS['xoopsDB']->fetchArray($result)) {
@@ -21,11 +21,11 @@ function showCountdown($options)
         $block['name']         = $row['event_name'];
         $block['description']  = $row['event_description'];
         $block['categoryid']   = $row['event_categoryid'];
-		$categoryid            = $row['event_categoryid'];
+        $categoryid            = $row['event_categoryid'];
         $categoryHandler       = $helper->getHandler('category');
         $categoryObj           = $categoryHandler->get($categoryid);
         $block['categoryname'] = $categoryObj->getVar('category_title');
-		$categoryname          = $categoryObj->getVar('category_title');
+        $categoryname          = $categoryObj->getVar('category_title');
         $block['logo']         = $row['event_logo'];
         $block['date']         = date(_DATESTRING, strtotime($row['event_date']));
         $block['dateiso']      = $row['event_date'];
@@ -51,10 +51,10 @@ function editCountdown($options)
     $form .= "<input type='hidden' name='options[0]' value='" . $options[0] . "'>&nbsp;";
     $form .= "<select name='options[0]'>";
     $form .= "<option>" . _MB_COUNTDOWN_EVENTTODISPLAY . "</option>";
-//    $sql = "SELECT * FROM ".$GLOBALS['xoopsDB']->prefix("countdown_events")." WHERE event_id IN ($selected_id)";
+    //    $sql = "SELECT * FROM ".$GLOBALS['xoopsDB']->prefix("countdown_events")." WHERE event_id IN ($selected_id)";
     //$result = $GLOBALS['xoopsDB']->query($sql);
-    $sql = "SELECT * FROM " . $GLOBALS['xoopsDB']->prefix("countdown_events") . " ";
-    $result     = $GLOBALS['xoopsDB']->query($sql);
+    $sql       = "SELECT * FROM " . $GLOBALS['xoopsDB']->prefix("countdown_events") . " ";
+    $result    = $GLOBALS['xoopsDB']->query($sql);
     $totaldata = $GLOBALS['xoopsDB']->getRowsNum($result);
     if ($totaldata > 0) {
         while ($myrow = $GLOBALS['xoopsDB']->fetchArray($result)) {

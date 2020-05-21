@@ -13,6 +13,7 @@ namespace XoopsModules\Countdown\Common;
  but WITHOUT ANY WARRANTY; without even the implied warranty of
  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 */
+
 /**
  * Module: Countdown
  *
@@ -44,8 +45,7 @@ trait FilesManagement
 
                 file_put_contents($folder . '/index.html', '<script>history.go(-1);</script>');
             }
-        }
-        catch (\Exception $e) {
+        } catch (\Exception $e) {
             echo 'Caught exception: ', $e->getMessage(), '<br>';
         }
     }
@@ -82,13 +82,13 @@ trait FilesManagement
 
     /**
      * Copy a file, or recursively copy a folder and its contents
-     * @author      Aidan Lister <aidan@php.net>
+     * @param string $source      Source path
+     * @param string $dest        Destination path
+     * @param int    $permissions New folder creation permissions
+     * @return      bool     Returns true on success, false on failure
      * @version     1.0.1
      * @link        http://aidanlister.com/2004/04/recursively-copying-directories-in-php/
-     * @param       string $source      Source path
-     * @param       string $dest        Destination path
-     * @param       int    $permissions New folder creation permissions
-     * @return      bool     Returns true on success, false on failure
+     * @author      Aidan Lister <aidan@php.net>
      */
     public static function xcopy($source, $dest)
     {
@@ -130,10 +130,10 @@ trait FilesManagement
      *
      * @param string $src source directory to delete
      *
-     * @uses \Xmf\Module\Helper::getHelper()
+     * @return bool true on success
      * @uses \Xmf\Module\Helper::isUserAdmin()
      *
-     * @return bool true on success
+     * @uses \Xmf\Module\Helper::getHelper()
      */
     public static function deleteDirectory($src)
     {
@@ -261,10 +261,10 @@ trait FilesManagement
      * @param string $src  - Source of files being moved
      * @param string $dest - Destination of files being moved
      *
-     * @uses \Xmf\Module\Helper::getHelper()
+     * @return bool true on success
      * @uses \Xmf\Module\Helper::isUserAdmin()
      *
-     * @return bool true on success
+     * @uses \Xmf\Module\Helper::getHelper()
      */
     public static function rcopy($src, $dest)
     {

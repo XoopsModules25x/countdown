@@ -49,7 +49,7 @@ switch ($op) {
     default:
         $adminObject->addItemButton(_AM_COUNTDOWN_CATEGORY_ADD, 'category.php?op=new', 'add');
         echo $adminObject->displayButton('left');
-        $start                 = Request::getInt('start', 0);
+        $start                   = Request::getInt('start', 0);
         $categoryPaginationLimit = $helper->getConfig('usereventperpage');
 
         $criteria = new \CriteriaCompo();
@@ -94,8 +94,6 @@ switch ($op) {
         //    for ($i = 0; $i < $fieldsCount; ++$i) {
         if ($categoryCount > 0) {
             foreach (array_keys($categoryTempArray) as $i) {
-
-
                 //        $field = explode(':', $fields[$i]);
 
                 $selectorid = $utility::selectSorting(_AM_COUNTDOWN_CATEGORY_ID, 'category_id');
@@ -105,8 +103,8 @@ switch ($op) {
                 $selectortitle = $utility::selectSorting(_AM_COUNTDOWN_CATEGORY_TITLE, 'category_title');
                 $GLOBALS['xoopsTpl']->assign('selectortitle', $selectortitle);
                 $categoryArray['category_title'] = $categoryTempArray[$i]->getVar('category_title');
-				
-				$selectorweight = $utility::selectSorting(_AM_COUNTDOWN_CATEGORY_WEIGHT, 'category_weight');
+
+                $selectorweight = $utility::selectSorting(_AM_COUNTDOWN_CATEGORY_WEIGHT, 'category_weight');
                 $GLOBALS['xoopsTpl']->assign('selectorweight', $selectorweight);
                 $categoryArray['category_weight'] = $categoryTempArray[$i]->getVar('category_weight');
 
@@ -135,7 +133,7 @@ switch ($op) {
         echo $adminObject->displayButton('left');
 
         $categoryObject = $categoryHandler->create();
-        $form         = $categoryObject->getForm();
+        $form           = $categoryObject->getForm();
         $form->display();
         break;
 
@@ -150,9 +148,9 @@ switch ($op) {
         }
         // Form save fields
         $categoryObject->setVar('category_title', Request::getVar('category_title', ''));
-		$categoryObject->setVar('category_weight', Request::getVar('category_weight', ''));
-       
-		if ($categoryHandler->insert($categoryObject)) {
+        $categoryObject->setVar('category_weight', Request::getVar('category_weight', ''));
+
+        if ($categoryHandler->insert($categoryObject)) {
             redirect_header('category.php?op=list', 2, _AM_COUNTDOWN_FORMOK);
         }
 
@@ -166,7 +164,7 @@ switch ($op) {
         $adminObject->addItemButton(_AM_COUNTDOWN_CATEGORY_LIST, 'category.php', 'list');
         echo $adminObject->displayButton('left');
         $categoryObject = $categoryHandler->get(Request::getString('id', ''));
-        $form         = $categoryObject->getForm();
+        $form           = $categoryObject->getForm();
         $form->display();
         break;
 
@@ -177,9 +175,9 @@ switch ($op) {
                 redirect_header('category.php', 3, implode(', ', $GLOBALS['xoopsSecurity']->getErrors()));
             }
             if ($categoryHandler->delete($categoryObject)) {
-				$cat_id = Request::getString('id', '');
-				$sql = 'DELETE FROM ' . $GLOBALS['xoopsDB']->prefix('countdown_events') . " WHERE event_categoryid = '" . $cat_id . "'";
-			    $xoopsDB->query( $sql );
+                $cat_id = Request::getString('id', '');
+                $sql    = 'DELETE FROM ' . $GLOBALS['xoopsDB']->prefix('countdown_events') . " WHERE event_categoryid = '" . $cat_id . "'";
+                $xoopsDB->query($sql);
                 redirect_header('category.php', 3, _AM_COUNTDOWN_FORMDELOK);
             } else {
                 echo $categoryObject->getHtmlErrors();

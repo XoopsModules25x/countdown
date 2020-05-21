@@ -35,8 +35,8 @@ define('_MI_COUNTDOWN_EVENT_ALL', 'All Event');
 define('_MI_COUNTDOWN_EVENT_EXPIRED', 'Expired Event');
 define('_MI_COUNTDOWN_EVENT_RUNNING', 'Running Event');
 //Blocks
-define("_MI_COUNTDOWN_COUNTDOWN_BLOCK","Countdown");
-define("_MI_COUNTDOWN_COUNTDOWN_BLOCKDESC","Countdown Timer Block");
+define("_MI_COUNTDOWN_COUNTDOWN_BLOCK", "Countdown");
+define("_MI_COUNTDOWN_COUNTDOWN_BLOCKDESC", "Countdown Timer Block");
 // Help
 define('_MI_COUNTDOWN_DIRNAME', basename(dirname(dirname(__DIR__))));
 define('_MI_COUNTDOWN_HELP_HEADER', __DIR__ . '/help/helpheader.tpl');
@@ -105,8 +105,6 @@ define('_MI_COUNTDOWN_CONFCAT_PERMISSION', 'Permission Preferences');
 define('_MI_COUNTDOWN_CONFCAT_PERMISSION_DSC', '');
 define('_MI_COUNTDOWN_CONFCAT_COMMENT', 'Comment Preferences');
 define('_MI_COUNTDOWN_CONFCAT_COMMENT_DSC', '');
-
-
 
 //Config Categories Styling:
 define('_MI_COUNTDOWN_CONFIG_STYLING_START', '<span style="color: #FF0000; font-size: Small;  font-weight: bold;">:: ');

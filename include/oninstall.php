@@ -27,7 +27,7 @@ declare(strict_types=1);
 use XoopsModules\Countdown;
 use XoopsModules\Countdown\Common;
 
-require  dirname(__DIR__) . '/preloads/autoloader.php';
+require dirname(__DIR__) . '/preloads/autoloader.php';
 
 /**
  * Prepares system prior to attempting to install module
@@ -67,8 +67,7 @@ function xoops_module_install_countdown(\XoopsModule $module)
 {
     $moduleDirName = basename(dirname(__DIR__));
 
-    /** @var Countdown\Helper $helper */
-    /** @var Countdown\Utility $utility */
+    /** @var Countdown\Helper $helper */ /** @var Countdown\Utility $utility */
     /** @var Common\Configurator $configurator */
     $helper       = Countdown\Helper::getInstance();
     $utility      = new Countdown\Utility();
@@ -79,7 +78,7 @@ function xoops_module_install_countdown(\XoopsModule $module)
     $helper->loadLanguage('modinfo');
 
     // default Permission Settings ----------------------
-//    $moduleId0  = $module->getVar('mid');
+    //    $moduleId0  = $module->getVar('mid');
     $moduleId = $helper->getModule()->mid();
     //$moduleName = $module->getVar('name');
     /** @var \XoopsGroupPermHandler $gpermHandler */
@@ -100,7 +99,7 @@ function xoops_module_install_countdown(\XoopsModule $module)
     }
     //  ---  COPY blank.png FILES ---------------
     if (count($configurator->copyBlankFiles) > 0) {
-        $file =  dirname(__DIR__) . '/assets/images/blank.png';
+        $file = dirname(__DIR__) . '/assets/images/blank.png';
         foreach (array_keys($configurator->copyBlankFiles) as $i) {
             $dest = $configurator->copyBlankFiles[$i] . '/blank.png';
             $utility::copyFile($file, $dest);

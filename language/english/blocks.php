@@ -22,9 +22,9 @@ declare(strict_types=1);
  * @link            https://xoops.org/
  * @since           1.0.0
  */
- 
-define("_MB_COUNTDOWN_COUNTDOWN_BLOCK","Countdown");
-define("_MB_COUNTDOWN_EVENTTODISPLAY","<b>Select event to display</b>");
+
+define("_MB_COUNTDOWN_COUNTDOWN_BLOCK", "Countdown");
+define("_MB_COUNTDOWN_EVENTTODISPLAY", "<b>Select event to display</b>");
 define('_MB_COUNTDOWN_EVENT', 'Event');
 define('_MB_COUNTDOWN_EVENTS', 'Events');
 define('_MB_COUNTDOWN_EVENTS_DESC', 'Events description');

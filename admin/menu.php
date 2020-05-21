@@ -26,7 +26,7 @@ declare(strict_types=1);
 
 use XoopsModules\Countdown;
 
-require  dirname(__DIR__) . '/preloads/autoloader.php';
+require dirname(__DIR__) . '/preloads/autoloader.php';
 
 $helper = Countdown\Helper::getInstance();
 
@@ -38,19 +38,19 @@ $adminObject   = \Xmf\Module\Admin::getInstance();
 $adminmenu[] = [
     'title' => _MI_COUNTDOWN_ADMENU1,
     'link'  => 'admin/index.php',
-    'icon'  => "{$pathIcon32}/home.png"
+    'icon'  => "{$pathIcon32}/home.png",
 ];
 
 $adminmenu[] = [
     'title' => _MI_COUNTDOWN_ADMENU2,
     'link'  => 'admin/category.php',
-    'icon'  => "{$pathIcon32}/category.png"
+    'icon'  => "{$pathIcon32}/category.png",
 ];
 
 $adminmenu[] = [
     'title' => _MI_COUNTDOWN_ADMENU3,
     'link'  => 'admin/events.php',
-    'icon'  => "{$pathIcon32}/event.png"
+    'icon'  => "{$pathIcon32}/event.png",
 ];
 
 //$adminmenu[] = [
@@ -62,5 +62,5 @@ $adminmenu[] = [
 $adminmenu[] = [
     'title' => _MI_COUNTDOWN_ADMENU5,
     'link'  => 'admin/about.php',
-    'icon'  => "{$pathIcon32}/about.png"
+    'icon'  => "{$pathIcon32}/about.png",
 ];
