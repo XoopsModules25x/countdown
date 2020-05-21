@@ -26,7 +26,7 @@ declare(strict_types=1);
 
 use XoopsModules\Countdown;
 
-require  dirname(__DIR__) . '/preloads/autoloader.php';
+require dirname(__DIR__) . '/preloads/autoloader.php';
 
 $moduleDirName      = basename(dirname(__DIR__));
 $moduleDirNameUpper = strtoupper($moduleDirName);
@@ -43,7 +43,7 @@ $utility = new Countdown\Utility();
 $helper->loadLanguage('common');
 
 //handlers/** @var \XoopsPersistableObjectHandler $eventsHandler */ 
-$eventsHandler = new Countdown\EventsHandler($db);
+$eventsHandler   = new Countdown\EventsHandler($db);
 $categoryHandler = new Countdown\CategoryHandler($db);
 
 $pathIcon16 = Xmf\Module\Admin::iconUrl('', 16);

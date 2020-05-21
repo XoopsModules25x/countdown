@@ -24,6 +24,7 @@ namespace XoopsModules\Countdown;
  * @link            https://xoops.org/
  * @since           1.0.0
  */
+
 /**
  * Class Helper
  */
@@ -36,7 +37,7 @@ class Helper extends \Xmf\Module\Helper
      */
     public function __construct($debug = false)
     {
-        $this->debug = $debug;
+        $this->debug   = $debug;
         $moduleDirName = basename(dirname(__DIR__));
         parent::__construct($moduleDirName);
     }
@@ -73,9 +74,9 @@ class Helper extends \Xmf\Module\Helper
      */
     public function getHandler($name)
     {
-        $ret   = false;
+        $ret = false;
 
-        $class =  __NAMESPACE__ . '\\' . $name . 'Handler';
+        $class = __NAMESPACE__ . '\\' . $name . 'Handler';
         if (!class_exists($class)) {
             throw new \RuntimeException("Class '$class' not found");
         }

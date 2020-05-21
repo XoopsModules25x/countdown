@@ -47,7 +47,7 @@ function xoops_module_pre_uninstall_countdown(\XoopsModule $module)
  */
 function xoops_module_uninstall_countdown(\XoopsModule $module)
 {
-    require  dirname(__DIR__) . '/preloads/autoloader.php';
+    require dirname(__DIR__) . '/preloads/autoloader.php';
     $moduleDirName      = basename(dirname(__DIR__));
     $moduleDirNameUpper = strtoupper($moduleDirName); //$capsDirName
 

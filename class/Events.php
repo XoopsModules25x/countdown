@@ -13,6 +13,7 @@ namespace XoopsModules\Countdown;
  but WITHOUT ANY WARRANTY; without even the implied warranty of
  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 */
+
 /**
  * Module: Countdown
  *
@@ -24,6 +25,7 @@ namespace XoopsModules\Countdown;
  * @link            https://xoops.org/
  * @since           1.0.0
  */
+
 use XoopsModules\Countdown;
 use XoopsModules\Countdown\Form;
 
@@ -47,11 +49,11 @@ class Events extends \XoopsObject
         $this->initVar('event_id', XOBJ_DTYPE_INT);
         $this->initVar('event_uid', XOBJ_DTYPE_INT);
         $this->initVar('event_name', XOBJ_DTYPE_TXTBOX);
-		$this->initVar('event_description', XOBJ_DTYPE_OTHER);
+        $this->initVar('event_description', XOBJ_DTYPE_OTHER);
         $this->initVar('event_date', XOBJ_DTYPE_TIMESTAMP);
-		$this->initVar('event_categoryid', \XOBJ_DTYPE_INT, null, true);
-		$this->initVar('event_logo', XOBJ_DTYPE_TXTBOX);
-		$this->initVar('date_created', \XOBJ_DTYPE_INT, 0, false);
+        $this->initVar('event_categoryid', \XOBJ_DTYPE_INT, null, true);
+        $this->initVar('event_logo', XOBJ_DTYPE_TXTBOX);
+        $this->initVar('date_created', \XOBJ_DTYPE_INT, 0, false);
         $this->initVar('date_updated', \XOBJ_DTYPE_INT, 0, false);
     }
 

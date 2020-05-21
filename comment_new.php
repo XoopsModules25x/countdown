@@ -26,13 +26,12 @@ declare(strict_types=1);
 
 use Xmf\Request;
 
-require_once  dirname(dirname(__DIR__)) . '/mainfile.php';
+require_once dirname(dirname(__DIR__)) . '/mainfile.php';
 $com_itemid = Request::getInt('com_itemid', 0);
 if ($com_itemid > 0) {
-
     /** @var \XoopsPersistableObjectHandler $eventsHandler */
-    $eventsHandler =  $helper->getHandler('Events');
-    
+    $eventsHandler = $helper->getHandler('Events');
+
     $events         = $eventsHandler->get($com_itemid);
     $com_replytitle = $events->getVar('id');
     require XOOPS_ROOT_PATH . '/include/comment_new.php';

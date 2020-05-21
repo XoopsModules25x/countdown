@@ -26,7 +26,7 @@ function countdown_search($queryarray, $andor, $limit, $offset, $userid)
         }
         $sql .= ') ';
     }
-    $sql .= ' ORDER BY event_name ASC';
+    $sql    .= ' ORDER BY event_name ASC';
     $result = $GLOBALS['xoopsDB']->query($sql, (int)$limit, (int)$offset);
     $ret    = [];
     $i      = 0;
