@@ -129,6 +129,4 @@ define('_AM_COUNTDOWN_VIDEO_EXPIREWARNING', 'The publishing date is after expira
 define('_AM_COUNTDOWN_ADD_SAMPLEDATA', 'Add Sample Data (will delete ALL current data)');
 define('_AM_COUNTDOWN_SAMPLEDATA_SUCCESS', 'Sample Date uploaded successfully');
 
-//Error NoFrameworks
-define('_AM_ERROR_NOFRAMEWORKS', 'Error: You don&#39;t use the Frameworks \'admin module\'. Please install this Frameworks');
 define('_AM_COUNTDOWN_MAINTAINEDBY', 'is maintained by the');
