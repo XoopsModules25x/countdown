@@ -2,9 +2,22 @@
 
 declare(strict_types=1);
 
+use XoopsModules\Countdown;
+use XoopsModules\Countdown\Helper;
+
 function showCountdown($options)
 {
-    $helper = XoopsModules\Countdown\Helper::getInstance();
+
+    /** @var Helper $helper */
+    if (!class_exists(Helper::class)) {
+        return false;
+    }
+
+    $helper = Helper::getInstance();
+    $helper->loadLanguage('main');
+
+    $myts  = \MyTextSanitizer::getInstance();
+    $block = [];
 
     $block             = [];
     $block['event_id'] = $options[0];
