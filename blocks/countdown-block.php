@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 function showCountdown($options)
 {
+	$helper = XoopsModules\Countdown\Helper::getInstance();
+	
     $block             = [];
     $block['event_id'] = $options[0];
     $selected_id       = $block['event_id'];
@@ -13,15 +15,17 @@ function showCountdown($options)
     $result = $GLOBALS['xoopsDB']->query($sql);
 
     while ($row = $GLOBALS['xoopsDB']->fetchArray($result)) {
-        $block['id']          = $row['event_id'];
-        $block['uid']         = $row['event_uid'];
-        $block['submitter']   = \XoopsUser::getUnameFromId($row['event_uid']);
-        $block['name']        = $row['event_name'];
-        $block['description'] = $row['event_description'];
-        $block['category']    = $row['event_categoryid'];
-        //$categoryHandler          = $helper->getHandler('category');
-        //$categoryObj              = $categoryHandler->get($row['event_categoryid']);
-        //$block['categoryname']    = $categoryObj->getVar('category_title');
+        $block['id']           = $row['event_id'];
+        $block['uid']          = $row['event_uid'];
+        $block['submitter']    = \XoopsUser::getUnameFromId($row['event_uid']);
+        $block['name']         = $row['event_name'];
+        $block['description']  = $row['event_description'];
+        $block['categoryid']   = $row['event_categoryid'];
+		$categoryid            = $row['event_categoryid'];
+        $categoryHandler       = $helper->getHandler('category');
+        $categoryObj           = $categoryHandler->get($categoryid);
+        $block['categoryname'] = $categoryObj->getVar('category_title');
+		$categoryname          = $categoryObj->getVar('category_title');
         $block['logo']         = $row['event_logo'];
         $block['date']         = date(_DATESTRING, strtotime($row['event_date']));
         $block['dateiso']      = $row['event_date'];
@@ -31,9 +35,9 @@ function showCountdown($options)
         $date_updated          = formatTimestamp($row['date_updated']);
 
         if ($date_created == $date_updated) {
-            $block['info'] = sprintf(_MB_COUNTDOWN_POSTEDBY, \XoopsUser::getUnameFromId($row['event_uid']), formatTimestamp($row['date_created'], 'M d Y'), $row['event_categoryid']);
+            $block['info'] = sprintf(_MB_COUNTDOWN_POSTEDBY, \XoopsUser::getUnameFromId($row['event_uid']), formatTimestamp($row['date_created'], 'M d Y'), $categoryname);
         } else {
-            $block['info'] = sprintf(_MB_COUNTDOWN_POSTEDBY, \XoopsUser::getUnameFromId($row['event_uid']), formatTimestamp($row['date_updated'], 'M d Y'), $row['event_categoryid']);
+            $block['info'] = sprintf(_MB_COUNTDOWN_POSTEDBY, \XoopsUser::getUnameFromId($row['event_uid']), formatTimestamp($row['date_updated'], 'M d Y'), $categoryname);
         }
     }
     $block['displayinfo']      = $options[1];

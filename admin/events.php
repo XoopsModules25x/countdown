@@ -127,9 +127,9 @@ switch ($op) {
 				$selectorcategory = $utility::selectSorting(_AM_COUNTDOWN_EVENTS_CATEGORY, 'event_categoryid');
                 $GLOBALS['xoopsTpl']->assign('selectorcategory', $selectorcategory);
                 $eventsArray['event_categoryid'] = $eventsTempArray[$i]->getVar('event_categoryid');
-				//$categoryHandler          = $helper->getHandler('category');
-				//$categoryObj              = $categoryHandler->get($eventsTempArray[$i]->getVar('event_categoryid'));
-				//$eventsArray['event_categoryname']    = $categoryObj->getVar('category_title');
+				$categoryHandler          = $helper->getHandler('category');
+				$categoryObj              = $categoryHandler->get($eventsTempArray[$i]->getVar('event_categoryid'));
+				$eventsArray['event_categoryname']    = $categoryObj->getVar('category_title');
 				
 				$selectorlogo = $utility::selectSorting(_AM_COUNTDOWN_EVENTS_LOGO, 'event_logo');
                 $GLOBALS['xoopsTpl']->assign('selectorlogo', $selectorlogo);
@@ -198,6 +198,7 @@ switch ($op) {
             $eventsObject = $eventsHandler->create();
         }
         // Form save fields
+		$eventsObject->setVar('event_categoryid', Request::getVar('event_categoryid', ''));
         $eventsObject->setVar('event_uid', Request::getVar('event_uid', ''));
         $eventsObject->setVar('event_name', Request::getVar('event_name', ''));
         $eventsObject->setVar('event_description', Request::getText('event_description', ''));

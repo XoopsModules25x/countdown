@@ -74,16 +74,16 @@ class EventsForm extends \XoopsThemeForm
 		if (!$this->targetObject->isNew()) {
         $category_id = $this->targetObject->getVar('event_categoryid');
         }
-		$categoryHandler = \XoopsModules\Countdown\Helper::getInstance()->getHandler('Category');
-		//$objects = $categoryHandler->getList();
-        $category_select = new XoopsFormSelect(_AM_COUNTDOWN_CATEGORY, 'event_categoryid', $category_id);
-		//$category_select->addOptionArray($objects);
-        $this->addElement($category_select);
+
+        $categoryHandler = $helper->getHandler('category');
+        $categories = $categoryHandler->getObjects();
+        $category_sel = new XoopsFormSelect(_AM_COUNTDOWN_CATEGORY, 'event_categoryid', $this->targetObject->getVar('event_categoryid'));
+        $i = 1;
 		
-		//$categoryHandler = $helper->getHandler('category');
-		//$category_select = new \XoopsFormSelect( _AM_COUNTDOWN_CATEGORY, 'event_categoryid', $category_id);
-		//$category_select->addOptionArray($categoryHandler->getList());
-		//$form->addElement($category_select, true);
+        foreach (array_keys($categories) as $i) {
+            $category_sel->addOption($categories[$i]->getVar('category_id'), $categories[$i]->getVar('category_title'));
+        }
+        $this->addElement($category_sel);
 		
         // Name
         $this->addElement(new \XoopsFormText(_AM_COUNTDOWN_EVENTS_NAME, 'event_name', 50, 255, $this->targetObject->getVar('event_name')), false);

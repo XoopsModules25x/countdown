@@ -60,7 +60,6 @@ template: `
 				 
 				 <{if $displayinfo == 1}>
 				 <p><small><span class="fa fa-info-circle"></span>&nbsp;<{$events.info}></small></p><{/if}>
-				 <{$events.categoryname}>
                 <{if $xoops_isadmin === true}>
                     <p class="float-right">
 					<a href="admin/events.php?op=edit&id=<{$events.id}>" target="_blank" title="<{$smarty.const._EDIT}>"><img src="<{xoModuleIcons16 edit.png}>" alt="<{$smarty.const._EDIT}>" title="<{$smarty.const._EDIT}>"></a>
