@@ -34,10 +34,9 @@
                         <td align="center" style="vertical-align:middle;"><input type="checkbox" name="events_id[]" title="events_id[]" id="events_id[]" value="<{$eventsArray.events_id}>"></td>
                         <td class='center'><{$eventsArray.event_id}></td>
                         <td class='center'><a href="<{$countdown_url}>/event.php?id=<{$eventsArray.event_id}>"><{$eventsArray.event_name}></a></td>
-                        <td class='center'><{$eventsArray.event_description}></td>
-                        <td class='center'><{$eventsArray.event_date}></td>
-					    <td class='center'><{$eventsArray.event_categoryid}></td>
-						<!--<td class='center'><{$eventsArray.event_categoryname}></td>-->
+                        <td class='center'><{if $eventsArray.event_description}><{$eventsArray.event_description}><{else}>-<{/if}></td>
+                        <td class='center'><{$eventsArray.event_date}></td>		  
+						<td class='center'><{$eventsArray.event_categoryname}></td>
 						<td class='center'><{$eventsArray.event_logo}></td>
 						<td class='center'><{$eventsArray.event_submitter}></td>
 						<td class='center'>

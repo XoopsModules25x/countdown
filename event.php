@@ -70,9 +70,10 @@ $id = Request::getInt('id', 0, 'GET');
 		$events['submitter']      = \XoopsUser::getUnameFromId($eventsObject->getVar('event_uid'));
         $events['name']           = $eventsObject->getVar('event_name');
 		$events['category']       = $eventsObject->getVar('event_categoryid');
-		//$categoryHandler          = $helper->getHandler('category');
-		//$categoryObj              = $categoryHandler->get($eventsObject->getVar('event_categoryid'));
-		//$events['categoryname']   = $categoryObj->getVar('category_title');
+		$categoryHandler          = $helper->getHandler('category');
+		$categoryObj              = $categoryHandler->get($eventsObject->getVar('event_categoryid'));
+		$events['categoryname']   = $categoryObj->getVar('category_title');
+		$categoryname             = $categoryObj->getVar('category_title'); 
 		$events['logo']           = $eventsObject->getVar('event_logo');
         $events['description']    = ($eventsObject->getVar('event_description'));
         $events['date']           = date(_DATESTRING, strtotime($eventsObject->getVar('event_date')));
@@ -83,9 +84,9 @@ $id = Request::getInt('id', 0, 'GET');
 		$date_updated  			  = formatTimestamp($eventsObject->getVar('date_updated'));
 		
 			if ($date_created == $date_updated){
-			$events['info']		     = sprintf(_MD_COUNTDOWN_POSTEDBY, \XoopsUser::getUnameFromId($eventsObject->getVar('event_uid')), formatTimestamp($eventsObject->getVar('date_created'),'M d Y'), $eventsObject->getVar('event_categoryid')); }
+			$events['info']		     = sprintf(_MD_COUNTDOWN_POSTEDBY, \XoopsUser::getUnameFromId($eventsObject->getVar('event_uid')), formatTimestamp($eventsObject->getVar('date_created'),'M d Y'), $categoryname); }
 			else{
-			$events['info']		     = sprintf(_MD_COUNTDOWN_POSTEDBY, \XoopsUser::getUnameFromId($eventsObject->getVar('event_uid')), formatTimestamp($eventsObject->getVar('date_updated'),'M d Y'), $eventsObject->getVar('event_categoryid')); }
+			$events['info']		     = sprintf(_MD_COUNTDOWN_POSTEDBY, \XoopsUser::getUnameFromId($eventsObject->getVar('event_uid')), formatTimestamp($eventsObject->getVar('date_updated'),'M d Y'), $categoryname); }
 							   
 		//       $GLOBALS['xoopsTpl']->append('events', $events);
         $keywords[] = $eventsObject->getVar('event_id');
