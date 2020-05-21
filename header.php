@@ -29,12 +29,14 @@ use XoopsModules\Countdown;
 use XoopsModules\Countdown\Helper;
 use XoopsModules\Countdown\Common;
 
-require_once dirname(dirname(__DIR__)) . '/mainfile.php';
-require_once XOOPS_ROOT_PATH . '/header.php';
+include __DIR__ . '/preloads/autoloader.php';
+
+require dirname(dirname(__DIR__)) . '/mainfile.php';
+require XOOPS_ROOT_PATH . '/header.php';
 
 $moduleDirName = basename(__DIR__);
 
-$helper       = Countdown\Helper::getInstance();
+$helper       = Helper::getInstance();
 $utility      = new Countdown\Utility();
 $configurator = new Common\Configurator();
 $copyright    = $configurator->modCopyright;
