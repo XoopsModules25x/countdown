@@ -17,7 +17,6 @@ function showCountdown($options)
     $helper->loadLanguage('main');
 
     $myts  = \MyTextSanitizer::getInstance();
-    $block = [];
 
     $block             = [];
     $block['event_id'] = $options[0];
