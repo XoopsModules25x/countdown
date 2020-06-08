@@ -65,12 +65,12 @@ function editCountdown($options)
     $form .= "<option>" . _MB_COUNTDOWN_EVENTTODISPLAY . "</option>";
     //    $sql = "SELECT * FROM ".$GLOBALS['xoopsDB']->prefix("countdown_events")." WHERE event_id IN ($selected_id)";
     //$result = $GLOBALS['xoopsDB']->query($sql);
-    $sql       = "SELECT * FROM " . $GLOBALS['xoopsDB']->prefix("countdown_events") . " ";
+    $sql       = "SELECT c.category_title,c.category_id,e.event_id,e.event_name,event_categoryid FROM " . $GLOBALS['xoopsDB']->prefix("countdown_events") . " AS e JOIN " . $GLOBALS['xoopsDB']->prefix("countdown_categories") . " AS c WHERE category_id=event_categoryid";
     $result    = $GLOBALS['xoopsDB']->query($sql);
     $totaldata = $GLOBALS['xoopsDB']->getRowsNum($result);
     if ($totaldata > 0) {
         while ($myrow = $GLOBALS['xoopsDB']->fetchArray($result)) {
-            $event[$myrow['event_categoryid']][] = $myrow;
+            $event[$myrow['category_title']][] = $myrow;
         }
         foreach ($event as $key => $values) {
             $form .= '<optgroup label="' . $key . '">';
