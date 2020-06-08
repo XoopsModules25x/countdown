@@ -87,6 +87,7 @@ define('_AM_COUNTDOWN_SECONDS', 'Seconds');
 define('_AM_COUNTDOWN_EXPIRED', 'Past Event');
 define('_AM_COUNTDOWN_TILLEND', 'Till the end of event');
 define('_AM_COUNTDOWN_TILLSTART', 'Till start of event');
+define('_AM_COUNTDOWN_STATUS', 'Status');
 define('_AM_COUNTDOWN_STATUS_EXPIRED', 'Expired');
 define('_AM_COUNTDOWN_STATUS_RUNNING', 'Running');
 define('_AM_COUNTDOWN_STATUS_FUTURE', 'Future');
