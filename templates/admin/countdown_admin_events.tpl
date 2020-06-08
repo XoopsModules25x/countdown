@@ -22,6 +22,7 @@
                     <th class="center"><{$selectorname}></th>
                     <th class="center"><{$selectordescription}></th>
                     <th class="center"><{$selectordate}></th>
+					     <th class="center width5"><{$smarty.const._AM_COUNTDOWN_STATUS}></th>
                     <th class="center"><{$selectorcategory}></th>
                     <th class="center"><{$selectorlogo}></th>
                     <th class="center"><{$selectoruid}></th>
@@ -36,6 +37,13 @@
                         <td class='center'><a href="<{$countdown_url}>/event.php?id=<{$eventsArray.event_id}>"><{$eventsArray.event_name}></a></td>
                         <td class='center'><{if $eventsArray.event_description}><{$eventsArray.event_description}><{else}>-<{/if}></td>
                         <td class='center'><{$eventsArray.event_date}></td>
+						<td class='center'>
+						<{if $smarty.now|date_format:"%Y/%m/%d %H:%M:%S" <= $eventsArray.event_date|date_format:"%Y/%m/%d %H:%M:%S" }>
+						<strong><{$smarty.const._AM_COUNTDOWN_STATUS_RUNNING}></strong>
+						<{else}>
+						<strong><span style="color:red"><{$smarty.const._AM_COUNTDOWN_STATUS_EXPIRED}></span></strong>
+                        <{/if}>						
+					    </td>
                         <td class='center'><{$eventsArray.event_categoryname}></td>
                         <td class='center'><{$eventsArray.event_logo}></td>
                         <td class='center'><{$eventsArray.event_submitter}></td>
