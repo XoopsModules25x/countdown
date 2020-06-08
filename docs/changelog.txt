@@ -1,5 +1,6 @@
 <h5>2.1        [NOT RELEASED]</h5>  Dev: Xoops 2.5.11, PHP 7.4.5
 <hr>
+ - Fix block category name and last event (mamba/liomj)
  - Fix category (liomj)
  - Fix order and sort (liomj)
  - Add running, expired event submenu (liomj)

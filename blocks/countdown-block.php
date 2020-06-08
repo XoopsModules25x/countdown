@@ -22,8 +22,7 @@ function showCountdown($options)
     $block['event_id'] = $options[0];
     $selected_id       = $block['event_id'];
 
-    //    $sql = "SELECT * FROM " . $GLOBALS['xoopsDB']->prefix("countdown_events") . " WHERE event_id IN '" . ($selected_id). "'";
-    $sql    = "SELECT * FROM " . $GLOBALS['xoopsDB']->prefix("countdown_events");
+    $sql    = "SELECT * FROM " . $GLOBALS['xoopsDB']->prefix("countdown_events") ." WHERE event_id=$selected_id";
     $result = $GLOBALS['xoopsDB']->query($sql);
 
     while ($row = $GLOBALS['xoopsDB']->fetchArray($result)) {
@@ -63,8 +62,7 @@ function editCountdown($options)
     $form .= "<input type='hidden' name='options[0]' value='" . $options[0] . "'>&nbsp;";
     $form .= "<select name='options[0]'>";
     $form .= "<option>" . _MB_COUNTDOWN_EVENTTODISPLAY . "</option>";
-    //    $sql = "SELECT * FROM ".$GLOBALS['xoopsDB']->prefix("countdown_events")." WHERE event_id IN ($selected_id)";
-    //$result = $GLOBALS['xoopsDB']->query($sql);
+
     $sql       = "SELECT c.category_title,c.category_id,e.event_id,e.event_name,event_categoryid FROM " . $GLOBALS['xoopsDB']->prefix("countdown_events") . " AS e JOIN " . $GLOBALS['xoopsDB']->prefix("countdown_categories") . " AS c WHERE category_id=event_categoryid";
     $result    = $GLOBALS['xoopsDB']->query($sql);
     $totaldata = $GLOBALS['xoopsDB']->getRowsNum($result);
@@ -75,7 +73,13 @@ function editCountdown($options)
         foreach ($event as $key => $values) {
             $form .= '<optgroup label="' . $key . '">';
             foreach ($values as $value) {
-                $form .= '<option value="' . $value['event_id'] . '">' . $value['event_name'] . '</option>';
+				   
+				    if ($options[0] == $value['event_id']) {
+                $form .= '<option value="' . $options[0] . '" selected>' . $value['event_name'] . '</option>';
+					}
+					else {
+				$form .= '<option value="' . $value['event_id'] . '">' . $value['event_name'] . '</option>';		
+					}	
             }
             $form .= "</optgroup>";
         }
