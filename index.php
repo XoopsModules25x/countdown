@@ -53,12 +53,15 @@ $today = date("Y-m-d H:i:s", time());
 switch ($op) {
     case '':
     default: //Do nothing, we want to view all
+		$xoopsTpl->assign('lang_events', _MD_COUNTDOWN_EVENT);
         break;
     case 'running':
         $criteria->add(new Criteria('event_date', $today, '>'));
+		$xoopsTpl->assign('lang_events', _MD_COUNTDOWN_EVENT_RUNNING);
         break;
     case 'expired':
         $criteria->add(new Criteria('event_date', $today, '<'));
+		$xoopsTpl->assign('lang_events', _MD_COUNTDOWN_EVENT_EXPIRED);
 }
 
 $eventsCount = $eventsHandler->getCount($criteria);
