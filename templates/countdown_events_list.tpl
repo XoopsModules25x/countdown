@@ -1,7 +1,7 @@
 <{include file="db:countdown_header.tpl"}>
 <div class="panel panel-info">
 
-    <h5><strong><{$smarty.const._MD_COUNTDOWN_EVENTS}></strong></h5>
+    <h5><strong><{$lang_events}></strong></h5>
     <a href="<{$xoops_url}>/modules/countdown/index.php" class="float-left btn btn-info btn-sm"><{$smarty.const._MD_COUNTDOWN_EVENT_ALL}></a>
     <a href="<{$xoops_url}>/modules/countdown/index.php?op=running" class="float-left btn btn-primary btn-sm"><{$smarty.const._MD_COUNTDOWN_EVENT_RUNNING}></a>
     <a href="<{$xoops_url}>/modules/countdown/index.php?op=expired" class="float-left btn btn-danger btn-sm"><{$smarty.const._MD_COUNTDOWN_EVENT_EXPIRED}></a>
@@ -9,7 +9,7 @@
         <thead>
         <tr>
 
-            <th><{$smarty.const._MD_COUNTDOWN_EVENTS}></th>
+            <th><{$lang_events}></th>
 
         </tr>
         </thead>
