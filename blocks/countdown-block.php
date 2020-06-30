@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 use XoopsModules\Countdown;
 use XoopsModules\Countdown\Helper;
+use XoopsModules\Countdown\Constants;
+
+include_once XOOPS_ROOT_PATH . '/modules/countdown/include/common.php';
 
 function showCountdown($options)
 {
