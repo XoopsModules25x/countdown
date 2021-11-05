@@ -25,8 +25,13 @@ declare(strict_types=1);
  */
 
 use Xmf\Request;
-use XoopsModules\Countdown;
-use XoopsModules\Countdown\Common;
+use XoopsModules\Countdown\{
+    Common,
+    Common\TestdataButtons,
+    Helper,
+    Utility
+};
+
 
 require __DIR__ . '/admin_header.php';
 xoops_cp_header();
@@ -49,7 +54,7 @@ $redirectFile = $_SERVER['SCRIPT_NAME'];
 $configurator  = new Common\Configurator();
 $uploadFolders = $configurator->uploadFolders;
 foreach ($uploadFolders as $value) {
-    Countdown\Utility::prepareFolder($value);
+    Utility::prepareFolder($value);
 }
 
 foreach (array_keys($uploadFolders) as $i) {
@@ -59,21 +64,21 @@ foreach (array_keys($uploadFolders) as $i) {
 // Render Index
 $adminObject->displayNavigation(basename(__FILE__));
 
-//------------- Test Data ----------------------------
-
+//------------- Test Data Buttons ----------------------------
 if ($helper->getConfig('displaySampleButton')) {
-    xoops_loadLanguage('admin/modulesadmin', 'system');
-    require_once dirname(__DIR__) . '/testdata/index.php';
-    $adminObject->addItemButton(_AM_SYSTEM_MODULES_INSTALL_TESTDATA, '__DIR__ . /../../testdata/index.php?op=load', 'add');
-
-    $adminObject->addItemButton(constant('CO_' . $moduleDirNameUpper . '_' . 'ADD_SAMPLEDATA'), '__DIR__ . /../../testdata/index.php?op=load', 'add');
-
-    $adminObject->addItemButton(constant('CO_' . $moduleDirNameUpper . '_' . 'SAVE_SAMPLEDATA'), '__DIR__ . /../../testdata/index.php?op=save', 'add');
-
+    TestdataButtons::loadButtonConfig($adminObject);
     $adminObject->displayButton('left', '');
 }
-
-//------------- End Test Data ----------------------------
+$op = Request::getString('op', 0, 'GET');
+switch ($op) {
+    case 'hide_buttons':
+        TestdataButtons::hideButtons();
+        break;
+    case 'show_buttons':
+        TestdataButtons::showButtons();
+        break;
+}
+//------------- End Test Data Buttons ----------------------------
 
 $adminObject->displayIndex();
 

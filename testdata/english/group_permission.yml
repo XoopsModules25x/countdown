@@ -1,0 +1,25 @@
+-
+    gperm_groupid: '1'
+    gperm_itemid: '1'
+    gperm_modid: '2053'
+    gperm_name: countdown_view
+-
+    gperm_groupid: '1'
+    gperm_itemid: '1'
+    gperm_modid: '2053'
+    gperm_name: countdown_submit
+-
+    gperm_groupid: '1'
+    gperm_itemid: '1'
+    gperm_modid: '2053'
+    gperm_name: countdown_approve
+-
+    gperm_groupid: '2'
+    gperm_itemid: '1'
+    gperm_modid: '2053'
+    gperm_name: countdown_view
+-
+    gperm_groupid: '3'
+    gperm_itemid: '1'
+    gperm_modid: '2053'
+    gperm_name: countdown_view
