@@ -20,6 +20,7 @@
  - Fix Undefined Constant (liomj)
  - Fix Missing eventsform (liomj)
  - Update db_fields (liomj)
+ - fixed bug in search (heyula/goffy)
 
 
  <h5>2.0        [NOT RELEASED]</h5>  Dev: Xoops 2.5.9, PHP 7.2.0

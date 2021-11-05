@@ -61,6 +61,7 @@ define('_AM_COUNTDOWN_CATEGORY_TITLE', 'Category Title');
 define('_AM_COUNTDOWN_CATEGORY_WEIGHT', 'Category Weight');
 define('_AM_COUNTDOWN_CATEGORY_EMPTY', 'Error: There are no category created yet. Before you can create a new event, you must create a category first.');
 define('_AM_COUNTDOWN_CATEGORY_DELETECONFIRM', "Are you sure you want to delete <span class='bold red'>%s</span></b> category and <b>ALL</b> of its Events? This action is not reversible !!");
+define('_AM_COUNTDOWN_CATEGORY_SELECTED_ERROR', 'Error category selection');
 
 // Events
 define('_AM_COUNTDOWN_EVENT', 'Event');
@@ -80,6 +81,7 @@ define('_AM_COUNTDOWN_EVENTS_CATEGORY', 'Event Category');
 define('_AM_COUNTDOWN_EVENTS_POSTERNAME', 'Submitter');
 define('_AM_COUNTDOWN_EVENTS_DATE_CREATED', 'Created');
 define('_AM_COUNTDOWN_EVENTS_DATE_UPDATED', 'Updated');
+define('_AM_COUNTDOWN_EVENTS_SELECTED_ERROR', 'Error category selection');
 define('_AM_COUNTDOWN_DAY', 'Days');
 define('_AM_COUNTDOWN_HOURS', 'Hours');
 define('_AM_COUNTDOWN_MINUTES', 'Minutes');
