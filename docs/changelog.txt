@@ -1,4 +1,4 @@
-<h5>2.1        [NOT RELEASED]</h5>  Dev: Xoops 2.5.11, PHP 7.4.5
+<h5>2.1.0        [NOT RELEASED]</h5>  Dev: Xoops 2.5.11, PHP 7.4.5
 <hr>
  - Add Status Event in Admin Event List (liomj)
  - Fix block category name and last event (mamba/liomj)
@@ -22,7 +22,9 @@
  - Update db_fields (liomj)
  - fixed bug in search (heyula/goffy)
  - added Testdata (mamba)
-
+ - fix for providing date to /profile/userinfo.php (mamba)
+ - fix for countdown not showing for people with -GMT (e.g. New York GMT-5) (mamba)
+ - semantic versioning (mamba)
 
 
  <h5>2.0        [NOT RELEASED]</h5>  Dev: Xoops 2.5.9, PHP 7.2.0

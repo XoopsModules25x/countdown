@@ -76,6 +76,7 @@ $events['categoryname'] = $categoryObj->getVar('category_title');
 $categoryname           = $categoryObj->getVar('category_title');
 $events['logo']         = $eventsObject->getVar('event_logo');
 $events['description']  = ($eventsObject->getVar('event_description'));
+$events['usertime']     = formatTimeStamp(time(), 'mysql');
 $events['date']         = date(_DATESTRING, strtotime($eventsObject->getVar('event_date')));
 $events['dateiso']      = $eventsObject->getVar('event_date');
 $events['date_created'] = formatTimestamp($eventsObject->getVar('date_created'));

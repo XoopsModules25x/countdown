@@ -1,8 +1,9 @@
 <{include file="db:countdown_header.tpl"}>
+
 <div id="timer<{$events.id}>" class="timer">
     <!--  Timer Component  -->
     <Timer
-            starttime="<{$smarty.now|date_format:"%Y-%m-%d %H:%M:%S"}>"
+            starttime="<{$events.usertime}>"
             endtime="<{$events.dateiso}>"
             trans='{
          "day":"<{$smarty.const._MD_COUNTDOWN_DAY}>",
@@ -143,7 +144,6 @@
       el: "#timer<{$events.id}>",
 });
 </script>
-
 
 <br>
 <div id="pagenav"><{$pagenav}></div>
