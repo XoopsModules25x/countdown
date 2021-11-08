@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+use Xmf\Request;
+
 /**
  * @param $queryarray
  * @param $andor
@@ -33,7 +35,7 @@ function countdown_search($queryarray, $andor, $limit, $offset, $userid)
     while (false !== ($myrow = $GLOBALS['xoopsDB']->fetchArray($result))) {
         $ret[$i]['link']  = '' . XOOPS_URL . "/modules/countdown/event.php?op=view&id=" . $myrow['event_id'] . '';
         $ret[$i]['title'] = '' . htmlspecialchars($myrow['event_name'], ENT_QUOTES | ENT_HTML5) . '';
-        $ret[$i]['time']  = '' . $myrow['event_date'] . '';
+        $ret[$i]['time']  = '' . strtotime($myrow['event_date']) . '';
         $ret[$i]['uid']   = '' . $myrow['event_uid'] . '';
         $i++;
     }
