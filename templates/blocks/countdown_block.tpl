@@ -4,7 +4,7 @@
 <div id="timer<{$block.id}>" class="timer">
     <!--  Timer Component  -->
     <Timer
-            starttime="<{$smarty.now|date_format:"%Y-%m-%d %H:%M:%S"}>"
+            starttime="<{$block.usertime}>"
             endtime="<{$block.dateiso}>"
             trans='{
          "day":"<{$smarty.const._MB_COUNTDOWN_DAY}>",

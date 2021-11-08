@@ -10,7 +10,6 @@ include_once XOOPS_ROOT_PATH . '/modules/countdown/include/common.php';
 
 function showCountdown($options)
 {
-
     /** @var Helper $helper */
     if (!class_exists(Helper::class)) {
         return false;
@@ -19,13 +18,13 @@ function showCountdown($options)
     $helper = Helper::getInstance();
     $helper->loadLanguage('main');
 
-    $myts  = \MyTextSanitizer::getInstance();
+    $myts = \MyTextSanitizer::getInstance();
 
     $block             = [];
     $block['event_id'] = $options[0];
     $selected_id       = $block['event_id'];
 
-    $sql    = "SELECT * FROM " . $GLOBALS['xoopsDB']->prefix("countdown_events") ." WHERE event_id=$selected_id";
+    $sql    = "SELECT * FROM " . $GLOBALS['xoopsDB']->prefix("countdown_events") . " WHERE event_id=$selected_id";
     $result = $GLOBALS['xoopsDB']->query($sql);
 
     while ($row = $GLOBALS['xoopsDB']->fetchArray($result)) {
@@ -43,6 +42,7 @@ function showCountdown($options)
         $block['logo']         = $row['event_logo'];
         $block['date']         = date(_DATESTRING, strtotime($row['event_date']));
         $block['dateiso']      = $row['event_date'];
+        $block['usertime']     = formatTimeStamp(time(), 'mysql');
         $block['date_created'] = formatTimestamp($row['date_created']);
         $date_created          = formatTimestamp($row['date_created']);
         $block['date_updated'] = formatTimestamp($row['date_updated']);
@@ -76,13 +76,11 @@ function editCountdown($options)
         foreach ($event as $key => $values) {
             $form .= '<optgroup label="' . $key . '">';
             foreach ($values as $value) {
-				   
-				    if ($options[0] == $value['event_id']) {
-                $form .= '<option value="' . $options[0] . '" selected>' . $value['event_name'] . '</option>';
-					}
-					else {
-				$form .= '<option value="' . $value['event_id'] . '">' . $value['event_name'] . '</option>';		
-					}	
+                if ($options[0] == $value['event_id']) {
+                    $form .= '<option value="' . $options[0] . '" selected>' . $value['event_name'] . '</option>';
+                } else {
+                    $form .= '<option value="' . $value['event_id'] . '">' . $value['event_name'] . '</option>';
+                }
             }
             $form .= "</optgroup>";
         }

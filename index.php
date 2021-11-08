@@ -85,6 +85,7 @@ if ($eventsCount > 0) {
         $events['categoryname'] = $categoryObj->getVar('category_title');
         $categoryname           = $categoryObj->getVar('category_title');
         $events['logo']         = $eventsArray[$i]->getVar('event_logo');
+        $events['usertime']         = formatTimeStamp(time(), 'mysql');
         $events['date']         = date(_DATESTRING, strtotime($eventsArray[$i]->getVar('event_date')));
         $events['dateiso']      = $eventsArray[$i]->getVar('event_date');
         $events['date_created'] = formatTimestamp($eventsArray[$i]->getVar('date_created'));

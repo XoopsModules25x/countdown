@@ -22,7 +22,8 @@
  - Update db_fields (liomj)
  - fixed bug in search (heyula/goffy)
  - added Testdata (mamba)
-
+ - fix for providing date to /profile/userinfo.php (mamba)
+ - fix for countdown not showing for people with -GMT (e.g. New York GMT-5) (mamba)
 
 
  <h5>2.0        [NOT RELEASED]</h5>  Dev: Xoops 2.5.9, PHP 7.2.0
