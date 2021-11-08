@@ -29,7 +29,7 @@ $moduleDirNameUpper = mb_strtoupper($moduleDirName);
 xoops_loadLanguage('common', $moduleDirName);
 
 $modversion = [
-    'version'             => 2.0,
+    'version'             => '2.1.0',
     'module_status'       => 'Beta 1',
     'release_date'        => '2018/01/06',
     'name'                => _MI_COUNTDOWN_NAME,
