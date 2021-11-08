@@ -3,9 +3,9 @@
 [![XOOPS CMS Module](https://img.shields.io/badge/XOOPS%20CMS-Module-blue.svg)](https://xoops.org)
 [![Software License](https://img.shields.io/badge/license-GPL-brightgreen.svg?style=flat)](http://www.gnu.org/licenses/gpl-2.0.html)
 
-[![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/g/XoopsModules25x/xmodule.svg?style=flat)](https://scrutinizer-ci.com/g/XoopsModules25x/xmodule/?branch=master)
-[![Latest Pre-Release](https://img.shields.io/github/tag/XoopsModules25x/xmodule.svg?style=flat)](https://github.com/XoopsModules25x/xmodule/tags/)
-[![Latest Version](https://img.shields.io/github/release/XoopsModules25x/xmodule.svg?style=flat)](https://github.com/XoopsModules25x/xmodule/releases/)
+[![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/g/XoopsModules25x/countdown.svg?style=flat)](https://scrutinizer-ci.com/g/XoopsModules25x/countdown/?branch=master)
+[![Latest Pre-Release](https://img.shields.io/github/tag/XoopsModules25x/countdown.svg?style=flat)](https://github.com/XoopsModules25x/countdown/tags/)
+[![Latest Version](https://img.shields.io/github/release/XoopsModules25x/countdown.svg?style=flat)](https://github.com/XoopsModules25x/countdown/releases/)
 
 **Countdown** module for [XOOPS CMS](https://xoops.org) is a simple XOOPS module displaying the countdown LIVE to any specific date and time.
 
